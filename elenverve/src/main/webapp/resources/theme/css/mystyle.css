@@ -1,0 +1,84 @@
+fieldset {
+  border: none;
+}
+
+.login {
+  position: relative;
+  width: 400px;
+  display: none;
+   left: -300px;
+      top: 25px;
+    z-index: 1;
+  
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 15px solid #ECF0F1;
+  left: 80%;
+  position: absolute;
+  top: -10px;
+}
+
+.formholder {
+  background: #ecf0f1;
+  width: 750px;
+  border-radius: 5px;
+  padding-top: -15px;
+  
+}
+
+
+.formholder input[type="email"], .formholder input[type="password"] {
+  padding: 3px 1px;
+  margin: 2px 0;
+  width: 30%;
+  height:25px;
+  display: block;
+  font-size: 12px;
+  border-radius: 10px;
+  border: none;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+.formholder input[type="email"]:focus, .formholder input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0 0 1px 1px #f0b70c;
+}
+.formholder input[type="submit"] {
+  background: #D2D2D2;
+  padding: 10px;
+   margin: 15px 0;
+  font-size: 12px;
+  display: block;
+  width: 30%;
+  height:40px;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.formholder input[type="submit"]:hover {
+  background: #f0b70c;
+}
+
+.randompad {
+  padding: 10px;
+}
+
+.green {
+  color: #1abc9c;
+}
+
+a {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+a:hover {
+  color: #1abc9c;
+}
