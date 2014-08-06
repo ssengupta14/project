@@ -1,104 +1,306 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Index</title>
-<meta name="description" content="" />
-<meta name="keywords" content="" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Index</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
 
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Raleway:400,300,600,700,500|Noto+Sans:400,700|Ubuntu:300,400,500,700'
+		rel='stylesheet' type='text/css'>
 
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Raleway:400,300,600,700,500|Noto+Sans:400,700|Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-
-
-<!-- Styles -->
-<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>" type="text/css" /><!-- Bootstrap -->
-<link rel="stylesheet" href="<c:url value="/resources/font-awesome-4.0.3/css/font-awesome.css"/>" type="text/css" /><!-- Font Awesome -->
-<link rel="stylesheet" href="<c:url value="/resources/css/owl.carousel.css"/>" type="text/css" /><!-- Owl Carousal -->
-<link rel="stylesheet" href="<c:url value="/resources/css/animate.css"/>" type="text/css" /><!-- Animation -->
-
-<link rel="stylesheet" href="<c:url value="/resources/css/ion.rangeSlider.css"/>" /><!-- Range Slider -->
-<link rel="stylesheet" href="<c:url value="/resources/css/ion.rangeSlider.skinFlat.css"/>" /><!-- Range Slider -->
-
-<link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" type="text/css" /><!-- Style -->
-<link rel="stylesheet" href="<c:url value="/resources/css/revolution.css"/>" media="screen" /><!-- Style -->
-<link rel="stylesheet" href="<c:url value="/resources/css/responsive.css"/>" type="text/css" /><!-- Responsive -->
-<!--<link rel="alternate stylesheet" type="text/css" href="<c:url value="/resources/css/orange.css"/>" title="orange" />--> <!-- Orange -->
-<link rel="stylesheet" type="text/css" 	href="<c:url value="/resources/css/setting.css"/>" media="screen" /> 
-<link rel="stylesheet" type="text/css" 	href="<c:url value="/resources/css/mystyle.css"/>" media="screen" />
-<%-- <script type="text/javascript"	src="<c:url value="/resources/js/jquery-1.10.2.js"/>"></script> --%>
-<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/jquery.leanModal.min.js"/>"></script>
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+	<!-- Styles -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>" type="text/css" />
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="<c:url value="/resources/font-awesome-4.0.3/css/font-awesome.css"/>" type="text/css" />
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/owl.carousel.css"/>" type="text/css" />
+	<!-- Owl Carousal -->	
+	<link rel="stylesheet" href="<c:url value="/resources/css/animate.css"/>" type="text/css" />
+	<!-- Animation -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/ion.rangeSlider.css"/>" />
+	<!-- Range Slider -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/ion.rangeSlider.skinFlat.css"/>" />
+	<!-- Range Slider -->	
+	<link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"	type="text/css" />
+	<!-- Style -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/revolution.css"/>" media="screen" />
+	<!-- Style -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/responsive.css"/>" type="text/css" />
+	<!-- Responsive -->
+	<!--<link rel="alternate stylesheet" type="text/css" href="<c:url value="/resources/css/orange.css"/>" title="orange" />-->
+	<!-- Orange -->
+	<link rel="stylesheet" type="text/css"	href="<c:url value="/resources/css/setting.css"/>" media="screen" />
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/mystyle.css"/>" media="screen" />
+	<%-- <script type="text/javascript"	src="<c:url value="/resources/js/jquery-1.10.2.js"/>"></script> --%>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery.leanModal.min.js"/>"></script>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
 
 </head>
 <body>
 	<div class="theme-layout">
-
-	<header class="header2">
-		<div class="container">
-			<div class="top-bar">
-				
-				<ul class="profile bar-dropdown">
-					<li><a href="#" title=""><i class="fa fa-user"></i>Sourav</a>
-						<ul>
-							<li><a href="#" title="">Profile</a></li>
-							<li><a href="#" title="">Help</a></li>
-							<li><a href="#" title="">Privacy</a></li>
-							<li><a href="#" title="">Logout</a></li>
-					</ul></li>
-				</ul>
-			
-				<!-- What ever person has shopped, is displayed in the shopping cart-->
-
-
+		<header class="header2">
+			<div class="container">
+				<div class="top-bar">
+					<ul class="profile bar-dropdown">
+						<li><a href="#" title=""><i class="fa fa-user"></i>Sourav</a>
+							<ul>
+								<li><a href="#" title="">Profile</a></li>
+								<li><a href="#" title="">Help</a></li>
+								<li><a href="#" title="">Privacy</a></li>
+								<li><a href="#" title="">Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+					<!-- What ever person has shopped, is displayed in the shopping cart-->
 					<ul class="shop-cart bar-dropdown">
-					<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a>
+						<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a>
+							<ul>
+								<li>
+									<span>
+										<img src="http://placehold.it/50x50" alt="" />
+									</span> 
+									<a href="#" title="">Short T-Shirt 2013</a> 
+									<i>$360.00</i>
+									<div class="cart-bar-hover">
+										<ul>
+											<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+											<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<span>
+										<img src="http://placehold.it/50x50" alt="" />
+									</span> 
+									<a href="#" title="">New Shoes T-Pain</a> 
+									<i>$560.00</i>
+									<div class="cart-bar-hover">
+										<ul>
+											<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+											<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+										</ul>
+									</div>
+								</li>
+
+								<li>
+									<span><img src="http://placehold.it/50x50" alt="" /></span> 
+									<a href="#" title="">Cottom Jeans Paint</a> 
+									<i>$56.00</i>
+									<div class="cart-bar-hover">
+										<ul>
+											<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+											<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<h6>Total : $960</h6> 
+									<a href="#" title="" class="checkout-btn">Checkout</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<!--  end of shopping cart -->
+
+					<!--  Language dropdown -->
+					<ul class="language bar-dropdown">
+						<li><a href="#" title=""><i class="fa fa-font"></i>English</a>
+							<ul>
+								<li><a href="#" title="">ENGLISH</a></li>
+								<li><a href="#" title="">FRENCH</a></li>
+								<li><a href="#" title="">ARABIC</a></li>
+							</ul></li>
+					</ul>
+
+					<!--  end of language dropdown -->
+					<!--  Compare button  -->
+					<ul class="compare-btn bar-dropdown">
+						<li><a href="#" title=""><i class="fa fa-random"></i>Compare</a></li>
+					</ul>
+					<!--  end of compare button -->
+					<!--  wishlist button  -->
+					<ul class="whishlist-bar bar-dropdown">
+						<li><a href="#" title=""><i class="fa fa-heart"></i>Wishlist</a></li>
+					</ul>
+					<!--  end of wishlist button -->
+					<!--  Support Phone number  -->
+					<ul class="whishlist-bar bar-dropdown">
+						<li><a href="#" title="">
+							<i class="fa fa-phone"></i>&nbsp;&nbsp;24/7 Support: 123-456-7890</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<nav>
+				<div class="container">
+					<!--  This is logo  -->
+					<Div class="logo">
+						<a href="http://themes.webinane.com/shopping/" title=""> 
+							<img src="<%=request.getContextPath()%>/resources/images/elenverve.png"	alt="" />
+						</a>
+					</div>
+					<!--  This is the menu  -->
+					<div class="menu">
 						<ul>
-							<li><span><img src="http://placehold.it/50x50" alt="" /></span>
-							<a href="#" title="">Short T-Shirt 2013</a>
-							<i>$360.00</i>
-								<div class="cart-bar-hover">
-								<ul>
-									<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
-									<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
-								</ul>
+							<c:forEach items="${model.menus}" var="menus">
+								<li><a href="#" title="">${menus.displayName}</a>
+									<ul>
+										<c:forEach items="${menus.subMenu}" var="subMenus">
+											<li><a href="${subMenus.href}" title="">${subMenus.displayName}</a></li>
+										</c:forEach>
+									</ul></li>
+							</c:forEach>
+
+							<li>
+								<a id="modal_trigger" href="#modal">Login|register</a>
+
+								<div id="modal" class="popupContainer" style="display: none;">
+									<header class="popupHeader">
+										<span class="header_title">Login</span> 
+										<span class="modal_close"><i class="fa fa-times"></i></span>
+									</header>
+									<section class="popupBody">
+										<!-- Social Login -->
+										<div class="social_login">
+											<div class="">
+												<a href="#" class="social_box fb"> 
+													<span class="icon">
+														<i class="fa fa-facebook"></i>
+													</span> 
+													<span class="icon_title">Connect with Facebook</span>
+												</a> 
+												<a href="#" class="social_box google"> 
+													<span class="icon"><i class="fa fa-google-plus"></i></span> 
+													<span class="icon_title">Connect with Google</span>
+												</a>
+											</div>
+
+											<div class="centeredText">
+												<span>Or use your Email address</span>
+											</div>
+
+											<div class="action_btns">
+												<div class="one_half">
+													<a href="#" id="login_form" class="btn">Login</a>
+												</div>
+												<div class="one_half last">
+													<a href="#" id="register_form" class="btn">Sign up</a>
+												</div>
+											</div>
+										</div>
+
+										<!-- Username & Password Login form -->
+										<div class="user_login">
+											<form>
+												<label>Email / Username</label>    	<input type="text" /> <br />
+												<label>Password</label> 			<input type="password" /> <br />
+												<div class="checkbox">
+													<input id="remember" type="checkbox" /> 
+													<label for="remember">Remember me on this computer</label>
+												</div>
+
+												<div class="action_btns">
+													<div class="one_half">
+														<a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a>
+													</div>
+													<div class="one_half last">
+														<a href="#" class="btn btn_red">Login</a>
+													</div>
+												</div>
+											</form>
+											<a href="#" class="forgot_password">Forgot password?</a>
+										</div>
+										<!-- Register Form -->
+										<div class="user_register">
+											<form>
+												<label>Full Name</label> 			<input type="text" /> <br /> 
+												<label>Email Address</label> 		<input type="email" /> <br /> 
+												<label>Password</label>				<input type="password" /> <br />
+
+												<div class="checkbox">
+													<input id="send_updates" type="checkbox" /> 
+													<label for="send_updates">Send me occasional email updates</label>
+												</div>
+
+												<div class="action_btns">
+													<div class="one_half">
+														<a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a>
+													</div>
+													<div class="one_half last">
+														<a href="#" class="btn btn_red">Register</a>
+													</div>
+												</div>
+											</form>
+										</div>
+									</section>
 								</div>
 							</li>
-							<li><span><img src="http://placehold.it/50x50" alt="" /></span>
-							<a href="#" title="">New Shoes T-Pain</a>
-							<i>$560.00</i>
-							<div class="cart-bar-hover">
-							<ul>
-								<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
-								<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
-							</ul>
-							</div>
-							</li>
-							
-							<li><span><img src="http://placehold.it/50x50" alt="" /></span>
-							<a href="#" title="">Cottom Jeans Paint</a>
-							<i>$56.00</i>
-							<div class="cart-bar-hover">
-							<ul>
-								<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
-								<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
-							</ul>
-							</div>
-							
+						</ul>
+					</div>
+					<div class="search-header">
+						<form>
+							<input type="text" placeholder="Search Here" />
+							<a href="#" title=""><i class="fa fa-search"></i></a>
+						</form>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<!--  end of menu  -->
+		<header class="responsive-header">
+			<div class="top-bar">
+				<ul class="shop-cart bar-dropdown">
+					<li>
+						<a href="#" title=""><i class="fa fa-shopping-cart"></i></a>
+						<ul>
+							<li>
+								<span><img src="http://placehold.it/50x50" alt="" /></span>
+								<a href="#" title="">Short T-Shirt 2013</a> 
+								<i>$360.00</i>
+								<div class="cart-bar-hover">
+									<ul>
+										<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+										<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+									</ul>
+								</div>
 							</li>
 							<li>
-								<h6>Total : $960</h6>
+								<span><img src="http://placehold.it/50x50" alt="" /></span>
+								<a href="#" title="">New Shoes T-Pain</a> 
+								<i>$560.00</i>
+								<div class="cart-bar-hover">
+									<ul>
+										<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+										<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+									</ul>
+								</div>
+							</li>
+
+							<li><span><img src="http://placehold.it/50x50" alt="" /></span>
+								<a href="#" title="">Cottom Jeans Paint</a> 
+								<i>$56.00</i>
+								<div class="cart-bar-hover">
+									<ul>
+										<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+										<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<h6>Total : $960</h6> 
 								<a href="#" title="" class="checkout-btn">Checkout</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
-				<!--  end of shopping cart -->
-				
-				<!--  Language dropdown -->
 				<ul class="language bar-dropdown">
-					<li><a href="#" title=""><i class="fa fa-font"></i>English</a>
+					<li>
+						<a href="#" title=""><i class="fa fa-font">
+						</i>English</a>
 						<ul>
 							<li><a href="#" title="">ENGLISH</a></li>
 							<li><a href="#" title="">FRENCH</a></li>
@@ -106,370 +308,73 @@
 						</ul>
 					</li>
 				</ul>
-				
-				<!--  end of language dropdown -->
-				<!--  Compare button  -->	
 				<ul class="compare-btn bar-dropdown">
 					<li><a href="#" title=""><i class="fa fa-random"></i>Compare</a></li>
 				</ul>
-				<!--  end of compare button -->
-				
-								
-				<!--  wishlist button  -->
 				<ul class="whishlist-bar bar-dropdown">
-					<li><a href="#" title=""><i class="fa fa-heart"></i>Wishlist</a></li>
-				</ul>
-				<!--  end of wishlist button -->
-				
-				<!--  Support Phone number  -->
-				<ul class="whishlist-bar bar-dropdown">
-					<li><a href="#" title=""><i class="fa fa-phone"></i>&nbsp;&nbsp;24/7 Support: 123-456-7890</a></li>
+					<li><a href="#" title=""><i class="fa fa-heart"></i>Whishlist</a></li>
 				</ul>
 			</div>
-		</div>
-	
-<nav>	
-		<div class="container">
-			<!--  This is logo  -->
 			<Div class="logo">
-				<a href="http://themes.webinane.com/shopping/" title="">
-					<img src="<%=request.getContextPath() %>/resources/images/elenverve.png"  alt="" />
+				<a href="http://themes.webinane.com/shopping/" title=""> 
+					<img src="<%=request.getContextPath()%>/resources/images/logo.png" alt="" />
 				</a>
 			</div>
-			<!--  This is the menu  -->
-			<div class="menu">
+			<div class="search-header">
+				<form>
+					<input type="text" placeholder="Search Here" />
+					<a href="#"	title=""><i class="fa fa-search"></i></a>
+				</form>
+			</div>
+			<div class="responsive-menu">
+				<a class="menu-dropdown-btn" title="">MENU <i class="fa fa-align-justify"></i></a>
 				<ul>
-				
-				<c:forEach items="${model.menus}" var ="menus">
-					<li><a href="#" title="">${menus.displayName}</a>
-					<ul>
-						<c:forEach items="${menus.subMenu}" var ="subMenus">
-							<li><a href="${subMenus.href}" title="">${subMenus.displayName}</a></li>
-						</c:forEach>
-					</ul>
-					</li>
-				</c:forEach>
-				
-							<li>
-								<a id="modal_trigger" href="#modal" >Login|register</a>
-
-									<div id="modal" class="popupContainer" style="display: none;">
-										<header class="popupHeader">
-											<span class="header_title">Login</span> <span
-												class="modal_close"><i class="fa fa-times"></i></span>
-										</header>
-
-										<section class="popupBody">
-											<!-- Social Login -->
-											<div class="social_login">
-												<div class="">
-													<a href="#" class="social_box fb"> <span class="icon"><i
-															class="fa fa-facebook"></i></span> <span class="icon_title">Connect
-															with Facebook</span>
-
-													</a> <a href="#" class="social_box google"> <span
-														class="icon"><i class="fa fa-google-plus"></i></span> <span
-														class="icon_title">Connect with Google</span>
-													</a>
-												</div>
-
-												<div class="centeredText">
-													<span>Or use your Email address</span>
-												</div>
-
-												<div class="action_btns">
-													<div class="one_half">
-														<a href="#" id="login_form" class="btn">Login</a>
-													</div>
-													<div class="one_half last">
-														<a href="#" id="register_form" class="btn">Sign up</a>
-													</div>
-												</div>
-											</div>
-
-											<!-- Username & Password Login form -->
-											<div class="user_login">
-												<form>
-													<label>Email / Username</label> <input type="text" /> <br />
-
-													<label>Password</label> <input type="password" /> <br />
-
-													<div class="checkbox">
-														<input id="remember" type="checkbox" /> <label
-															for="remember">Remember me on this computer</label>
-													</div>
-
-													<div class="action_btns">
-														<div class="one_half">
-															<a href="#" class="btn back_btn"><i
-																class="fa fa-angle-double-left"></i> Back</a>
-														</div>
-														<div class="one_half last">
-															<a href="#" class="btn btn_red">Login</a>
-														</div>
-													</div>
-												</form>
-
-												<a href="#" class="forgot_password">Forgot password?</a>
-											</div>
-
-											<!-- Register Form -->
-											<div class="user_register">
-												<form>
-													<label>Full Name</label> <input type="text" /> <br /> <label>Email
-														Address</label> <input type="email" /> <br /> <label>Password</label>
-													<input type="password" /> <br />
-
-													<div class="checkbox">
-														<input id="send_updates" type="checkbox" /> <label
-															for="send_updates">Send me occasional email
-															updates</label>
-													</div>
-
-													<div class="action_btns">
-														<div class="one_half">
-															<a href="#" class="btn back_btn"><i
-																class="fa fa-angle-double-left"></i> Back</a>
-														</div>
-														<div class="one_half last">
-															<a href="#" class="btn btn_red">Register</a>
-														</div>
-													</div>
-												</form>
-											</div>
-										</section>
-									</div>
-								
-							</li>
-					
-					
+					<c:forEach items="${home.menus}" var="menus">
+						<li><a href="#" title="">${menus.displayName}</a>
+							<ul>
+								<c:forEach items="${menus.subMenu}" var="subMenus">
+									<li><a href="${subMenus.href}" title="">${subMenus.displayName}</a></li>
+								</c:forEach>
+							</ul>
+						</li>
+					</c:forEach>
 				</ul>
 			</div>
-			
-			`
-			<div class="search-header">
-				<form><input type="text" placeholder="Search Here" /><a href="#" title=""><i class="fa fa-search"></i></a></form>
-			</div>
-		</div>
-	</nav>	
-	</header>
-	
-	
-
-
-<!--  end of menu  -->
-	<header class="responsive-header">
-		<div class="top-bar">
-			<ul class="shop-cart bar-dropdown">
-				<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a>
-					<ul>
-						<li><span><img src="http://placehold.it/50x50" alt="" /></span>
-						<a href="#" title="">Short T-Shirt 2013</a>
-						<i>$360.00</i>
-							<div class="cart-bar-hover">
-							<ul>
-								<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
-								<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
-							</ul>
-							</div>
-						</li>
-						<li><span><img src="http://placehold.it/50x50" alt="" /></span>
-						<a href="#" title="">New Shoes T-Pain</a>
-						<i>$560.00</i>
-						<div class="cart-bar-hover">
-						<ul>
-							<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
-							<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
-						</ul>
-						</div>
-						</li>
-						
-						<li><span><img src="http://placehold.it/50x50" alt="" /></span>
-						<a href="#" title="">Cottom Jeans Paint</a>
-						<i>$56.00</i>
-						<div class="cart-bar-hover">
-						<ul>
-							<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
-							<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
-						</ul>
-						</div>
-						
-						</li>
-						<li>
-							<h6>Total : $960</h6>
-							<a href="#" title="" class="checkout-btn">Checkout</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
-
-
-
-				
-			<ul class="language bar-dropdown">
-				<li><a href="#" title=""><i class="fa fa-font"></i>English</a>
-					<ul>
-						<li><a href="#" title="">ENGLISH</a></li>
-						<li><a href="#" title="">FRENCH</a></li>
-						<li><a href="#" title="">ARABIC</a></li>
-					</ul>
-				</li>
-			</ul>
-
-
-				
-			<ul class="compare-btn bar-dropdown">
-				<li><a href="#" title=""><i class="fa fa-random"></i>Compare</a></li>
-			</ul>
-				
-
-
-
-			<ul class="whishlist-bar bar-dropdown">
-				<li><a href="#" title=""><i class="fa fa-heart"></i>Whishlist</a></li>
-			</ul>
-
-
-
-
-		</div>
-		
-
-
-
-		<Div class="logo">
-			<a href="http://themes.webinane.com/shopping/" title="">
-				<img src="<%=request.getContextPath() %>/resources/images/logo.png" alt="" />
-			</a>
-		</div>
-
-		
-		<div class="search-header">
-			<form><input type="text" placeholder="Search Here" /><a href="#" title=""><i class="fa fa-search"></i></a></form>
-		</div>
-		
-
-
-
-		<div class="responsive-menu">
-				<a class="menu-dropdown-btn" title="">MENU <i class="fa fa-align-justify"></i></a>
-			<ul>
-
-
-				<c:forEach items="${home.menus}" var ="menus">
-					<li><a href="#" title="">${menus.displayName}</a>
-					<ul>
-						<c:forEach items="${menus.subMenu}" var ="subMenus">
-							<li><a href="${subMenus.href}" title="">${subMenus.displayName}</a></li>
-						</c:forEach>
-					</ul>
-					</li>
-				</c:forEach>
-				
-				<!-- 
-				<li><a href="#" title="">Home</a>
-					<ul>
-						<li><a href="index.html" title="">Home Page 1</a></li>
-						<li><a href="index2.html" title="">Home Page 2</a></li>
-						<li><a href="index3.html" title="">Home Page 3</a></li>
-						<li><a href="index4.html" title="">Tech Home Page 1</a></li>
-						<li><a href="index5.html" title="">Tech Home Page 2</a></li>
-						<li><a href="index11.html" title="">Tech Home Page 3</a></li>
-						<li><a href="index6.html" title="">Home Page 6</a></li>
-						<li><a href="index7.html" title="">Music Home Page</a></li>
-						<li><a href="index8.html" title="">Home with Sidebar</a></li>
-						<li><a href="index9.html" title="">Book Home Page</a></li>
-						<li><a href="index12.html" title="">Book Home Page 2</a></li>
-						<li><a href="index10.html" title="">Home Page 12</a></li>
-					</ul>
-				</li>
-				
-				<li><a href="#" title="">Features</a>
-					<ul>
-						<li><a href="mega-menu.html" title="">4 Styles Mega Menu</a></li>
-						<li><a href="header1.html" title="">Header Style 1</a></li>
-						<li><a href="header2.html" title="">Header Style 2</a></li>
-						<li><a href="boxed.html" title="">Boxed Layout</a></li>
-						<li><a href="wide.html" title="">Wide Layout</a></li>
-						<li><a href="compare.html" title="">Compare Product </a></li>
-						<li><a href="compare2.html" title="">Compare Product 2</a></li>
-						<li><a href="widgets.html" title="">Widgets</a></li>
-						<li><a href="product1.html" title="">Masonary Product</a></li>
-						<li><a href="product4.html" title="">Masonary Product 2</a></li>
-						<li><a href="product3.html" title="">Searchable Products</a></li>
-						<li><a href="product2.html" title="">Products Page</a></li>
-						<li><a href="price-table.html" title="">2 Price Tables</a></li>
-						<li><a href="cart.html" title="">Cart</a></li>	
-					</ul>
-				</li>
-				<li><a href="#" title="">Pages</a>
-					<ul>
-						<li><a href="blog.html" title="">Masonary Blog</a></li>
-						<li><a href="blog2.html" title="">Blog One Column</a></li>
-						<li><a href="product1.html" title="">Masonary Product</a></li>
-						<li><a href="product4.html" title="">Masonary Product 2</a></li>
-						<li><a href="product3.html" title="">Searchable Products</a></li>
-						<li><a href="product2.html" title="">Products Page</a></li>						
-						<li><a href="compare.html" title="">Compare Product </a></li>
-						<li><a href="compare2.html" title="">Compare Product 2</a></li>						
-						<li><a href="review.html" title="">Review Page</a></li>
-						<li><a href="404.html" title="">404 Error page</a></li>
-						<li><a href="faq.html" title="">FAQ Page</a></li>
-						<li><a href="single-post.html" title="">Single Product</a></li>
-						<li><a title="" href="signin.html">Login/Register</a></li>
-					</ul>
-				</li>
-				<li><a href="#" title="">Shortcode</a>
-					<ul>
-						<li><a href="price-table.html" title="">Price Box</a></li>
-						<li><a href="office.html" title="">Our Offices</a></li>
-						<li><a href="skills.html" title="">Our Skills</a></li>
-						<li><a href="services.html" title="">Our Services</a></li>
-						<li><a href="team.html" title="">Our Team</a></li>
-						<li><a href="faq.html" title="">FAQ</a></li>
-					</ul>
-				</li>
-				
-				<li><a href="about.html" title="">About </a></li>
-				<li><a href="contact.html" title="">Contact</a></li>
-				
-				
-				-->
-			</ul>
-		</div>	
-	</header>
-	
+		</header>
 	</div>
-
-<script type="text/javascript">
-	$("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
-
-	$(function(){
-		// Calling Login Form
-		$("#login_form").click(function(){
-			$(".social_login").hide();
-			$(".user_login").show();
-			return false;
+	<script type="text/javascript">
+		$("#modal_trigger").leanModal({
+			top : 200,
+			overlay : 0.6,
+			closeButton : ".modal_close"
 		});
 
-		// Calling Register Form
-		$("#register_form").click(function(){
-			$(".social_login").hide();
-			$(".user_register").show();
-			$(".header_title").text('Register');
-			return false;
-		});
+		$(function() {
+			// Calling Login Form
+			$("#login_form").click(function() {
+				$(".social_login").hide();
+				$(".user_login").show();
+				return false;
+			});
 
-		// Going back to Social Forms
-		$(".back_btn").click(function(){
-			$(".user_login").hide();
-			$(".user_register").hide();
-			$(".social_login").show();
-			$(".header_title").text('Login');
-			return false;
-		});
+			// Calling Register Form
+			$("#register_form").click(function() {
+				$(".social_login").hide();
+				$(".user_register").show();
+				$(".header_title").text('Register');
+				return false;
+			});
 
-	})
-</script>
+			// Going back to Social Forms
+			$(".back_btn").click(function() {
+				$(".user_login").hide();
+				$(".user_register").hide();
+				$(".social_login").show();
+				$(".header_title").text('Login');
+				return false;
+			});
+
+		})
+	</script>
 </body>
 </html>
