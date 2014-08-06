@@ -3,6 +3,8 @@ package com.elenverve.controller;
 
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -16,8 +18,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.elenverve.model.Home;
+import com.elenverve.model.Product;
 import com.elenverve.model.Products;
 import com.elenverve.model.UploadForm;
+import com.elenverve.parser.ProductParser;
 
 
 
@@ -138,6 +142,17 @@ public class HomeController {
 		model.addAttribute("message", "Maven Web Project + Spring 3 MVC - " + name);
 		return "index1";
  
+	}
+	
+	@RequestMapping(value={ "/home", "/welcome**" }, method = RequestMethod.GET)
+	public String home(ModelMap model,HttpServletRequest request) {
+		ProductParser parser = new ProductParser();
+		List<Product> prodList = parser.getProductList();
+		model.addAttribute("prodList", prodList);
+
+		Home homeDpo = new Home();
+		model.addAttribute("homedpo", homeDpo);
+		return "home";
 	}
  
 }
