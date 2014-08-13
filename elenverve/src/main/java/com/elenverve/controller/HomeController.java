@@ -154,5 +154,8 @@ public class HomeController {
 		model.addAttribute("homedpo", homeDpo);
 		return "home";
 	}
+	
+	@RequestMapping(value="/links", method=RequestMethod.GET)
+	public void links() {}
  
 }

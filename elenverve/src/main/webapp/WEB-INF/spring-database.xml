@@ -3,15 +3,31 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
- 
-	<bean id="dataSource"
+
+	<!-- <bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
- 
+
 		<property name="driverClassName" value="org.h2.Driver" />
-		<property name="url" value="jdbc:h2:~/test;DB_CLOSE_DELAY=-1;MODE=Oracle;TRACE_LEVEL_SYSTEM_OUT=3" />
+		<property name="url"
+			value="jdbc:h2:~/test;DB_CLOSE_DELAY=-1;MODE=Oracle;TRACE_LEVEL_SYSTEM_OUT=3" />
 		<property name="username" value="scott" />
 		<property name="password" value="tiger" />
-		
-	</bean>
- 
+
+	</bean> -->
+	
+	<bean id="usersDAO" class="com.elenverve.dao.UsersDAO"></bean>
+	<bean id="rememberMeServices"
+          class="org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices">
+        <constructor-arg value="myAppKey"/>
+        <constructor-arg ref="usersDAO"/>
+        <constructor-arg ref="tokenRepository"/>
+        <property name="cookieName" value="remember-me"/>
+        <property name="tokenLength" value="32"/>
+        <property name="parameter" value="remember-me-parameter"/>
+    </bean>
+
+    <bean id="tokenRepository"
+          class="org.springframework.security.web.authentication.rememberme.InMemoryTokenRepositoryImpl">
+    </bean>
+
 </beans>

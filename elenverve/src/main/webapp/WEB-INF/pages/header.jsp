@@ -155,7 +155,7 @@
 									</ul></li>
 							</c:forEach>
 
-							<li>
+							<li><div id="links"></div>
 								<a id="modal_trigger" href="#modal">Login|register</a>
 
 								<div id="modal" class="popupContainer" style="display: none;">
@@ -196,19 +196,29 @@
 										<!-- Username & Password Login form -->
 										<div class="user_login">
 											<form>
-												<label>Email / Username</label>    	<input type="text" /> <br />
-												<label>Password</label> 			<input type="password" /> <br />
-												<div class="checkbox">
-													<input id="remember" type="checkbox" /> 
-													<label for="remember">Remember me on this computer</label>
-												</div>
+												<div class="message" style="display: none;">&nbsp;</div>
+													<div class="error" style="display: none;">&nbsp;</div>
+													<div>
+														<label for="j_username" class="popuptext">User:</label> 
+														<input type='text' id="j_username" name='j_username' />
+													</div>
+													<div style="clear: both;"></div>
+													<div>
+														<label for="j_password" class="popuptext">Password:</label> 
+														<input type="password" id="j_password" name="j_password" />
+													</div>
+													<div style="clear: both;"></div>
+													<div id="rememberMe">
+														<input type="checkbox" name="_spring_security_remember_me" id="_spring_security_remember_me" /> 
+														<label for="_spring_security_remember_me">Don't ask for my password for two weeks</label>
+													</div>
 
 												<div class="action_btns">
 													<div class="one_half">
 														<a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a>
 													</div>
 													<div class="one_half last">
-														<a href="#" class="btn btn_red">Login</a>
+														<a href="#" class="btn btn_red" id="loginButton">Login</a>
 													</div>
 												</div>
 											</form>
@@ -343,38 +353,44 @@
 		</header>
 	</div>
 	<script type="text/javascript">
-		$("#modal_trigger").leanModal({
-			top : 200,
-			overlay : 0.6,
-			closeButton : ".modal_close"
+
+		function loadLinks() {
+			
+			var links = $("#links");
+			links.load(
+				'<c:url value="/links" />',
+				function(responseText, textStatus, xhr) {
+					
+					if (xhr.status == 200) {
+						$("#ajaxLogin").click(function() {
+							loadLogin();
+						});
+					} else {
+						links.html('<h4 style="color: #F00">Could not load URL "/links"</h4>');
+						links.show();
+					}
+				});
+		}
+		 function loadLogin() {
+			 $("#modal_trigger").leanModal({
+					top : 200,
+					overlay : 0.6,
+					closeButton : ".modal_close"
+				});
+			/* $("#login").load(
+				'<c:url value="/login" />',
+				function(responseText, textStatus, xhr) {
+					if (xhr.status == 200) {
+						$("#login").dialog('open');
+					} else {
+						$("#login").html('<h4 style="color: #F00">Could not load URL "/login"</h4>');
+					}
+				}); */
+		}; 
+		$(document).ready(function() {
+			loadLinks();
 		});
-
-		$(function() {
-			// Calling Login Form
-			$("#login_form").click(function() {
-				$(".social_login").hide();
-				$(".user_login").show();
-				return false;
-			});
-
-			// Calling Register Form
-			$("#register_form").click(function() {
-				$(".social_login").hide();
-				$(".user_register").show();
-				$(".header_title").text('Register');
-				return false;
-			});
-
-			// Going back to Social Forms
-			$(".back_btn").click(function() {
-				$(".user_login").hide();
-				$(".user_register").hide();
-				$(".social_login").show();
-				$(".header_title").text('Login');
-				return false;
-			});
-
-		})
 	</script>
+	<div id="login" style="display: none;" title="Login"></div>
 </body>
 </html>
