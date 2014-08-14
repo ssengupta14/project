@@ -40,7 +40,7 @@ public class UploadFormController implements HandlerExceptionResolver{
             String filePath = System.getProperty("java.io.tmpdir") + "/" + form.getFile().getOriginalFilename();
             try {
                 outputStream = new FileOutputStream(new File(filePath));
-                //outputStream.write(form.getFile().getFileItem().get());
+                outputStream.write(form.getFile().getFileItem().get());
                 outputStream.close();
             } catch (Exception e) {
                 System.out.println("Error while saving file");
