@@ -1,0 +1,396 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Index</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Raleway:400,300,600,700,500|Noto+Sans:400,700|Ubuntu:300,400,500,700'
+		rel='stylesheet' type='text/css'>
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>" type="text/css" />
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="<c:url value="/resources/font-awesome-4.0.3/css/font-awesome.css"/>" type="text/css" />
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/owl.carousel.css"/>" type="text/css" />
+	<!-- Owl Carousal -->	
+	<link rel="stylesheet" href="<c:url value="/resources/css/animate.css"/>" type="text/css" />
+	<!-- Animation -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/ion.rangeSlider.css"/>" />
+	<!-- Range Slider -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/ion.rangeSlider.skinFlat.css"/>" />
+	<!-- Range Slider -->	
+	<link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"	type="text/css" />
+	<!-- Style -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/revolution.css"/>" media="screen" />
+	<!-- Style -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/responsive.css"/>" type="text/css" />
+	<!-- Responsive -->
+	<!--<link rel="alternate stylesheet" type="text/css" href="<c:url value="/resources/css/orange.css"/>" title="orange" />-->
+	<!-- Orange -->
+	<link rel="stylesheet" type="text/css"	href="<c:url value="/resources/css/setting.css"/>" media="screen" />
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/mystyle.css"/>" media="screen" />
+	<%-- <script type="text/javascript"	src="<c:url value="/resources/js/jquery-1.10.2.js"/>"></script> --%>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery.leanModal.min.js"/>"></script>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+
+</head>
+<body>
+	<div class="theme-layout">
+		<header class="header2">
+			<div class="container">
+				<div class="top-bar">
+					<ul class="profile bar-dropdown">
+						<li><a href="#" title=""><i class="fa fa-user"></i>Sourav</a>
+							<ul>
+								<li><a href="#" title="">Profile</a></li>
+								<li><a href="#" title="">Help</a></li>
+								<li><a href="#" title="">Privacy</a></li>
+								<li><a href="#" title="">Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+					<!-- What ever person has shopped, is displayed in the shopping cart-->
+					<ul class="shop-cart bar-dropdown">
+						<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a>
+							<ul>
+								<li>
+									<span>
+										<img src="http://placehold.it/50x50" alt="" />
+									</span> 
+									<a href="#" title="">Short T-Shirt 2013</a> 
+									<i>$360.00</i>
+									<div class="cart-bar-hover">
+										<ul>
+											<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+											<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<span>
+										<img src="http://placehold.it/50x50" alt="" />
+									</span> 
+									<a href="#" title="">New Shoes T-Pain</a> 
+									<i>$560.00</i>
+									<div class="cart-bar-hover">
+										<ul>
+											<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+											<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+										</ul>
+									</div>
+								</li>
+
+								<li>
+									<span><img src="http://placehold.it/50x50" alt="" /></span> 
+									<a href="#" title="">Cottom Jeans Paint</a> 
+									<i>$56.00</i>
+									<div class="cart-bar-hover">
+										<ul>
+											<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+											<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<h6>Total : $960</h6> 
+									<a href="#" title="" class="checkout-btn">Checkout</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<!--  end of shopping cart -->
+
+					<!--  Language dropdown -->
+					<ul class="language bar-dropdown">
+						<li><a href="#" title=""><i class="fa fa-font"></i>English</a>
+							<ul>
+								<li><a href="#" title="">ENGLISH</a></li>
+								<li><a href="#" title="">FRENCH</a></li>
+								<li><a href="#" title="">ARABIC</a></li>
+							</ul></li>
+					</ul>
+
+					<!--  end of language dropdown -->
+					<!--  Compare button  -->
+					<ul class="compare-btn bar-dropdown">
+						<li><a href="#" title=""><i class="fa fa-random"></i>Compare</a></li>
+					</ul>
+					<!--  end of compare button -->
+					<!--  wishlist button  -->
+					<ul class="whishlist-bar bar-dropdown">
+						<li><a href="#" title=""><i class="fa fa-heart"></i>Wishlist</a></li>
+					</ul>
+					<!--  end of wishlist button -->
+					<!--  Support Phone number  -->
+					<ul class="whishlist-bar bar-dropdown">
+						<li><a href="#" title="">
+							<i class="fa fa-phone"></i>&nbsp;&nbsp;24/7 Support: 123-456-7890</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<nav>
+				<div class="container">
+					<!--  This is logo  -->
+					<Div class="logo">
+						<a href="http://themes.webinane.com/shopping/" title=""> 
+							<img src="<%=request.getContextPath()%>/resources/images/elenverve.png"	alt="" />
+						</a>
+					</div>
+					<!--  This is the menu  -->
+					<div class="menu">
+						<ul>
+							<c:forEach items="${model.menus}" var="menus">
+								<li><a href="#" title="">${menus.displayName}</a>
+									<ul>
+										<c:forEach items="${menus.subMenu}" var="subMenus">
+											<li><a href="${subMenus.href}" title="">${subMenus.displayName}</a></li>
+										</c:forEach>
+									</ul></li>
+							</c:forEach>
+
+							<li><div id="links"></div>
+								<!-- <a id="modal_trigger" href="#modal">Login|register</a> -->
+
+								<div id="modal" class="popupContainer" style="display: none;">
+									<header class="popupHeader">
+										<span class="header_title">Login</span> 
+										<span class="modal_close"><i class="fa fa-times"></i></span>
+									</header>
+									<section class="popupBody">
+										<!-- Social Login -->
+										<div class="social_login">
+											<div class="">
+												<a href="#" class="social_box fb"> 
+													<span class="icon">
+														<i class="fa fa-facebook"></i>
+													</span> 
+													<span class="icon_title">Connect with Facebook</span>
+												</a> 
+												<a href="#" class="social_box google"> 
+													<span class="icon"><i class="fa fa-google-plus"></i></span> 
+													<span class="icon_title">Connect with Google</span>
+												</a>
+											</div>
+
+											<div class="centeredText">
+												<span>Or use your Email address</span>
+											</div>
+
+											<div class="action_btns">
+												<div class="one_half">
+													<a href="#" id="login_form" class="btn">Login</a>
+												</div>
+												<div class="one_half last">
+													<a href="#" id="register_form" class="btn">Sign up</a>
+												</div>
+											</div>
+										</div>
+
+										<!-- Username & Password Login form -->
+										<div class="user_login">
+											<form>
+												<div class="message" style="display: none;">&nbsp;</div>
+													<div class="error" style="display: none;">&nbsp;</div>
+													<div>
+														<label for="j_username" class="popuptext">User:</label> 
+														<input type='text' id="j_username" name='j_username' />
+													</div>
+													<div style="clear: both;"></div>
+													<div>
+														<label for="j_password" class="popuptext">Password:</label> 
+														<input type="password" id="j_password" name="j_password" />
+													</div>
+													<div style="clear: both;"></div>
+													<div id="rememberMe">
+														<input type="checkbox" name="_spring_security_remember_me" id="_spring_security_remember_me" /> 
+														<label for="_spring_security_remember_me">Don't ask for my password for two weeks</label>
+													</div>
+
+												<div class="action_btns">
+													<div class="one_half">
+														<a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a>
+													</div>
+													<div class="one_half last">
+														<a href="#" class="btn btn_red" id="loginButton">Login</a>
+													</div>
+												</div>
+											</form>
+											<a href="#" class="forgot_password">Forgot password?</a>
+										</div>
+										<!-- Register Form -->
+										<div class="user_register">
+											<form>
+												<label>Full Name</label> 			<input type="text" /> <br /> 
+												<label>Email Address</label> 		<input type="email" /> <br /> 
+												<label>Password</label>				<input type="password" /> <br />
+
+												<div class="checkbox">
+													<input id="send_updates" type="checkbox" /> 
+													<label for="send_updates">Send me occasional email updates</label>
+												</div>
+
+												<div class="action_btns">
+													<div class="one_half">
+														<a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a>
+													</div>
+													<div class="one_half last">
+														<a href="#" class="btn btn_red">Register</a>
+													</div>
+												</div>
+											</form>
+										</div>
+									</section>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="search-header">
+						<form>
+							<input type="text" placeholder="Search Here" />
+							<a href="#" title=""><i class="fa fa-search"></i></a>
+						</form>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<!--  end of menu  -->
+		<header class="responsive-header">
+			<div class="top-bar">
+				<ul class="shop-cart bar-dropdown">
+					<li>
+						<a href="#" title=""><i class="fa fa-shopping-cart"></i></a>
+						<ul>
+							<li>
+								<span><img src="http://placehold.it/50x50" alt="" /></span>
+								<a href="#" title="">Short T-Shirt 2013</a> 
+								<i>$360.00</i>
+								<div class="cart-bar-hover">
+									<ul>
+										<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+										<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<span><img src="http://placehold.it/50x50" alt="" /></span>
+								<a href="#" title="">New Shoes T-Pain</a> 
+								<i>$560.00</i>
+								<div class="cart-bar-hover">
+									<ul>
+										<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+										<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+									</ul>
+								</div>
+							</li>
+
+							<li><span><img src="http://placehold.it/50x50" alt="" /></span>
+								<a href="#" title="">Cottom Jeans Paint</a> 
+								<i>$56.00</i>
+								<div class="cart-bar-hover">
+									<ul>
+										<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+										<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<h6>Total : $960</h6> 
+								<a href="#" title="" class="checkout-btn">Checkout</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="language bar-dropdown">
+					<li>
+						<a href="#" title=""><i class="fa fa-font">
+						</i>English</a>
+						<ul>
+							<li><a href="#" title="">ENGLISH</a></li>
+							<li><a href="#" title="">FRENCH</a></li>
+							<li><a href="#" title="">ARABIC</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="compare-btn bar-dropdown">
+					<li><a href="#" title=""><i class="fa fa-random"></i>Compare</a></li>
+				</ul>
+				<ul class="whishlist-bar bar-dropdown">
+					<li><a href="#" title=""><i class="fa fa-heart"></i>Whishlist</a></li>
+				</ul>
+			</div>
+			<Div class="logo">
+				<a href="http://themes.webinane.com/shopping/" title=""> 
+					<img src="<%=request.getContextPath()%>/resources/images/logo.png" alt="" />
+				</a>
+			</div>
+			<div class="search-header">
+				<form>
+					<input type="text" placeholder="Search Here" />
+					<a href="#"	title=""><i class="fa fa-search"></i></a>
+				</form>
+			</div>
+			<div class="responsive-menu">
+				<a class="menu-dropdown-btn" title="">MENU <i class="fa fa-align-justify"></i></a>
+				<ul>
+					<c:forEach items="${home.menus}" var="menus">
+						<li><a href="#" title="">${menus.displayName}</a>
+							<ul>
+								<c:forEach items="${menus.subMenu}" var="subMenus">
+									<li><a href="${subMenus.href}" title="">${subMenus.displayName}</a></li>
+								</c:forEach>
+							</ul>
+						</li>
+					</c:forEach>
+				</ul>
+			</div>
+		</header>
+	</div>
+	<script type="text/javascript">
+
+		function loadLinks() {
+			
+			var links = $("#links");
+			links.load(
+				'<c:url value="/links" />',
+				function(responseText, textStatus, xhr) {
+					
+					if (xhr.status == 200) {
+						$("#ajaxLogin").click(function() {
+							loadLogin();
+						});
+					} else {
+						links.html('<h4 style="color: #F00">Could not load URL "/links"</h4>');
+						links.show();
+					}
+				});
+		}
+		 function loadLogin() {
+			 $("#modal_trigger").leanModal({
+					top : 200,
+					overlay : 0.6,
+					closeButton : ".modal_close"
+				});
+			/* $("#login").load(
+				'<c:url value="/login" />',
+				function(responseText, textStatus, xhr) {
+					if (xhr.status == 200) {
+						$("#login").dialog('open');
+					} else {
+						$("#login").html('<h4 style="color: #F00">Could not load URL "/login"</h4>');
+					}
+				}); */
+		}; 
+		$(document).ready(function() {
+			loadLinks();
+		});
+	</script>
+	<div id="login" style="display: none;" title="Login"></div>
+</body>
+</html>
