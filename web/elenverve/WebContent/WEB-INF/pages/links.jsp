@@ -17,23 +17,8 @@
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>" type="text/css" />
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="<c:url value="/resources/font-awesome-4.0.3/css/font-awesome.css"/>" type="text/css" />
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="<c:url value="/resources/css/owl.carousel.css"/>" type="text/css" />
-	<!-- Owl Carousal -->	
-	<link rel="stylesheet" href="<c:url value="/resources/css/animate.css"/>" type="text/css" />
-	<!-- Animation -->
-	<link rel="stylesheet" href="<c:url value="/resources/css/ion.rangeSlider.css"/>" />
-	<!-- Range Slider -->
-	<link rel="stylesheet" href="<c:url value="/resources/css/ion.rangeSlider.skinFlat.css"/>" />
-	<!-- Range Slider -->	
-	<link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"	type="text/css" />
-	<!-- Style -->
-	<link rel="stylesheet" href="<c:url value="/resources/css/revolution.css"/>" media="screen" />
-	<!-- Style -->
-	<link rel="stylesheet" href="<c:url value="/resources/css/responsive.css"/>" type="text/css" />
-	<!-- Responsive -->
-	<!--<link rel="alternate stylesheet" type="text/css" href="<c:url value="/resources/css/orange.css"/>" title="orange" />-->
-	<!-- Orange -->
+	<!-- Font Awesome -->	
+	<link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"	type="text/css" />	
 	<link rel="stylesheet" type="text/css"	href="<c:url value="/resources/css/setting.css"/>" media="screen" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/mystyle.css"/>" media="screen" />
 	<%-- <script type="text/javascript"	src="<c:url value="/resources/js/jquery-1.10.2.js"/>"></script> --%>
@@ -197,7 +182,7 @@ function performLogin(form) {
 		form.serialize(),
 		function (data, textStatus) {
 			var modal_id = $(this).attr('href');
-			alert(data.status);
+			
 			if (data.status) {
 				window.location.reload(true);
 				loadLinks();
