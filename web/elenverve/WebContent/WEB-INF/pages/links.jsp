@@ -35,7 +35,9 @@
 
 <!-- If logged in, display secure and logout link -->
 <security:authorize ifAllGranted="ROLE_USER">
-		<a href="<c:url value="/j_spring_security_logout" />">Logout</a>	
+	 
+	 
+	 		<a href="<c:url value="/j_spring_security_logout" />"><security:authentication property="principal.username"/> Logout</a>	
 </security:authorize>
 
 	<div id="modal" class="popupContainer" style="display: none;">
@@ -173,6 +175,8 @@ $(function() {
 	});
 
 });
+
+
 function performLogin(form) {
 	//form.find(".message").hide();
 	//form.find(".error").hide();
@@ -181,11 +185,14 @@ function performLogin(form) {
 		'<c:url value="/login" />',
 		form.serialize(),
 		function (data, textStatus) {
-			var modal_id = $(this).attr('href');
+			var modal_id = $(this).attr("#modal");
 			
 			if (data.status) {
-				window.location.reload(true);
+				//window.location.reload(true);
+				
+				//$(document).off('keydown.leanModal');
 				loadLinks();
+				
 			} else {
 				var err = form.find(".error");
 				err.html("Login Failed [" + data.error + "]");
@@ -193,5 +200,7 @@ function performLogin(form) {
 			}
 		}, "json");
 };
+
+
 		</script>
 </body>

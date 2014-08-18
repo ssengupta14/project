@@ -45,7 +45,11 @@
 			<div class="container">
 				<div class="top-bar">
 					<ul class="profile bar-dropdown">
-						<li><a href="#" title=""><i class="fa fa-user"></i>Sourav</a>
+						<li>
+							<a href="#" title=""> 
+								<div class="fa fa-user" id="links"></div>
+								<!-- <i class="fa fa-user"/>  -->
+							</a>
 							<ul>
 								<li><a href="#" title="">Profile</a></li>
 								<li><a href="#" title="">Help</a></li>
@@ -53,6 +57,7 @@
 								<li><a href="#" title="">Logout</a></li>
 							</ul>
 						</li>
+						
 					</ul>
 					<!-- What ever person has shopped, is displayed in the shopping cart-->
 					<ul class="shop-cart bar-dropdown">
@@ -155,7 +160,7 @@
 									</ul></li>
 							</c:forEach>
 
-							<li><div id="links"></div>
+							<li>
 								<!-- <a id="modal_trigger" href="#modal">Login|register</a> -->
 
 								<div id="modal" class="popupContainer" style="display: none;">
