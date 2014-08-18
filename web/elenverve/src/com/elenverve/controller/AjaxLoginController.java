@@ -3,6 +3,7 @@ package com.elenverve.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -41,8 +42,12 @@ public class AjaxLoginController {
 			@RequestParam("j_password") String password,
 			HttpServletRequest request, HttpServletResponse response) 
 	{
+		if(StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password)){
+			username = username.replace(",", "");
+			password = password.replace(",", "");
+		}
 		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
-		System.out.println("hi");
+		
 		try {
 			Authentication auth = authenticationManager.authenticate(token);
 			SecurityContextHolder.getContext().setAuthentication(auth);
