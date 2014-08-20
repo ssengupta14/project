@@ -42,10 +42,7 @@ public class AjaxLoginController {
 			@RequestParam("j_password") String password,
 			HttpServletRequest request, HttpServletResponse response) 
 	{
-		if(StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password)){
-			username = username.replace(",", "");
-			password = password.replace(",", "");
-		}
+		
 		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
 		
 		try {

@@ -1,26 +1,17 @@
 package com.elenverve.controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.elenverve.model.Admin;
-import com.elenverve.model.Home;
-import com.elenverve.model.UploadForm;
 import com.elenverve.validator.FileUploadValidator;
 
 
@@ -34,7 +25,6 @@ public class AdminController {
 	@RequestMapping(value={ "/admin"}, method = RequestMethod.GET)
 	public String admin(ModelMap model,HttpServletRequest request) {
 		
-		
 		/*
 		ProductParser parser = new ProductParser();
 		List<Product> prodList = parser.getProductList();
@@ -43,6 +33,34 @@ public class AdminController {
 		Admin admin = new Admin();
 		model.addAttribute("model", admin);
 		model.addAttribute("page", "admin");
+		return "template";
+ 
+	}
+	
+	@RequestMapping(value={ "/register"}, method = RequestMethod.POST)
+	/*public String register(
+			ModelMap model,HttpServletRequest request) {*/	
+	@ResponseBody
+	public String performLogin(
+			@RequestParam("fName") String fName, 
+			@RequestParam("lName") String lName,
+			@RequestParam("email") String email,
+			@RequestParam("rPassword") String rPassword,
+			HttpServletRequest request, HttpServletResponse response) 
+	{
+	
+		
+		/*
+		ProductParser parser = new ProductParser();
+		List<Product> prodList = parser.getProductList();
+		model.addAttribute("prodList", prodList);
+		*/
+		
+		request.getParameter("fName");
+		request.getAttribute("fName");
+		Admin admin = new Admin();
+		/*model.addAttribute("model", admin);
+		model.addAttribute("page", "admin");*/
 		return "template";
  
 	}

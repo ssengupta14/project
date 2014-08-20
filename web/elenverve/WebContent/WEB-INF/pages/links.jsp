@@ -34,9 +34,7 @@
 </security:authorize>
 
 <!-- If logged in, display secure and logout link -->
-<security:authorize ifAllGranted="ROLE_USER">
-	 
-	 
+<security:authorize ifAllGranted="ROLE_USER">	 
 	 		<a href="<c:url value="/j_spring_security_logout" />"><security:authentication property="principal.username"/> Logout</a>	
 </security:authorize>
 
@@ -109,9 +107,10 @@
 			<!-- Register Form -->
 			<div class="user_register">
 				<form>
-					<label>Full Name</label> 			<input type="text" /> <br /> 
-					<label>Email Address</label> 		<input type="email" /> <br /> 
-					<label>Password</label>				<input type="password" /> <br />
+					<label>First Name</label> 			<input type="text" id="fName" name="fName"/> <br /> 
+					<label>Last Name</label> 			<input type="text" id="lName" name="lName"/> <br />
+					<label>Email Address</label> 		<input type="email" id="email" name="email"/> <br /> 
+					<label>Password</label>				<input type="password" id="rPassword" name ="rPassword"/> <br />
 
 					<div class="checkbox">
 						<input id="send_updates" type="checkbox" /> 
@@ -123,7 +122,7 @@
 							<a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a>
 						</div>
 						<div class="one_half last">
-							<a href="#" class="btn btn_red">Register</a>
+							<a href="#" class="btn btn_red" id="registerButton">Register</a>
 						</div>
 					</div>
 				</form>
@@ -168,14 +167,17 @@ $(function() {
 		$(".header_title").text('Login');
 		return false;
 	});
-	$("#loginButton").click(function() {				
-		
+	$("#loginButton").click(function() {			
 		performLogin($("form"));
+		return false;
+	});
+	
+	$("#registerButton").click(function() {
+		register($("form"));
 		return false;
 	});
 
 });
-
 
 function performLogin(form) {
 	//form.find(".message").hide();
@@ -185,11 +187,31 @@ function performLogin(form) {
 		'<c:url value="/login" />',
 		form.serialize(),
 		function (data, textStatus) {
-			var modal_id = $(this).attr("#modal");
-			
+			var modal_id = $(this).attr("#modal");			
 			if (data.status) {
-				//window.location.reload(true);
+				window.location.reload(true);				
+				//$(document).off('keydown.leanModal');
+				loadLinks();
 				
+			} else {
+				var err = form.find(".error");
+				err.html("Login Failed [" + data.error + "]");
+				err.show();
+			}
+		}, "json");
+};
+
+function register(form) {
+	//form.find(".message").hide();
+	//form.find(".error").hide();
+	
+	$.post(
+		'<c:url value="/register" />',
+		form.serialize(),
+		function (data, textStatus) {
+			var modal_id = $(this).attr("#modal");			
+			if (data.status) {
+				window.location.reload(true);				
 				//$(document).off('keydown.leanModal');
 				loadLinks();
 				
