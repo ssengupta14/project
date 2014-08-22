@@ -157,6 +157,15 @@ form {
   margin: 10px 0 0 0;
   font-size: 15px;
 } 
+.user_register input[type="text"], input[type="password"], input[type="email"] {
+  padding: 10px 14px 12px 14px;
+  background-color: #f2f2f2;
+  border: 1px solid #c8c8c8;
+  width: 335px;
+  color: #838383;
+  margin: 10px 0 0 0;
+  font-size: 15px;
+} 
 
 .social_login input[type="text"], input[type="password"] {
   padding: 10px 14px 12px 14px;
@@ -178,10 +187,16 @@ form {
 	color: #666;
 }
 
-form input[type="submit"] {
+/* form input[type="submit"] {
   padding: 8px 25px 10px;  
   font-size: 15px;
+} */
+
+form input[type="submit"] {
+  padding: 7px 15px 7px;  
+  font-size: 15px;
 }
+
 
 form input[type="submit"]:hover {
   cursor: pointer
@@ -191,9 +206,9 @@ form input[type="submit"]:hover {
   margin: 30px 0px 30px 125px;
 }
 
-.btn-register {
+/* .btn-register {
   margin: 30px 0px 30px 20px;
-}
+} */
 
 .forgotten-password-link {
   float: left;
@@ -221,11 +236,15 @@ form input[type="submit"]:hover {
 }
 
 /*TERMS AND CONDITIONS*/
-#tac-checkbox, label, .forgotten-password-link {
+#tac-checkbox  ,label{
+  float: left;
+  margin-top: 8px;
+}
+
+.forgotten-password-link  {
   float: left;
   margin-top: 40px;
 }
-
 label {
   line-height: 12px;
   padding-left: 5px;
@@ -416,3 +435,8 @@ label {
 	padding-top:10px;
 	position:absolute;
 }  
+
+#signupbutton_div{
+	padding-top:23px;
+	
+} 

@@ -78,7 +78,7 @@
 			        <input type="password" id="j_password" name="j_password" placeholder='Password'/>
 			        <a class='forgotten-password-link' href='#'>Forgotten password</a>
 			      	<div id="signup_div">
-        			Don't have an account? <a href='registration.html'>Sign up</a>
+        			Don't have an account? <a href='#' id="register_form">Sign up</a>
       				</div>
 			        	<input type='submit' class='btn-sign-in btn-orange' value='Sign in' id="loginButton"/>
 			        	        
@@ -120,8 +120,20 @@
 			</div>
 			<!-- Register Form -->
 			<div class="user_register">
-				<form>
-					<label>First Name</label> 			<input type="text" id="fName" name="fName"/> <br /> 
+				<form class='input-form' id='registration-form'>
+					<span class='ie-placeholders'>Login:</span><input type='text' placeholder='Login' id='ipt-login' />
+			        <span class='ie-placeholders'>E-mail:</span><input type='text' placeholder='E-mail' id='ipt-email' />
+			        <span class='ie-placeholders'>Password:</span><input type='password' placeholder='Password' id='ipt-password' />
+			        <span class='ie-placeholders'>Retype Pass:</span><input type='password' placeholder='Retype password' id='ipt-repassword' /><br />
+			        <input type='checkbox' id='tac-checkbox' /><label for='tac-checkbox'>I agree with <a href='#'>terms and conditions</a></label>
+			        <div class="one_half last">
+			        	<input type='submit' class='btn-register btn-orange' value='Register' />			        	
+			        </div>
+			        <div class="one_half">
+			        	<input type='submit' class='back_btn btn-register btn-orange' value='Back' />
+			        	
+			        </div>
+					<!-- <label>First Name</label> 			<input type="text" id="fName" name="fName"/> <br /> 
 					<label>Last Name</label> 			<input type="text" id="lName" name="lName"/> <br />
 					<label>Email Address</label> 		<input type="email" id="email" name="email"/> <br /> 
 					<label>Password</label>				<input type="password" id="rPassword" name ="rPassword"/> <br />
@@ -138,7 +150,7 @@
 						<div class="one_half last">
 							<a href="#" class="btn btn_red" id="registerButton">Register</a>
 						</div>
-					</div>
+					</div> -->
 				</form>
 			</div>
 			<div class='error-box red'>

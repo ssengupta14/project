@@ -12042,7 +12042,7 @@ a.btn_red {
 .one_half {
 	width: 50%;
 	display: block;
-	float: left;
+	float: right;
 }
 
 .one_half.last {
@@ -12186,23 +12186,23 @@ a.btn_red {
 }
 
 /* User Register Form */
-.user_register {
+ .user_register {
 	display: none;
 }
 
 .user_register label {
-	display: block;
+	//display: block;
 	margin-bottom: 5px;
 }
 
-.user_register input[type="text"],.user_register input[type="email"],.user_register input[type="password"]
+/* .user_register input[type="text"],.user_register input[type="email"],.user_register input[type="password"]
 	{
-	display: block;
+	//display: block;
 	width: 90%;
 	padding: 10px;
 	border: 1px solid #DDD;
 	color: #666;
-}
+} */
 
 .user_register input[type="checkbox"] {
 	float: left;
