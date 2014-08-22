@@ -61,8 +61,7 @@
 									<li><a href="#" title="">Logout</a></li>
 								</ul>
 							</security:authorize>
-						</li>
-						
+						</li>						
 					</ul>
 					<!-- What ever person has shopped, is displayed in the shopping cart-->
 					<ul class="shop-cart bar-dropdown">
@@ -172,7 +171,7 @@
 						</ul>
 					</div>
 					<div class="search-header">
-						<form>
+						<form class="searchForm">
 							<input type="text" placeholder="Search Here" />
 							<a href="#" title=""><i class="fa fa-search"></i></a>
 						</form>

@@ -20,11 +20,16 @@
 	<!-- Font Awesome -->	
 	<link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"	type="text/css" />	
 	<link rel="stylesheet" type="text/css"	href="<c:url value="/resources/css/setting.css"/>" media="screen" />
-	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/mystyle.css"/>" media="screen" />
-	<%-- <script type="text/javascript"	src="<c:url value="/resources/js/jquery-1.10.2.js"/>"></script> --%>
+	<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/mystyle.css"/>" media="screen" /> --%>
+	
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.leanModal.min.js"/>"></script>
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+	
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/login.css"/>" media="screen" />
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/form-style-ie.css"/>" media="screen" />
+	<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/form-style.css"/>" media="screen" /> --%>
+		
 
 </head>
 <body>
@@ -43,55 +48,49 @@
 			<span class="header_title">Login</span> 
 			<span class="modal_close"><i class="fa fa-times"></i></span>
 		</header>
-		<section class="popupBody">
+		
 			<!-- Social Login -->
-			<div class="social_login">
-				<div class="">
-					<a href="#" class="social_box fb"> 
-						<span class="icon">
-							<i class="fa fa-facebook"></i>
-						</span> 
-						<span class="icon_title">Connect with Facebook</span>
-					</a> 
-					<a href="#" class="social_box google"> 
-						<span class="icon"><i class="fa fa-google-plus"></i></span> 
-						<span class="icon_title">Connect with Google</span>
-					</a>
-				</div>
-
-				<div class="centeredText">
-					<span>Or use your Email address</span>
-				</div>
-
-				<div class="action_btns">
-					<div class="one_half">
-						<a href="#" id="login_form" class="btn">Login</a>
-					</div>
-					<div class="one_half last">
-						<a href="#" id="register_form" class="btn">Sign up</a>
-					</div>
-				</div>
+			<div class="social_login">	
+				 <form>		
+				
+					<div id="social_login_div"> 
+					<a class='btn-facebook' href='#'>Connect with Facebook</a>					
+        			<a class='btn-twitter' href='#'>Connect with Twitter</a>  			
+					<!-- 
+					<input type='text' id='ipt-login' placeholder='Login' />
+			        <input type='password' id='ipt-password' placeholder='Password' /> 
+			        -->
+			        <input type='text' id="j_username" name='j_username' placeholder='Login'/>
+			        <input type="password" id="j_password" name="j_password" placeholder='Password'/>
+			        <a class='forgotten-password-link' href='#'>Forgotten password</a>
+			      	<div id="signup_div">
+        			Don't have an account? <a href='registration.html'>Sign up</a>
+      				</div>
+			        	<input type='submit' class='btn-sign-in btn-orange' value='Sign in' id="loginButton"/>
+			        	        
+			        </div>
+				</form>
 			</div>
 
 			<!-- Username & Password Login form -->
 			<div class="user_login">
 				<form>
-					<div class="message" style="display: none;">&nbsp;</div>
-						<div class="error" style="display: none;">&nbsp;</div>
-						<div>
-							<label for="j_username" class="popuptext">User:</label> 
-							<input type='text' id="j_username" name='j_username' />
-						</div>
-						<div style="clear: both;"></div>
-						<div>
-							<label for="j_password" class="popuptext">Password:</label> 
-							<input type="password" id="j_password" name="j_password" />
-						</div>
-						<div style="clear: both;"></div>
-						<div id="rememberMe">
-							<input type="checkbox" name="_spring_security_remember_me" id="_spring_security_remember_me" /> 
-							<label for="_spring_security_remember_me">Don't ask for my password for two weeks</label>
-						</div>
+					<!-- <div class="message" style="display: none;">&nbsp;</div>
+					<div class="error" style="display: none;">&nbsp;</div>
+					<div>
+						<label for="j_username" class="popuptext">User:</label> 
+						<input type='text' id="j_username" name='j_username' />
+					</div>
+					<div style="clear: both;"></div>
+					<div>
+						<label for="j_password" class="popuptext">Password:</label> 
+						<input type="password" id="j_password" name="j_password" />
+					</div>
+					<div style="clear: both;"></div>
+					<div id="rememberMe">
+						<input type="checkbox" name="_spring_security_remember_me" id="_spring_security_remember_me" /> 
+						<label for="_spring_security_remember_me">Don't ask for my password for two weeks</label>
+					</div>
 
 					<div class="action_btns">
 						<div class="one_half">
@@ -100,7 +99,7 @@
 						<div class="one_half last">
 							<a href="#" class="btn btn_red" id="loginButton">Login</a>
 						</div>
-					</div>
+					</div> -->
 				</form>
 				<a href="#" class="forgot_password">Forgot password?</a>
 			</div>
@@ -127,7 +126,7 @@
 					</div>
 				</form>
 			</div>
-		</section>
+		
 	</div>
 
 <script type="text/javascript">
@@ -189,7 +188,7 @@ function performLogin(form) {
 		function (data, textStatus) {
 			var modal_id = $(this).attr("#modal");			
 			if (data.status) {
-				window.location.reload(true);				
+				//window.location.reload(true);				
 				//$(document).off('keydown.leanModal');
 				loadLinks();
 				
