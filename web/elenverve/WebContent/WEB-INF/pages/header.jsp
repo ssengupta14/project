@@ -48,7 +48,8 @@
 				<div class="top-bar">
 					<ul class="profile bar-dropdown">
 						<li>
-							<a href="#" title=""> 
+							<div id="links"></div>
+							<%-- <a href="#" title=""> 
 								<div class="fa fa-user" id="links"></div>
 								<!-- <i class="fa fa-user"/>  -->
 							</a>
@@ -61,7 +62,7 @@
 									<li><a href="#" title="">Logout</a></li>
 								</ul>
 							</security:authorize>
-						</li>						
+						</li> --%>						
 					</ul>
 					<!-- What ever person has shopped, is displayed in the shopping cart-->
 					<ul class="shop-cart bar-dropdown">

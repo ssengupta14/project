@@ -40,7 +40,25 @@
 
 <!-- If logged in, display secure and logout link -->
 <security:authorize ifAllGranted="ROLE_USER">	 
-	 		<a href="<c:url value="/j_spring_security_logout" />"><security:authentication property="principal.username"/> Logout</a>	
+	 <%-- <a href="<c:url value="/j_spring_security_logout" />"><security:authentication property="principal.username"/> Logout</a> --%>	
+	 
+	<div class="fa fa-user">
+		<ul class="profile bar-dropdown">
+			<li>	
+				<font color="#898787"> Hi <security:authentication property="principal.username"/>		</font>
+				
+				<%-- <a href="<c:url value="/j_spring_security_logout" />"><security:authentication property="principal.username"/> Logout</a> --%> 		
+
+				<ul>
+					<li><a href="#" title="">Profile</a></li>
+					<li><a href="#" title="">Help</a></li>
+					<li><a href="#" title="">Privacy</a></li>
+					<li><a href="<c:url value="/j_spring_security_logout" />" title="">Logout</a></li>
+				</ul>
+				
+			</li> 						
+		</ul>
+	</div>
 </security:authorize>
 
 	<div id="modal" class="popupContainer" style="display: none;">
