@@ -12,7 +12,6 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Raleway:400,300,600,700,500|Noto+Sans:400,700|Ubuntu:300,400,500,700'
 		rel='stylesheet' type='text/css'>
-
 	<!-- Styles -->
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>" type="text/css" />
 	<!-- Bootstrap -->
@@ -20,15 +19,15 @@
 	<!-- Font Awesome -->	
 	<link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"	type="text/css" />	
 	<link rel="stylesheet" type="text/css"	href="<c:url value="/resources/css/setting.css"/>" media="screen" />
-	<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/mystyle.css"/>" media="screen" /> --%>
-	
-	<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/jquery.leanModal.min.js"/>"></script>
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-	
+	<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/mystyle.css"/>" media="screen" /> --%>	
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />	
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/login.css"/>" media="screen" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/form-style-ie.css"/>" media="screen" />
 	<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/form-style.css"/>" media="screen" /> --%>
+	
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery.leanModal.min.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/login.js"/>"></script>
 		
 
 </head>
@@ -45,17 +44,14 @@
 	<div class="fa fa-user">
 		<ul class="profile bar-dropdown">
 			<li>	
-				<font color="#898787"> Hi <security:authentication property="principal.username"/>		</font>
-				
-				<%-- <a href="<c:url value="/j_spring_security_logout" />"><security:authentication property="principal.username"/> Logout</a> --%> 		
-
+				<font color="#898787"> Hi <security:authentication property="principal.username"/>		</font>				
+				<%-- <a href="<c:url value="/j_spring_security_logout" />"><security:authentication property="principal.username"/> Logout</a> --%> 
 				<ul>
 					<li><a href="#" title="">Profile</a></li>
 					<li><a href="#" title="">Help</a></li>
 					<li><a href="#" title="">Privacy</a></li>
 					<li><a href="<c:url value="/j_spring_security_logout" />" title="">Logout</a></li>
-				</ul>
-				
+				</ul>				
 			</li> 						
 		</ul>
 	</div>
@@ -88,6 +84,7 @@
 			        	        
 			        </div>
 				</form>
+				 
 			</div>
 
 			<!-- Username & Password Login form -->
@@ -144,102 +141,95 @@
 					</div>
 				</form>
 			</div>
+			<div class='error-box red'>
+        		<span class='error-message'>Incorrect login or password.</span>
+      		</div>
 		
 	</div>
 
-<script type="text/javascript">
+	<script type="text/javascript">
+			
+		$("#modal_trigger").leanModal({
+			top : 200,
+			overlay : 0.6,
+			closeButton : ".modal_close"
+		});
+			
+		$(function() {
+			// Calling Login Form
+			$("#login_form").click(function() {
+				$(".social_login").hide();
+				$(".user_login").show();
+				return false;
+			});
 		
-$("#modal_trigger").leanModal({
-	top : 200,
-	overlay : 0.6,
-	closeButton : ".modal_close"
-});
-$("#ajaxLogin").leanModal({
-	top : 200,
-	overlay : 0.6,
-	closeButton : ".modal_close"
-});
-
-$(function() {
-	// Calling Login Form
-	$("#login_form").click(function() {
-		$(".social_login").hide();
-		$(".user_login").show();
-		return false;
-	});
-
-	// Calling Register Form
-	$("#register_form").click(function() {
-		$(".social_login").hide();
-		$(".user_register").show();
-		$(".header_title").text('Register');
-		return false;
-	});
-
-	// Going back to Social Forms
-	$(".back_btn").click(function() {
-		$(".user_login").hide();
-		$(".user_register").hide();
-		$(".social_login").show();
-		$(".header_title").text('Login');
-		return false;
-	});
-	$("#loginButton").click(function() {			
-		performLogin($("form"));
-		return false;
-	});
+			// Calling Register Form
+			$("#register_form").click(function() {
+				$(".social_login").hide();
+				$(".user_register").show();
+				$(".header_title").text('Register');
+				return false;
+			});
+		
+			// Going back to Social Forms
+			$(".back_btn").click(function() {
+				$(".user_login").hide();
+				$(".user_register").hide();
+				$(".social_login").show();
+				$(".header_title").text('Login');
+				return false;
+			});
+			
+			/* $("#loginButton").click(function() {			
+				performLogin($("form"));
+				return false;
+			}); */
+			
+			$("#registerButton").click(function() {
+				register($("form"));
+				return false;
+			});
+		
+		});
 	
-	$("#registerButton").click(function() {
-		register($("form"));
-		return false;
-	});
-
-});
-
-function performLogin(form) {
-	//form.find(".message").hide();
-	//form.find(".error").hide();
+		function performLogin(form) {	
+			$.post(
+				'<c:url value="/login" />',
+				form.serialize(),
+				function (data, textStatus) {
+					var modal_id = $(this).attr("#modal");			
+					if (data.status) {
+						//window.location.reload(true);				
+						//$(document).off('keydown.leanModal');
+						loadLinks();
+						
+					} else {
+						 $('.error-box').slideDown('slow').removeClass('green').addClass('red');
+					     $(".error-message").text("Incorrect login or password.");
+						/* var err = form.find(".error");
+						err.html("Login Failed [" + data.error + "]");
+						err.show(); */
+					}
+				}, "json");
+		};
 	
-	$.post(
-		'<c:url value="/login" />',
-		form.serialize(),
-		function (data, textStatus) {
-			var modal_id = $(this).attr("#modal");			
-			if (data.status) {
-				//window.location.reload(true);				
-				//$(document).off('keydown.leanModal');
-				loadLinks();
-				
-			} else {
-				var err = form.find(".error");
-				err.html("Login Failed [" + data.error + "]");
-				err.show();
-			}
-		}, "json");
-};
-
-function register(form) {
-	//form.find(".message").hide();
-	//form.find(".error").hide();
-	
-	$.post(
-		'<c:url value="/register" />',
-		form.serialize(),
-		function (data, textStatus) {
-			var modal_id = $(this).attr("#modal");			
-			if (data.status) {
-				window.location.reload(true);				
-				//$(document).off('keydown.leanModal');
-				loadLinks();
-				
-			} else {
-				var err = form.find(".error");
-				err.html("Login Failed [" + data.error + "]");
-				err.show();
-			}
-		}, "json");
-};
-
-
-		</script>
+		function register(form) {			
+			$.post(
+				'<c:url value="/register" />',
+				form.serialize(),
+				function (data, textStatus) {
+					var modal_id = $(this).attr("#modal");			
+					if (data.status) {
+						window.location.reload(true);				
+						//$(document).off('keydown.leanModal');
+						loadLinks();
+						
+					} else {
+						var err = form.find(".error");
+						err.html("Login Failed [" + data.error + "]");
+						err.show();
+					}
+				}, "json");
+		};
+	</script>
 </body>

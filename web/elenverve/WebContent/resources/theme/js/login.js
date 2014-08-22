@@ -9,8 +9,8 @@ $(document).ready(function() {
   
   // Validation Sign in
   
-  $("#sign-in-form").submit(function() {
-
+ // $("#sign-in-form").submit(function() {
+  $("#loginButton").click(function() {	
     var value_login = $("#j_username").val();
     var value_password = $("#j_password").val();
     
@@ -33,38 +33,39 @@ $(document).ready(function() {
       $('#j_username').removeClass('ipt-error');
       $('#j_password').removeClass('ipt-error');
       $('.error-box').slideUp('slow');
-      return true;
-    }
-    
+     
+      performLogin($("form"));
+	  return false;
+      //return true;
+    }    
     // If its not ok
     else {
-      // If login isn't ok
-      if (value_login == "")
-      {
-        $('#j_username').addClass('ipt-error');      
-        $('.error-box').slideDown('slow').removeClass('green').addClass('red');
-        $(".error-message").text("Incorrect login or password.");
-      }
+    	if (value_login == "" && value_password == ""){
+    		$('.error-box').slideDown('slow').removeClass('green').addClass('red');
+            $(".error-message").text("Please enter login and password.");
+            return false;
+    	}    	
+        // If login isn't ok
+	    if (value_login == ""){
+	        $('#j_username').addClass('ipt-error');      
+	        $('.error-box').slideDown('slow').removeClass('green').addClass('red');
+	        $(".error-message").text("Please enter login");
+	    }      
+        // If login is ok but password not
+        else if (value_login != "") {
+        	$('#j_username').removeClass('ipt-error');      
+        }
       
-      // If login is ok but password not
-      else if (value_login != "")
-      {
-        $('#j_username').removeClass('ipt-error');      
-      }
-      
-      // If password isn't ok
-      if (value_password == "")
-      {
-        $('#j_password').addClass('ipt-error');      
-        $('.error-box').slideDown('slow').removeClass('green').addClass('red');
-        $(".error-message").text("Incorrect login or password.");
-      }
-      
-      // If password is ok but login not
-      else if (value_password != "")
-      {
-        $('#j_password').removeClass('ipt-error');      
-      }
+        // If password isn't ok
+        if (value_password == ""){
+	        $('#j_password').addClass('ipt-error');      
+	        $('.error-box').slideDown('slow').removeClass('green').addClass('red');
+	        $(".error-message").text("Please enter password.");
+        }      
+        // If password is ok but login not
+        else if (value_password != ""){
+        	$('#j_password').removeClass('ipt-error');      
+        }
 
       return false;
     }
