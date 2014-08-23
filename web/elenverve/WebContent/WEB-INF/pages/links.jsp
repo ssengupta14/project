@@ -70,53 +70,26 @@
 					<div id="social_login_div"> 
 					<a class='btn-facebook' href='#'>Connect with Facebook</a>					
         			<a class='btn-twitter' href='#'>Connect with Twitter</a>  			
-					<!-- 
-					<input type='text' id='ipt-login' placeholder='Login' />
-			        <input type='password' id='ipt-password' placeholder='Password' /> 
-			        -->
+					
 			        <input type='text' id="j_username" name='j_username' placeholder='Login'/>
 			        <input type="password" id="j_password" name="j_password" placeholder='Password'/>
 			        <a class='forgotten-password-link' href='#'>Forgotten password</a>
 			      	<div id="signup_div">
         			Don't have an account? <a href='#' id="register_form">Sign up</a>
       				</div>
-			        	<input type='submit' class='btn-sign-in btn-orange' value='Sign in' id="loginButton"/>
-			        	        
+			        	<input type='submit' class='btn-sign-in btn-orange' value='Sign in' id="loginButton"/>			        	        
 			        </div>
+			         <!-- FORGOTTEN PASSWORD -->
+
 				</form>
+				<div class='forgotten-password-box' style="position:absolute;top:350px;  width:400px; left:00px;">
+			        <form class='input-form' id='forgotten-password-form' action=''>
+			          <span class='ie-placeholders'>Email:</span><input type='text' id='ipt-fp-email' class='forgotten-password-email' placeholder='E-mail' />
+			          <input type='submit' class='btn-orange' value='Send' /><br /><br />
+			          We'll send you e-mail with password reset.
+			        </form>
+			    </div>
 				 
-			</div>
-
-			<!-- Username & Password Login form -->
-			<div class="user_login">
-				<form>
-					<!-- <div class="message" style="display: none;">&nbsp;</div>
-					<div class="error" style="display: none;">&nbsp;</div>
-					<div>
-						<label for="j_username" class="popuptext">User:</label> 
-						<input type='text' id="j_username" name='j_username' />
-					</div>
-					<div style="clear: both;"></div>
-					<div>
-						<label for="j_password" class="popuptext">Password:</label> 
-						<input type="password" id="j_password" name="j_password" />
-					</div>
-					<div style="clear: both;"></div>
-					<div id="rememberMe">
-						<input type="checkbox" name="_spring_security_remember_me" id="_spring_security_remember_me" /> 
-						<label for="_spring_security_remember_me">Don't ask for my password for two weeks</label>
-					</div>
-
-					<div class="action_btns">
-						<div class="one_half">
-							<a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a>
-						</div>
-						<div class="one_half last">
-							<a href="#" class="btn btn_red" id="loginButton">Login</a>
-						</div>
-					</div> -->
-				</form>
-				<a href="#" class="forgot_password">Forgot password?</a>
 			</div>
 			<!-- Register Form -->
 			<div class="user_register">
