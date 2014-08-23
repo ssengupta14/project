@@ -126,12 +126,13 @@
 			        <span class='ie-placeholders'>Password:</span><input type='password' placeholder='Password' id='ipt-password' />
 			        <span class='ie-placeholders'>Retype Pass:</span><input type='password' placeholder='Retype password' id='ipt-repassword' /><br />
 			        <input type='checkbox' id='tac-checkbox' /><label for='tac-checkbox'>I agree with <a href='#'>terms and conditions</a></label>
+			        <div>
 			        <div class="one_half last">
 			        	<input type='submit' class='btn-register btn-orange' value='Register' />			        	
 			        </div>
 			        <div class="one_half">
 			        	<input type='submit' class='back_btn btn-register btn-orange' value='Back' />
-			        	
+			        	</div>
 			        </div>
 					<!-- <label>First Name</label> 			<input type="text" id="fName" name="fName"/> <br /> 
 					<label>Last Name</label> 			<input type="text" id="lName" name="lName"/> <br />
@@ -153,11 +154,11 @@
 					</div> -->
 				</form>
 			</div>
-			<div class='error-box red'>
+			<div class="error-box red" style="position:absolute;top:350px;  width:400px;">
         		<span class='error-message'>Incorrect login or password.</span>
-      		</div>
-		
+    		</div>		
 	</div>
+
 
 	<script type="text/javascript">
 			
@@ -172,6 +173,8 @@
 			$("#login_form").click(function() {
 				$(".social_login").hide();
 				$(".user_login").show();
+				$('.error-box').hide();
+			    
 				return false;
 			});
 		
@@ -180,6 +183,8 @@
 				$(".social_login").hide();
 				$(".user_register").show();
 				$(".header_title").text('Register');
+				$('.error-box').hide();
+			    
 				return false;
 			});
 		
@@ -189,6 +194,8 @@
 				$(".user_register").hide();
 				$(".social_login").show();
 				$(".header_title").text('Login');
+				$('.error-box').hide();
+			    
 				return false;
 			});
 			

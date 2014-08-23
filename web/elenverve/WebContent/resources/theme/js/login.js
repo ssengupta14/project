@@ -40,9 +40,10 @@ $(document).ready(function() {
     }    
     // If its not ok
     else {
+    	
     	if (value_login == "" && value_password == ""){
     		$('.error-box').slideDown('slow').removeClass('green').addClass('red');
-            $(".error-message").text("Please enter login and password.");
+            $(".error-message").text("Please enter login and password."); 
             return false;
     	}    	
         // If login isn't ok
