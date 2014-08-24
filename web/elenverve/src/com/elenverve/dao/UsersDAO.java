@@ -27,21 +27,25 @@ public class UsersDAO extends BaseDao implements  UserDetailsService  {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException
     {
-        System.out.println("Getting access details from employee dao !!");
-        
-        String sql = "SELECT * FROM USER_AUTH WHERE EMAIL_ID ='" + username + "'";        
-        UserAuthenticationBean userAuthenticationBean = jdbcTemplate.queryForObject(sql,userAuthenticationBeanMapper  ) ;
-        List<GrantedAuthority> list = new ArrayList<GrantedAuthority> ();
-        UserDetails user = null;
-        
-        if(userAuthenticationBean != null){        	 
-             GrantedAuthority grantedAuthority = new GrantedAuthorityImpl(userAuthenticationBean.getAuthority());
-             list.add(grantedAuthority);
-             user = new User(username, userAuthenticationBean.getPassword(), true, true, true, true, list);
-        }     
-        // Ideally it should be fetched from database and populated instance of
-        // #org.springframework.security.core.userdetails.User should be returned from this method       
-        return user;
+    	try{
+	        System.out.println("Getting access details from employee dao !!");        
+	        String sql = "SELECT * FROM USER_AUTH WHERE EMAIL_ID ='" + username + "'";        
+	        UserAuthenticationBean userAuthenticationBean = jdbcTemplate.queryForObject(sql,userAuthenticationBeanMapper  ) ;
+	        List<GrantedAuthority> list = new ArrayList<GrantedAuthority> ();
+	        UserDetails user = null;
+	        
+	        if(userAuthenticationBean != null){        	 
+	             GrantedAuthority grantedAuthority = new GrantedAuthorityImpl(userAuthenticationBean.getAuthority());
+	             list.add(grantedAuthority);
+	             user = new User(username, userAuthenticationBean.getPassword(), true, true, true, true, list);
+	             return user;
+	        }     
+	        // Ideally it should be fetched from database and populated instance of
+	        // #org.springframework.security.core.userdetails.User should be returned from this method       
+	        throw new UsernameNotFoundException("User Not found");
+    	}catch(Exception ex){
+    		throw new UsernameNotFoundException(" Request is failed") ;
+    	}
     }
         
     public String registerUser(UserDetailBean userDetailBean, UserAuthenticationBean userAuthenticationBean) throws DataAccessException

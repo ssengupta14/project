@@ -15,7 +15,7 @@ $(document).ready(function() {
     var value_password = $("#j_password").val();
     
     // If login is email
-    /*
+    
      var login_values = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
     // Email format validation    
@@ -25,7 +25,7 @@ $(document).ready(function() {
          $(".error-message").text("Please, fill your correct email.");
          return false;
     }
-    */
+    
 
     // Everything is all right
     if (value_login != "" && value_password != "")
@@ -121,24 +121,7 @@ $(document).ready(function() {
       $('#regRePassword').removeClass('ipt-error');
       $('.error-box').slideUp('slow');
       
-      register($("form"));
-      /*$.post(
-		'<c:url value="/register" />',
-		form.serialize(),
-		function (data, textStatus) {
-			 alert(data.status);		
-			if (data.status) {
-				//window.location.reload(true);				
-				//$(document).off('keydown.leanModal');
-				loadLinks();
-				return false;
-			} else {
-				var err = form.find(".error");
-				err.html("Login Failed [" + data.error + "]");
-				err.show();
-			}
-		}, "json");*/
-      
+      register($("form"));     
       
     }
     
