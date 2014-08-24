@@ -94,11 +94,11 @@
 			<!-- Register Form -->
 			<div class="user_register">
 				<form class="input-form" id="registration-form">
-					<span class="ie-placeholders">First Name:</span><input type="text" placeholder="First Name" id="ipt-login" />
-					<span class="ie-placeholders">Last Name:</span><input type="text" placeholder="Last Name" id="ipt-login" />
-			        <span class="ie-placeholders">E-mail:</span><input type="text" placeholder="E-mail" id="ipt-email" />
-			        <span class="ie-placeholders">Password:</span><input type="password" placeholder="Password" id="ipt-password" />
-			        <span class="ie-placeholders">Retype Pass:</span><input type="password" placeholder="Retype password" id="ipt-repassword" /><br />
+					<span class="ie-placeholders">First Name:</span><input type="text" placeholder="First Name" id="regFirstfName" name="regFirstfName"/>
+					<span class="ie-placeholders">Last Name:</span><input type="text" placeholder="Last Name" id="regLastfName" name="regLastfName"/>
+			        <span class="ie-placeholders">E-mail:</span><input type="text" placeholder="E-mail" id="regEmail" name="regEmail"/>
+			        <span class="ie-placeholders">Password:</span><input type="password" placeholder="Password" id="regPassword" name="regPassword"/>
+			        <span class="ie-placeholders">Retype Pass:</span><input type="password" placeholder="Retype password" id="regRePassword" name="regRePassword"/><br />
 			        <input type="checkbox" id="tac-checkbox" /><label for="tac-checkbox">I agree with <a href="#">terms and conditions</a></label>
 			        <div>
 			        <div class="one_half last">

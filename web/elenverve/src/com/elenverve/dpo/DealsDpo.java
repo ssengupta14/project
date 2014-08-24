@@ -195,7 +195,7 @@ public class DealsDpo {
 		}
 		
 	}
-		System.out.println(str.toString());
+		//System.out.println(str.toString());
 	}
 	
 	

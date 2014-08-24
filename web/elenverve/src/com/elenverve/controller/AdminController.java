@@ -38,29 +38,17 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value={ "/register"}, method = RequestMethod.POST)
-	/*public String register(
-			ModelMap model,HttpServletRequest request) {*/	
+	/*public String register(ModelMap model,HttpServletRequest request) {*/	
 	@ResponseBody
 	public String performLogin(
-			@RequestParam("fName") String fName, 
-			@RequestParam("lName") String lName,
-			@RequestParam("email") String email,
-			@RequestParam("rPassword") String rPassword,
-			HttpServletRequest request, HttpServletResponse response) 
-	{
-	
+			@RequestParam("regFirstfName") String regFirstfName, 
+			@RequestParam("regLastfName") String regLastfName,
+			@RequestParam("regEmail") String regEmail,
+			@RequestParam("regPassword") String regPassword,
+			@RequestParam("regRePassword") String regRePassword,
+			HttpServletRequest request, HttpServletResponse response) {
 		
-		/*
-		ProductParser parser = new ProductParser();
-		List<Product> prodList = parser.getProductList();
-		model.addAttribute("prodList", prodList);
-		*/
 		
-		request.getParameter("fName");
-		request.getAttribute("fName");
-		Admin admin = new Admin();
-		/*model.addAttribute("model", admin);
-		model.addAttribute("page", "admin");*/
 		return "template";
  
 	}

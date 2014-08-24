@@ -115,7 +115,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 	private MenuDpo parseSubMenus(Element root,MenuDpo menu){
 		ArrayList<Element> rootElements = new ArrayList<Element>(root.elements());
 		for(Element elem:rootElements){
-			System.out.println(elem.getName());
+			
 			if(SUB_MENUS.toUpperCase().equals(elem.getName().toUpperCase())){
 				parseSubMenus(elem, menu);
 			}
@@ -139,7 +139,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 		List<MenuDpo> menus = new LinkedList<MenuDpo>();
 		
 		for(Element elem:rootElements){
-			System.out.println(""+elem.getName());
+			
 			if(MENU.toUpperCase().equals(elem.getName().toUpperCase())){
 				MenuDpo menu = new MenuDpo();
 				menu.setDisplayName(elem.attributeValue("displayName"));
@@ -173,7 +173,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 				}
 				overlay.addCaption(text);
 				//overlay.setCaptions(captions)
-				System.out.println(ele.getName());
+				
 			}
 		}
 		return overlay;
@@ -227,7 +227,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 				overlay= parseCaptions(captions,overlay);
 				slide.addOverlay(overlay);
 				//overlay.setCaptions(captions)
-				System.out.println(ele.getName());
+				
 			}
 		}
 		return slide;
@@ -237,7 +237,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 	private BannerDpo parseSlides(List<Element> elems, BannerDpo banner) {
 
 		for (Element slideEl : elems) {
-				System.out.println(slideEl.getName());
+				
 				BannerDpo.Slide slide = banner.new Slide();
 				List<Attribute> attributes = slideEl.attributes();
 				for (Attribute att : attributes) {
@@ -270,9 +270,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 	 */
 	private String parseTopBanner(Element root){
 
-		String xml  = root.asXML();
-		System.out.println(xml);
-		System.out.println("-----------------------------------------------------");
+		String xml  = root.asXML();		
 		xml=xml.replace("<top-banner>", "");
 		xml=xml.replace("</top-banner>", "");
 		//xml=xml.replaceAll("<img src=\"", "<img src=\""+"/elenverve/resources/images/");
@@ -284,7 +282,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 		List<BannerDpo> banners = new LinkedList<BannerDpo>();
 		List<Element> rootElements = root.elements(SLIDES);
 		for(Element elem:rootElements){
-			System.out.println(elem.getName());
+			
 			BannerDpo banner = new BannerDpo();
 			List<Element> slides = elem.elements(SLIDE);
 			banner = parseSlides(slides,banner);
@@ -308,7 +306,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 		if(properties==null){properties = new HashMap<String,Object>();}
 		ArrayList<Element> rootElements = new ArrayList<Element>(root.elements());
 		for(Element elem:rootElements){
-			System.out.println(""+elem.getName());
+			
 			//menus
 			if(MENUS.toUpperCase().equals(elem.getName().toUpperCase())){
 				List<MenuDpo> mnus = parseMenu(elem);
@@ -335,7 +333,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 		types.add(2);
 		prop.initialize(types);
 		String banner = (String) prop.getProperties().get(TOP_BANNER);
-		System.out.println(banner);
+		
 		
 		/*
 		List<MenuDpo> mnus = (List<MenuDpo>)prop.getProperties().get(MENUS);
@@ -344,10 +342,10 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 		*/
 		/*
 		for(MenuDpo menu: mnus){
-			System.out.println(menu.getDisplayName());
+			
 			List<MenuDpo> subMenus = menu.getSubMenu();
 			for(MenuDpo submenu: subMenus){
-				System.out.println("-----"+submenu.getDisplayName());
+				
 			}
 		}*/
 		/*

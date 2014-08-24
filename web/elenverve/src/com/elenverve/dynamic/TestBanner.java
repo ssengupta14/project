@@ -34,14 +34,8 @@ public class TestBanner {
 		overlay = slide.new Overlay();
 		overlay.setCssClass(BannerDpo.TP_CAPTION_LFR);
 		overlay.setDataX(290);
-		overlay.setImageUrl("girl1.png");
-		
-		slide.addOverlay(overlay);
-		
-		
-		banner.addSlide(slide);
-		
-		System.out.println("done");
-		
+		overlay.setImageUrl("girl1.png");		
+		slide.addOverlay(overlay);		
+		banner.addSlide(slide);		
 	}
 }

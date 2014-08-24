@@ -75,101 +75,140 @@ $(document).ready(function() {
    
    // Validation Registration
   
-  $("#registration-form").submit(function() {
+  /*$("#registration-form").submit(function() {*/
+  $("#registerButton").click(function() {
     
-    var value_login = $("#j_username").val();
-    var value_email = $("#ipt-email").val();
-    var value_password = $("#j_password").val();
-    var value_repassword = $("#ipt-repassword").val();
+    var regFirstfName = $("#regFirstfName").val();
+    var regLastfName = $("#regLastfName").val();
+    var regEmail = $("#regEmail").val();
+    var regPassword = $("#regPassword").val();
+    var regRePassword = $("#regRePassword").val();
     
     // Email format validation
     
     var email_values = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         
-    if (value_login != "")
-    { $('#j_username').removeClass('ipt-error'); }
-    if (value_email != "")
-    { $('#ipt-email').removeClass('ipt-error'); }
-    if (value_password != "")
-    { $('#j_password').removeClass('ipt-error'); }
+    if (regFirstfName != ""){ 
+    	$('#regFirstfName').removeClass('ipt-error'); 
+    }
+    if (regLastfName != ""){ 
+    	$('#regLastfName').removeClass('ipt-error'); 
+    }
+    if (regEmail != ""){ 
+    	$('#regEmail').removeClass('ipt-error'); 
+    }
+    if (regPassword != "") { 
+    	$('#regPassword').removeClass('ipt-error'); 
+    }
+    if (regRePassword != "") { 
+    	$('#regRePassword').removeClass('ipt-error'); 
+    }
     
-    if (!email_values.test(value_email)) {
-       $('#ipt-email').addClass('ipt-error');      
+    if (!email_values.test(regEmail)) {
+       $('#regEmail').addClass('ipt-error');      
        $('.error-box').slideDown('slow').removeClass('green').addClass('red');
        $(".error-message").text("Please, fill your correct email.");
        return false;
     }
     
     // Everything is all right
-    if (value_login != "" && value_email != "" && value_password != "" && value_repassword == value_password && ($('#tac-checkbox:checked').val() !== undefined))
+    if (regFirstfName != "" && regLastfName != "" && regEmail != "" && regPassword != "" && regPassword == regRePassword && ($('#tac-checkbox:checked').val() !== undefined))
     {
-      $('#j_username').removeClass('ipt-error');
-      $('#ipt-email').removeClass('ipt-error');
-      $('#j_password').removeClass('ipt-error');
-      $('#ipt-repassword').removeClass('ipt-error');
+      $('#regFirstfName').removeClass('ipt-error');
+      $('#regLastfName').removeClass('ipt-error');
+      $('#regEmail').removeClass('ipt-error');
+      $('#regPassword').removeClass('ipt-error');
+      $('#regRePassword').removeClass('ipt-error');
       $('.error-box').slideUp('slow');
-      return true;
+      
+      $.post(
+		'<c:url value="/register" />',
+		form.serialize(),
+		function (data, textStatus) {
+			var modal_id = $(this).attr("#modal");			
+			if (data.status) {
+				window.location.reload(true);				
+				//$(document).off('keydown.leanModal');
+				loadLinks();
+				
+			} else {
+				var err = form.find(".error");
+				err.html("Login Failed [" + data.error + "]");
+				err.show();
+			}
+		}, "json");
+      
+      return false;
     }
     
     // If its not ok
     else {
       // If login isn't ok
-      if (value_login == "")
-      {
-        $('#j_username').addClass('ipt-error');      
+      if (regFirstfName == ""){
+        $('#regFirstfName').addClass('ipt-error');      
         $('.error-box').slideDown('slow').removeClass('green').addClass('red');
         $(".error-message").text("Please, fill all informations.");
       }
-      
       // If login is ok
-      else if (value_login != "")
-      {
-        $('#j_username').removeClass('ipt-error');      
+      else if (regFirstfName != ""){
+        $('#regFirstfName').removeClass('ipt-error');      
+      }
+      
+   // If login isn't ok
+      if (regLastfName == ""){
+        $('#regLastfName').addClass('ipt-error');      
+        $('.error-box').slideDown('slow').removeClass('green').addClass('red');
+        $(".error-message").text("Please, fill all informations.");
+      }
+      // If login is ok
+      else if (regLastfName != ""){
+        $('#regLastfName').removeClass('ipt-error');      
       }
       
       // If email isn't ok
-      if (value_email == "")
+      if (regEmail == "")
       {
-        $('#ipt-email').addClass('ipt-error');      
+        $('#regEmail').addClass('ipt-error');      
         $('.error-box').slideDown('slow').removeClass('green').addClass('red');
         $(".error-message").text("Please, fill all informations.");
       }
       
       // If email is ok
-      else if (value_email != "")
+      else if (regEmail != "")
       {
-        $('#ipt-email').removeClass('ipt-error');      
+        $('#regEmail').removeClass('ipt-error');      
       }
       
       // If password isn't ok
-      if (value_password == "")
+      if (regPassword == "")
       {
-        $('#j_password').addClass('ipt-error');      
+        $('#regPassword').addClass('ipt-error');      
         $('.error-box').slideDown('slow').removeClass('green').addClass('red');
         $(".error-message").text("Please, fill all informations.");
       }
       
       // If password is ok
-      else if (value_password != "")
+      else if (regPassword != "")
       {
-        $('#j_password').removeClass('ipt-error');      
+        $('#regPassword').removeClass('ipt-error');      
       }
       
       // If repassword isn't same
-      if (value_password != value_repassword)
+      if (regPassword != regRePassword)
       {
-        $('#ipt-repassword').addClass('ipt-error');      
+        $('#regRePassword').addClass('ipt-error');      
+        $('#regPassword').addClass('ipt-error'); 
         $('.error-box').slideDown('slow').removeClass('green').addClass('red');
         $(".error-message").text("Retyped password doesn't match.");
       }
       
       // If repassword is ok
-      else if (value_password == value_repassword)
+      else if (regPassword == regRePassword)
       {
-        $('#ipt-repassword').removeClass('ipt-error');      
+        $('#regRePassword').removeClass('ipt-error');      
       }
       
-      if (($('#tac-checkbox:checked').val() == undefined) && value_login != "" && value_email != "" && value_password != "" && value_repassword == value_password)
+      if (($('#tac-checkbox:checked').val() == undefined) && regFirstfName != "" && regEmail != "" && regPassword != "" && regPassword == regRePassword)
       {
         $('.error-box').slideDown('slow');
         $(".error-message").text("You have to agree with terms and conditions.");

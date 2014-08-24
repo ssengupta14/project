@@ -33,8 +33,7 @@ public class UploadFormController implements HandlerExceptionResolver{
 
     @RequestMapping(value= "/FileUploadForm",method=RequestMethod.POST)
     public String processForm(@ModelAttribute("FORM") UploadForm form,BindingResult result){
-
-    	System.out.println("Inside the upload form controller");
+    	
         if(!result.hasErrors()){
             FileOutputStream outputStream = null;
             String filePath = System.getProperty("java.io.tmpdir") + "/" + form.getFile().getOriginalFilename();
@@ -42,11 +41,9 @@ public class UploadFormController implements HandlerExceptionResolver{
                 outputStream = new FileOutputStream(new File(filePath));
                 outputStream.write(form.getFile().getFileItem().get());
                 outputStream.close();
-            } catch (Exception e) {
-                System.out.println("Error while saving file");
+            } catch (Exception e) {                
                 return "FileUploadForm";
-            }
-            System.out.println("Returning success..");
+            }           
             return "success";
         }else{
             return "FileUploadForm";
