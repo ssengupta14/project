@@ -121,28 +121,30 @@ $(document).ready(function() {
       $('#regRePassword').removeClass('ipt-error');
       $('.error-box').slideUp('slow');
       
-      $.post(
+      register($("form"));
+      /*$.post(
 		'<c:url value="/register" />',
 		form.serialize(),
 		function (data, textStatus) {
-			var modal_id = $(this).attr("#modal");			
+			 alert(data.status);		
 			if (data.status) {
-				window.location.reload(true);				
+				//window.location.reload(true);				
 				//$(document).off('keydown.leanModal');
 				loadLinks();
-				
+				return false;
 			} else {
 				var err = form.find(".error");
 				err.html("Login Failed [" + data.error + "]");
 				err.show();
 			}
-		}, "json");
+		}, "json");*/
       
-      return false;
+      
     }
     
     // If its not ok
     else {
+    	alert("3");
       // If login isn't ok
       if (regFirstfName == ""){
         $('#regFirstfName').addClass('ipt-error');      

@@ -7,11 +7,11 @@ public abstract class UserDvo extends BaseDvo{
 	private long accountId;
 	private String firstName;
 	private String lastName;
+	private String emailId;
 	private int gender;
 	private String phoneNumber;
 	private int phoneType;
-	private String emailId;
-	
+		
 	private CredentialsDvo credentials;
 	
 	public long getId() {

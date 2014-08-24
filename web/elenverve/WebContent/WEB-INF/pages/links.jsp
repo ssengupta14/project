@@ -207,21 +207,22 @@
 				}, "json");
 		};
 	
-		function register(form) {			
+		function register(form) {	
+			
 			$.post(
 				'<c:url value="/register" />',
 				form.serialize(),
 				function (data, textStatus) {
+					
 					var modal_id = $(this).attr("#modal");			
 					if (data.status) {
 						window.location.reload(true);				
 						//$(document).off('keydown.leanModal');
-						loadLinks();
-						
+						loadLinks();						
 					} else {
-						var err = form.find(".error");
-						err.html("Login Failed [" + data.error + "]");
-						err.show();
+						var err = form.find(".error");						
+						$('.error-box').slideDown('slow').removeClass('green').addClass('red');
+					    $(".error-message").text("Login Failed [" + data.error + "]");
 					}
 				}, "json");
 		};

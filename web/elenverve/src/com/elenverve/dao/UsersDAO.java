@@ -14,10 +14,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
+
+import com.elenverve.db.beans.UserAuthenticationBean;
+import com.elenverve.db.beans.UserDetailBean;
   
 @SuppressWarnings("deprecation")
 @Repository
-public class UsersDAO implements  UserDetailsService  {
+public class UsersDAO extends BaseDao implements  UserDetailsService  {
  
 	private JdbcTemplate jdbcTemplate;
 	
@@ -25,13 +28,34 @@ public class UsersDAO implements  UserDetailsService  {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException
     {
         System.out.println("Getting access details from employee dao !!");
+        
+        String sql = "SELECT * FROM USER_AUTH WHERE EMAIL_ID ='" + username + "'";        
+        UserAuthenticationBean userAuthenticationBean = jdbcTemplate.queryForObject(sql,userAuthenticationBeanMapper  ) ;
         List<GrantedAuthority> list = new ArrayList<GrantedAuthority> ();
-        GrantedAuthority grantedAuthority = new GrantedAuthorityImpl("ROLE_USER");
-        list.add(grantedAuthority);
+        UserDetails user = null;
+        
+        if(userAuthenticationBean != null){        	 
+             GrantedAuthority grantedAuthority = new GrantedAuthorityImpl(userAuthenticationBean.getAuthority());
+             list.add(grantedAuthority);
+             user = new User(username, userAuthenticationBean.getPassword(), true, true, true, true, list);
+        }     
         // Ideally it should be fetched from database and populated instance of
-        // #org.springframework.security.core.userdetails.User should be returned from this method
-        UserDetails user = new User(username, "password", true, true, true, true, list);
+        // #org.springframework.security.core.userdetails.User should be returned from this method       
         return user;
+    }
+        
+    public String registerUser(UserDetailBean userDetailBean, UserAuthenticationBean userAuthenticationBean) throws DataAccessException
+    {
+        System.out.println("Request to create user !!");
+        String sql = "INSERT INTO USER_DTL (EMAIL_ID,F_NAME,L_NAME,USER_TYPE) "
+        		+ "VALUES('"+userDetailBean.getEmailId()+"','"+userDetailBean.getFirstName()+"','"+userDetailBean.getLastName()+"',1)" ;
+        jdbcTemplate.update(sql);
+        
+        sql = "INSERT INTO USER_AUTH (EMAIL_ID,PASSWORD,AUTHORITY) "
+        		+ "VALUES('"+userAuthenticationBean.getEmailId()+"','"+userAuthenticationBean.getPassword()+"','ROLE_USER')" ;
+        jdbcTemplate.update(sql);
+        
+        return "SUCCESS";
     }
 	
 	public void setDataSource(DataSource dataSource){
