@@ -12081,10 +12081,10 @@ a.btn_red {
 
 /* Social Login Form */
 .social_login {
-	padding: 10px;
+	padding: 20px;
 }
 
-.social_login .social_box {
+/* .social_login .social_box {
 	display: block;
 	clear: both;
 	padding: 10px;
@@ -12124,7 +12124,7 @@ a.btn_red {
 .social_login .social_box:hover {
 	background: #E4E4E2;
 }
-
+ */
 .centeredText {
 	text-align: center;
 	margin: 20px 0;
@@ -12188,6 +12188,7 @@ a.btn_red {
 /* User Register Form */
  .user_register {
 	display: none;
+	padding: 20px;
 }
 
 .user_register label {

@@ -10,8 +10,8 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Raleway:400,300,600,700,500|Noto+Sans:400,700|Ubuntu:300,400,500,700'
-		rel='stylesheet' type='text/css'>
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Raleway:400,300,600,700,500|Noto+Sans:400,700|Ubuntu:300,400,500,700"
+		rel="stylesheet" type="text/css">
 	<!-- Styles -->
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>" type="text/css" />
 	<!-- Bootstrap -->
@@ -68,24 +68,24 @@
 				 <form>		
 				
 					<div id="social_login_div"> 
-					<a class='btn-facebook' href='#'>Connect with Facebook</a>					
-        			<a class='btn-twitter' href='#'>Connect with Twitter</a>  			
+					<a class="btn-facebook" href="#">Connect with Facebook</a>					
+        			<a class="btn-twitter" href="#">Connect with Twitter</a>  			
 					
-			        <input type='text' id="j_username" name='j_username' placeholder='Login'/>
-			        <input type="password" id="j_password" name="j_password" placeholder='Password'/>
-			        <a class='forgotten-password-link' href='#'>Forgotten password</a>
+			        <input type="text" id="j_username" name="j_username" placeholder="E-mail"/>
+			        <input type="password" id="j_password" name="j_password" placeholder="Password"/>
+			        <a class="forgotten-password-link" href="#">Forgotten password</a>
 			      	<div id="signup_div">
-        			Don't have an account? <a href='#' id="register_form">Sign up</a>
+        			Don't have an account? <a href="#" id="register_form">Sign up</a>
       				</div>
-			        	<input type='submit' class='btn-sign-in btn-orange' value='Sign in' id="loginButton"/>			        	        
+			        	<input type="submit" class="btn-sign-in btn-orange" value="Sign in" id="loginButton"/>			        	        
 			        </div>
 			         <!-- FORGOTTEN PASSWORD -->
 
 				</form>
-				<div class='forgotten-password-box' style="position:absolute;top:350px;  width:400px; left:00px;">
-			        <form class='input-form' id='forgotten-password-form' action=''>
-			          <span class='ie-placeholders'>Email:</span><input type='text' id='ipt-fp-email' class='forgotten-password-email' placeholder='E-mail' />
-			          <input type='submit' class='btn-orange' value='Send' /><br /><br />
+				<div class="forgotten-password-box" style="position:absolute;top:350px;  width:400px; left:00px;">
+			        <form class="input-form" id="forgotten-password-form" action="">
+			          <span class="ie-placeholders">Email:</span><input type="text" id="ipt-fp-email" class="forgotten-password-email" placeholder="E-mail" />
+			          <input type="submit" class="btn-orange" value="Send" /><br /><br />
 			          We'll send you e-mail with password reset.
 			        </form>
 			    </div>
@@ -93,21 +93,23 @@
 			</div>
 			<!-- Register Form -->
 			<div class="user_register">
-				<form class='input-form' id='registration-form'>
-					<span class='ie-placeholders'>Login:</span><input type='text' placeholder='Login' id='ipt-login' />
-			        <span class='ie-placeholders'>E-mail:</span><input type='text' placeholder='E-mail' id='ipt-email' />
-			        <span class='ie-placeholders'>Password:</span><input type='password' placeholder='Password' id='ipt-password' />
-			        <span class='ie-placeholders'>Retype Pass:</span><input type='password' placeholder='Retype password' id='ipt-repassword' /><br />
-			        <input type='checkbox' id='tac-checkbox' /><label for='tac-checkbox'>I agree with <a href='#'>terms and conditions</a></label>
+				<form class="input-form" id="registration-form">
+					<span class="ie-placeholders">First Name:</span><input type="text" placeholder="First Name" id="ipt-login" />
+					<span class="ie-placeholders">Last Name:</span><input type="text" placeholder="Last Name" id="ipt-login" />
+			        <span class="ie-placeholders">E-mail:</span><input type="text" placeholder="E-mail" id="ipt-email" />
+			        <span class="ie-placeholders">Password:</span><input type="password" placeholder="Password" id="ipt-password" />
+			        <span class="ie-placeholders">Retype Pass:</span><input type="password" placeholder="Retype password" id="ipt-repassword" /><br />
+			        <input type="checkbox" id="tac-checkbox" /><label for="tac-checkbox">I agree with <a href="#">terms and conditions</a></label>
 			        <div>
 			        <div class="one_half last">
-			        	<input type='submit' class='btn-register btn-orange' value='Register' />			        	
+			        	<input type="submit" class="btn-register btn-orange" value="Register" id="registerButton"/>			        	
 			        </div>
 			        <div class="one_half">
-			        	<input type='submit' class='back_btn btn-register btn-orange' value='Back' />
+			        	<input type="submit" class="back_btn btn-register btn-orange" value="Back" />
 			        	</div>
 			        </div>
-					<!-- <label>First Name</label> 			<input type="text" id="fName" name="fName"/> <br /> 
+					<!-- 
+					<label>First Name</label> 			<input type="text" id="fName" name="fName"/> <br /> 
 					<label>Last Name</label> 			<input type="text" id="lName" name="lName"/> <br />
 					<label>Email Address</label> 		<input type="email" id="email" name="email"/> <br /> 
 					<label>Password</label>				<input type="password" id="rPassword" name ="rPassword"/> <br />
@@ -127,8 +129,8 @@
 					</div> -->
 				</form>
 			</div>
-			<div class="error-box red" style="position:absolute;top:350px;  width:400px;">
-        		<span class='error-message'>Incorrect login or password.</span>
+			<div class="error-box red" style="position:absolute;top:400px;  width:500px;">
+        		<span class="error-message">Incorrect login or password.</span>
     		</div>		
 	</div>
 

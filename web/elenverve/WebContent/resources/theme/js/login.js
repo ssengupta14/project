@@ -44,7 +44,7 @@ $(document).ready(function() {
     	if (value_login == "" && value_password == ""){
     		$('.error-box').slideDown('slow').removeClass('green').addClass('red');
             $(".error-message").text("Please enter login and password."); 
-            return false;
+            
     	}    	
         // If login isn't ok
 	    if (value_login == ""){
