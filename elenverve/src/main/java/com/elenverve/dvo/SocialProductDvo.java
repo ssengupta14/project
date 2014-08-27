@@ -1,5 +1,6 @@
 package com.elenverve.dvo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SocialProductDvo {
@@ -9,7 +10,7 @@ public class SocialProductDvo {
 	private long tweetsCtr;
 	private long recomendationCtr;
 	private long dislikeCtr;
-	private List<TestimonialDvo> testimonials;
+	private List<TestimonialDvo> reviews= new ArrayList<TestimonialDvo>();
 	public String getSocialProductId() {
 		return socialProductId;
 	}
@@ -46,11 +47,11 @@ public class SocialProductDvo {
 	public void setDislikeCtr(long dislikeCtr) {
 		this.dislikeCtr = dislikeCtr;
 	}
-	public List<TestimonialDvo> getTestimonials() {
-		return testimonials;
+	public List<TestimonialDvo> getReviews() {
+		return reviews;
 	}
-	public void setTestimonials(List<TestimonialDvo> testimonials) {
-		this.testimonials = testimonials;
+	public void addReview(TestimonialDvo review) {
+		this.reviews.add(review);
 	}
 	
 }

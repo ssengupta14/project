@@ -1,41 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
 	<menus>
-		<menu displayName ="Art and crafts" href="">
+		<menu displayName ="Artwork" href="/elenverve/products?cat=artwork">
 			<sub-menus>
-				<menu displayName="a1" href="">
+				<menu displayName="Canvas" href="/elenverve/products?cat=artwork&amp;sc=1"/>
+				<menu displayName="Artistic Frames" href="/elenverve/products?cat=artwork&amp;sc=2"/>
+				<menu displayName="Fabric" href="/elenverve/products?cat=artwork&amp;sc=3"/>
+				<menu displayName="Walls" href="/elenverve/products?cat=artwork&amp;sc=4"/>
+			</sub-menus>
+		</menu>
+		
+		<menu displayName ="Home Decor" href="/elenverve/products?cat=home">
+			<sub-menus>
+				<menu displayName="Statues" href="/elenverve/products?cat=home&amp;sc=1">
 				<sub-menus>
 					<menu displayName="a11" href=""/>
 					<menu displayName="a12" href=""/>
 				</sub-menus>
 				</menu>
-				<menu displayName="a2" href=""/>
-				<menu displayName="a3" href=""/>
+				<menu displayName="Figurine" href="/elenverve/products?cat=home&amp;sc=2"/>
+				<menu displayName="Sculptures" href="/elenverve/products?cat=home&amp;sc=3"/>
+				<menu displayName="Wall Hangings" href="/elenverve/products?cat=home&amp;sc=4"/>
+				<menu displayName="Vases" href="/elenverve/products?cat=home&amp;sc=5"/>
+				<menu displayName="Lamp &amp; Shades" href="/elenverve/products?cat=home&amp;sc=6"/>
 			</sub-menus>
 		</menu>
-		<menu displayName ="Home decor" href="">
+		<menu displayName ="Workspace decor" href="/elenverve/products?cat=workspace">
 			<sub-menus>
-				<menu displayName="b1" href=""/>
-				<menu displayName="b2" href=""/>
-				<menu displayName="b3" href=""/>
+				<menu displayName="Organizers" href="/elenverve/products?cat=workspace&amp;sc=1"/>
+				<menu displayName="Lamps" href="/elenverve/products?cat=workspace&amp;sc=2"/>
+				<menu displayName="Picture frames" href="/elenverve/products?cat=workspace&amp;sc=3"/>
+				<menu displayName="Decorative" href="/elenverve/products?cat=workspace&amp;sc=4"/>
 			</sub-menus>
 		</menu>
-		<menu displayName ="Lifestyle" href="">
+		<menu displayName ="Fashion Accessories" href="/elenverve/products?cat=fashion">
 			<sub-menus>
-				<menu displayName="c1" href=""/>
-				<menu displayName="c2" href=""/>
-				<menu displayName="c3" href=""/>
+				<menu displayName="Jewelry" href="/elenverve/products?cat=fashion&amp;sc=1"/>
+				<menu displayName="Bags &amp; purses" href="/elenverve/products?cat=fashion&amp;sc=2"/>
+				<menu displayName="Belts &amp; accesories" href="/elenverve/products?cat=fashion&amp;sc=3"/>
+				<menu displayName="Organizers" href="/elenverve/products?cat=fashion&amp;sc=4"/>
+				
 			</sub-menus>
 		</menu>
-		<menu displayName ="Fashion accesories" href="">
+		<menu displayName ="eGifts" href="/elenverve/egifts">
 			<sub-menus>
-				<menu displayName="d1" href=""/>
-				<menu displayName="d2" href=""/>
-				<menu displayName="d3" href=""/>
-			</sub-menus>
-		</menu>			
+				<menu displayName="Gift Cards" href="/elenverve/egifts?sc=1"/>
+				<menu displayName="Gift Certificates" href="/elenverve/egifts?sc=2"/>
+				<menu displayName="Coupons" href="/elenverve/egifts?sc=3"/>								
+			</sub-menus>					
+		</menu>
+					
 	</menus>
-	<!--  this section has overriding strategy, the attributes mentioned here will only be overriden  -->
+	
+		<!--  this section has overriding strategy, the attributes mentioned here will only be overriden  -->
 	<top-banner>
 	
 					<li data-transition="3dcurtain-vertical" data-slotamount="7" data-masterspeed="500" >

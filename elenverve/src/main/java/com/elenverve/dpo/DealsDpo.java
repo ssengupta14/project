@@ -195,7 +195,7 @@ public class DealsDpo {
 		}
 		
 	}
-		System.out.println(str.toString());
+		//logger.debug(str.toString());
 	}
 	
 	

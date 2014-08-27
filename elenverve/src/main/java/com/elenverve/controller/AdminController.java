@@ -28,7 +28,7 @@ import com.elenverve.validator.FileUploadValidator;
 @RequestMapping("/")
 public class AdminController {
 	
-	@Autowired  
+	//@Autowired  
 	 FileUploadValidator fileValidator;  
 	
 	@RequestMapping(value={ "/admin"}, method = RequestMethod.GET)

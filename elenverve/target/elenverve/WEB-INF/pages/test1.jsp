@@ -9,7 +9,7 @@
     </head>
     <body>
         <h1>File Upload Form</h1><br />
-        <form:form commandName="FORM" enctype="multipart/form-data" method="POST" action ="/elenverve/FileUploadForm">
+        <form:form commandName="FORM" modelAttribute="uploadedFile" enctype="multipart/form-data" method="post" action ="/FileUpload.html">
         <table>
          <tr><td colspan="2" style="color: red;"><form:errors path="*" cssStyle="color : red;"/>
          ${errors}

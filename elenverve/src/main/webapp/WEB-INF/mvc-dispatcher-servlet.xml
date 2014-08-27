@@ -11,6 +11,7 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:component-scan base-package="com.elenverve.controller" />
+	 <mvc:annotation-driven />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -20,14 +21,22 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-	<bean id="fileValidator" class="com.elenverve.validator.FileUploadValidator" />
-  
+	<!-- 
+	<bean id="dbAccess" class="com.elenverve.dao.DbAccessService" factory-method="initialize"/>
+	<bean id="defaultContoller" class="com.elenverve.controller.DefaultController">
+		<property name="dbAccess" ref="dbAccess" />
+	</bean>
+	-->
  <bean id="multipartResolver"  
   class="org.springframework.web.multipart.commons.CommonsMultipartResolver" > 
 	<property name="maxUploadSize" value="100000"/>
 </bean>	
 
 	<mvc:resources mapping="/resources/**" location="/resources/theme/" />
+	<mvc:resources mapping="/images/**" location="/resources/theme/images/" />
+	<mvc:resources mapping="/category/**" location="/resources/theme/images/Category/" />
+	<mvc:resources mapping="/collection/**" location="/resources/theme/images/Collection/" />
+	<mvc:resources mapping="/product/**" location="/resources/theme/images/products/" />
 	<mvc:resources mapping="/static/**" location="/static/" /> 
 	<mvc:annotation-driven />
 	

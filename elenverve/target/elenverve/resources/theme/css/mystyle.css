@@ -1,84 +1,78 @@
-fieldset {
-  border: none;
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic);
+
+body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
+
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
 }
 
-.login {
-  position: relative;
-  width: 400px;
-  display: none;
-   left: -300px;
-      top: 25px;
-    z-index: 1;
-  
+.popupContainer{
+	position:absolute;
+	width:330px;
+	height: auto;
+	left:45%;
+	top:80px;
+	background: #FFF;
 }
 
-.arrow-up {
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 15px solid #ECF0F1;
-  left: 80%;
-  position: absolute;
-  top: -10px;
-}
+#modal_trigger {margin:0px auto; width:100px; display:block;}
 
-.formholder {
-  background: #ecf0f1;
-  width: 750px;
-  border-radius: 5px;
-  padding-top: -15px;
-  
-}
+.btn {padding:10px 20px; background: #F4F4F2;}
+.btn_red {background: #ED6347; color: #FFF;}
+
+.btn:hover {background: #E4E4E2;}
+.btn_red:hover {background: #C12B05;}
+
+a.btn {color:#666; text-align: center; text-decoration: none;}
+a.btn_red {color: #FFF;}
+
+.one_half {width:50%; display: block; float:left;}
+.one_half.last {width:45%; margin-left:5%;}
+
+/* Popup Styles*/
+.popupHeader {font-size:16px; text-transform: uppercase;}
+.popupHeader {background:#F4F4F2; position:relative; padding:10px 20px; border-bottom:1px solid #DDD; font-weight:bold;}
+.popupHeader .modal_close {position: absolute; right: 0; top:0; padding:10px 15px; background:#E4E4E2; cursor: pointer; color:#aaa; font-size:16px;}
+
+.popupBody {padding:20px;}
 
 
-.formholder input[type="email"], .formholder input[type="password"] {
-  padding: 3px 1px;
-  margin: 2px 0;
-  width: 30%;
-  height:25px;
-  display: block;
-  font-size: 12px;
-  border-radius: 10px;
-  border: none;
-  -webkit-transition: 0.3s linear;
-  -moz-transition: 0.3s linear;
-  -o-transition: 0.3s linear;
-  transition: 0.3s linear;
-}
-.formholder input[type="email"]:focus, .formholder input[type="password"]:focus {
-  outline: none;
-  box-shadow: 0 0 1px 1px #f0b70c;
-}
-.formholder input[type="submit"] {
-  background: #D2D2D2;
-  padding: 10px;
-   margin: 15px 0;
-  font-size: 12px;
-  display: block;
-  width: 30%;
-  height:40px;
-  border: none;
-  color: #fff;
-  border-radius: 5px;
-}
+/* Social Login Form */
+.social_login {}
+.social_login .social_box {display:block; clear:both; padding:10px; margin-bottom: 10px; background: #F4F4F2; overflow: hidden;}
+.social_login .icon {display:block; width:10px; padding:5px 10px; margin-right: 10px; float:left; color:#FFF; font-size:16px; text-align: center;} 
+.social_login .fb .icon {background:#3B5998;}
+.social_login .google .icon {background:#DD4B39;}
+.social_login .icon_title {display:block; padding:5px 0; float:left; font-weight: bold; font-size: 16px; color:#777;}
+.social_login .social_box:hover {background: #E4E4E2;}
 
-.formholder input[type="submit"]:hover {
-  background: #f0b70c;
-}
+.centeredText {text-align: center; margin: 20px 0; clear: both; overflow: hidden; text-transform: uppercase;}
 
-.randompad {
-  padding: 10px;
-}
+.action_btns {clear:both; overflow: hidden;}
+.action_btns a {display: block;}
 
-.green {
-  color: #1abc9c;
-}
+/* User Login Form */
+.user_login {display: none;}
+.user_login label {display: block; margin-bottom:5px;}
+.user_login input[type="text"], .user_login input[type="email"], .user_login input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
+.user_login input[type="checkbox"] {float:left; margin-right:5px;}
+.user_login input[type="checkbox"]+label {float:left;}
 
-a {
-  color: #ecf0f1;
-  text-decoration: none;
-}
-a:hover {
-  color: #1abc9c;
-}
+.user_login .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
+.forgot_password {display:block; margin: 20px 0 10px; clear: both; overflow: hidden; text-decoration: none; color:#ED6347;}
+
+/* User Register Form */
+.user_register {display: none;}
+.user_register label {display: block; margin-bottom:5px;}
+.user_register input[type="text"], .user_register input[type="email"], .user_register input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
+.user_register input[type="checkbox"] {float:left; margin-right:5px;}
+.user_register input[type="checkbox"]+label {float:left;}
+
+.user_register .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}

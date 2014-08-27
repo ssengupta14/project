@@ -3,28 +3,34 @@ package com.elenverve.controller;
 
 
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
+import com.elenverve.dao.DbAccessService;
+import com.elenverve.dvo.CollectionDvo;
+import com.elenverve.dvo.ProductDvo;
 import com.elenverve.model.Home;
 import com.elenverve.model.Products;
-import com.elenverve.model.UploadForm;
 
 
 
  
 @Controller
 @RequestMapping("/")
-public class HomeController {
+public class HomeController extends DefaultController{
+	private static final Logger logger = Logger.getLogger(HomeController.class);
+	// Initialize the dbAccess layer & remove the below line
 	
 
 /*		
@@ -57,7 +63,7 @@ public class HomeController {
 	    public String handleFileUpload(ModelMap model ,HttpServletRequest request){
 	 	//@RequestParam("name") String name, 
 	           // @RequestParam("file") fileUpload file){
-		 	System.out.println("Inside home controller for upload");
+		 	//logger.debug("Inside home controller for upload");
 	    	String name =request.getParameter("name");
 	    	fileUpload file = (fileUpload) request.getAttribute("file");
 		 
@@ -70,7 +76,7 @@ public class HomeController {
 				fileName = multipartFile.getOriginalFilename();
 				//do whatever you want
 			}
-			System.out.println("uploaded file "+ fileName+", returning to jsp");
+			//logger.debug("uploaded file "+ fileName+", returning to jsp");
 			model.addAttribute("fileName",fileName);
 			return "FileUploadSuccess";
 	    	
@@ -94,38 +100,27 @@ public class HomeController {
 		List<Product> prodList = parser.getProductList();
 		model.addAttribute("prodList", prodList);
 		*/
-		Home home = new Home();
+		
+		List<CollectionDvo> dvo= dbAccess.getCollections();
+		Home home = new Home(dbAccess);
 		model.addAttribute("home", home);
 		
 		return "index8";
  
 	}
-	@RequestMapping(value={ "/products*", "/welcome**" }, method = RequestMethod.GET)
-	public String products(ModelMap model,HttpServletRequest request) {
-		
-		
-		/*
-		ProductParser parser = new ProductParser();
-		List<Product> prodList = parser.getProductList();
-		model.addAttribute("prodList", prodList);
-		*/
-		Products products = new Products();
-		model.addAttribute("model", products);
-		model.addAttribute("prodList", products.getProducts());
-		model.addAttribute("page", "products");
-		return "template";
- 
-	}
+	
 	@RequestMapping(value={ "/", "/welcome**" }, method = RequestMethod.GET)
-	public String test(ModelMap model,HttpServletRequest request) {
-		
+	public String landing(ModelMap model,HttpServletRequest request) {
+		logger.debug("Invoking method [landing] from controller [HomeController] for context [/]");
 		
 		/*
 		ProductParser parser = new ProductParser();
 		List<Product> prodList = parser.getProductList();
 		model.addAttribute("prodList", prodList);
 		*/
-		Home home = new Home();
+		
+		// call data access layer & get list of collections & categories
+		Home home = new Home(dbAccess);
 		model.addAttribute("model", home);
 		model.addAttribute("page", "landing");
 		return "template";

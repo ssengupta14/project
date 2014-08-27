@@ -1,5 +1,6 @@
 package com.elenverve.handler;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -8,24 +9,21 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+import com.elenverve.dao.DbAccessService;
 import com.elenverve.dpo.BannerDpo;
 import com.elenverve.dpo.DealsDpo;
 import com.elenverve.dpo.MenuDpo;
 import com.elenverve.exception.PropertiesException;
 import com.elenverve.util.CommonUtils;
 
-
-
-
-
-
 public class XmlPropertiesHandler extends PropertiesHandler{
-
+	private static final Logger logger = Logger.getLogger(DbAccessService.class);
 	private static XmlPropertiesHandler handler=null;
 	private String propertyFileName =null;
 	private String propfileName ="resources.xml"; 
@@ -51,8 +49,11 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 			for(Integer type: types){
 				switch(type){ // if type is not 0 or 1 , resources.xml is read;
 				case 0:{ //All
+					logger.debug("Reading resources...");
 					readPropertiesFile("resources.xml");
+					logger.debug("Reading offers..");
 					readPropertiesFile("offers.xml");
+					logger.debug("done reading resources & offers..");
 					break;
 				}
 				case 1:{ //Just resources.xml
@@ -67,7 +68,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 			}
 			
 		} catch (Exception e) {
-		 System.out.println("Exception in parsing properties file :"+propfileName+" Exception message [ "+e.getMessage()+" ]");
+		 ////logger.debug("Exception in parsing properties file :"+propfileName+" Exception message [ "+e.getMessage()+" ]");
 		}
 	}
 	
@@ -79,14 +80,23 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 	 */
 	protected void readPropertiesFile(String fileName) throws PropertiesException{
 		propertyFileName =fileName;
+		InputStream url=null;
 		try {
-			InputStream url = getResourceFileStream(propertyFileName);
+			logger.debug("Opening property file ["+propertyFileName+"] ");
+			url = getResourceFileStream(propertyFileName);
 			SAXReader reader = new SAXReader();
 			Document doc = reader.read(url);			
 			Element root = doc.getRootElement();
-			parse(root,false);
+			parse(root,false);			
 		} catch (Exception e) {
 			throw new PropertiesException(propertyFileName,	"Exception occured while extracting DOM document from xml",	e);
+		}finally{
+			try {				
+				url.close();
+				logger.debug("Property file ["+propertyFileName+"] closed..");
+			} catch (IOException e) {
+				throw new PropertiesException(propertyFileName,	"Exception occured while closing "+propertyFileName,	e);
+			}
 		}
 	
 	}
@@ -101,6 +111,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 			Document doc = reader.read(fileName);			
 			Element root = doc.getRootElement();
 			parse(root,true);
+			
 		} catch (Exception e) {
 			throw new PropertiesException(fileName.toString(),	"Exception occured while extracting DOM document from xml",	e);
 		}
@@ -115,13 +126,14 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 	private MenuDpo parseSubMenus(Element root,MenuDpo menu){
 		ArrayList<Element> rootElements = new ArrayList<Element>(root.elements());
 		for(Element elem:rootElements){
-			System.out.println(elem.getName());
+			////logger.debug(elem.getName());
 			if(SUB_MENUS.toUpperCase().equals(elem.getName().toUpperCase())){
 				parseSubMenus(elem, menu);
 			}
 			if(MENU.toUpperCase().equals(elem.getName().toUpperCase())){
 				MenuDpo subMenu = new MenuDpo();
 				subMenu.setDisplayName(elem.attributeValue("displayName"));
+				subMenu.setHref(elem.attributeValue("href"));
 				subMenu = parseSubMenus(elem,subMenu);
 				menu.addSubMenu(subMenu);
 			}
@@ -139,10 +151,11 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 		List<MenuDpo> menus = new LinkedList<MenuDpo>();
 		
 		for(Element elem:rootElements){
-			System.out.println(""+elem.getName());
+			logger.debug(""+elem.getName());
 			if(MENU.toUpperCase().equals(elem.getName().toUpperCase())){
 				MenuDpo menu = new MenuDpo();
 				menu.setDisplayName(elem.attributeValue("displayName"));
+				menu.setHref(elem.attributeValue("href"));
 				menu= parseSubMenus(elem,menu);
 				menus.add(menu);
 			}else{
@@ -153,7 +166,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 		return menus;
 	}
 	
-	
+	/*
 	private BannerDpo.Slide.Overlay parseCaptions(List<Element> elements,BannerDpo.Slide.Overlay overlay){
 		for(Element elem:elements){
 			List<Element> elems = elem.elements(TEXT);
@@ -173,15 +186,15 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 				}
 				overlay.addCaption(text);
 				//overlay.setCaptions(captions)
-				System.out.println(ele.getName());
+				////logger.debug(ele.getName());
 			}
 		}
 		return overlay;
 	
 	}
 	
-	
-	
+	*/
+	/*
 	private BannerDpo.Slide parseOverlays(List<Element> elements,BannerDpo.Slide slide){
 		for(Element elem:elements){
 			List<Element> elems = elem.elements(OVERLAY);
@@ -227,17 +240,18 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 				overlay= parseCaptions(captions,overlay);
 				slide.addOverlay(overlay);
 				//overlay.setCaptions(captions)
-				System.out.println(ele.getName());
+				////logger.debug(ele.getName());
 			}
 		}
 		return slide;
 	
 	}
-	
+	*/
+	/*
 	private BannerDpo parseSlides(List<Element> elems, BannerDpo banner) {
 
 		for (Element slideEl : elems) {
-				System.out.println(slideEl.getName());
+				////logger.debug(slideEl.getName());
 				BannerDpo.Slide slide = banner.new Slide();
 				List<Attribute> attributes = slideEl.attributes();
 				for (Attribute att : attributes) {
@@ -262,7 +276,46 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 
 		}
 		return banner;
+	} */
+	
+	
+	/**
+	 * Daily deal section
+	 * @param root
+	 * @return
+	 */
+	private String parseDailyDeal(Element root){
+		String xml  = root.asXML();
+		////logger.debug(xml);
+		////logger.debug("-----------------------------------------------------");
+		xml=xml.replace("<daily-deal>", "");
+		xml=xml.replace("</daily-deal>", "");
+		//xml=xml.replaceAll("<img src=\"", "<img src=\""+IMAGES_URL);
+		//xml=xml.replaceAll("src=\"", "src=\""+IMAGES_URL);
+		xml= xml.replace("<!--", "");
+		xml= xml.replace("-->", "");
+		return xml;
+		
 	}
+	/**
+	 * Weekly deals section
+	 * @param root
+	 * @return
+	 */
+	private String parseWeeklyDeal(Element root){
+		String xml  = root.asXML();
+		////logger.debug(xml);
+		////logger.debug("-----------------------------------------------------");
+		xml=xml.replace("<weekly-deal>", "");
+		xml=xml.replace("</weekly-deal>", "");
+		//xml=xml.replaceAll("<img src=\"", "<img src=\""+IMAGES_URL);
+		//xml=xml.replaceAll("src=\"", "src="+IMAGES_URL);
+		xml= xml.replace("<!--", "");
+		xml= xml.replace("-->", "");
+		return xml;
+		
+	}
+	
 	/**
 	 * for parsing top banner
 	 * @param root
@@ -271,12 +324,12 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 	private String parseTopBanner(Element root){
 
 		String xml  = root.asXML();
-		System.out.println(xml);
-		System.out.println("-----------------------------------------------------");
+		////logger.debug(xml);
+		////logger.debug("-----------------------------------------------------");
 		xml=xml.replace("<top-banner>", "");
 		xml=xml.replace("</top-banner>", "");
-		//xml=xml.replaceAll("<img src=\"", "<img src=\""+"/elenverve/resources/images/");
-		xml=xml.replaceAll("src=\"", "src=\""+"/elenverve/resources/images/");
+		//xml=xml.replaceAll("<img src=\"", "<img src=\""+IMAGES_URL);
+		//xml=xml.replaceAll("src=\"", "src="+IMAGES_URL);
 		xml= xml.replace("<!--", "");
 		xml= xml.replace("-->", "");
 		/*
@@ -284,7 +337,7 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 		List<BannerDpo> banners = new LinkedList<BannerDpo>();
 		List<Element> rootElements = root.elements(SLIDES);
 		for(Element elem:rootElements){
-			System.out.println(elem.getName());
+			////logger.debug(elem.getName());
 			BannerDpo banner = new BannerDpo();
 			List<Element> slides = elem.elements(SLIDE);
 			banner = parseSlides(slides,banner);
@@ -307,9 +360,11 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 	private void parse(Element root,boolean override){
 		if(properties==null){properties = new HashMap<String,Object>();}
 		ArrayList<Element> rootElements = new ArrayList<Element>(root.elements());
+		
 		for(Element elem:rootElements){
-			System.out.println(""+elem.getName());
+			////logger.debug(""+elem.getName());
 			//menus
+			
 			if(MENUS.toUpperCase().equals(elem.getName().toUpperCase())){
 				List<MenuDpo> mnus = parseMenu(elem);
 				properties.put(MENUS, mnus);
@@ -321,6 +376,18 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 				String banners = parseTopBanner(elem);
 				properties.put(TOP_BANNER, banners);
 			}
+			// banner
+			if(DAILY_DEAL.toUpperCase().equals(elem.getName().toUpperCase())){
+				//List<BannerDpo> banners = parseTopBanner(elem);
+				String dailyDeal = parseDailyDeal(elem);
+				properties.put(DAILY_DEAL, dailyDeal);
+			}
+			if(WEEKLY_DEAL.toUpperCase().equals(elem.getName().toUpperCase())){
+				//List<BannerDpo> banners = parseTopBanner(elem);
+				String weelyDeal = parseWeeklyDeal(elem);
+				properties.put(WEEKLY_DEAL, weelyDeal);
+			}
+			
 			
 		}
 		
@@ -329,13 +396,21 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 
 	
 	public static void main(String arg[]){
+
 		XmlPropertiesHandler prop = getInstance();
 		List<Integer> types = new ArrayList<Integer>();
 		
 		types.add(2);
 		prop.initialize(types);
 		String banner = (String) prop.getProperties().get(TOP_BANNER);
-		System.out.println(banner);
+		//logger.debug(banner);
+		
+		banner = (String) prop.getProperties().get(DAILY_DEAL);
+		//logger.debug(banner);
+
+		banner = (String) prop.getProperties().get(WEEKLY_DEAL);
+		//logger.debug(banner);
+
 		
 		/*
 		List<MenuDpo> mnus = (List<MenuDpo>)prop.getProperties().get(MENUS);
@@ -344,15 +419,15 @@ public class XmlPropertiesHandler extends PropertiesHandler{
 		*/
 		/*
 		for(MenuDpo menu: mnus){
-			System.out.println(menu.getDisplayName());
+			////logger.debug(menu.getDisplayName());
 			List<MenuDpo> subMenus = menu.getSubMenu();
 			for(MenuDpo submenu: subMenus){
-				System.out.println("-----"+submenu.getDisplayName());
+				////logger.debug("-----"+submenu.getDisplayName());
 			}
 		}*/
 		/*
 		for(BannerDpo banner: banners){
-			//System.out.println(banner.getDataMasterSpeed());
+			//////logger.debug(banner.getDataMasterSpeed());
 			CommonUtils.printObject(banner);
 			
 		}*/

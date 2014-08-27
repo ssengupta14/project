@@ -41,7 +41,7 @@ public class TestBanner {
 		
 		banner.addSlide(slide);
 		
-		System.out.println("done");
+		//logger.debug("done");
 		
 	}
 }

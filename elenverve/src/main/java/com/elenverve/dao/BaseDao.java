@@ -1,5 +1,5 @@
 package com.elenverve.dao;
 
-public class BaseDao {
+public abstract class BaseDao {
 
 }

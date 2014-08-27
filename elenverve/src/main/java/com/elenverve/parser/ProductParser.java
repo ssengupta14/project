@@ -63,7 +63,7 @@ public class ProductParser {
 			}
 		}
 	 
-		System.out.println("Done");
+		//logger.debug("Done");
 
 		
 		

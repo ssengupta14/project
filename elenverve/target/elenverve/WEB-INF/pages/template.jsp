@@ -9,6 +9,7 @@
 <body>
 <jsp:include page="header.jsp" />
  <jsp:include page="${page}.jsp" />
+
  
  <jsp:include page="footer.jsp" />
 </body>

@@ -294,7 +294,49 @@
 			autoPlay :true
 
 	});
-		
+		$("#best-seller1").owlCarousel({
+			autoPlay :true,
+			stopOnHover : true,
+			navigation:true,
+			goToFirstSpeed : 2000,
+			slideSpeed:1500,
+			singleItem : true,
+			autoHeight : true,
+			pagination:false,
+			transitionStyle:"backSlide"
+	});
+		$("#best-seller").owlCarousel({
+			autoPlay :true,
+			stopOnHover : true,
+			navigation:true,
+			goToFirstSpeed : 2000,
+			slideSpeed:1500,
+			singleItem : true,
+			autoHeight : true,
+			pagination:false,
+			transitionStyle:"goDown"
+	});
+	$("#shop-collections").owlCarousel({
+				autoPlay :true,
+				stopOnHover : true,
+				navigation:true,
+				goToFirstSpeed : 2000,
+				slideSpeed:1500,
+				singleItem : true,
+				autoHeight : true,
+				pagination:false,
+				transitionStyle:"goDown"
+	});
+	$("#best-seller-sec").owlCarousel({
+	autoPlay: 20000, //Set AutoPlay to 20 seconds
+	items : 1,
+	navigation:true,
+	});
+	$("#weekly-best-seller-sec").owlCarousel({
+		autoPlay: 20000, //Set AutoPlay to 20 seconds
+		items : 1,
+		navigation:true,
+	});
 		$(".tab-photos").owlCarousel({
 				autoPlay :true,
 				stopOnHover : true,
@@ -307,6 +349,16 @@
 				transitionStyle:"goDown"
 			});
 			$(".footer-deal").owlCarousel({
+				autoPlay : true,
+				stopOnHover : true,
+				goToFirstSpeed : 2000,
+				slideSpeed : 1500,
+				singleItem : true,
+				autoHeight : true,
+				transitionStyle : "goDown",
+				paginationNumbers : true
+			});
+			$(".instore-deal").owlCarousel({
 				autoPlay : true,
 				stopOnHover : true,
 				goToFirstSpeed : 2000,
