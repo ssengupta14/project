@@ -7,17 +7,24 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.elenverve.dao.UsersDAO;
+import com.elenverve.db.beans.UserAuthenticationBean;
+import com.elenverve.db.beans.UserDetailBean;
 import com.elenverve.model.Admin;
 import com.elenverve.model.Home;
 import com.elenverve.model.UploadForm;
@@ -27,13 +34,14 @@ import com.elenverve.validator.FileUploadValidator;
 @Controller
 @RequestMapping("/")
 public class AdminController {
-	
 	//@Autowired  
-	 FileUploadValidator fileValidator;  
+	//FileUploadValidator fileValidator;  
+	
+	@Autowired  
+	UsersDAO usersDAO;  
 	
 	@RequestMapping(value={ "/admin"}, method = RequestMethod.GET)
 	public String admin(ModelMap model,HttpServletRequest request) {
-		
 		
 		/*
 		ProductParser parser = new ProductParser();
@@ -46,42 +54,38 @@ public class AdminController {
 		return "template";
  
 	}
-	/*
-	 @RequestMapping(value={ "/upload"}, method = RequestMethod.GET)  
-	 public ModelAndView fileUploaded(  
-	   @ModelAttribute("uploadedFile") fileUpload uploadedFile,BindingResult result) {  
-	  InputStream inputStream = null;  
-	  OutputStream outputStream = null;  
-	  
-	  MultipartFile file = uploadedFile.getFile();  
-	  fileValidator.validate(uploadedFile, result);  
-	  
-	  String fileName = file.getOriginalFilename();  
-	  
-	  if (result.hasErrors()) {  
-	   return new ModelAndView("admin");  
-	  }  
-	  
-	  try {  
-	   inputStream = file.getInputStream();  
-	  
-	   File newFile = new File("C:/Users/nagesh.chauhan/files/" + fileName);  
-	   if (!newFile.exists()) {  
-	    newFile.createNewFile();  
-	   }  
-	   outputStream = new FileOutputStream(newFile);  
-	   int read = 0;  
-	   byte[] bytes = new byte[1024];  
-	  
-	   while ((read = inputStream.read(bytes)) != -1) {  
-	    outputStream.write(bytes, 0, read);  
-	   }  
-	  } catch (IOException e) {  
-	   // TODO Auto-generated catch block  
-	   e.printStackTrace();  
-	  }  
-	  
-	  return new ModelAndView("admin", "fileMessage", fileName);  
-	 }  
-*/
+	
+	@RequestMapping(value={ "/register"}, method = RequestMethod.POST)
+	/*public String register(ModelMap model,HttpServletRequest request) {*/	
+	@ResponseBody
+	public String performLogin(
+			@RequestParam("regFirstfName") String regFirstfName, 
+			@RequestParam("regLastfName") String regLastfName,
+			@RequestParam("regEmail") String regEmail,
+			@RequestParam("regPassword") String regPassword,
+			@RequestParam("regRePassword") String regRePassword,
+			HttpServletRequest request, HttpServletResponse response) {
+		
+		UserDetailBean userDetailBean = new UserDetailBean();
+		UserAuthenticationBean userAuthenticationBean = new UserAuthenticationBean();
+		userDetailBean.setFirstName(regFirstfName);
+		userDetailBean.setLastName(regLastfName);
+		userDetailBean.setEmailId(regEmail);
+		userDetailBean.setUserType(1);
+		
+		userAuthenticationBean.setEmailId(regEmail);
+		userAuthenticationBean.setPassword(regPassword);
+		userAuthenticationBean.setAuthority("ROLE_USER");
+		try{
+			UserDetails user = usersDAO.loadUserByUsername(regEmail);
+			if(user != null && user.getUsername().equalsIgnoreCase(regEmail)){
+				return "{\"status\": false, \"error\": \"  User already exists \"}";
+			}
+			usersDAO.registerUser(userDetailBean, userAuthenticationBean);
+			return "{\"status\": true}";
+		}catch(Exception ex){
+			ex.printStackTrace();
+			return "{\"status\": false, \"error\": \"  User creation failed. \"}";
+		}		
+	}	
 }
