@@ -1,6 +1,5 @@
 package com.elenverve.dao;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +24,7 @@ public class UsersDAO extends BaseDao implements  UserDetailsService  {
  
 	private JdbcTemplate jdbcTemplate;
 	
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException
     {
     	try{
