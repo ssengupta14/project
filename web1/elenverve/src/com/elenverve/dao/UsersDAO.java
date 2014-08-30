@@ -22,7 +22,7 @@ import com.elenverve.db.beans.UserDetailBean;
 @Repository
 public class UsersDAO extends BaseDao implements  UserDetailsService  {
  
-	private JdbcTemplate jdbcTemplate;
+	
 	
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException
@@ -62,7 +62,5 @@ public class UsersDAO extends BaseDao implements  UserDetailsService  {
         return "SUCCESS";
     }
 	
-	public void setDataSource(DataSource dataSource){
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
-	}
+
 }

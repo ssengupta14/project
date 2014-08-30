@@ -66,7 +66,7 @@
 							<div class="best-seller most-sold">
 								<div class="sold-thumb">
 									<!--  <img alt="" src="http://placehold.it/248x273">-->
-									<img src="<%=request.getContextPath() %>${products.get((row*column)-1).details.imageUrls.get(0)}" alt="">
+									<img src="<%=request.getContextPath() %>${products.get((row*column)-1).getImageUrls().get(0)}" alt="">
 									<a href="single-post.html" title="">VIEW DETAILS</a>
 									
 									<i class="box1"></i>
@@ -76,34 +76,25 @@
 								</div>
 													
 								<!--  <h3>BEST KIDS DESIGN 2014</h3> -->
-								<h3>${products.get((row*column)-1).details.productName}</h3>
+								<h3>${products.get((row*column)-1).productName}</h3>
 								
-								<ul class="tooltip-btn">
-									<!-- 
-									<li class="cart"><a href="#" title=""><i class="fa fa-heart"></i></a></li>
-									<li class="shop"><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
-									-->
+								<ul class="tooltip-btn">									
 									
-								<li class="cart"><a title="" href="#"><i class="fa fa-heart"></i></a></li>
+								<li class="shop"><a title="" href="#"><i class="fa fa-heart"></i></a></li>								
 								
-								
-								<li class="shop"><a title="" href="#"><i class="fa fa-shopping-cart"></i></a></li>
-								
-								
-								<li class="shop"><a title="" href="#"><i class="fa fa-shopping-cart"></i></a></li>
+								<li class="cart"><a title="" href="#"><i class="fa fa-shopping-cart"></i></a></li>						
 								
 								</ul>
 								<a href="#" title="">DETAILS</a>
-								<c:if test="${products.get((row*column)-1).details.newInd == true}"> 
+								<c:if test="${products.get((row*column)-1).newInd == true}"> 
 									<h6>NEW</h6>
 								</c:if>
 								<!--  <span><i>$360</i>$460</span> -->
-								<span><i>$ ${products.get((row*column)-1).details.initialPrice}</i>$ ${products.get((row*column)-1).details.finalPrice}</span>
+								<span><i>$ ${products.get((row*column)-1).initialPrice}</i>$ ${products.get((row*column)-1).finalPrice}</span>
 							</div>
 							</c:forEach>
 						</div>
-						 </c:forEach>
-						 
+						 </c:forEach>				 
 						
 					</div>
 		
