@@ -1,7 +1,9 @@
 package com.elenverve.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,8 +25,9 @@ public class ProductServiceImpl implements ProductService {
 		return null;
 	}
 
-	public List<ProductDetailBean> getProducts(String cat, String sc) {
-		List<ProductDetailBean> productsDetail = new ArrayList<ProductDetailBean>();
+	public Map<String, ProductDetailBean> getProducts(String cat, String sc) {
+		//List<ProductDetailBean> productsDetail = new ArrayList<ProductDetailBean>();
+		Map<String, ProductDetailBean> products = new HashMap<String, ProductDetailBean>();
 		for (int i = 0; i <= 35; i++) {
 			ProductDetailBean details =new ProductDetailBean();
 
@@ -39,10 +42,10 @@ public class ProductServiceImpl implements ProductService {
 			details.setInStock(true);
 			details.setNewInd(false);
 			details.setCategoryId("CAT001");
-			productsDetail.add(details);
+			products.put("P00"+i,details);
 			
 		}
-		return productsDetail;
+		return products;
 	}
 	
 	public String getCategoryId(String categoryName,String subCatId){

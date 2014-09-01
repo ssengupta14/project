@@ -82,7 +82,8 @@
 									
 								<li class="shop"><a title="" href="#"><i class="fa fa-heart"></i></a></li>								
 								
-								<li class="cart"><a title="" href="#"><i class="fa fa-shopping-cart"></i></a></li>						
+								<li class="cart"><a title="" href="${contextPath}/elenverve/addToCart?productId=${products.get((row*column)-1).productId}"><i class="fa fa-shopping-cart"></i></a></li>						
+								
 								
 								</ul>
 								<a href="#" title="">DETAILS</a>
@@ -90,7 +91,7 @@
 									<h6>NEW</h6>
 								</c:if>
 								<!--  <span><i>$360</i>$460</span> -->
-								<span><i>$ ${products.get((row*column)-1).initialPrice}</i>$ ${products.get((row*column)-1).finalPrice}</span>
+								<span><i>$ ${products.get((row*column)-1).initialPrice}</i>$ ${products.get((row*column)-1).finalPrice}  </span>
 							</div>
 							</c:forEach>
 						</div>

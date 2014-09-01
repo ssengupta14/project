@@ -1,11 +1,12 @@
 package com.elenverve.db.beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.elenverve.dvo.ProductDvo.Dimension;
 
-public class ProductDetailBean {
+public class ProductDetailBean implements Comparable<ProductDetailBean>, Serializable{
 	
 	private String productId;
 	private String categoryId;
@@ -245,5 +246,26 @@ public class ProductDetailBean {
 		imageUrls.add(string);
 		
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		return o instanceof ProductDetailBean && productId.equalsIgnoreCase(((ProductDetailBean) o).productId);
+	}
+	
+	@Override
+	public int hashCode() {
+		return ((String) productId).hashCode();
+	}
+	
+	public int compareTo(ProductDetailBean p) {
+		int c = description.compareTo(p.description);
+		return (c == 0 ? ((String) productId).compareTo((String) p.productId) : c);
+		
+	}	
+	/*@Override
+	public int compareTo(ProductDetailBean p) {
+		int c = description.compareTo(p.description);
+		return (c == 0 ? ((String) productId).compareTo((String) p.productId) : c);
+	}*/
 
 }

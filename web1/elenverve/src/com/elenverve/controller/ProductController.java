@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.elenverve.db.beans.ProductDetailBean;
+import com.elenverve.service.CartService;
 import com.elenverve.service.ProductService;
 
 @Controller
@@ -26,6 +28,13 @@ public class ProductController extends DefaultController{
 	
 	@Autowired
 	private ProductService productService ;
+	
+	@Autowired
+	private CartService cartService;
+	
+	public void setCartService(CartService cartService) {
+		this.cartService = cartService;
+	}
 	
 	@RequestMapping(value={ "/products*" }, method = RequestMethod.GET)
 	public String products(ModelMap model,HttpServletRequest request) {
@@ -40,7 +49,7 @@ public class ProductController extends DefaultController{
 		String col=request.getParameter("col");
 		String ipp=request.getParameter("mipp");
 		String pageId = request.getParameter("page");
-		Object obj = request.getSession().getAttribute("pagination_products");
+		List<ProductDetailBean> obj =  cartService.getProducts();//request.getSession().getAttribute("pagination_products");
 		//
 				
 		if(catName!=null && subCat!=null){ 
@@ -65,14 +74,15 @@ public class ProductController extends DefaultController{
 		PagedListHolder<ProductDetailBean> productListHolder =null;
 	
 		
-		if(obj==null){
+		if(CollectionUtils.isEmpty(obj)){
 			logger.debug("Fetching products as per request params ...");
-			List<ProductDetailBean> products = productService.getProducts(catName, subCat);		
-			productListHolder= new PagedListHolder<ProductDetailBean>(products);
-			request.getSession().setAttribute("pagination_products", productListHolder);
+			Map<String, ProductDetailBean> products = productService.getProducts(catName, subCat);		
+			cartService.setProducts(products);
+			productListHolder= new PagedListHolder<ProductDetailBean>(cartService.getProducts());
+			//request.getSession().setAttribute("pagination_products", productListHolder);			
 			
 		}else{
-			productListHolder = ((PagedListHolder<ProductDetailBean>)obj);
+			productListHolder = new PagedListHolder<ProductDetailBean>(cartService.getProducts());//((PagedListHolder<ProductDetailBean>)obj);
 			if ("next".equals(pageId)) {
 	            productListHolder.nextPage();
 	        }

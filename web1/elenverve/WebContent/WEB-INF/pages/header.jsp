@@ -68,6 +68,25 @@
 					<ul class="shop-cart bar-dropdown">
 						<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a>
 							<ul>
+							
+								<c:forEach var="product" items="${shoppingCart.getShoppingCartProducts()}">
+									<li>
+										<span>
+											<img src="http://placehold.it/50x50" alt="" />
+										</span> 
+										<a href="#" title="">${product.getProduct().productName}</a> 
+										<i>${product.getProduct().finalPrice}</i>
+										<div class="cart-bar-hover">
+											<ul>
+												<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+												<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+											</ul>
+										</div>
+									</li>
+									
+								</c:forEach> 
+														
+ <!-- 
 								<li>
 									<span>
 										<img src="http://placehold.it/50x50" alt="" />
@@ -106,6 +125,7 @@
 										</ul>
 									</div>
 								</li>
+								 -->
 								<li>
 									<h6>Total : $960</h6> 
 									<a href="#" title="" class="checkout-btn">Checkout</a>
