@@ -128,7 +128,8 @@
 								 -->
 								<li>
 									<h6>Total : $960</h6> 
-									<a href="#" title="" class="checkout-btn">Checkout</a>
+									<a href="${contextPath}/elenverve//checkout" title="" class="checkout-btn">Checkout</a>
+									
 								</li>
 							</ul>
 						</li>

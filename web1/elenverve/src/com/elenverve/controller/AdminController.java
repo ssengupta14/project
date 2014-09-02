@@ -1,11 +1,5 @@
 package com.elenverve.controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,22 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.elenverve.dao.UsersDAO;
 import com.elenverve.db.beans.UserAuthenticationBean;
 import com.elenverve.db.beans.UserDetailBean;
 import com.elenverve.model.Admin;
-import com.elenverve.model.Home;
-import com.elenverve.model.UploadForm;
-import com.elenverve.validator.FileUploadValidator;
 
 
 @Controller
