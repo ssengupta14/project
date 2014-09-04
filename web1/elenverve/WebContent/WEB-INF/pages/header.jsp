@@ -318,15 +318,7 @@
 					overlay : 0.6,
 					closeButton : ".modal_close"
 				});
-			/* $("#login").load(
-				'<c:url value="/login" />',
-				function(responseText, textStatus, xhr) {
-					if (xhr.status == 200) {
-						$("#login").dialog('open');
-					} else {
-						$("#login").html('<h4 style="color: #F00">Could not load URL "/login"</h4>');
-					}
-				}); */
+			
 		}; 
 		$(document).ready(function() {
 			loadLinks();

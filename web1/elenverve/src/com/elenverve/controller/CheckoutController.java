@@ -31,6 +31,7 @@ public class CheckoutController extends DefaultController{
 	@RequestMapping(value={ "/checkout" }, method = RequestMethod.GET)
 	public String products(ModelMap model,HttpServletRequest request) {		
 		model.addAttribute("page", "viewcart");
+		
 		return "template";
  
 	}

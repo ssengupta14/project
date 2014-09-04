@@ -67,5 +67,8 @@ public class HomeController extends DefaultController{
 	
 	@RequestMapping(value="/links", method=RequestMethod.GET)
 	public void links() {}
+	
+	@RequestMapping(value="/links1", method=RequestMethod.GET)
+	public void links1() {}
  
 }
