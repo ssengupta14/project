@@ -12,10 +12,10 @@ public class CollectionDvo {
 	private String image;
 	
 	// collections can have products or categories or designers
-	private List<ProductDvo> products;
-	private List<CategoryDvo> categories;
-	private List<DesignerDvo> designers;
-	private List<OfferDvo> offers = new ArrayList<OfferDvo>();
+	private List<String> products = new ArrayList<String>();
+	private List<String> categories = new ArrayList<String>();
+	private List<String> designers = new ArrayList<String>();
+	private List<String> offers = new ArrayList<String>();
 	
 	public String getCollectionId() {
 		return collectionId;
@@ -35,23 +35,34 @@ public class CollectionDvo {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public List<ProductDvo> getProducts() {
+	public List<String> getProducts() {
 		return products;
 	}
-	public void setProducts(List<ProductDvo> products) {
+	public void setProducts(List<String> products) {
 		this.products = products;
 	}
-	public List<CategoryDvo> getCategories() {
+	public void addProduct(String product) {
+		this.products.add(product);
+	}
+	
+	public List<String> getCategories() {
 		return categories;
 	}
-	public void setCategories(List<CategoryDvo> categories) {
+	public void setCategories(List<String> categories) {
 		this.categories = categories;
 	}
-	public List<DesignerDvo> getDesigners() {
+	public void addCategory(String category) {
+		this.categories.add(category);
+	}
+	
+	public List<String> getDesigners() {
 		return designers;
 	}
-	public void setDesigners(List<DesignerDvo> designers) {
+	public void setDesigners(List<String> designers) {
 		this.designers = designers;
+	}
+	public void addDesigner(String designer) {
+		this.designers.add(designer);
 	}
 	public String getImage() {
 		return image;
@@ -59,11 +70,11 @@ public class CollectionDvo {
 	public void setImage(String image) {
 		this.image = IConstants.COLLECTION_IMAGES_URL+image;
 	}
-	public List<OfferDvo> getOffers() {
+	public List<String> getOffers() {
 		return offers;
 	}
 	
-	public void addOffer(OfferDvo offer) {
+	public void addOffer(String offer) {
 		this.offers.add(offer);
 	}
 	

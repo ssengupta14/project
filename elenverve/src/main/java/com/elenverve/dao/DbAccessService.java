@@ -1,30 +1,16 @@
 package com.elenverve.dao;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-import com.elenverve.common.IConstants;
-import com.elenverve.controller.HomeController;
-import com.elenverve.dvo.CategoryDvo;
-import com.elenverve.dvo.CollectionDvo;
-import com.elenverve.dvo.OfferDvo;
-import com.elenverve.dvo.ProductDvo;
-import com.elenverve.dvo.ProductDvo.ProductAnalytics;
-import com.elenverve.dvo.ProductDvo.ProductPromotions;
-import com.elenverve.dvo.SocialProductDvo;
-import com.elenverve.dvo.TestimonialDvo;
-import com.elenverve.dvo.ProductDvo.ProductDetails;
 @Service
-public class DbAccessService extends BaseDao{
+public class DbAccessService {//extends BaseDao{
 	private static final Logger logger = Logger.getLogger(DbAccessService.class);
 	private DbAccessService dbAccess;
 	public void initialize(){
 		dbAccess = new DbAccessService();
 	}
+	/*
 	public List<CollectionDvo> getCollections(){
 		List<CollectionDvo> collections = new ArrayList<CollectionDvo>();
 		//TODO mocking up the db call to fetch collections, will remove later
@@ -131,6 +117,7 @@ public class DbAccessService extends BaseDao{
 		}
 		return null;
 		*/
+/*	
 		return "CAT001";
 	}
 	public List<CategoryDvo> getCategories(){
@@ -302,7 +289,7 @@ public class DbAccessService extends BaseDao{
 			ProductDvo dvo = new ProductDvo();
 			ProductDetails details = dvo.new ProductDetails();
 
-			details.setProductId("P00"+i);
+			dvo.setProductId("P00"+i);
 			details.setProductName("Product "+i);
 			details.setCollectionId("COL001");
 			details.setCurrencyCd(0);
@@ -351,6 +338,6 @@ public class DbAccessService extends BaseDao{
 		}
 			return dvos;
 	}
-	
+*/
 
 }

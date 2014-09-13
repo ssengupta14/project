@@ -9,11 +9,13 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import com.elenverve.common.IConstants;
+import com.elenverve.common.Parameters;
 import com.elenverve.controller.HomeController;
 import com.elenverve.dpo.MenuDpo;
 import com.elenverve.handler.XmlPropertiesHandler;
 
 public class Default implements IConstants{
+	protected Parameters parameters;
 	protected Map<String,Object> values = new HashMap<String,Object>();
 	private static final Logger logger = Logger.getLogger(Default.class);
 	protected XmlPropertiesHandler handler = XmlPropertiesHandler.getInstance();

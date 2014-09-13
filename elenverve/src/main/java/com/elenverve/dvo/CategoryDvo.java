@@ -14,10 +14,10 @@ public class CategoryDvo {
 	// This way we can achieve any level of categories
 	private List<CategoryDvo> subcategories = new ArrayList<CategoryDvo>();
 	
-	private List<ProductDvo> products = new ArrayList<ProductDvo>();
-	private List<CollectionDvo> collections = new ArrayList<CollectionDvo>();
-	private List<DesignerDvo> designers = new ArrayList<DesignerDvo>();
-	private List<OfferDvo> offers = new ArrayList<OfferDvo>();
+	private List<String> products = new ArrayList<String>();
+	private List<String> collections = new ArrayList<String>();
+	private List<String> designers = new ArrayList<String>();
+	private List<String> offers = new ArrayList<String>();
 	
 	public String getCategoryId() {
 		return categoryId;
@@ -37,10 +37,10 @@ public class CategoryDvo {
 	public void addSubcategory(CategoryDvo subcategory) {
 		this.subcategories.add(subcategory);
 	}
-	public List<ProductDvo> getProducts() {
+	public List<String> getProducts() {
 		return products;
 	}
-	public void addProduct(ProductDvo product) {
+	public void addProduct(String product) {
 		this.products.add(product);
 	}
 	public String getImage() {
@@ -49,22 +49,22 @@ public class CategoryDvo {
 	public void setImage(String image) {
 		this.image = IConstants.CATEGORY_IMAGES_URL+image;
 	}
-	public List<CollectionDvo> getCollections() {
+	public List<String> getCollections() {
 		return collections;
 	}
-	public void addCollections(CollectionDvo collection) {
+	public void addCollection(String collection) {
 		this.collections.add(collection);
 	}
-	public List<DesignerDvo> getDesigners() {
+	public List<String> getDesigners() {
 		return designers;
 	}
-	public void addDesigner(DesignerDvo designer) {
+	public void addDesigner(String designer) {
 		this.designers.add(designer);
 	}
-	public List<OfferDvo> getOffers() {
+	public List<String> getOffers() {
 		return offers;
 	}
-	public void addOffer(OfferDvo offer) {
+	public void addOffer(String offer) {
 		this.offers.add(offer);
 	}
 	public String getDescription() {

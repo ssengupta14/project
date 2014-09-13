@@ -60,13 +60,29 @@
 					</div>
 				
 						<div id="masonary-content" class="row">
-						<c:forEach begin="1" end="${max_item}" varStatus="loop" var="row">
+						<c:set var="factor" value="0" scope="page" />
+						<c:set var="counter" value="0" scope="page" />
+						<c:forEach begin="1" end="${model.maxItems}" varStatus="loop" var="row">
+							<c:if test="${row>1}">
+								<c:set var="factor" value="${counter}" scope="page" />
+							</c:if>	
 							<div class="cat1 cat3 col-md-4 inner-products">
 							<c:forEach begin="1" end="3" varStatus="loop" var="column">
+							<c:set var="value" value="0" scope="page" />
+							<c:choose>
+								<c:when test="${row>1}">
+									<c:set var="value" value="${column+factor}" scope="page" />
+								</c:when>
+								<c:otherwise>
+									<c:set var="value" value="${column}" scope="page" />
+								</c:otherwise>
+							</c:choose>
+							
 							<div class="best-seller most-sold">
 								<div class="sold-thumb">
 									<!--  <img alt="" src="http://placehold.it/248x273">-->
-									<img src="<%=request.getContextPath() %>${products.get((row*column)-1).details.imageUrls.get(0)}" alt="">
+									
+									<img src="<%=request.getContextPath() %>${model.productDvos.get(value-1).details.imageUrls.get(0)}" alt="">
 									<a href="single-post.html" title="">VIEW DETAILS</a>
 									
 									<i class="box1"></i>
@@ -76,7 +92,7 @@
 								</div>
 													
 								<!--  <h3>BEST KIDS DESIGN 2014</h3> -->
-								<h3>${products.get((row*column)-1).details.productName}</h3>
+								<h3>${model.productDvos.get(value-1).details.productName}</h3>
 								
 								<ul class="tooltip-btn">
 									<!-- 
@@ -94,12 +110,13 @@
 								
 								</ul>
 								<a href="#" title="">DETAILS</a>
-								<c:if test="${products.get((row*column)-1).details.newInd == true}"> 
+								<c:if test="${model.productDvos.get(value-1).details.newInd == true}"> 
 									<h6>NEW</h6>
 								</c:if>
 								<!--  <span><i>$360</i>$460</span> -->
-								<span><i>$ ${products.get((row*column)-1).details.initialPrice}</i>$ ${products.get((row*column)-1).details.finalPrice}</span>
+								<span><i>$ ${model.productDvos.get(value-1).details.initialPrice}</i>$ ${model.productDvos.get(value-1).details.finalPrice}</span>
 							</div>
+								<c:set var="counter" value="${counter+1}" scope="page" />
 							</c:forEach>
 						</div>
 						 </c:forEach>

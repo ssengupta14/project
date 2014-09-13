@@ -29,6 +29,19 @@ public interface IConstants {
 	public static String DAILY_DEAL ="daily-deal";
 	public static String WEEKLY_DEAL ="weekly-deal";
 	
+	//dvos
+	public static String PRODUCTS ="products";
+	public static String CATEGORIES="categories";
+	public static String COLLECTIONS="collections";
+	public static String DESIGNERS="designers";
+	public static String OFFERS ="offers";
+	public static String REQUEST ="request";
+	
+	//user
+	public static String FIRST_NAME ="firstName";
+	public static String LAST_NAME ="lastName";
+	public static String PASSWORD ="password";
+	public static String EMAIL_ID ="emailId";
 	
 	/**
 	 * These are constants related to shipping options

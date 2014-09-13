@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
 	<menus>
-		<menu displayName ="Artwork" href="/elenverve/products?cat=artwork">
+		<menu displayName ="Artwork" href="/elenverve/products?cat=art and paintings">
 			<sub-menus>
-				<menu displayName="Canvas" href="/elenverve/products?cat=artwork&amp;sc=1"/>
-				<menu displayName="Artistic Frames" href="/elenverve/products?cat=artwork&amp;sc=2"/>
-				<menu displayName="Fabric" href="/elenverve/products?cat=artwork&amp;sc=3"/>
-				<menu displayName="Walls" href="/elenverve/products?cat=artwork&amp;sc=4"/>
+				<menu displayName="Canvas" href="/elenverve/products?cat=art and paintings&amp;sc=1"/>
+				<menu displayName="Artistic Frames" href="/elenverve/products?cat=art and paintings&amp;sc=2"/>
+				<menu displayName="Fabric" href="/elenverve/products?cat=art and paintings&amp;sc=3"/>
+				<menu displayName="Walls" href="/elenverve/products?cat=art and paintings&amp;sc=4"/>
 			</sub-menus>
 		</menu>
 		
-		<menu displayName ="Home Decor" href="/elenverve/products?cat=home">
+		<menu displayName ="Home Decor" href="/elenverve/products?cat=home decor">
 			<sub-menus>
-				<menu displayName="Statues" href="/elenverve/products?cat=home&amp;sc=1">
+				<menu displayName="Statues" href="/elenverve/products?cat=home decor&amp;sc=1">
 				<sub-menus>
 					<menu displayName="a11" href=""/>
 					<menu displayName="a12" href=""/>
 				</sub-menus>
 				</menu>
-				<menu displayName="Figurine" href="/elenverve/products?cat=home&amp;sc=2"/>
-				<menu displayName="Sculptures" href="/elenverve/products?cat=home&amp;sc=3"/>
-				<menu displayName="Wall Hangings" href="/elenverve/products?cat=home&amp;sc=4"/>
-				<menu displayName="Vases" href="/elenverve/products?cat=home&amp;sc=5"/>
-				<menu displayName="Lamp &amp; Shades" href="/elenverve/products?cat=home&amp;sc=6"/>
+				<menu displayName="Figurine" href="/elenverve/products?cat=home decor&amp;sc=2"/>
+				<menu displayName="Sculptures" href="/elenverve/products?cat=home decor&amp;sc=3"/>
+				<menu displayName="Wall Hangings" href="/elenverve/products?cat=home decor&amp;sc=4"/>
+				<menu displayName="Vases" href="/elenverve/products?cat=home decor&amp;sc=5"/>
+				<menu displayName="Lamp &amp; Shades" href="/elenverve/products?cat=home decor&amp;sc=6"/>
 			</sub-menus>
 		</menu>
-		<menu displayName ="Workspace decor" href="/elenverve/products?cat=workspace">
+		<menu displayName ="Workspace decor" href="/elenverve/products?cat=workspace decor">
 			<sub-menus>
-				<menu displayName="Organizers" href="/elenverve/products?cat=workspace&amp;sc=1"/>
-				<menu displayName="Lamps" href="/elenverve/products?cat=workspace&amp;sc=2"/>
-				<menu displayName="Picture frames" href="/elenverve/products?cat=workspace&amp;sc=3"/>
-				<menu displayName="Decorative" href="/elenverve/products?cat=workspace&amp;sc=4"/>
+				<menu displayName="Organizers" href="/elenverve/products?cat=workspace decor&amp;sc=1"/>
+				<menu displayName="Lamps" href="/elenverve/products?cat=workspace decor&amp;sc=2"/>
+				<menu displayName="Picture frames" href="/elenverve/products?cat=workspace decor&amp;sc=3"/>
+				<menu displayName="Decorative" href="/elenverve/products?cat=workspace decor&amp;sc=4"/>
 			</sub-menus>
 		</menu>
-		<menu displayName ="Fashion Accessories" href="/elenverve/products?cat=fashion">
+		<menu displayName ="Fashion Accessories" href="/elenverve/products?cat=fashion accessories">
 			<sub-menus>
-				<menu displayName="Jewelry" href="/elenverve/products?cat=fashion&amp;sc=1"/>
-				<menu displayName="Bags &amp; purses" href="/elenverve/products?cat=fashion&amp;sc=2"/>
-				<menu displayName="Belts &amp; accesories" href="/elenverve/products?cat=fashion&amp;sc=3"/>
-				<menu displayName="Organizers" href="/elenverve/products?cat=fashion&amp;sc=4"/>
+				<menu displayName="Jewelry" href="/elenverve/products?cat=fashion accessories&amp;sc=1"/>
+				<menu displayName="Bags &amp; purses" href="/elenverve/products?cat=fashion accessories&amp;sc=2"/>
+				<menu displayName="Belts &amp; accesories" href="/elenverve/products?cat=fashion accessories&amp;sc=3"/>
+				<menu displayName="Organizers" href="/elenverve/products?cat=fashion accessories&amp;sc=4"/>
 				
 			</sub-menus>
 		</menu>

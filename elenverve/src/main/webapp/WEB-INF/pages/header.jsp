@@ -149,7 +149,7 @@
 				<div class="container">
 					<!--  This is logo  -->
 					<Div class="logo">
-						<a href="http://themes.webinane.com/shopping/" title=""> 
+						<a href="/elenverve/" title=""> 
 							<img src="<%=request.getContextPath()%>/resources/images/elenverve.png"	alt="" />
 						</a>
 					</div>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.elenverve.common.Parameters;
 import com.elenverve.dao.DbAccessService;
 import com.elenverve.dpo.BannerDpo;
 import com.elenverve.dpo.CategoryDpo;
@@ -22,9 +23,14 @@ public class Home extends Default{
 	private List<CategoryDpo> categories = new ArrayList<CategoryDpo>();
 	private DbAccessService dbService;
 	
-	public Home(DbAccessService dbService){
+	/*public Home(DbAccessService dbService){
 		this.dbService = dbService;
-	} 
+	} */
+	
+	public Home(Parameters parameters){
+		this.parameters = parameters;
+	}
+	
 	public String getBanner(){
 		return (String) handler.getProperties().get(TOP_BANNER);
 	}
@@ -43,14 +49,23 @@ public class Home extends Default{
 	 */
 	public List<CollectionDpo> getCollections(){	
 		//logger.debug("-----------------------  Collections");
-		List<CollectionDvo> collectionDvos = dbService.getCollections();
+		List<CollectionDvo> collectionDvos = (List<CollectionDvo>)parameters.getParameter(COLLECTIONS);//dbService.getCollections();
+		List<OfferDvo> offerDvos = (List<OfferDvo>)parameters.getParameter(OFFERS);
 		//logger.debug("dbService is not null, "+collectionDvos.size());
 		for(CollectionDvo dvo: collectionDvos){
 			CollectionDpo dpo = new CollectionDpo();
 			dpo.setCollectionId(dvo.getCollectionId());
 			dpo.setCollectionName(dvo.getCollectionName());
 			dpo.setImage(dvo.getImage());
-			List<OfferDvo> offers = dvo.getOffers();
+			//TODO: need to add offers
+			/*
+			List<String> offerIds = dvo.getOffers();
+			List<OfferDvo> offers = new ArrayList<OfferDvo>();
+			for(OfferDvo offerDvo:offerDvos){
+				if(offerIds.contains(offerDvo.getOfferId())){
+					offers.add(offerDvo);
+				}
+			}
 			List<String> offerWords = CommonUtils.offerWordFormatter(offers);
 			StringBuilder str = new StringBuilder();
 			for(String offerWord:offerWords){
@@ -60,14 +75,15 @@ public class Home extends Default{
 			
 			String finalWord = str.substring(0, str.length()-5);
 			dpo.setOffer(finalWord);
+			*/
 			dpo.setItems(dvo.getProducts().size());
 			collections.add(dpo);
 			
 		}
 		
-		for(CollectionDpo dpo:collections){
+		//for(CollectionDpo dpo:collections){
 			//logger.debug(dpo.getCollectionId()+" " + dpo.getCollectionName()+" "+dpo.getImage()+" "+ dpo.getItems()+" "+ dpo.getOffer());
-		}
+		//}
 		return collections;
 	}
 	
@@ -77,14 +93,24 @@ public class Home extends Default{
 	 */
 	public List<CategoryDpo> getCategories(){	
 		//logger.debug("-----------------------  Categories");
-		List<CategoryDvo> categoryDvos = dbService.getCategories();
+		List<CategoryDvo> categoryDvos = (List<CategoryDvo>)parameters.getParameter(CATEGORIES);
+				//dbService.getCategories();
+		List<OfferDvo> offerDvos = (List<OfferDvo>)parameters.getParameter(OFFERS);
 		//logger.debug("dbService is not null, "+categoryDvos.size());
 		for(CategoryDvo dvo: categoryDvos){
 			CategoryDpo dpo = new CategoryDpo();
 			dpo.setCategoryId(dvo.getCategoryId());
 			dpo.setCategoryName(dvo.getCategoryName());
 			dpo.setImage(dvo.getImage());
-			List<OfferDvo> offers = dvo.getOffers();
+			//TODO need to add offers
+			/*
+			List<String> offerIds = dvo.getOffers();
+			List<OfferDvo> offers = new ArrayList<OfferDvo>();
+			for(OfferDvo offerDvo:offerDvos){
+				if(offerIds.contains(offerDvo.getOfferId())){
+					offers.add(offerDvo);
+				}
+			}
 			List<String> offerWords = CommonUtils.offerWordFormatter(offers);
 			StringBuilder str = new StringBuilder();
 			for(String offerWord:offerWords){
@@ -94,6 +120,7 @@ public class Home extends Default{
 			
 			String finalWord = str.substring(0, str.length()-5);
 			dpo.setOffer(finalWord);
+			*/
 			dpo.setItems(dvo.getProducts().size());
 			categories.add(dpo);
 			
@@ -107,7 +134,7 @@ public class Home extends Default{
 	}
 	public static void main(String arg[]){
 		DbAccessService dbAccess = new DbAccessService();
-		Home home = new Home(dbAccess);
+		Home home = new Home(null);
 		List<CollectionDpo> coll = home.getCollections();
 		for(CollectionDpo dpo:coll){
 			//logger.debug(dpo.getCollectionName());

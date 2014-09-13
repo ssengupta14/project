@@ -3,16 +3,25 @@ package com.elenverve.dvo;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.elenverve.common.IConstants;
 
-
+@Document
 public class ProductDvo {
-	
+	@Id
+	private String productId;
 	private ProductDetails details;
 	private ProductFeatures features;
 	private ProductAnalytics analytics;
 	private ProductPromotions promotions;
-	
+	public String getProductId() {
+		return productId;
+	}
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
 	public ProductDetails getDetails() {
 		return details;
 	}
@@ -55,8 +64,7 @@ public class ProductDvo {
 
 	// product details
 	public class ProductDetails{
-
-		private String productId;
+		
 		private String categoryId;
 		private String collectionId;
 		private String designerId;
@@ -88,12 +96,7 @@ public class ProductDvo {
 		public List<String> getVideoUrls() {
 			return videoUrls;
 		}
-		public String getProductId() {
-			return productId;
-		}
-		public void setProductId(String productId) {
-			this.productId = productId;
-		}
+		
 		public String getCategoryId() {
 			return categoryId;
 		}
