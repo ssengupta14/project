@@ -33,8 +33,19 @@
 </head>
 <body>
 <!-- If not logged in, display login & ajax login links -->
+
 <security:authorize ifNotGranted="ROLE_USER">
-	<a id="modal_trigger" href="#modal">Login</a>	
+	
+	<div class="fa fa-user">
+		<font color="#898787">Hi! &nbsp;</font>
+		<ul class="profile bar-dropdown">
+
+			<li>	
+				<a id="modal_trigger" href="#modal" style="color:#4d8cff;font-weight: 300;font-family: open sans;font-size: 12px;">Sign in or Register</a>		
+							
+			</li> 						
+		</ul>
+	</div>	
 </security:authorize>
 
 <!-- If logged in, display secure and logout link -->
@@ -44,8 +55,8 @@
 	<div class="fa fa-user">
 		<ul class="profile bar-dropdown">
 			<li>	
-				<font color="#898787"> Hi <security:authentication property="principal.username"/>		</font>				
-				<%-- <a href="<c:url value="/j_spring_security_logout" />"><security:authentication property="principal.username"/> Logout</a> --%> 
+				<a><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi!</font> &nbsp;<security:authentication property="principal.username"/></a>			
+				<%-- <a href="<c:url value="/j_spring_security_logout" />">Hi! &nbsp;<security:authentication property="principal.username"/> Logout</a> --%> 
 				<ul>
 					<li><a href="#" title="">Profile</a></li>
 					<li><a href="#" title="">Help</a></li>

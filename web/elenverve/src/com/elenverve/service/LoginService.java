@@ -15,26 +15,38 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
+import com.elenverve.common.IConstants;
+import com.elenverve.common.Parameters;
+import com.elenverve.dvo.CredentialsDvo;
 import com.elenverve.dvo.UserDvo;
-@Repository
-public class LoginService implements  UserDetailsService{
-	private static final Logger logger = Logger.getLogger(LoginService.class);
+  
+@SuppressWarnings("deprecation")
+@Service
+public class LoginService implements  UserDetailsService  {
+ 
+	//private JdbcTemplate jdbcTemplate;
 	 @Autowired
 	 private MongoTemplate mongoTemplate;
-	 
-	@Override
+	
+	 private static final Logger logger = Logger.getLogger(LoginService.class);
+    @Override
     public UserDetails loadUserByUsername(String emailId) throws UsernameNotFoundException, DataAccessException
     {
     	try{
 	        logger.debug("Getting access details from user db !!"); 
 	        
+	        if(mongoTemplate == null){
+	        	logger.debug("mongoTemplate is null !!"); 
+	        }else{
+	        	logger.debug("mongoTemplate is not null !!"); 
+	        }
 	        Query userquery = new Query();
 	       
 	        userquery.addCriteria(Criteria.where("emailId").is(emailId));
 			UserDvo userDvo = mongoTemplate.findOne(userquery, UserDvo.class);
-			 
+			 logger.debug("Current User is ....["+userDvo.getEmailId()+"]"); 
 	        //String sql = "SELECT * FROM USER_AUTH WHERE EMAIL_ID ='" + username + "'";        
 	       //UserAuthenticationBean userAuthenticationBean = jdbcTemplate.queryForObject(sql,userAuthenticationBeanMapper  ) ;
 	        List<GrantedAuthority> list = new ArrayList<GrantedAuthority> ();
@@ -43,17 +55,20 @@ public class LoginService implements  UserDetailsService{
 	        if(userDvo != null){        	 
 	             GrantedAuthority grantedAuthority = new GrantedAuthorityImpl(userDvo.getCredentials().getAuthority());
 	             list.add(grantedAuthority);
-	             user = new User(userDvo.getEmailId(), userDvo.getCredentials().getPassword(), true, true, true, true, list);
+	             user = new User(userDvo.getFirstName(), userDvo.getCredentials().getPassword(), true, true, true, true, list);
+	             logger.debug("user found .."); 
 	             return user;
 	        }     
 	        // Ideally it should be fetched from database and populated instance of
 	        // #org.springframework.security.core.userdetails.User should be returned from this method       
+	        logger.debug("User not found ...."); 
 	        throw new UsernameNotFoundException("User Not found");
     	}catch(Exception ex){
     		throw new UsernameNotFoundException(" Request is failed") ;
     	}
     }
-	/**
+    
+    /**
 	 * Checks if the user is an existing user
 	 * @param emailId
 	 * @return
@@ -69,25 +84,17 @@ public class LoginService implements  UserDetailsService{
 			}
 			return false;
 	}
-	
+        
     public String registerUser(UserDvo userDvo) throws DataAccessException
     {
-    	logger.debug("Creating new user in db !!");
-        mongoTemplate.save(userDvo);
-        /*
-        String sql = "INSERT INTO USER_DTL (EMAIL_ID,F_NAME,L_NAME,USER_TYPE) "
-        		+ "VALUES('"+userDetailBean.getEmailId()+"','"+userDetailBean.getFirstName()+"','"+userDetailBean.getLastName()+"',1)" ;
-        jdbcTemplate.update(sql);
+    	logger.debug("Creating new user ["+userDvo.getEmailId()+"] in db !!");
+		
+    	if(!(userDvo==null) && !isExistingUser(userDvo.getEmailId())){
+    		mongoTemplate.save(userDvo);
+    	}
         
-        sql = "INSERT INTO USER_AUTH (EMAIL_ID,PASSWORD,AUTHORITY) "
-        		+ "VALUES('"+userAuthenticationBean.getEmailId()+"','"+userAuthenticationBean.getPassword()+"','ROLE_USER')" ;
-        jdbcTemplate.update(sql);
-        */
         return "SUCCESS";
     }
-	/*
-	public void setDataSource(DataSource dataSource){
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
-	}
-	*/
+
+	
 }

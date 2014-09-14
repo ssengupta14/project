@@ -32,6 +32,14 @@ public class ProductController extends DefaultController{
 	  @Autowired
 	  private ProductService productService;
 	  
+	  @RequestMapping(value={ "/cart*" }, method = RequestMethod.GET)
+		public String addToCart(ModelMap model,HttpServletRequest request) {
+		  model.addAttribute("page", "cart");
+		  return "template";
+		  
+	  }
+	  
+	  
 	@RequestMapping(value={ "/products*" }, method = RequestMethod.GET)
 	public String products(ModelMap model,HttpServletRequest request) {
 		logger.debug("Invoking method [products] from controller [ProductController] for context [/products*]");

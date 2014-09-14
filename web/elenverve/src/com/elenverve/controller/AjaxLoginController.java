@@ -18,6 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.elenverve.common.IConstants;
+import com.elenverve.common.Parameters;
+import com.elenverve.model.UserAuthentication;
+
 @Controller
 @RequestMapping("/login")
 public class AjaxLoginController {
@@ -41,6 +45,7 @@ public class AjaxLoginController {
 			@RequestParam("j_password") String password,
 			HttpServletRequest request, HttpServletResponse response) 
 	{
+
 		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
 		System.out.println("hi");
 		try {
