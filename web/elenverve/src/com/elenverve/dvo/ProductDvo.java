@@ -1,192 +1,355 @@
 package com.elenverve.dvo;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.elenverve.common.IConstants;
+
+@Document
 public class ProductDvo {
+	@Id
 	private String productId;
-	private String productCategoryId;
-	private String description;
-	private String highlights;
-	private double initialPrice;
-	private double finalPrice;
-	private int currencyCd;
-	private String imageUrl1;
-	private String imageUrl2;
-	private String imageUrl3;
-	private String imageUrl4;
-	private String imageUrl5;
-	private String videoUrl;
-	private double ratingScore;
-	private boolean isNew;
-	private boolean inStock;
-	
-	//Analytics
-	private boolean isHotSelling;
-	private boolean isMostRecommended;
-	private boolean isMostTweeted;
-	private boolean isMostLiked;
-	private boolean isMostShared;
-	
-	private List<OfferDvo> offers;
-	
-	private int rewardPoints;
-	
-	private List<TestimonialDvo> testimonials;	
-	private SocialProductDvo socialStats;
-	
-	
-	public int getRewardPoints() {
-		return rewardPoints;
-	}
-	public void setRewardPoints(int rewardPoints) {
-		this.rewardPoints = rewardPoints;
-	}
-	
+	private ProductDetails details;
+	private ProductFeatures features;
+	private ProductAnalytics analytics;
+	private ProductPromotions promotions;
 	public String getProductId() {
 		return productId;
 	}
 	public void setProductId(String productId) {
 		this.productId = productId;
 	}
-	public String getProductCategoryId() {
-		return productCategoryId;
+	public ProductDetails getDetails() {
+		return details;
 	}
-	public void setProductCategoryId(String productCategoryId) {
-		this.productCategoryId = productCategoryId;
+
+
+	public void setDetails(ProductDetails details) {
+		this.details = details;
 	}
-	public String getDescription() {
-		return description;
+
+
+	public ProductFeatures getFeatures() {
+		return features;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+
+
+	public void setFeatures(ProductFeatures features) {
+		this.features = features;
 	}
-	public String getHighlights() {
-		return highlights;
+
+
+	public ProductAnalytics getAnalytics() {
+		return analytics;
 	}
-	public void setHighlights(String highlights) {
-		this.highlights = highlights;
+
+
+	public void setAnalytics(ProductAnalytics analytics) {
+		this.analytics = analytics;
 	}
-	public double getInitialPrice() {
-		return initialPrice;
+
+
+	public ProductPromotions getPromotions() {
+		return promotions;
 	}
-	public void setInitialPrice(double initialPrice) {
-		this.initialPrice = initialPrice;
+
+
+	public void setPromotions(ProductPromotions promotions) {
+		this.promotions = promotions;
 	}
-	public double getFinalPrice() {
-		return finalPrice;
-	}
-	public void setFinalPrice(double finalPrice) {
-		this.finalPrice = finalPrice;
-	}
-	public int getCurrencyCd() {
-		return currencyCd;
-	}
-	public void setCurrencyCd(int currencyCd) {
-		this.currencyCd = currencyCd;
-	}
-	public String getImageUrl1() {
-		return imageUrl1;
-	}
-	public void setImageUrl1(String imageUrl1) {
-		this.imageUrl1 = imageUrl1;
-	}
-	public String getImageUrl2() {
-		return imageUrl2;
-	}
-	public void setImageUrl2(String imageUrl2) {
-		this.imageUrl2 = imageUrl2;
-	}
-	public String getImageUrl3() {
-		return imageUrl3;
-	}
-	public void setImageUrl3(String imageUrl3) {
-		this.imageUrl3 = imageUrl3;
-	}
-	public String getImageUrl4() {
-		return imageUrl4;
-	}
-	public void setImageUrl4(String imageUrl4) {
-		this.imageUrl4 = imageUrl4;
-	}
-	public String getImageUrl5() {
-		return imageUrl5;
-	}
-	public void setImageUrl5(String imageUrl5) {
-		this.imageUrl5 = imageUrl5;
-	}
-	public String getVideoUrl() {
-		return videoUrl;
-	}
-	public void setVideoUrl(String videoUrl) {
-		this.videoUrl = videoUrl;
-	}
-	public double getRatingScore() {
-		return ratingScore;
-	}
-	public void setRatingScore(double ratingScore) {
-		this.ratingScore = ratingScore;
-	}
-	public boolean isNew() {
-		return isNew;
-	}
-	public void setNew(boolean isNew) {
-		this.isNew = isNew;
-	}
-	public boolean isInStock() {
-		return inStock;
-	}
-	public void setInStock(boolean inStock) {
-		this.inStock = inStock;
-	}
-	public boolean isHotSelling() {
-		return isHotSelling;
-	}
-	public void setHotSelling(boolean isHotSelling) {
-		this.isHotSelling = isHotSelling;
-	}
-	public boolean isMostRecommended() {
-		return isMostRecommended;
-	}
-	public void setMostRecommended(boolean isMostRecommended) {
-		this.isMostRecommended = isMostRecommended;
-	}
-	public boolean isMostTweeted() {
-		return isMostTweeted;
-	}
-	public void setMostTweeted(boolean isMostTweeted) {
-		this.isMostTweeted = isMostTweeted;
-	}
-	public boolean isMostLiked() {
-		return isMostLiked;
-	}
-	public void setMostLiked(boolean isMostLiked) {
-		this.isMostLiked = isMostLiked;
-	}
-	public boolean isMostShared() {
-		return isMostShared;
-	}
-	public void setMostShared(boolean isMostShared) {
-		this.isMostShared = isMostShared;
-	}
-	public List<TestimonialDvo> getTestimonials() {
-		return testimonials;
-	}
-	public void setTestimonials(List<TestimonialDvo> testimonials) {
-		this.testimonials = testimonials;
-	}
-	public List<OfferDvo> getOffers() {
-		return offers;
-	}
-	public void addOffer(OfferDvo offer) {
-		this.offers.add(offer);
-	}
-	public SocialProductDvo getSocialStats() {
-		return socialStats;
-	}
-	public void setSocialStats(SocialProductDvo socialStats) {
-		this.socialStats = socialStats;
+
+
+	// product details
+	public class ProductDetails{
+		
+		private String categoryId;
+		private String collectionId;
+		private String designerId;
+		private String productName;
+		private String modelNo;
+		private String skuNo;
+		private boolean newInd;
+		private boolean inStock;
+		private String description;
+		private String features;
+		private Dimension dimension;
+		private String color;
+		private String material;
+		private double initialPrice;
+		private double finalPrice;
+		private int currencyCd;	
+		private List<String> imageUrls = new ArrayList<String>();
+		private List<String> videoUrls = new ArrayList<String>();
+		
+		public void addImageUrl(String imageUrl) {
+			this.imageUrls.add("/product/"+imageUrl);
+		}
+		public List<String> getImageUrls() {
+			return imageUrls;
+		}
+		public void addVideoUrl(String videoUrl) {
+			this.videoUrls.add("/product/"+videoUrl);
+		}
+		public List<String> getVideoUrls() {
+			return videoUrls;
+		}
+		
+		public String getCategoryId() {
+			return categoryId;
+		}
+		public void setCategoryId(String categoryId) {
+			this.categoryId = categoryId;
+		}
+		public String getCollectionId() {
+			return collectionId;
+		}
+		public void setCollectionId(String collectionId) {
+			this.collectionId = collectionId;
+		}
+		public String getDesignerId() {
+			return designerId;
+		}
+		public void setDesignerId(String designerId) {
+			this.designerId = designerId;
+		}
+		public String getProductName() {
+			return productName;
+		}
+		public void setProductName(String productName) {
+			this.productName = productName;
+		}
+		public String getModelNo() {
+			return modelNo;
+		}
+		public void setModelNo(String modelNo) {
+			this.modelNo = modelNo;
+		}
+		public String getSkuNo() {
+			return skuNo;
+		}
+		public void setSkuNo(String skuNo) {
+			this.skuNo = skuNo;
+		}
+		public boolean isNewInd() {
+			return newInd;
+		}
+		public void setNewInd(boolean newInd) {
+			this.newInd = newInd;
+		}
+		public boolean isInStock() {
+			return inStock;
+		}
+		public void setInStock(boolean inStock) {
+			this.inStock = inStock;
+		}
+		public String getDescription() {
+			return description;
+		}
+		public void setDescription(String description) {
+			this.description = description;
+		}
+		public String getFeatures() {
+			return features;
+		}
+		public void setFeatures(String features) {
+			this.features = features;
+		}
+		public Dimension getDimension() {
+			return dimension;
+		}
+		public void setDimension(Dimension dimension) {
+			this.dimension = dimension;
+		}
+		public String getColor() {
+			return color;
+		}
+		public void setColor(String color) {
+			this.color = color;
+		}
+		public String getMaterial() {
+			return material;
+		}
+		public void setMaterial(String material) {
+			this.material = material;
+		}
+		public double getInitialPrice() {
+			return initialPrice;
+		}
+		public void setInitialPrice(double initialPrice) {
+			this.initialPrice = initialPrice;
+		}
+		public double getFinalPrice() {
+			return finalPrice;
+		}
+		public void setFinalPrice(double finalPrice) {
+			this.finalPrice = finalPrice;
+		}
+		public int getCurrencyCd() {
+			return currencyCd;
+		}
+		public void setCurrencyCd(int currencyCd) {
+			this.currencyCd = currencyCd;
+		}
+		
+		
+
+		
+		
 	}
 	
+		
+	// product features
+	public class ProductFeatures{
+		private List<String> prodFeatures = new ArrayList<String>();
+		private List<String> availableColors = new ArrayList<String>();
+		private String estimatedShipping;
+		private String whatsIncluded;
+		
+		public List<String> getProdFeatures() {
+			return prodFeatures;
+		}
+		public void addProdFeature(String prodFeature) {
+			this.prodFeatures.add(prodFeature);
+		}
+		public List<String> getAvailableColors() {
+			return availableColors;
+		}
+		public void addAvailableColor(String availableColor) {
+			this.availableColors.add(availableColor);
+		}
+		public String getWhatsIncluded() {
+			return whatsIncluded;
+		}
+		public void setWhatsIncluded(String whatsIncluded) {
+			this.whatsIncluded = whatsIncluded;
+		}
+		public String getEstimatedShipping() {
+			return estimatedShipping;
+		}
+		public void setEstimatedShipping(String estimatedShipping) {
+			this.estimatedShipping = estimatedShipping;
+		}
+		
+		
+		
+	}
+	// product analytics & feedback
+	public class ProductAnalytics{
+		private boolean hotSelling;
+		private boolean mostRecommended;
+		private boolean mostTweeted;
+		private boolean mostLiked;
+		private boolean mostShared;
+		private double prodRatingStars;
+		private SocialProductDvo socialStats;
+		
+		public boolean isHotSelling() {
+			return hotSelling;
+		}
+		public void setHotSelling(boolean hotSelling) {
+			this.hotSelling = hotSelling;
+		}
+		public boolean isMostRecommended() {
+			return mostRecommended;
+		}
+		public void setMostRecommended(boolean mostRecommended) {
+			this.mostRecommended = mostRecommended;
+		}
+		public boolean isMostTweeted() {
+			return mostTweeted;
+		}
+		public void setMostTweeted(boolean mostTweeted) {
+			this.mostTweeted = mostTweeted;
+		}
+		public boolean isMostLiked() {
+			return mostLiked;
+		}
+		public void setMostLiked(boolean mostLiked) {
+			this.mostLiked = mostLiked;
+		}
+		public boolean isMostShared() {
+			return mostShared;
+		}
+		public void setMostShared(boolean mostShared) {
+			this.mostShared = mostShared;
+		}
+		public double getProdRatingStars() {
+			return prodRatingStars;
+		}
+		public void setProdRatingStars(double prodRatingStars) {
+			this.prodRatingStars = prodRatingStars;
+		}
+		public SocialProductDvo getSocialStats() {
+			return socialStats;
+		}
+		public void setSocialStats(SocialProductDvo socialStats) {
+			this.socialStats = socialStats;
+		}	
+		
+		
+		
+	}
+	// product promotions
+	public class ProductPromotions{
+		private int rewardPoints;
+		private List<OfferDvo> offers = new ArrayList<OfferDvo>();
+		
+		public List<OfferDvo> getOffers() {
+			return offers;
+		}
+		public void addOffer(OfferDvo offer) {
+			this.offers.add(offer);
+		}
+		public int getRewardPoints() {
+			return rewardPoints;
+		}
+		public void setRewardPoints(int rewardPoints) {
+			this.rewardPoints = rewardPoints;
+		}
+		
+		
+	}
 	
+
+	public class Dimension{
+		private int length;
+		private int width;
+		private int height;
+		private String weight;
+		public Dimension(int length,int width, int height, String weight){
+			this.length= length;
+			this.width = width;
+			this.height = height;
+			this.weight = weight;			
+		}
+		public int getLength() {
+			return length;
+		}
+		public void setLength(int length) {
+			this.length = length;
+		}
+		public int getWidth() {
+			return width;
+		}
+		public void setWidth(int width) {
+			this.width = width;
+		}
+		public int getHeight() {
+			return height;
+		}
+		public void setHeight(int height) {
+			this.height = height;
+		}
+		public String getWeight() {
+			return weight;
+		}
+		public void setWeight(String weight) {
+			this.weight = weight;
+		}
+		
+		
+	}
 }

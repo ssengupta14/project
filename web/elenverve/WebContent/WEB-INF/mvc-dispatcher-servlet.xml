@@ -1,15 +1,44 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
         http://www.springframework.org/schema/mvc 
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
         http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 	<context:component-scan base-package="com.elenverve.controller" />
+	<context:component-scan base-package="com.elenverve.service" />
+	<mvc:annotation-driven />
+	<!-- Data lookup loader -->
+	<bean id="lookupLoader" class="com.elenverve.controller.initializer.DataLookupLoader" />
+	<!-- Intercept request to blog to add paging params -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/products**" />
+			<bean
+				class="com.elenverve.controller.interceptor.DataLookupHandlerInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- Factory bean that creates the Mongo instance -->
+	<bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean">
+		<property name="host" value="localhost" />
+	</bean>
+
+	<!-- MongoTemplate for connecting and quering the documents in the database -->
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongo" ref="mongo" />
+		<constructor-arg name="databaseName" value="test" />
+	</bean>
+
+	<!-- Use this post processor to translate any MongoExceptions thrown in 
+		@Repository annotated classes -->
+	<bean
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -19,14 +48,22 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-	<bean id="fileValidator" class="com.elenverve.validator.FileUploadValidator" />
-
+	<!-- <bean id="dbAccess" class="com.elenverve.dao.DbAccessService" factory-method="initialize"/> 
+		<bean id="defaultContoller" class="com.elenverve.controller.DefaultController"> 
+		<property name="dbAccess" ref="dbAccess" /> </bean> -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="100000" />
 	</bean>
 
 	<mvc:resources mapping="/resources/**" location="/resources/theme/" />
+	<mvc:resources mapping="/images/**" location="/resources/theme/images/" />
+	<mvc:resources mapping="/category/**"
+		location="/resources/theme/images/Category/" />
+	<mvc:resources mapping="/collection/**"
+		location="/resources/theme/images/Collection/" />
+	<mvc:resources mapping="/product/**"
+		location="/resources/theme/images/products/" />
 	<mvc:resources mapping="/static/**" location="/static/" />
 	<mvc:annotation-driven />
 

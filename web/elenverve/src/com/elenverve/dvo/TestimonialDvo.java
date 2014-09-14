@@ -1,10 +1,14 @@
 package com.elenverve.dvo;
 
+import java.util.Date;
+
 public class TestimonialDvo {
 	private String testimonialId;
 	private String username;
 	private String comments;
+	
 	private double reviewStars;
+	private Date date;	
 	public static String ANNONIMOUS_USER="Annonimous";
 	
 	public String getTestimonialId() {
@@ -31,6 +35,11 @@ public class TestimonialDvo {
 	public void setReviewStars(double reviewStars) {
 		this.reviewStars = reviewStars;
 	}
-	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	
 }

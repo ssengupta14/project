@@ -19,18 +19,18 @@ public class ShoppingCartDvo {
 	}
 	public void addProduct(ProductDvo product) {
 		int position=products.size()+1;
-		this.totalRewards+=product.getRewardPoints();
-		this.originalCartPrice+=product.getFinalPrice();
-		List<OfferDvo> offers= product.getOffers();
+		this.totalRewards+=product.getPromotions().getRewardPoints();
+		this.originalCartPrice+=product.getDetails().getFinalPrice();
+		List<OfferDvo> offers= product.getPromotions().getOffers();
 		this.totalOfferAmount+=ConversionPolicyUtil.convertOffers2Amount(offers);
 		this.totalOfferAmount+=ConversionPolicyUtil.convertRewards2Amount(this.totalRewards);
 		this.products.put(position,product);
 	}
 	public void removeProduct(int position) {
 		ProductDvo product = products.get(position);
-		this.totalRewards-=product.getRewardPoints();
-		this.originalCartPrice-=product.getFinalPrice();
-		List<OfferDvo> offers= product.getOffers();
+		this.totalRewards-=product.getPromotions().getRewardPoints();
+		this.originalCartPrice-=product.getDetails().getFinalPrice();
+		List<OfferDvo> offers= product.getPromotions().getOffers();
 		this.totalOfferAmount-=ConversionPolicyUtil.convertOffers2Amount(offers);
 		this.totalOfferAmount-=ConversionPolicyUtil.convertRewards2Amount(this.totalRewards);
 		this.products.remove(position);

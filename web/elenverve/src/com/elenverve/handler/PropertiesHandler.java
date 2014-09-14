@@ -38,7 +38,7 @@ public abstract class PropertiesHandler implements IConstants{
 	    try {
 	        ClassLoader classLoader = className.getClassLoader();
 	        url=classLoader.getResource("/"+fileName);
-	        System.out.println(url.toString());
+	        //logger.debug(url.toString());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -56,7 +56,7 @@ public abstract class PropertiesHandler implements IConstants{
 		for(int i=0;i<count+1;i++){
 			path =path+"/";
 		}
-		System.out.println("Configuration file :"+IConstants.DEFAULT_RESOURCES_PATH+"/"+path+fileName);
+		//logger.debug("Configuration file :"+IConstants.DEFAULT_RESOURCES_PATH+"/"+path+fileName);
 		return PropertiesHandler.class.getResource(IConstants.DEFAULT_RESOURCES_PATH+"/"+path+fileName);
 		*/
 	    return file;
