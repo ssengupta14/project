@@ -2,7 +2,9 @@ package com.elenverve.dvo;
 
 import java.util.Date;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class CredentialsDvo {
 
 	public int VMAIL_SENT =0;

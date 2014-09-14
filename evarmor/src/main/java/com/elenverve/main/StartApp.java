@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import com.elenverve.bean.ITestConstants;
 import com.elenverve.db.SpringMongoConfig;
 import com.elenverve.dvo.ProductDvo;
+import com.elenverve.dvo.UserDvo;
 import com.elenverve.service.MockProductService;
 
 public class StartApp {
@@ -72,7 +73,11 @@ public class StartApp {
 			MongoOperations mongoOperation = (MongoOperations) ctx.getBean("mongoTemplate");
 		 
 			MockProductService service = new MockProductService(mongoOperation);
-	
+			List<UserDvo> dvos= service.getUsers("abb@cdd.com");
+			for(UserDvo dvo:dvos){
+			System.out.println("password :"+dvo.getCredentials().getPassword());
+			}
+	/*
 			//Step 1: create blank categories
 			System.out.println("Adding categories");
 			service.createCategories(ITestConstants.categoryNames.length);
@@ -102,7 +107,7 @@ public class StartApp {
 			for(ProductDvo prod:prods){
 				System.out.println(prod.getProductId());
 			}
-			
+	*/		
 			
 		/*
 			// now user object got the created id.

@@ -39,6 +39,7 @@
 		  authorities-by-username-query="select username, role from user_roles where username =?  " />
 	  </authentication-provider>
 	</authentication-manager> -->
+	
 	<authentication-manager alias="authenticationManager">
 		<authentication-provider user-service-ref="loginService"></authentication-provider>
 		<!-- <authentication-provider>

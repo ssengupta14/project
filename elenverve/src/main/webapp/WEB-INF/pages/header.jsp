@@ -46,23 +46,16 @@
 		<header class="header2">
 			<div class="container">
 				<div class="top-bar">
-					<ul class="profile bar-dropdown">
-						<li>
-							<div id="links"></div>
-							<%-- <a href="#" title=""> 
-								<div class="fa fa-user" id="links"></div>
-								<!-- <i class="fa fa-user"/>  -->
-							</a>
-							<security:authorize ifAllGranted="ROLE_USER">	 		
-
-								<ul>
-									<li><a href="#" title="">Profile</a></li>
-									<li><a href="#" title="">Help</a></li>
-									<li><a href="#" title="">Privacy</a></li>
-									<li><a href="#" title="">Logout</a></li>
-								</ul>
-							</security:authorize>
-						</li> --%>						
+					<!--  Support Phone number  -->
+					<ul class="whishlist-bar bar-dropdown">
+						<li><a href="#" title="">
+							<i class="fa fa-phone"></i>&nbsp;&nbsp;24/7 Support: 123-456-7890</a>
+						</li>
+					</ul>
+					<ul class="language bar-dropdown">
+						<li>|<a href="#" title="">
+							<i></i></a>
+						</li>
 					</ul>
 					<!-- What ever person has shopped, is displayed in the shopping cart-->
 					<ul class="shop-cart bar-dropdown">
@@ -114,7 +107,11 @@
 						</li>
 					</ul>
 					<!--  end of shopping cart -->
-
+					<ul class="language bar-dropdown">
+						<li>|<a href="#" title="">
+							<i></i></a>
+						</li>
+					</ul>
 					<!--  Language dropdown -->
 					<ul class="language bar-dropdown">
 						<li><a href="#" title=""><i class="fa fa-font"></i>English</a>
@@ -126,21 +123,53 @@
 					</ul>
 
 					<!--  end of language dropdown -->
+					<ul class="language bar-dropdown">
+						<li>|<a href="#" title="">
+							<i></i></a>
+						</li>
+					</ul>
 					<!--  Compare button  -->
 					<ul class="compare-btn bar-dropdown">
 						<li><a href="#" title=""><i class="fa fa-random"></i>Compare</a></li>
 					</ul>
 					<!--  end of compare button -->
+					<ul class="language bar-dropdown">
+						<li>|<a href="#" title="">
+							<i></i></a>
+						</li>
+					</ul>
 					<!--  wishlist button  -->
 					<ul class="whishlist-bar bar-dropdown">
 						<li><a href="#" title=""><i class="fa fa-heart"></i>Wishlist</a></li>
 					</ul>
 					<!--  end of wishlist button -->
-					<!--  Support Phone number  -->
-					<ul class="whishlist-bar bar-dropdown">
+					<ul class="language bar-dropdown">
 						<li><a href="#" title="">
-							<i class="fa fa-phone"></i>&nbsp;&nbsp;24/7 Support: 123-456-7890</a>
+							<i></i></a>
 						</li>
+					</ul>
+					<ul class="language bar-dropdown">
+						<li><a href="#" title="">
+							<i></i></a>
+						</li>
+					</ul>
+					<ul class="profile bar-dropdown">
+						<li>
+							<div id="links"></div>
+							<%-- <a href="#" title=""> 
+								<div class="fa fa-user" id="links"></div>
+								<!-- <i class="fa fa-user"/>  -->
+							</a>
+							<security:authorize ifAllGranted="ROLE_USER">	 		
+
+								<ul>
+									<li><a href="#" title="">Profile</a></li>
+									<li><a href="#" title="">Help</a></li>
+									<li><a href="#" title="">Privacy</a></li>
+									<li><a href="#" title="">Logout</a></li>
+								</ul>
+							</security:authorize>
+						</li> --%>						
 					</ul>
 				</div>
 			</div>

@@ -13,7 +13,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
-
 import com.elenverve.bean.Category;
 import com.elenverve.bean.Collection;
 import com.elenverve.bean.ITestConstants;
@@ -21,6 +20,7 @@ import com.elenverve.bean.Product;
 import com.elenverve.dvo.CategoryDvo;
 import com.elenverve.dvo.CollectionDvo;
 import com.elenverve.dvo.ProductDvo;
+import com.elenverve.dvo.UserDvo;
 
 public class MockProductService {
 
@@ -240,4 +240,15 @@ public class MockProductService {
 			 return products;
 			 
 		 }
+		 
+		 public List<UserDvo> getUsers(String emailId) {
+			 Query collquery = new Query();
+			 collquery.addCriteria(Criteria.where("emailId").is(emailId));
+			 UserDvo usrDvo=operations.findOne(collquery, UserDvo.class);
+			 return operations.findAll(UserDvo.class);
+			 
+			 
+		 }
+		 
+		 
 }
