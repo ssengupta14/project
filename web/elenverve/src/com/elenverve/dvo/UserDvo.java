@@ -1,17 +1,38 @@
 package com.elenverve.dvo;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
 
-public abstract class UserDvo extends BaseDvo{
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class UserDvo extends BaseDvo{
 	
 	private long id;
 	private long accountId;
+	@NotEmpty
+	@Length(min = 2, max = 20)
 	private String firstName;
+	@NotEmpty
+	@Length(min = 2, max = 20)
 	private String lastName;
-	private String emailId;
+	
 	private int gender;
+	@Pattern(regexp="\\(\\d{3}\\)-\\d{3}-\\d{4}")
 	private String phoneNumber;
 	private int phoneType;
-		
+	@Id
+	@Email
+	@NotBlank
+	@Length(max=65)
+	private String emailId;
+	
 	private CredentialsDvo credentials;
 	
 	public long getId() {

@@ -62,7 +62,14 @@ public class ProductParser {
 				}
 			}
 		}
-	 	return products;	
+	 
+		//logger.debug("Done");
+
+		
+		
+		return products;
+		
+		
 	}
 	
 	public static void main(String[] arg){

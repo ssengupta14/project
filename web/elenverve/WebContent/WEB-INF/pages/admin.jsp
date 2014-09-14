@@ -113,23 +113,23 @@
 							<h1>Existing</h1>
 							<ul>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 							</ul>
 						</div>
 					</div>
@@ -139,23 +139,23 @@
 							<h1>New</h1>
 							<ul>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 								<li><span>Color</span>
-									<p>Skin & White</p></li>
+								<p>Skin & White</p></li>
 							</ul>
 						</div>
 					</div>
@@ -233,7 +233,7 @@
 
 	</div>
 
-	<Script language=JavaScript>
+<Script language=JavaScript>
 
 
 function BrowseClick(){

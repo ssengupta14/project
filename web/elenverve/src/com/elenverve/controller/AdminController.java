@@ -3,8 +3,7 @@ package com.elenverve.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,22 +11,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.elenverve.dao.UsersDAO;
-import com.elenverve.db.beans.UserAuthenticationBean;
-import com.elenverve.db.beans.UserDetailBean;
+import com.elenverve.common.IConstants;
+import com.elenverve.common.Parameters;
 import com.elenverve.model.Admin;
-import com.elenverve.validator.FileUploadValidator;
+import com.elenverve.model.UserAuthentication;
 
 
 @Controller
 @RequestMapping("/")
 public class AdminController {
-	
-	@Autowired  
-	FileUploadValidator fileValidator;  
-	
-	@Autowired  
-	UsersDAO usersDAO;  
+	//@Autowired  
+	//FileUploadValidator fileValidator;  
+	private static final Logger logger = Logger.getLogger(AdminController.class);
+	 
 	
 	@RequestMapping(value={ "/admin"}, method = RequestMethod.GET)
 	public String admin(ModelMap model,HttpServletRequest request) {
@@ -55,26 +51,20 @@ public class AdminController {
 			@RequestParam("regRePassword") String regRePassword,
 			HttpServletRequest request, HttpServletResponse response) {
 		
-		UserDetailBean userDetailBean = new UserDetailBean();
-		UserAuthenticationBean userAuthenticationBean = new UserAuthenticationBean();
-		userDetailBean.setFirstName(regFirstfName);
-		userDetailBean.setLastName(regLastfName);
-		userDetailBean.setEmailId(regEmail);
-		userDetailBean.setUserType(1);
-		
-		userAuthenticationBean.setEmailId(regEmail);
-		userAuthenticationBean.setPassword(regPassword);
-		userAuthenticationBean.setAuthority("ROLE_USER");
-		try{
-			UserDetails user = usersDAO.loadUserByUsername(regEmail);
-			if(user != null && user.getUsername().equalsIgnoreCase(regEmail)){
-				return "{\"status\": false, \"error\": \"  User already exists \"}";
+		try {
+			if (!regPassword.toUpperCase().equals(regRePassword.toUpperCase())) {
+				return "{\"status\": false, \"error\": \"  Both passwords should match \"}";
 			}
-			usersDAO.registerUser(userDetailBean, userAuthenticationBean);
-			return "{\"status\": true}";
-		}catch(Exception ex){
-			ex.printStackTrace();
+			Parameters parameters = new Parameters();
+			parameters.addParameter(IConstants.FIRST_NAME, regFirstfName);
+			parameters.addParameter(IConstants.LAST_NAME, regLastfName);
+			parameters.addParameter(IConstants.EMAIL_ID, regEmail);
+			parameters.addParameter(IConstants.PASSWORD, regPassword);
+			UserAuthentication userAuthentication = new UserAuthentication(parameters);
+			return userAuthentication.getMessage();
+		} catch (Exception ex) {
+			logger.debug("Exception occured while registering user "+ex.getMessage());
 			return "{\"status\": false, \"error\": \"  User creation failed. \"}";
-		}		
+		}	
 	}	
 }

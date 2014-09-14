@@ -19,10 +19,10 @@
 								text ever.</p>
 							<ul>
 								<li><span><i class="fa fa-mobile"></i></span>
-									<p>Phone: + 98392039330</p>
+								<p>Phone: + 98392039330</p>
 									<p>Fax: + 98392039330</p></li>
 								<li><span><i class="fa fa-envelope-o"></i></span>
-									<p>Email: meinto@tolee.com</p>
+								<p>Email: meinto@tolee.com</p>
 									<p>Address: Excel Tower OPG Rpad</p></li>
 							</ul>
 						</div>
@@ -33,10 +33,9 @@
 							<h3>
 								<i>RECENT</i> PRODUCT
 							</h3>
-							<span> <!--<img src="http://placehold.it/145x256" alt="" /> -->
-								<img
-								src="<%=request.getContextPath()%>/resources/images/footer-product.jpg"
-								alt="" />
+							<span>
+							<!--<img src="http://placehold.it/145x256" alt="" /> -->
+							<img src="<%=request.getContextPath()%>/resources/images/footer-product.jpg" 	alt="" />
 							</span>
 							<h4>
 								<a href="#" title="">Best Offer Seller This Dress</a>
@@ -74,87 +73,90 @@
 						</h3>
 						<div class="footer-deal">
 							<div class="footer-deals">
-								<a href="#" title=""> <!--<img src="http://placehold.it/85x123" alt="" /> -->
-									<img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal.jpg"
-									alt="" /> <span>30% <i>Off</i></span></a> <a href="#" title="">
+								<a href="#" title="">
+									<!--<img src="http://placehold.it/85x123" alt="" /> -->
+									<img src="<%=request.getContextPath()%>/resources/images/footer-deal.jpg" alt="" />
+									<span>30% <i>Off</i></span></a> <a href="#" title="">
 									<!--<img
-									src="http://placehold.it/85x123" alt="" /> --> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal2.jpg"
-									alt="" /> <span>30% <i>Off</i></span>
-								</a> <a href="#" title="">
+									src="http://placehold.it/85x123" alt="" /> -->
+									<img src="<%=request.getContextPath()%>/resources/images/footer-deal2.jpg" alt="" />
+									<span>30% <i>Off</i></span></a>
+								<a href="#" title=""><!--<img src="http://placehold.it/85x123"
+									alt="" />-->
+									<img src="<%=request.getContextPath()%>/resources/images/footer-deal3.jpg" alt="" />
+									<span>30% <i>Off</i></span></a> <a href="#" title="">
+									<!--<img
+									src="http://placehold.it/85x123" alt="" /> -->
+									<img src="<%=request.getContextPath()%>/resources/images/footer-deal4.jpg" alt="" />
+									<span>30% <i>Off</i></span></a>
+								<a href="#" title="">
 									<!--<img src="http://placehold.it/85x123"
-									alt="" />--> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal3.jpg"
-									alt="" /> <span>30% <i>Off</i></span>
-								</a> <a href="#" title=""> <!--<img
-									src="http://placehold.it/85x123" alt="" /> --> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal4.jpg"
-									alt="" /> <span>30% <i>Off</i></span></a> <a href="#" title="">
-									<!--<img src="http://placehold.it/85x123"
-									alt="" /> --> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal5.jpg"
-									alt="" /> <span>30% <i>Off</i></span>
-								</a> <a href="#" title=""> <!--<img
-									src="http://placehold.it/85x123" alt="" /> --> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal6.jpg"
-									alt="" /> <span>30% <i>Off</i></span></a>
+									alt="" /> -->
+									<img src="<%=request.getContextPath()%>/resources/images/footer-deal5.jpg" alt="" />
+									<span>30% <i>Off</i></span></a> 
+									<a href="#" title="">
+									<!--<img
+									src="http://placehold.it/85x123" alt="" /> -->
+									<img src="<%=request.getContextPath()%>/resources/images/footer-deal6.jpg" alt="" />
+									<span>30% <i>Off</i></span></a>
 							</div>
 
 							<div class="footer-deals">
-								<a href="#" title=""> <!--<img src="http://placehold.it/85x123" alt="" /> -->
-									<img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal.jpg"
-									alt="" /> <span>30% <i>Off</i></span></a> <a href="#" title="">
-									<!--<img
-																src="http://placehold.it/85x123" alt="" /> --> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal2.jpg"
-									alt="" /> <span>30% <i>Off</i></span>
-								</a> <a href="#" title="">
-									<!--<img src="http://placehold.it/85x123"
-																alt="" />--> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal3.jpg"
-									alt="" /> <span>30% <i>Off</i></span>
-								</a> <a href="#" title=""> <!--<img
-																src="http://placehold.it/85x123" alt="" /> --> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal4.jpg"
-									alt="" /> <span>30% <i>Off</i></span></a> <a href="#" title="">
-									<!--<img src="http://placehold.it/85x123"
-																alt="" /> --> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal5.jpg"
-									alt="" /> <span>30% <i>Off</i></span>
-								</a> <a href="#" title=""> <!--<img
-																src="http://placehold.it/85x123" alt="" /> --> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal6.jpg"
-									alt="" /> <span>30% <i>Off</i></span></a>
+															<a href="#" title="">
+																<!--<img src="http://placehold.it/85x123" alt="" /> -->
+																<img src="<%=request.getContextPath()%>/resources/images/footer-deal.jpg" alt="" />
+																<span>30% <i>Off</i></span></a> <a href="#" title="">
+																<!--<img
+																src="http://placehold.it/85x123" alt="" /> -->
+																<img src="<%=request.getContextPath()%>/resources/images/footer-deal2.jpg" alt="" />
+																<span>30% <i>Off</i></span></a>
+															<a href="#" title=""><!--<img src="http://placehold.it/85x123"
+																alt="" />-->
+																<img src="<%=request.getContextPath()%>/resources/images/footer-deal3.jpg" alt="" />
+																<span>30% <i>Off</i></span></a> <a href="#" title="">
+																<!--<img
+																src="http://placehold.it/85x123" alt="" /> -->
+																<img src="<%=request.getContextPath()%>/resources/images/footer-deal4.jpg" alt="" />
+																<span>30% <i>Off</i></span></a>
+															<a href="#" title="">
+																<!--<img src="http://placehold.it/85x123"
+																alt="" /> -->
+																<img src="<%=request.getContextPath()%>/resources/images/footer-deal5.jpg" alt="" />
+																<span>30% <i>Off</i></span></a> 
+																<a href="#" title="">
+																<!--<img
+																src="http://placehold.it/85x123" alt="" /> -->
+																<img src="<%=request.getContextPath()%>/resources/images/footer-deal6.jpg" alt="" />
+																<span>30% <i>Off</i></span></a>
 							</div>
 
 							<div class="footer-deals">
-								<a href="#" title=""> <!--<img src="http://placehold.it/85x123" alt="" /> -->
-									<img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal.jpg"
-									alt="" /> <span>30% <i>Off</i></span></a> <a href="#" title="">
-									<!--<img
-																src="http://placehold.it/85x123" alt="" /> --> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal2.jpg"
-									alt="" /> <span>30% <i>Off</i></span>
-								</a> <a href="#" title="">
-									<!--<img src="http://placehold.it/85x123"
-																alt="" />--> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal3.jpg"
-									alt="" /> <span>30% <i>Off</i></span>
-								</a> <a href="#" title=""> <!--<img
-																src="http://placehold.it/85x123" alt="" /> --> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal4.jpg"
-									alt="" /> <span>30% <i>Off</i></span></a> <a href="#" title="">
-									<!--<img src="http://placehold.it/85x123"
-																alt="" /> --> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal5.jpg"
-									alt="" /> <span>30% <i>Off</i></span>
-								</a> <a href="#" title=""> <!--<img
-																src="http://placehold.it/85x123" alt="" /> --> <img
-									src="<%=request.getContextPath()%>/resources/images/footer-deal6.jpg"
-									alt="" /> <span>30% <i>Off</i></span></a>
+															<a href="#" title="">
+																<!--<img src="http://placehold.it/85x123" alt="" /> -->
+																<img src="<%=request.getContextPath()%>/resources/images/footer-deal.jpg" alt="" />
+																<span>30% <i>Off</i></span></a> <a href="#" title="">
+																<!--<img
+																src="http://placehold.it/85x123" alt="" /> -->
+																<img src="<%=request.getContextPath()%>/resources/images/footer-deal2.jpg" alt="" />
+																<span>30% <i>Off</i></span></a>
+															<a href="#" title=""><!--<img src="http://placehold.it/85x123"
+																alt="" />-->
+																<img src="<%=request.getContextPath()%>/resources/images/footer-deal3.jpg" alt="" />
+																<span>30% <i>Off</i></span></a> <a href="#" title="">
+																<!--<img
+																src="http://placehold.it/85x123" alt="" /> -->
+																<img src="<%=request.getContextPath()%>/resources/images/footer-deal4.jpg" alt="" />
+																<span>30% <i>Off</i></span></a>
+															<a href="#" title="">
+																<!--<img src="http://placehold.it/85x123"
+																alt="" /> -->
+																<img src="<%=request.getContextPath()%>/resources/images/footer-deal5.jpg" alt="" />
+																<span>30% <i>Off</i></span></a> 
+																<a href="#" title="">
+																<!--<img
+																src="http://placehold.it/85x123" alt="" /> -->
+																<img src="<%=request.getContextPath()%>/resources/images/footer-deal6.jpg" alt="" />
+																<span>30% <i>Off</i></span></a>
 							</div>
 						</div>
 					</div>
@@ -204,7 +206,7 @@
 
 	<!-- Script -->
 
-
+	
 	<script type="text/javascript"
 		src="<c:url value="/resources/js/script.js"/>"></script>
 	<!-- Common -->
@@ -232,8 +234,7 @@
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/resources/js/ion.rangeSlider.min.js"></script>
 	<!-- Range Slider -->
-	<script type="text/javascript"
-		src="<%=request.getContextPath()%>/resources/js/jquery.themepunch.plugins.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.themepunch.plugins.min.js"></script>
 
 	<!-- Range Slider -->
 	<script>
@@ -293,7 +294,49 @@
 			autoPlay :true
 
 	});
-		
+		$("#best-seller1").owlCarousel({
+			autoPlay :true,
+			stopOnHover : true,
+			navigation:true,
+			goToFirstSpeed : 2000,
+			slideSpeed:1500,
+			singleItem : true,
+			autoHeight : true,
+			pagination:false,
+			transitionStyle:"backSlide"
+	});
+		$("#best-seller").owlCarousel({
+			autoPlay :true,
+			stopOnHover : true,
+			navigation:true,
+			goToFirstSpeed : 2000,
+			slideSpeed:1500,
+			singleItem : true,
+			autoHeight : true,
+			pagination:false,
+			transitionStyle:"goDown"
+	});
+	$("#shop-collections").owlCarousel({
+				autoPlay :true,
+				stopOnHover : true,
+				navigation:true,
+				goToFirstSpeed : 2000,
+				slideSpeed:1500,
+				singleItem : true,
+				autoHeight : true,
+				pagination:false,
+				transitionStyle:"goDown"
+	});
+	$("#best-seller-sec").owlCarousel({
+	autoPlay: 20000, //Set AutoPlay to 20 seconds
+	items : 1,
+	navigation:true,
+	});
+	$("#weekly-best-seller-sec").owlCarousel({
+		autoPlay: 20000, //Set AutoPlay to 20 seconds
+		items : 1,
+		navigation:true,
+	});
 		$(".tab-photos").owlCarousel({
 				autoPlay :true,
 				stopOnHover : true,
@@ -306,6 +349,16 @@
 				transitionStyle:"goDown"
 			});
 			$(".footer-deal").owlCarousel({
+				autoPlay : true,
+				stopOnHover : true,
+				goToFirstSpeed : 2000,
+				slideSpeed : 1500,
+				singleItem : true,
+				autoHeight : true,
+				transitionStyle : "goDown",
+				paginationNumbers : true
+			});
+			$(".instore-deal").owlCarousel({
 				autoPlay : true,
 				stopOnHover : true,
 				goToFirstSpeed : 2000,

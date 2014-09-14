@@ -19,7 +19,7 @@ public class CredentialsDvo {
 	private String securityAnswer1;
 	private String securityAnswer2;
 	private String securityAnswer3;
-	
+	private String authority;
 	
 	public String getUsername() {
 		return username;
@@ -80,6 +80,12 @@ public class CredentialsDvo {
 	}
 	public void setSecurityAnswer3(String securityAnswer3) {
 		this.securityAnswer3 = securityAnswer3;
+	}
+	public String getAuthority() {
+		return authority;
+	}
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}	
 	
 }

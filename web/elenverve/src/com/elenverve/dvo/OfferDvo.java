@@ -21,19 +21,80 @@ public class OfferDvo {
 	public static int MIN_ORD_AMT_ONE_DAY_SHIPPING=21;
 	
 	private long offerId;
+	private String templateId;
 	private int offerType;
 	private int qualifiedShippingType;
+	private int amount;
+	
 	
 	// discount
 	private String discountName;
 	private String description;
 	private double discountPercentage;
 	
+	private String lineSeparator="";
+	private int lineBreak=0;
 	
+	
+	
+	public String getProductId() {
+		return productId;
+	}
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public String getCollectionId() {
+		return collectionId;
+	}
+	public void setCollectionId(String collectionId) {
+		this.collectionId = collectionId;
+	}
+	public String getCollectionName() {
+		return collectionName;
+	}
+	public void setCollectionName(String collectionName) {
+		this.collectionName = collectionName;
+	}
+	public String getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
+	}
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
 	// BAG
 	private double buyQty;
 	private long getProductId;
+	private String getProductName;
+	public String getGetProductName() {
+		return getProductName;
+	}
+	public void setGetProductName(String getProductName) {
+		this.getProductName = getProductName;
+	}
 	private double getQty;
+	
+	private String endWord;
+	
+	private String productId;
+	private String productName;
+	
+	private String collectionId;
+	private String collectionName;
+	
+	private String categoryId;
+	private String categoryName;
 	
 	public long getOfferId() {
 		return offerId;
@@ -88,6 +149,36 @@ public class OfferDvo {
 	}
 	public void setDiscountPercentage(double discountPercentage) {
 		this.discountPercentage = discountPercentage;
+	}
+	public String getEndWord() {
+		return endWord;
+	}
+	public void setEndWord(String endWord) {
+		this.endWord = endWord;
+	}
+	public String getTemplateId() {
+		return templateId;
+	}
+	public void setTemplateId(String templateId) {
+		this.templateId = templateId;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public String getLineSeparator() {
+		return lineSeparator;
+	}
+	public void setLineSeparator(String lineSeparator) {
+		this.lineSeparator = lineSeparator;
+	}
+	public int getLineBreak() {
+		return lineBreak;
+	}
+	public void setLineBreak(int lineBreak) {
+		this.lineBreak = lineBreak;
 	}
 	
 }
