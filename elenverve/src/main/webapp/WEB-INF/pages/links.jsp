@@ -187,13 +187,13 @@
 		});
 	
 		function performLogin(form) {	
-			alert("in performLogin");
+			
 			$.post(
 				'<c:url value="/login" />',
 				form.serialize(),
 				function (data, textStatus) {
 					//var modal_id = $(this).attr("#modal");	
-					alert(data.status);
+					
 					if (data.status) {
 						//window.location.reload(true);				
 						//$(document).off('keydown.leanModal');

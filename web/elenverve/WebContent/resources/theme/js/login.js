@@ -127,7 +127,7 @@ $(document).ready(function() {
     
     // If its not ok
     else {
-    	alert("3");
+    	
       // If login isn't ok
       if (regFirstfName == ""){
         $('#regFirstfName').addClass('ipt-error');      
