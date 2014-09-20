@@ -28,99 +28,37 @@
 						<h2 class="cart-total">TOTAL</h2>
 					</div>
 					<ul>
-						<li>
-							<div class="cart-product">
-								<div class="cart-thumb">
-									<img src="http://placehold.it/115x125" alt="" />
-									<a title=""><i class="fa fa-trash-o"></i></a>
+						<c:forEach var="shoppingCart" items="${shoppingCart.getShoppingCartProducts()}">
+							<li>
+								<div class="cart-product">
+									<div class="cart-thumb">
+										<img src="http://placehold.it/115x125" alt="" />
+										<a title=""><i class="fa fa-trash-o"></i></a>
+									</div>
+									<div class="cart-detals">
+										<h5>${shoppingCart.getProduct().getDetails().productName}</h5>
+										<span><strong>Color:</strong> <i class="red"></i><i class="green"></i><i class="blue"></i></span>
+										<p>Type: Cotton</p><p>Type: Cotton</p>
+									</div>
+									<a href="#" title=""><span>Add to Odder</span></a>
 								</div>
-								<div class="cart-detals">
-									<h5>Ladies Stylish HandBag Wanted 2013</h5>
-									<span><strong>Color:</strong> <i class="red"></i><i class="green"></i><i class="blue"></i></span>
-									<p>Type: Cotton</p>
-									<p>Type: Cotton</p>
+								<div class="cart-price">
+									<span>${shoppingCart.getProduct().getDetails().initialPrice}</span>
 								</div>
-								<a href="#" title=""><span>Add to Odder</span></a>
-							</div>
-							<div class="cart-price">
-								<span><i>$150</i>$125</span>
-							</div>
-							<div class="cart-quanity">
-								<div class="decrements">
-									<form action="#" method="POST">
-										<input type="button" field="quantity" class="qtyminus" value="-">
-										<input type="text" class="qty" value="0" name="quantity">
-										<input type="button" field="quantity" class="qtyplus" value="+">
-									</form>
+								<div class="cart-quanity">
+									<div class="decrements">
+										<form action="#" method="POST">
+											<input type="button" field="quantity" class="qtyminus" value="-">
+											<input type="text" class="qty" value="${shoppingCart.quantity}" name="quantity">
+											<input type="button" field="quantity" class="qtyplus" value="+">
+										</form>
+									</div>
 								</div>
-							</div>
-							<div class="cart-total">
-								<span><i>$705</i></span>
-							</div>
-						</li>
-						
-						<li>
-							<div class="cart-product">
-								<div class="cart-thumb">
-									<img src="http://placehold.it/115x125" alt="" />
-									<a  title=""><i class="fa fa-trash-o"></i></a>
+								<div class="cart-total">
+									<span><i>${shoppingCart.quantity * shoppingCart.getProduct().getDetails().initialPrice}  </i></span>
 								</div>
-								<div class="cart-detals">
-									<h5>Ladies Stylish HandBag Wanted 2013</h5>
-									<span><strong>Color:</strong> <i class="red"></i><i class="green"></i><i class="blue"></i></span>
-									<p>Type: Cotton</p>
-									<p>Type: Cotton</p>
-								</div>
-								<a href="#" title=""><span>Add to Odder</span></a>
-							</div>
-							<div class="cart-price">
-								<span><i>$365</i>$350</span>
-							</div>
-							<div class="cart-quanity">
-								<div class="decrements">
-									<form action="#" method="POST">
-										<input type="button" field="quantity2" class="qtyminus2" value="-">
-										<input type="text" class="qty" value="0" name="quantity2">
-										<input type="button" field="quantity2" class="qtyplus2" value="+">
-									</form>
-								</div>
-							</div>
-							<div class="cart-total">
-								<span><i>$905</i></span>
-							</div>
-						</li>
-						
-						<li>
-							<div class="cart-product">
-								<div class="cart-thumb">
-									<img src="http://placehold.it/115x125" alt="" />
-									<a title=""><i class="fa fa-trash-o"></i></a>
-								</div>
-								<div class="cart-detals">
-									<h5>Ladies Stylish HandBag Wanted 2013</h5>
-									<span><strong>Color:</strong> <i class="red"></i><i class="green"></i><i class="blue"></i></span>
-									<p>Type: Cotton</p>
-									<p>Type: Cotton</p>
-								</div>
-								<a href="#" title=""><span>Add to Odder</span></a>
-							</div>
-							<div class="cart-price">
-								<span><i>$825</i>$790</span>
-							</div>
-							<div class="cart-quanity">
-								<div class="decrements">
-									<form action="#" method="POST">
-										<input type="button" field="quantity3" class="qtyminus3" value="-">
-										<input type="text" class="qty" value="0" name="quantity3">
-										<input type="button" field="quantity3" class="qtyplus3" value="+">
-									</form>
-								</div>
-							</div>
-							<div class="cart-total">
-								<span><i>$568</i></span>
-							</div>
-						</li>
-						
+							</li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>

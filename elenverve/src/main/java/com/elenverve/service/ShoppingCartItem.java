@@ -9,7 +9,7 @@ public class ShoppingCartItem implements Comparable<ShoppingCartItem>, Serializa
 	private static final long serialVersionUID = 4134652647253355430L;
 	
 	private ProductDvo productDvo;
-	private int quantity;
+	private int quantity =1;
 	
 	public ShoppingCartItem(ProductDvo product, int quantity) {
 		this.productDvo = product;
