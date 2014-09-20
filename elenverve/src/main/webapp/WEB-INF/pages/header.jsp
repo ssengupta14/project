@@ -78,7 +78,7 @@
 								</c:forEach>
 								<li>
 									<h6>Total : ${shoppingCart.getTotalPriceInDollars()}</h6> 
-									<a href="#" title="" class="checkout-btn">Checkout</a>
+									<a href="${contextPath}/elenverve/checkout" title="" class="checkout-btn">Checkout</a>
 								</li>
 							</ul>
 						</li>
