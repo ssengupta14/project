@@ -61,46 +61,23 @@
 					<ul class="shop-cart bar-dropdown">
 						<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a>
 							<ul>
+								<c:forEach var="product" items="${shoppingCart.getShoppingCartProducts()}">
+									<li>
+										<span>
+											<img src="http://placehold.it/50x50" alt="" />
+										</span> 
+										<a href="#" title="">${product.getProduct().getDetails().productName}</a> 
+										<i>${product.getProduct().getDetails().initialPrice}</i>
+										<div class="cart-bar-hover">
+											<ul>
+												<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+												<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+											</ul>
+										</div>
+									</li>									
+								</c:forEach>
 								<li>
-									<span>
-										<img src="http://placehold.it/50x50" alt="" />
-									</span> 
-									<a href="#" title="">Short T-Shirt 2013</a> 
-									<i>$360.00</i>
-									<div class="cart-bar-hover">
-										<ul>
-											<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
-											<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
-										</ul>
-									</div>
-								</li>
-								<li>
-									<span>
-										<img src="http://placehold.it/50x50" alt="" />
-									</span> 
-									<a href="#" title="">New Shoes T-Pain</a> 
-									<i>$560.00</i>
-									<div class="cart-bar-hover">
-										<ul>
-											<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
-											<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
-										</ul>
-									</div>
-								</li>
-
-								<li>
-									<span><img src="http://placehold.it/50x50" alt="" /></span> 
-									<a href="#" title="">Cottom Jeans Paint</a> 
-									<i>$56.00</i>
-									<div class="cart-bar-hover">
-										<ul>
-											<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
-											<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
-										</ul>
-									</div>
-								</li>
-								<li>
-									<h6>Total : $960</h6> 
+									<h6>Total : ${shoppingCart.getTotalPriceInDollars()}</h6> 
 									<a href="#" title="" class="checkout-btn">Checkout</a>
 								</li>
 							</ul>
