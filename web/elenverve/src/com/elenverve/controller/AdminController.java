@@ -72,8 +72,8 @@ public class AdminController {
 		parameters.addParameter(IConstants.EMAIL_ID, regEmail);
 		parameters.addParameter(IConstants.PASSWORD, regPassword);
 		parameters.addParameter("login_service", loginService);
-		Login service = new Login(parameters);
-		return service.getMessage();
+		Login login = new Login(parameters);
+		return login.getMessage();
 	
 	}	
 }

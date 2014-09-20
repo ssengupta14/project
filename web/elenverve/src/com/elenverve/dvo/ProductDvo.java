@@ -1,5 +1,6 @@
 package com.elenverve.dvo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.elenverve.common.IConstants;
 
 @Document
-public class ProductDvo {
+public class ProductDvo implements Comparable<ProductDvo>, Serializable{
 	@Id
 	private String productId;
 	private ProductDetails details;
@@ -63,7 +64,7 @@ public class ProductDvo {
 
 
 	// product details
-	public class ProductDetails{
+	public class ProductDetails implements  Serializable{
 		
 		private String categoryId;
 		private String collectionId;
@@ -202,7 +203,7 @@ public class ProductDvo {
 	
 		
 	// product features
-	public class ProductFeatures{
+	public class ProductFeatures implements  Serializable{
 		private List<String> prodFeatures = new ArrayList<String>();
 		private List<String> availableColors = new ArrayList<String>();
 		private String estimatedShipping;
@@ -237,7 +238,7 @@ public class ProductDvo {
 		
 	}
 	// product analytics & feedback
-	public class ProductAnalytics{
+	public class ProductAnalytics implements  Serializable{
 		private boolean hotSelling;
 		private boolean mostRecommended;
 		private boolean mostTweeted;
@@ -293,7 +294,7 @@ public class ProductDvo {
 		
 	}
 	// product promotions
-	public class ProductPromotions{
+	public class ProductPromotions implements  Serializable{
 		private int rewardPoints;
 		private List<OfferDvo> offers = new ArrayList<OfferDvo>();
 		
@@ -350,6 +351,21 @@ public class ProductDvo {
 			this.weight = weight;
 		}
 		
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		return o instanceof ProductDvo && productId.equalsIgnoreCase(((ProductDvo) o).productId);
+	}
+	
+	@Override
+	public int hashCode() {
+		return ((String) productId).hashCode();
+	}
+	
+	public int compareTo(ProductDvo p) {
+		int c = details.getDescription().compareTo(p.getDetails().getDescription());
+		return (c == 0 ? ((String) productId).compareTo((String) p.productId) : c);
 		
 	}
 }
