@@ -2,11 +2,10 @@ package com.elenverve.service;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.springframework.stereotype.Service;
+
 import com.elenverve.dvo.ProductDvo;
 //@Service
 public class ShoppingCart implements Serializable {
@@ -14,7 +13,8 @@ public class ShoppingCart implements Serializable {
 	
 	private Map<String, ShoppingCartItem> items = new HashMap<String, ShoppingCartItem>();
 	
-/*	public ShoppingCart() {
+	/*	
+	 public ShoppingCart() {
 	}*/
 	
 	public List<ShoppingCartItem> getItems() {
@@ -29,19 +29,13 @@ public class ShoppingCart implements Serializable {
 		ShoppingCartItem item = items.get(productId);
 		if (item != null) {
 			item.incrementQuantity();
-		} else {
-			
-			
+		} else {		
 			items.put(productId, new ShoppingCartItem(product, 1));
 		}
 	}
 	
-	public int getItemCount() {
-		int count = 0;
-		for (ShoppingCartItem item : items.values()) {
-			count += item.getQuantity();
-		}
-		return count;
+	public int getItemCount() {		
+		return items.size();
 	}
 	
 	public List<ShoppingCartItem> getShoppingCartProducts() {
