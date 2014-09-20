@@ -60,27 +60,29 @@
 					<!-- What ever person has shopped, is displayed in the shopping cart-->
 					<ul class="shop-cart bar-dropdown">
 						<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a>
-							<ul>
-								<c:forEach var="product" items="${shoppingCart.getShoppingCartProducts()}">
+							<c:if test="${shoppingCart.getItemCount() > 0 }">
+								<ul>
+									<c:forEach var="product" items="${shoppingCart.getShoppingCartProducts()}">
+										<li>
+											<span>
+												<img src="http://placehold.it/50x50" alt="" />
+											</span> 
+											<a href="#" title="">${product.getProduct().getDetails().productName}</a> 
+											<i>${product.getProduct().getDetails().initialPrice}</i>
+											<div class="cart-bar-hover">
+												<ul>
+													<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
+													<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+												</ul>
+											</div>
+										</li>									
+									</c:forEach>
 									<li>
-										<span>
-											<img src="http://placehold.it/50x50" alt="" />
-										</span> 
-										<a href="#" title="">${product.getProduct().getDetails().productName}</a> 
-										<i>${product.getProduct().getDetails().initialPrice}</i>
-										<div class="cart-bar-hover">
-											<ul>
-												<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
-												<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
-											</ul>
-										</div>
-									</li>									
-								</c:forEach>
-								<li>
-									<h6>Total : ${shoppingCart.getTotalPriceInDollars()}</h6> 
-									<a href="${contextPath}/elenverve/checkout" title="" class="checkout-btn">Checkout</a>
-								</li>
-							</ul>
+										<h6>Total : ${shoppingCart.getTotalPriceInDollars()}</h6> 
+										<a href="${contextPath}/elenverve/checkout" title="" class="checkout-btn">Checkout</a>
+									</li>
+								</ul>
+							</c:if>
 						</li>
 					</ul>
 					<!--  end of shopping cart -->

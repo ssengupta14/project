@@ -6,50 +6,47 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.springframework.stereotype.Service;
+
 import com.elenverve.dvo.ProductDvo;
-//@Service
+
 public class ShoppingCart implements Serializable {
-	private static final long serialVersionUID = -4461143736086272397L;
-	
+	private static final long serialVersionUID = -4461143736086272397L;	
 	private Map<String, ShoppingCartItem> items = new HashMap<String, ShoppingCartItem>();
 	
-/*	public ShoppingCart() {
-	}*/
-	
-	public List<ShoppingCartItem> getItems() {
-		List<ShoppingCartItem> list = new ArrayList<ShoppingCartItem>(items.values());
-		//Collections.sort(list);
-		return list;
-	}
-	
+	/**
+	 * 
+	 * @param product
+	 */
 	public void addItem(ProductDvo product) {
 		System.out.println("test " + product.getProductId());
 		String productId = product.getProductId();
 		ShoppingCartItem item = items.get(productId);
 		if (item != null) {
 			item.incrementQuantity();
-		} else {
-			
-			
+		} else {		
 			items.put(productId, new ShoppingCartItem(product, 1));
 		}
 	}
-	
-	public int getItemCount() {
-		int count = 0;
-		for (ShoppingCartItem item : items.values()) {
-			count += item.getQuantity();
-		}
-		return count;
+	/**
+	 * 
+	 * @return
+	 */
+	public int getItemCount() {		
+		return items.size();
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public List<ShoppingCartItem> getShoppingCartProducts() {
 		List<ShoppingCartItem> list = new ArrayList<ShoppingCartItem>(items.values());
-		//Collections.sort(list);
+		Collections.sort(list);
 		return list;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getTotalPriceInDollars() {
 		int total = 0;
 		for (ShoppingCartItem item : items.values()) {
@@ -57,7 +54,9 @@ public class ShoppingCart implements Serializable {
 		}
 		return total;
 	}
-	
+	/**
+	 * 
+	 */
 	public void clear() {
 		items.clear();
 	}
