@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+
 <title>ElenVerve collections - Online store, some things are worth waiting for</title>
 </head>
 <body>
+<!-- 
+from template : ${_csrf.headerName} &nbsp;&nbsp;&nbsp;&nbsp; ${_csrf.token}
+-->
 <jsp:include page="header.jsp" />
  <jsp:include page="${page}.jsp" />
 

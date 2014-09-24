@@ -203,7 +203,11 @@ $(document).ready(function() {
     }
 
    });
-   
+  $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");		  
+		jqXHR.setRequestHeader(header, token);
+	});
    // Validation Forgotten Password
   
   $("#forgotten-password-form").submit(function() {

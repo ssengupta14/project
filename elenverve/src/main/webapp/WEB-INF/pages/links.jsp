@@ -9,7 +9,8 @@
 	<title>Index</title>
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-
+	<meta name="_csrf" content="${_csrf.token}"/>
+     <meta name="_csrf_header" content="${_csrf.headerName}"/> 
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Raleway:400,300,600,700,500|Noto+Sans:400,700|Ubuntu:300,400,500,700"
 		rel="stylesheet" type="text/css">
 	<!-- Styles -->
@@ -61,7 +62,12 @@
 					<li><a href="#" title="">Profile</a></li>
 					<li><a href="#" title="">Help</a></li>
 					<li><a href="#" title="">Privacy</a></li>
-					<li><a href="<c:url value="/j_spring_security_logout" />" title="">Logout</a></li>
+					<li><a href="
+					<c:url var="logoutUrl" value="j_spring_security_logout">
+						<form action="${logoutUrl}" method="post">
+  							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						</form>
+					</c:url>" title="">Logout</a></li>
 				</ul>				
 			</li> 						
 		</ul>
@@ -178,6 +184,7 @@
 								<i class="fa fa-male"></i><input type="text" placeholder="Last Name" id="regLastfName" name="regLastfName"/> 
 							</ul>
 						</div>
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 						<div class="col-md-12">
 							<div class="submit-form">
 								<input type="submit" value="Complete Sign-Up" id="registerButton"/>

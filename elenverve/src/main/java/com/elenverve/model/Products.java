@@ -128,7 +128,8 @@ public class Products extends Default{
 		Object obj = parameters.getParameter("PAGEINATION_PRODUCTS");
 		String pageId = (String)parameters.getParameter("PAGE");
 		int mipp = (Integer)parameters.getParameter("MIPP");
-		this.setMaxItems((int)Math.ceil(((double)mipp)/3.0));
+		int max =(int)Math.ceil(((double)mipp)/3.0);
+		this.setMaxItems(max);
 		
 		// If no pagination products are available
 		if(obj==null){
@@ -148,9 +149,13 @@ public class Products extends Default{
 	        }
 			
 		}
+		int size = pageListHolder.getPageList().size();
 		if(mipp==0){
-			mipp = pageListHolder.getPageList().size();
+			mipp = size;
 		}
+		
+		logger.debug("mipp ["+mipp+"] max ["+max+"]");
+		
 		logger.debug("Setting page size to "+mipp);
 		pageListHolder.setPageSize(mipp);
 		List<ProductDvo> xyz = (List<ProductDvo>) pageListHolder.getPageList();

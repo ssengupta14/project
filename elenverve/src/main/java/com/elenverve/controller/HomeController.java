@@ -3,6 +3,7 @@ package com.elenverve.controller;
 
 
 
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,13 +13,18 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
+import org.springframework.mobile.device.Device;
+import org.springframework.mobile.device.site.SitePreference;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -49,7 +55,66 @@ public class HomeController extends DefaultController{
     
     @Autowired
     private ProductService productService;
-     
+    
+    
+	@RequestMapping(value={ "/", "/welcome**" }, method = RequestMethod.GET)
+	public String landing(ModelMap model,
+			HttpServletRequest request,
+			 String id, Device device) {
+		Enumeration headerNames = request.getHeaderNames();
+		Map<String, String> map = new HashMap<String, String>();
+		logger.debug("Invoking method [landing] from controller [HomeController] for context [/]");
+		
+		logger.debug("Browser information from controller [HomeController] for context [/]");
+		
+		while (headerNames.hasMoreElements()) {
+			String key = (String) headerNames.nextElement();
+			String value = request.getHeader(key);
+			logger.debug(key+" =[" + value+"]");
+			map.put(key, value);
+		}
+		
+			 String ipAddress = request.getHeader("X-FORWARDED-FOR");  
+		   if (ipAddress == null) {  
+			   ipAddress = request.getRemoteAddr();  
+		   }
+		   
+		logger.debug("ipAddress :"+ipAddress);
+		
+		String deviceType = "unknown";
+	    if (device.isNormal()) {
+	        deviceType = "normal";
+	    } else if (device.isMobile()) {
+	        deviceType = "mobile";
+	    } else if (device.isTablet()) {
+	        deviceType = "tablet";
+	    }
+	    logger.debug("Detected ["+deviceType+"] with browser id ["+id+ "] from controller [HomeController] for context [/]");
+		/*
+		ProductParser parser = new ProductParser();
+		List<Product> prodList = parser.getProductList();
+		model.addAttribute("prodList", prodList);
+		*/
+		List<CategoryDvo> categories = productService.getCategories();//(List<CategoryDvo>)request.getAttribute(IConstants.CATEGORIES);
+				//productService.getCategories();
+		List<CollectionDvo> collections = productService.getCollections();//(List<CollectionDvo>)request.getAttribute(IConstants.COLLECTIONS);
+		List<OfferDvo> offers = productService.getOffers();//(List<OfferDvo>)request.getAttribute(IConstants.OFFERS);
+		
+		logger.debug("["+categories.size()+"] Categories retrieved ["+collections.size()+"] collection retrieved from request");
+		Parameters parameters = new Parameters();
+		parameters.addParameter(IConstants.CATEGORIES, categories);
+		parameters.addParameter(IConstants.COLLECTIONS, collections);
+		parameters.addParameter(IConstants.OFFERS, offers);
+		
+		// call data access layer & get list of collections & categories
+		Home home = new Home(parameters);
+		model.addAttribute("model", home);
+		model.addAttribute("page", "landing");
+		return "template";
+ 
+	}
+	
+    
     @RequestMapping(value = "/person", method = RequestMethod.GET)  
     public String getPersonList(ModelMap model) {  
         model.addAttribute("personList", personService.listPerson());  
@@ -151,33 +216,30 @@ public class HomeController extends DefaultController{
 	@RequestMapping(value="/links", method=RequestMethod.GET)
 	 public void links() {}
 	
-	@RequestMapping(value={ "/", "/welcome**" }, method = RequestMethod.GET)
-	public String landing(ModelMap model,HttpServletRequest request) {
-		logger.debug("Invoking method [landing] from controller [HomeController] for context [/]");
-		
-		/*
-		ProductParser parser = new ProductParser();
-		List<Product> prodList = parser.getProductList();
-		model.addAttribute("prodList", prodList);
-		*/
-		List<CategoryDvo> categories = productService.getCategories();//(List<CategoryDvo>)request.getAttribute(IConstants.CATEGORIES);
-				//productService.getCategories();
-		List<CollectionDvo> collections = productService.getCollections();//(List<CollectionDvo>)request.getAttribute(IConstants.COLLECTIONS);
-		List<OfferDvo> offers = productService.getOffers();//(List<OfferDvo>)request.getAttribute(IConstants.OFFERS);
-		
-		logger.debug("["+categories.size()+"] Categories retrieved ["+collections.size()+"] collection retrieved from request");
-		Parameters parameters = new Parameters();
-		parameters.addParameter(IConstants.CATEGORIES, categories);
-		parameters.addParameter(IConstants.COLLECTIONS, collections);
-		parameters.addParameter(IConstants.OFFERS, offers);
-		
-		// call data access layer & get list of collections & categories
-		Home home = new Home(parameters);
-		model.addAttribute("model", home);
-		model.addAttribute("page", "landing");
-		return "template";
- 
+	@RequestMapping("/home")
+	public @ResponseBody String detectDevice(String id, Device device) {
+	    String deviceType = "unknown";
+	    if (device.isNormal()) {
+	        deviceType = "normal";
+	    } else if (device.isMobile()) {
+	        deviceType = "mobile";
+	    } else if (device.isTablet()) {
+	        deviceType = "tablet";
+	    }
+	    return "Hello " + deviceType + " browser! Id:"+id;
 	}
+
+	  private Map<String, String> getHeadersInfo() {
+		  
+			Map<String, String> map = new HashMap<String, String>();
+		 
+			
+			
+		 
+			return map;
+		  }
+	  
+
  
 	@RequestMapping(value="/welcome/{name}", method = RequestMethod.GET)
 	public String welcomeName(@PathVariable String name, ModelMap model) {
