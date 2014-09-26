@@ -8,7 +8,8 @@
 	<title>Index</title>
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-
+	<meta name="_csrf" content="${_csrf.token}"/>
+     <meta name="_csrf_header" content="${_csrf.headerName}"/>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Raleway:400,300,600,700,500|Noto+Sans:400,700|Ubuntu:300,400,500,700'
 		rel='stylesheet' type='text/css'>
 

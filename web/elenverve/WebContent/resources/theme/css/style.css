@@ -12505,7 +12505,7 @@ footer-deal .owl-controls {
     width: 100%;
     margin-left: -250px;
 }
-.login-sec {
+/* .login-sec {
     display: table;
     float: none;
     margin: 10 auto;
@@ -12513,7 +12513,7 @@ footer-deal .owl-controls {
     width: 100%;
     position: fixed;
     z-index:100;
-}
+} */
 .login-sec > ul {
     border: medium none;
     float: left;

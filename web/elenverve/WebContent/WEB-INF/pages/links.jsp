@@ -18,12 +18,12 @@
 	<link rel="stylesheet" href="<c:url value="/resources/font-awesome-4.0.3/css/font-awesome.css"/>" type="text/css" />
 	<!-- Font Awesome -->	
 	<link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"	type="text/css" />	
-	<link rel="stylesheet" type="text/css"	href="<c:url value="/resources/css/setting.css"/>" media="screen" />
-	<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/mystyle.css"/>" media="screen" /> --%>	
+
+	
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />	
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/login.css"/>" media="screen" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/form-style-ie.css"/>" media="screen" />
-	<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/form-style.css"/>" media="screen" /> --%>
+
 	
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.leanModal.min.js"/>"></script>

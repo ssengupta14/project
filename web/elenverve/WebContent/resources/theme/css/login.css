@@ -1,4 +1,202 @@
+.ev-login-sec-right {
+	display: table;	
+	margin: 0 auto;
+	width: 20%; 
+	float:right;
+}
 
+.ev-login-sec-right>ul {
+	border: medium none;
+	float: left;
+	width: 100%;
+}
+
+.ev-login-sec-right>ul>li {
+	float: left;
+	margin: 0;
+}
+
+.ev-login-sec-right>ul>li>a {
+	background: none repeat scroll 0 0 rgba(247, 247, 247, 0.87);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	color: #4D4D4D;
+	float: left;
+	font-family: OPEN SANS;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 16px;
+	margin: 0 15px 0 0;
+	padding: 25px 50px;
+	position: relative;
+}
+
+.ev-login-sec-right>ul>li.active>a:before {
+	border-left: 9px solid rgba(255, 255, 255, 0);
+	border-right: 9px solid rgba(255, 255, 255, 0);
+	border-top: 9px solid #FFFFFF;
+	bottom: -10px;
+	content: "";
+	left: 50%;
+	margin-left: -5px;
+	position: absolute;
+}
+
+.ev-login-sec-right .tab-content {
+	background: none repeat scroll 0 0 rgba(236, 236, 236, 0.81);
+	border: medium none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	float: left;
+	margin-top: 15px;
+	padding: 30px;
+	width: 570px;
+	height: 420px;
+}
+/*----------------------------------------------------------------------*/
+
+.ev-login-sec-left {
+	display: table;	
+	margin: 0 auto;
+	width: 40%; 
+	float:left;
+	border:1px solid black;
+}
+
+
+.ev-login-sec-left>ul {
+	border: medium none;
+	float: left;
+	width: 100%;
+}
+
+.ev-login-sec-left>ul>li {
+	float: left;
+	margin: 0;
+}
+
+.ev-login-sec-left>ul>li>a {
+	background: none repeat scroll 0 0 rgba(247, 247, 247, 0.87);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	color: #4D4D4D;
+	float: left;
+	font-family: OPEN SANS;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 16px;
+	margin: 0 15px 0 0;
+	padding: 25px 50px;
+	position: relative;
+}
+
+.ev-login-sec-left>ul>li.active>a:before {
+	border-left: 9px solid rgba(255, 255, 255, 0);
+	border-right: 9px solid rgba(255, 255, 255, 0);
+	border-top: 9px solid #FFFFFF;
+	bottom: -10px;
+	content: "";
+	left: 50%;
+	margin-left: -5px;
+	position: absolute;
+}
+
+.ev-login-sec-left .tab-content {
+	background: none repeat scroll 0 0 rgba(236, 236, 236, 0.81);
+	border: medium none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	float: left;
+	margin-top: 15px;
+	padding: 30px;
+	width: 570px;
+	height: 420px;
+}
+
+
+
+
+.ev-register-form  h3 {
+    color: #666666;
+    float: left;
+    font-family: open sans;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    line-height: 18px;
+    margin: 0 0 25px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 30%;
+}
+.ev-register-form > .row > form > div > ul {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.7);
+    border: 1px solid #C8C8C8;
+    
+	-webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+	
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+	float:left;
+	width:100%;
+}
+.ev-register-form > .row > form >div > ul > i {
+    color: #ABABAB;
+    float: left;
+    font-size: 15px;
+    line-height: 48px;
+    margin-right: 20px;
+}
+.ev-register-form > .row > div > span {
+    color: #ABABAB;
+    float: left;
+    font-size: 15px;
+    line-height: 48px;
+    margin-right: 20px;
+    padding-left:10px;	
+}
+.ev-register-form > .row > form > div > ul > input {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    color: #777777;
+    float: left;
+    font-family: open sans;
+    font-size: 14px;
+    height: 46px;
+    letter-spacing: 0.3px;
+    width: 80%;
+}
+.ev-register-form > .row > form > div > p {
+    float: left;
+    margin: 0 0 10px;
+    width: 100%;
+}
+.ev-register-form > .row > form> div > p > label {
+    color: #8B8B8B;
+    float: left;
+    font-family: open sans;
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: 0.3px;
+    margin: 1px 0 0 15px;
+}
 
 /* body {
   background-color: #dfdfdf;
@@ -59,12 +257,12 @@ h1 {
 
 /*BUTTONS*/
 
-.btn-facebook, .btn-twitter, form input[type="text"], input[type="password"], input[type="submit"] {
+.btn-facebook, .btn-twitter, form input[type="text"], input[type="password"] {
   border-radius: 8px;
   -moz-border-radius: 3px;
 }
 
-.btn-facebook, .btn-twitter, input[type="submit"] {
+.btn-facebook, .btn-twitter {
   -moz-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
   -webkit-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
