@@ -76,4 +76,11 @@ public class AdminController {
 		return login.getMessage();
 	
 	}	
+	
+	@RequestMapping(value={ "/evlogin" }, method = RequestMethod.GET)
+	public String checkoutLogin(ModelMap model,HttpServletRequest request) {		
+		model.addAttribute("page", "evlogin");	
+		//return "evlogin";
+		return "logintemplate"; 
+	}
 }

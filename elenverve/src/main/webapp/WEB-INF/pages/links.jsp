@@ -9,8 +9,7 @@
 	<title>Index</title>
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-	<meta name="_csrf" content="${_csrf.token}"/>
-     <meta name="_csrf_header" content="${_csrf.headerName}"/> 
+
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Raleway:400,300,600,700,500|Noto+Sans:400,700|Ubuntu:300,400,500,700"
 		rel="stylesheet" type="text/css">
 	<!-- Styles -->
@@ -19,12 +18,12 @@
 	<link rel="stylesheet" href="<c:url value="/resources/font-awesome-4.0.3/css/font-awesome.css"/>" type="text/css" />
 	<!-- Font Awesome -->	
 	<link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"	type="text/css" />	
-	<link rel="stylesheet" type="text/css"	href="<c:url value="/resources/css/setting.css"/>" media="screen" />
-	<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/mystyle.css"/>" media="screen" /> --%>	
+
+	
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />	
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/login.css"/>" media="screen" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/form-style-ie.css"/>" media="screen" />
-	<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/form-style.css"/>" media="screen" /> --%>
+
 	
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.leanModal.min.js"/>"></script>
@@ -62,12 +61,7 @@
 					<li><a href="#" title="">Profile</a></li>
 					<li><a href="#" title="">Help</a></li>
 					<li><a href="#" title="">Privacy</a></li>
-					<li><a href="
-					<c:url var="logoutUrl" value="j_spring_security_logout">
-						<form action="${logoutUrl}" method="post">
-  							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-						</form>
-					</c:url>" title="">Logout</a></li>
+					<li><a href="<c:url value="/j_spring_security_logout" />" title="">Logout</a></li>
 				</ul>				
 			</li> 						
 		</ul>
@@ -184,7 +178,6 @@
 								<i class="fa fa-male"></i><input type="text" placeholder="Last Name" id="regLastfName" name="regLastfName"/> 
 							</ul>
 						</div>
-						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 						<div class="col-md-12">
 							<div class="submit-form">
 								<input type="submit" value="Complete Sign-Up" id="registerButton"/>
