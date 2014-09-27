@@ -72,8 +72,8 @@
 					</div>
 				</div>
 			  </div> <!-- signin  -->
-			  <!-- <div id="signup" class="tab-pane fade"> -->
-			  <div id="signup" style="display:none" class="user_register">
+			 
+			  <div id="signup" style="display:none" class="ev_user_register">
 				<div class="register-form">
 					<div class="row">
 						<h3>Please Complete Your Details</h3>
@@ -116,8 +116,12 @@
 				</div>
 			<!-- Signup Form -->
 			  </div>
+			  <div class="error-box red" style="position:absolute;top:490px; height:46px; width:500px; 
+			  	margin-left:10px;font-family: open sans;font-size: 15px;">
+ 				<span class="error-message">Incorrect login or password.</span>
+			   </div>	
 			</div><!-- myTabContent -->
-			
+
 		</div>   <!-- login-sec -->
 		<div class="ev-login-sec-right" >
 			<div class="tab-content" >
@@ -135,27 +139,27 @@
 							<div style="position: absolute;left: 65%;top: 40%;">
 							<h3>OR</h3>
 							<h3>Login as guest</h3>
-							</div>
-							
+							</div>							
 						</div>	
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+	
 	<script type="text/javascript">
 	$(function() {
 		
 		$("#sigh_up").click(function() {
 			$(".ev_user_login").hide();
-			$(".user_register").show();
+			$(".ev_user_register").show();
 			$(".signup_button_div").hide();
 			$(".signin_button_div").show();			
 			return false;
 		});
 		$("#sigh_in").click(function() {
 			$(".ev_user_login").show();
-			$(".user_register").hide();
+			$(".ev_user_register").hide();
 			$(".signup_button_div").show();
 			$(".signin_button_div").hide();			
 			return false;

@@ -11,6 +11,7 @@ $(document).ready(function() {
   
  // $("#sign-in-form").submit(function() {
   $("#loginButton").click(function() {	
+	
     var value_login = $("#j_username").val();
     var value_password = $("#j_password").val();
     
