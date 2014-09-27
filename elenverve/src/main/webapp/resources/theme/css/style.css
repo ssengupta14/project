@@ -13116,6 +13116,20 @@ a.btn_red {color: #FFF;}
     padding-right:10px;
 }
 
+
+.ev_button {
+    border: medium none;
+    border-radius: 2px;
+    color: #FFF;
+    display: table;
+    float: none;
+    font-family: open sans;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    margin: 0px auto;
+    padding: 10px 90px;
+    background: none repeat scroll 0px 0px #7A7A7A;
+}
 /*
 1.  search .whishlist-bar.bar-dropdown > li > a, .language.bar-dropdown > li > a, .compare-btn.bar-dropdown > li > a, 
  and add the new one 

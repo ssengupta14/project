@@ -57,7 +57,7 @@
 	margin-top: 15px;
 	padding: 30px;
 	width: 570px;
-	height: 420px;
+	height: 520px;
 }
 /*----------------------------------------------------------------------*/
 
@@ -122,7 +122,7 @@
 	margin-top: 15px;
 	padding: 30px;
 	width: 570px;
-	height: 420px;
+	height: 520px;
 }
 
 
@@ -638,3 +638,21 @@ label {
 	padding-top:23px;
 	
 } 
+
+.signup {
+    border: 1px solid #F0B70C;
+
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;	
+	
+    color: #404040;
+    float: right;
+    line-height: 10px;
+    margin: 0;
+    padding: 10px 12px;
+    text-transform: uppercase;
+    width: auto;
+}

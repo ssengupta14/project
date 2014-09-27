@@ -24,11 +24,11 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/login.js"/>"></script>
 </head>
 <body>	
-	<div style="position: absolute;left: 10%;top: 25%;">	
+	<div style="position: absolute;left: 10%;top: 15%;">	
 		<div class="ev-login-sec-left">			
 			<div class="tab-content" id="myTabContent">
 			  <!-- <div id="signin" class="tab-pane fade in active"> -->
-			  <div id="signin">
+			  <div id="signin" class="ev_user_login">
 				<div class="register-form">
 					<div class="row">										
 						<h3>Login to your account</h3>
@@ -73,7 +73,7 @@
 				</div>
 			  </div> <!-- signin  -->
 			  <!-- <div id="signup" class="tab-pane fade"> -->
-			  <div id="signup" style="display:none">
+			  <div id="signup" style="display:none" class="user_register">
 				<div class="register-form">
 					<div class="row">
 						<h3>Please Complete Your Details</h3>
@@ -122,9 +122,22 @@
 		<div class="ev-login-sec-right" >
 			<div class="tab-content" >
 				<form>
-					<div id="register" class="tab-pane fade in active">
-					<h3>Register with Elen Verve</h3>
-					<input type="submit" value="Complete Sign-Up" id="showRegister"/>
+					<div id="register" class="tab-pane fade in active" class="ev-register-form">
+						<div class="register-form">
+							<h3>REGISTER WITH ELEN VERVE</h3>
+							<!-- <input type="submit" value="Complete Sign-Up" id="showRegister"/> -->
+							<div class="signup_button_div" style="position: absolute;left: 65%;top: 25%;">							
+								<input type="button" value="Sign Up" class="ev_button" id="sigh_up"/>							
+							</div>	
+							<div class="signin_button_div" style="display:none;position: absolute;left: 65%;top: 25%;">
+								<input type="button" value="Sign In" class="ev_button" id="sigh_in"/>	
+							</div>		
+							<div style="position: absolute;left: 65%;top: 40%;">
+							<h3>OR</h3>
+							<h3>Login as guest</h3>
+							</div>
+							
+						</div>	
 					</div>
 				</form>
 			</div>
@@ -132,15 +145,22 @@
 	</div>
 	<script type="text/javascript">
 	$(function() {
-		// Calling Login Form
-		$("#showRegister").click(function() {
-			alert("hi");
-			$("#signin").hide();
-			$("#signup").show();
-			
-		    
-			return true;
+		
+		$("#sigh_up").click(function() {
+			$(".ev_user_login").hide();
+			$(".user_register").show();
+			$(".signup_button_div").hide();
+			$(".signin_button_div").show();			
+			return false;
 		});
+		$("#sigh_in").click(function() {
+			$(".ev_user_login").show();
+			$(".user_register").hide();
+			$(".signup_button_div").show();
+			$(".signin_button_div").hide();			
+			return false;
+		});
+		
 	});
 	</script>
 </body>
