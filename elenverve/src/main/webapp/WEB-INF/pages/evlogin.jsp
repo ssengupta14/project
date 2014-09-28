@@ -32,7 +32,7 @@
 				<div class="register-form">
 					<div class="row">										
 						<h3>Login to your account</h3>
-						<form>
+						<form name='f' action="<c:url value='j_spring_security_check' />"   method='POST'>
 						<div class="col-md-12">
 							<ul>
 								<i class="fa fa-envelope-o"></i><input type="text" placeholder="Your Email Address" id="j_username" name="j_username"/> 
@@ -166,5 +166,28 @@
 		});
 		
 	});
+	
+	function performLogin(form) {			
+		$.post(
+			'<c:url value="/login" />',
+			form.serialize(),
+			function (data, textStatus) {
+				//var modal_id = $(this).attr("#modal");	
+				
+				if (data.status) {
+					//window.location.reload(true);				
+					//$(document).off('keydown.leanModal');
+					//loadLinks();
+					alert("successfully login ");
+					
+				} else {
+					 $('.error-box').slideDown('slow').removeClass('green').addClass('red');
+				     $(".error-message").text("Incorrect login or password.");
+					/* var err = form.find(".error");
+					err.html("Login Failed [" + data.error + "]");
+					err.show(); */
+				}
+			}, "json");
+	};
 	</script>
 </body>
