@@ -4,6 +4,8 @@
 <%@ page session="false"%>
 
 <head>
+	<meta name="_csrf" content="${_csrf.token}"/>
+	<meta name="_csrf_header" content="${_csrf.headerName}"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Index</title>
@@ -48,6 +50,7 @@
 						<div class="col-md-12">
 							<div class="submit-form">
 								<input type="submit" value="Sign-In" id="loginButton"/>
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<p>By submitting you comfirm that you agree with our <i>Term & Condition</i> and <i>Privacy Policy</i> </p>
 							</div>
 							<div class="col-md-6">
@@ -107,6 +110,7 @@
 						<div class="col-md-12">
 							<div class="submit-form">
 								<input type="submit" value="Complete Sign-Up" id="registerButton"/>
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<p>By registering you comfirm that you agree with our <i>Term & Condition</i> and <i>Privacy Policy</i> </p>
 							</div>
 						</div>

@@ -10,7 +10,7 @@
     <!-- enable use-expressions -->
 	<http auto-config="true" use-expressions="true">
 		<!-- CSRF fraud protection  -->
-		<!-- <csrf /> -->			
+		<csrf />			
 		<intercept-url pattern="/links" access="permitAll" />		
 		<intercept-url pattern="/evlogin" access="permitAll" />	
 		<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
