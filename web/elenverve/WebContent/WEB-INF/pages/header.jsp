@@ -133,24 +133,14 @@
 							<i></i></a>
 						</li>
 					</ul>
+					<security:authorize ifAllGranted="ROLE_USER">	
 					<ul class="profile bar-dropdown">
 						<li>
-							<div id="links"></div>
-							<%-- <a href="#" title=""> 
-								<div class="fa fa-user" id="links"></div>
-								<!-- <i class="fa fa-user"/>  -->
-							</a>
-							<security:authorize ifAllGranted="ROLE_USER">	 		
-
-								<ul>
-									<li><a href="#" title="">Profile</a></li>
-									<li><a href="#" title="">Help</a></li>
-									<li><a href="#" title="">Privacy</a></li>
-									<li><a href="#" title="">Logout</a></li>
-								</ul>
-							</security:authorize>
-						</li> --%>						
+							<!-- <div id="links"></div> -->	
+							<a><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi!</font> &nbsp;<security:authentication property="principal.username"/></a>
+						</li>						
 					</ul>
+					 </security:authorize>
 				</div>
 			</div>
 

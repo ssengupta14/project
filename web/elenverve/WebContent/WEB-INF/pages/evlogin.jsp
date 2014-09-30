@@ -24,15 +24,15 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/login.js"/>"></script>
 </head>
 <body>	
-	<div style="position: absolute;left: 10%;top: 25%;">	
+	<div style="position: absolute;left: 10%;top: 15%;">	
 		<div class="ev-login-sec-left">			
 			<div class="tab-content" id="myTabContent">
 			  <!-- <div id="signin" class="tab-pane fade in active"> -->
-			  <div id="signin">
+			  <div id="signin" class="ev_user_login">
 				<div class="register-form">
 					<div class="row">										
 						<h3>Login to your account</h3>
-						<form>
+						<form name='f' action="<c:url value='j_spring_security_check' />"   method='POST'>
 						<div class="col-md-12">
 							<ul>
 								<i class="fa fa-envelope-o"></i><input type="text" placeholder="Your Email Address" id="j_username" name="j_username"/> 
@@ -72,8 +72,8 @@
 					</div>
 				</div>
 			  </div> <!-- signin  -->
-			  <!-- <div id="signup" class="tab-pane fade"> -->
-			  <div id="signup" style="display:none">
+			 
+			  <div id="signup" style="display:none" class="ev_user_register">
 				<div class="register-form">
 					<div class="row">
 						<h3>Please Complete Your Details</h3>
@@ -116,31 +116,78 @@
 				</div>
 			<!-- Signup Form -->
 			  </div>
+			  <div class="error-box red" style="position:absolute;top:490px; height:46px; width:500px; 
+			  	margin-left:10px;font-family: open sans;font-size: 15px;">
+ 				<span class="error-message">Incorrect login or password.</span>
+			   </div>	
 			</div><!-- myTabContent -->
-			
+
 		</div>   <!-- login-sec -->
 		<div class="ev-login-sec-right" >
 			<div class="tab-content" >
 				<form>
-					<div id="register" class="tab-pane fade in active">
-					<h3>Register with Elen Verve</h3>
-					<input type="submit" value="Complete Sign-Up" id="showRegister"/>
+					<div id="register" class="tab-pane fade in active" class="ev-register-form">
+						<div class="register-form">
+							<h3>REGISTER WITH ELEN VERVE</h3>
+							<!-- <input type="submit" value="Complete Sign-Up" id="showRegister"/> -->
+							<div class="signup_button_div" style="position: absolute;left: 65%;top: 25%;">							
+								<input type="button" value="Sign Up" class="ev_button" id="sigh_up"/>							
+							</div>	
+							<div class="signin_button_div" style="display:none;position: absolute;left: 65%;top: 25%;">
+								<input type="button" value="Sign In" class="ev_button" id="sigh_in"/>	
+							</div>		
+							<div style="position: absolute;left: 65%;top: 40%;">
+							<h3>OR</h3>
+							<h3>Login as guest</h3>
+							</div>							
+						</div>	
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+	
 	<script type="text/javascript">
 	$(function() {
-		// Calling Login Form
-		$("#showRegister").click(function() {
-			alert("hi");
-			$("#signin").hide();
-			$("#signup").show();
-			
-		    
-			return true;
+		
+		$("#sigh_up").click(function() {
+			$(".ev_user_login").hide();
+			$(".ev_user_register").show();
+			$(".signup_button_div").hide();
+			$(".signin_button_div").show();			
+			return false;
 		});
+		$("#sigh_in").click(function() {
+			$(".ev_user_login").show();
+			$(".ev_user_register").hide();
+			$(".signup_button_div").show();
+			$(".signin_button_div").hide();			
+			return false;
+		});
+		
 	});
+	
+	function performLogin(form) {			
+		$.post(
+			'<c:url value="/login" />',
+			form.serialize(),
+			function (data, textStatus) {
+				//var modal_id = $(this).attr("#modal");	
+				
+				if (data.status) {
+					//window.location.reload(true);				
+					//$(document).off('keydown.leanModal');
+					//loadLinks();
+					alert("successfully login ");
+					
+				} else {
+					 $('.error-box').slideDown('slow').removeClass('green').addClass('red');
+				     $(".error-message").text("Incorrect login or password.");
+					/* var err = form.find(".error");
+					err.html("Login Failed [" + data.error + "]");
+					err.show(); */
+				}
+			}, "json");
+	};
 	</script>
 </body>

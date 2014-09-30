@@ -11,6 +11,7 @@ $(document).ready(function() {
   
  // $("#sign-in-form").submit(function() {
   $("#loginButton").click(function() {	
+	
     var value_login = $("#j_username").val();
     var value_password = $("#j_password").val();
     
@@ -20,12 +21,14 @@ $(document).ready(function() {
 
     // Email format validation    
        if (!login_values.test(value_login)) {
+    	  
          $('#j_username').addClass('ipt-error');      
          $('.error-box').slideDown('slow').removeClass('green').addClass('red');
          $(".error-message").text("Please, fill your correct email.");
          return false;
     }
     
+    alert(value_login + "    " + value_password);
 
     // Everything is all right
     if (value_login != "" && value_password != "")
@@ -34,9 +37,9 @@ $(document).ready(function() {
       $('#j_password').removeClass('ipt-error');
       $('.error-box').slideUp('slow');
      
-      performLogin($("form"));
-	  return false;
-      //return true;
+      //performLogin($("form"));
+	  //return false;
+      return true;
     }    
     // If its not ok
     else {
