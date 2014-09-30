@@ -10,11 +10,10 @@
     <!-- enable use-expressions -->
 	<http auto-config="true" use-expressions="true">
 		<!-- CSRF fraud protection  -->
-		<csrf />		
+		<!-- <csrf /> -->			
+		<intercept-url pattern="/links" access="permitAll" />		
+		<intercept-url pattern="/evlogin" access="permitAll" />	
 		<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/links" access="permitAll" />
-		<intercept-url pattern="/secure" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/login" access="permitAll" />	
 		<intercept-url pattern="/checkout" access="hasRole('ROLE_ADMIN')" />	
 		<session-management>
 		    <concurrency-control max-sessions="1" expired-url="/cart" error-if-maximum-exceeded="true"/>
@@ -22,12 +21,17 @@
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403" />
  
-		<form-login login-page="/evlogin" default-target-url="/main" authentication-failure-url="/loginError"/>
-		<logout logout-success-url="/evlogin?logout"  />			
+		<form-login login-page="/evlogin" 
+					default-target-url="/evlogin"					
+					authentication-failure-url="/fail2login"
+					login-processing-url="/j_spring_security_check"
+					always-use-default-target="true"/>
+		<logout logout-success-url="/logout"  />			
         <remember-me services-ref="rememberMeServices"/>
 	</http>
  	
 	<authentication-manager alias="authenticationManager">
-		<authentication-provider user-service-ref="loginService"></authentication-provider>		
+		<!-- <authentication-provider user-service-ref="loginService"></authentication-provider> -->	
+		<authentication-provider ref="localAuthenticationProvider"/>	
 	</authentication-manager>	
 </beans:beans>

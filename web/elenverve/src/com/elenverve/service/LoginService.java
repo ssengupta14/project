@@ -28,9 +28,18 @@ public class LoginService implements  UserDetailsService  {
  
 	//private JdbcTemplate jdbcTemplate;
 	 @Autowired
-	 private MongoTemplate mongoTemplate;
+	private MongoTemplate mongoTemplate;
 	
-	 private static final Logger logger = Logger.getLogger(LoginService.class);
+	private static final Logger logger = Logger.getLogger(LoginService.class);
+	
+	public UserDvo getUserByEmailId(String emailId){
+		logger.debug("Getting access details from user db !!"); 
+        Query userquery = new Query();	       
+        userquery.addCriteria(Criteria.where("emailId").is(emailId));
+		UserDvo userDvo = mongoTemplate.findOne(userquery, UserDvo.class);
+		return userDvo;
+	}
+	
     @Override
     public UserDetails loadUserByUsername(String emailId) throws UsernameNotFoundException, DataAccessException
     {
