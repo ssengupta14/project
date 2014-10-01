@@ -28,8 +28,6 @@ $(document).ready(function() {
          return false;
     }
     
-    alert(value_login + "    " + value_password);
-
     // Everything is all right
     if (value_login != "" && value_password != "")
     {

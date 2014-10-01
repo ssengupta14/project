@@ -37,13 +37,15 @@
 						<form name='f' action="<c:url value='j_spring_security_check' />"   method='POST'>
 						<div class="col-md-12">
 							<ul>
-								<i class="fa fa-envelope-o"></i><input type="text" placeholder="Your Email Address" id="j_username" name="j_username"/> 
+								<i class="fa fa-envelope-o"></i>
+								<input type="text" placeholder="Your Email Address" id="j_username" name="j_username"/> 
 							</ul>
 						</div>
 						
 						<div class="col-md-12">
 							<ul>
-								<i class="fa fa-lock"></i><input type="password" placeholder="Your Password" id="j_password" name="j_password"/> 
+								<i class="fa fa-lock"></i>
+								<input type="password" placeholder="Your Password" id="j_password" name="j_password"/> 
 							</ul>
 						</div>
 						
@@ -152,46 +154,54 @@
 	</div>
 	
 	<script type="text/javascript">
-	$(function() {
-		
-		$("#sigh_up").click(function() {
-			$(".ev_user_login").hide();
-			$(".ev_user_register").show();
-			$(".signup_button_div").hide();
-			$(".signin_button_div").show();			
-			return false;
-		});
-		$("#sigh_in").click(function() {
-			$(".ev_user_login").show();
-			$(".ev_user_register").hide();
-			$(".signup_button_div").show();
-			$(".signin_button_div").hide();			
-			return false;
-		});
-		
-	});
 	
-	function performLogin(form) {			
-		$.post(
-			'<c:url value="/login" />',
-			form.serialize(),
-			function (data, textStatus) {
-				//var modal_id = $(this).attr("#modal");	
-				
-				if (data.status) {
-					//window.location.reload(true);				
-					//$(document).off('keydown.leanModal');
-					//loadLinks();
-					alert("successfully login ");
+		$(document).ready(function() {			  
+		   <c:if test="${not empty error}">  
+		   		$('.error-box').slideDown('slow').removeClass('green').addClass('red');
+		     	$(".error-message").text("Incorrect login or password.");
+		  </c:if> 
+		});
+		
+		$(function() {
+			
+			$("#sigh_up").click(function() {
+				$(".ev_user_login").hide();
+				$(".ev_user_register").show();
+				$(".signup_button_div").hide();
+				$(".signin_button_div").show();			
+				return false;
+			});
+			$("#sigh_in").click(function() {
+				$(".ev_user_login").show();
+				$(".ev_user_register").hide();
+				$(".signup_button_div").show();
+				$(".signin_button_div").hide();			
+				return false;
+			});
+			
+		});
+		
+		function performLogin(form) {			
+			$.post(
+				'<c:url value="/login" />',
+				form.serialize(),
+				function (data, textStatus) {
+					//var modal_id = $(this).attr("#modal");	
 					
-				} else {
-					 $('.error-box').slideDown('slow').removeClass('green').addClass('red');
-				     $(".error-message").text("Incorrect login or password.");
-					/* var err = form.find(".error");
-					err.html("Login Failed [" + data.error + "]");
-					err.show(); */
-				}
-			}, "json");
-	};
+					if (data.status) {
+						//window.location.reload(true);				
+						//$(document).off('keydown.leanModal');
+						//loadLinks();
+						alert("successfully login ");
+						
+					} else {
+						 $('.error-box').slideDown('slow').removeClass('green').addClass('red');
+					     $(".error-message").text("Incorrect login or password.");
+						/* var err = form.find(".error");
+						err.html("Login Failed [" + data.error + "]");
+						err.show(); */
+					}
+				}, "json");
+		};
 	</script>
 </body>

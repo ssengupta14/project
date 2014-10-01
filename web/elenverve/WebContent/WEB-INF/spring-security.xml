@@ -10,7 +10,7 @@
     <!-- enable use-expressions -->
 	<http auto-config="true" use-expressions="true">
 		<!-- CSRF fraud protection  -->
-		<csrf />			
+		<!-- <csrf /> -->			
 		<intercept-url pattern="/links" access="permitAll" />		
 		<intercept-url pattern="/evlogin" access="permitAll" />	
 		<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
@@ -25,10 +25,13 @@
 					default-target-url="/evlogin"					
 					authentication-failure-url="/fail2login"
 					login-processing-url="/j_spring_security_check"
+					authentication-success-handler-ref="myAuthenticationSuccessHandler"
 					always-use-default-target="true"/>
 		<logout logout-success-url="/logout"  />			
         <remember-me services-ref="rememberMeServices"/>
 	</http>
+ 						
+ 	<beans:bean id="myAuthenticationSuccessHandler" class="com.elenverve.handler.MySimpleUrlAuthenticationSuccessHandler" /> 
  	
 	<authentication-manager alias="authenticationManager">
 		<!-- <authentication-provider user-service-ref="loginService"></authentication-provider> -->	

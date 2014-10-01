@@ -29,15 +29,13 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
         clearAuthenticationAttributes(request);
     }
  
-    protected void handle(HttpServletRequest request, 
-      HttpServletResponse response, Authentication authentication) throws IOException {
+    protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         String targetUrl = determineTargetUrl(authentication);
  
         if (response.isCommitted()) {
             logger.debug("Response has already been committed. Unable to redirect to " + targetUrl);
             return;
-        }
- 
+        } 
         redirectStrategy.sendRedirect(request, response, targetUrl);
     }
  

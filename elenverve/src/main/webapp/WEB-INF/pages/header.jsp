@@ -60,7 +60,7 @@
 					</ul>
 					<!-- What ever person has shopped, is displayed in the shopping cart-->
 					<ul class="shop-cart bar-dropdown">
-						<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a>
+						<li><a href="#" title=""><i class="fa fa-shopping-cart"></i>${shoppingCart.getItemCount() }</a>
 							<c:if test="${shoppingCart.getItemCount() > 0 }">
 								<ul>
 									<c:forEach var="product" items="${shoppingCart.getShoppingCartProducts()}">
@@ -135,10 +135,21 @@
 					</ul>
 					<security:authorize ifAllGranted="ROLE_USER">	
 					<ul class="profile bar-dropdown">
-						<li>
+						<%-- <li>
 							<!-- <div id="links"></div> -->	
 							<a><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi!</font> &nbsp;<security:authentication property="principal.username"/></a>
-						</li>						
+						</li> --%>	
+						<li>	
+							<a><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi!</font> &nbsp;<security:authentication property="principal.username"/></a>			
+							<%-- <a href="<c:url value="/j_spring_security_logout" />">Hi! &nbsp;<security:authentication property="principal.username"/> Logout</a> --%> 
+							<ul>
+								<li><a href="#" title="">Profile</a></li>
+								<li><a href="#" title="">Help</a></li>
+								<li><a href="#" title="">Privacy</a></li>
+								<li><a href="<c:url value="/j_spring_security_logout" />" title="">Logout</a></li>
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							</ul>				
+						</li> 					
 					</ul>
 					 </security:authorize>
 				</div>
