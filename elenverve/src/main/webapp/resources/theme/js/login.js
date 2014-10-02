@@ -7,8 +7,7 @@ $(document).ready(function() {
     $('#ipt-fp-email').val(''); 
   });
   
-  // Validation Sign in
-  
+  // Validation Sign in  
  // $("#sign-in-form").submit(function() {
   $("#loginButton").click(function() {	
 	
@@ -113,7 +112,13 @@ $(document).ready(function() {
     }
     
     // Everything is all right
-    if (regFirstfName != "" && regLastfName != "" && regEmail != "" && regPassword != "" && regPassword == regRePassword && ($('#tac-checkbox:checked').val() !== undefined))
+    if (	regFirstfName != "" && 
+    		regLastfName != "" && 
+    		regEmail != "" && 
+    		regPassword != "" && 
+    		regPassword == regRePassword )
+    		/*&& 
+    		($('#tac-checkbox:checked').val() !== undefined))*/
     {
       $('#regFirstfName').removeClass('ipt-error');
       $('#regLastfName').removeClass('ipt-error');
@@ -121,8 +126,9 @@ $(document).ready(function() {
       $('#regPassword').removeClass('ipt-error');
       $('#regRePassword').removeClass('ipt-error');
       $('.error-box').slideUp('slow');
-      
-      register($("form"));     
+     
+      return true;
+      //register($("form"));     
       
     }
     
@@ -194,7 +200,11 @@ $(document).ready(function() {
         $('#regRePassword').removeClass('ipt-error');      
       }
       
-      if (($('#tac-checkbox:checked').val() == undefined) && regFirstfName != "" && regEmail != "" && regPassword != "" && regPassword == regRePassword)
+      if (		($('#tac-checkbox:checked').val() == undefined) && 
+    		  	regFirstfName != "" && 
+    		  	regEmail != "" && 
+    		  	regPassword != "" && 
+    		  	regPassword == regRePassword)
       {
         $('.error-box').slideDown('slow');
         $(".error-message").text("You have to agree with terms and conditions.");
