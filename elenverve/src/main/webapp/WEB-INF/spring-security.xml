@@ -10,7 +10,7 @@
     <!-- enable use-expressions -->
 	<http auto-config="true" use-expressions="true">
 		<!-- CSRF fraud protection  -->
-		<!-- <csrf /> -->			
+		<!-- <csrf />  -->		
 		<intercept-url pattern="/links" access="permitAll" />		
 		<intercept-url pattern="/evlogin" access="permitAll" />	
 		<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
@@ -25,14 +25,23 @@
 					default-target-url="/evlogin"					
 					authentication-failure-url="/fail2login"
 					login-processing-url="/j_spring_security_check"
-					authentication-success-handler-ref="myAuthenticationSuccessHandler"
+					authentication-success-handler-ref="evAuthenticationSuccessHandler"
 					always-use-default-target="true"/>
 		<logout logout-success-url="/logout"  />			
-        <remember-me services-ref="rememberMeServices"/>
+        <!-- <remember-me services-ref="rememberMeServices"/> -->
 	</http>
  						
- 	<beans:bean id="myAuthenticationSuccessHandler" class="com.elenverve.handler.MySimpleUrlAuthenticationSuccessHandler" /> 
- 	
+ 	<beans:bean id="evAuthenticationSuccessHandler" class="com.elenverve.handler.EVAuthenticationSuccessHandler" /> 
+ 	<!-- <beans:bean id="rememberMeServices"    class="org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices">
+        <beans:constructor-arg value="myAppKey"/>
+        <beans:constructor-arg ref="loginService"/>
+        <beans:constructor-arg ref="tokenRepository"/>
+        <beans:property name="cookieName" value="remember-me"/>
+        <beans:property name="tokenLength" value="32"/>
+        <beans:property name="parameter" value="remember-me-parameter"/>
+    </beans:bean>
+	
+    <beans:bean id="tokenRepository"          class="org.springframework.security.web.authentication.rememberme.InMemoryTokenRepositoryImpl"/> -->
 	<authentication-manager alias="authenticationManager">
 		<!-- <authentication-provider user-service-ref="loginService"></authentication-provider> -->	
 		<authentication-provider ref="localAuthenticationProvider"/>	
