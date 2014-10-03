@@ -34,10 +34,9 @@ public class LocalAuthenticationProvider extends AbstractUserDetailsAuthenticati
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	//@Autowired UserService userService;
-	@Autowired
-	LoginService loginService;
+	@Autowired LoginService loginService;
 	
-    //@Autowired private PasswordEncoder encoder;
+    @Autowired private PasswordEncoder encoder;
 
 	@Override
 	protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken authentication)
@@ -59,11 +58,11 @@ public class LocalAuthenticationProvider extends AbstractUserDetailsAuthenticati
             throw new UsernameNotFoundException("Invalid Login");
         }
         
-        /*if (!encoder.matches(password, user.getPassword())) {
+        if (!encoder.matches(password, user.getPassword())) {
         	logger.warn("Username {} password {}: invalid password", username, password);
             throw new BadCredentialsException("Invalid Login");
         }
-        
+        /*
         if (!(UserAccountStatus.STATUS_APPROVED.name().equals(user.getStatus()))) {
         	logger.warn("Username {}: not approved", username);
             throw new BadCredentialsException("User has not been approved");

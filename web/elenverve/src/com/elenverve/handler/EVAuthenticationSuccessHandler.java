@@ -17,7 +17,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 import com.elenverve.controller.AdminController;
 
-public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+public class EVAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
     //protected Log logger = LogFactory.getLog(this.getClass());
     private final Logger logger = Logger.getLogger(this.getClass());
  

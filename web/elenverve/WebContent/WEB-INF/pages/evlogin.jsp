@@ -34,7 +34,7 @@
 				<div class="register-form">
 					<div class="row">										
 						<h3>Login to your account</h3>
-						<form name='f' action="<c:url value='j_spring_security_check' />"   method='POST'>
+						<form name="sign_in_form" action="<c:url value='j_spring_security_check' />"   method='POST'>
 						<div class="col-md-12">
 							<ul>
 								<i class="fa fa-envelope-o"></i>
@@ -82,40 +82,40 @@
 				<div class="register-form">
 					<div class="row">
 						<h3>Please Complete Your Details</h3>
-						<form>
-						<div class="col-md-12">
-							<ul>
-								<i class="fa fa-envelope-o"></i><input type="text" placeholder="Your Email Address" id="regEmail" name="regEmail"/> 
-							</ul>
-						</div>
-						
-						<div class="col-md-12">
-							<ul>
-								<i class="fa fa-lock"></i><input type="password" placeholder="Create a Password" id="regPassword" name="regPassword"/> 
-							</ul>
-						</div>
-						<div class="col-md-12">
-							<ul>
-								<i class="fa fa-lock"></i><input type="password" placeholder="Retype your Password" id="regRePassword" name="regRePassword"/> 
-							</ul>
-						</div>
-						<div class="col-md-6">
-							<ul>
-								<i class="fa fa-male"></i><input type="text" placeholder="First Name" id="regFirstfName" name="regFirstfName"/> 
-							</ul>
-						</div>
-						<div class="col-md-6">
-							<ul>
-								<i class="fa fa-male"></i><input type="text" placeholder="Last Name" id="regLastfName" name="regLastfName"/> 
-							</ul>
-						</div>
-						<div class="col-md-12">
-							<div class="submit-form">
-								<input type="submit" value="Complete Sign-Up" id="registerButton"/>
-								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-								<p>By registering you comfirm that you agree with our <i>Term & Condition</i> and <i>Privacy Policy</i> </p>
+						<form name="sign_up_form" action="/elenverve/register"   method="POST">
+							<div class="col-md-12">
+								<ul>
+									<i class="fa fa-envelope-o"></i><input type="text" placeholder="Your Email Address" id="regEmail" name="regEmail"/> 
+								</ul>
 							</div>
-						</div>
+							
+							<div class="col-md-12">
+								<ul>
+									<i class="fa fa-lock"></i><input type="password" placeholder="Create a Password" id="regPassword" name="regPassword"/> 
+								</ul>
+							</div>
+							<div class="col-md-12">
+								<ul>
+									<i class="fa fa-lock"></i><input type="password" placeholder="Retype your Password" id="regRePassword" name="regRePassword"/> 
+								</ul>
+							</div>
+							<div class="col-md-6">
+								<ul>
+									<i class="fa fa-male"></i><input type="text" placeholder="First Name" id="regFirstfName" name="regFirstfName"/> 
+								</ul>
+							</div>
+							<div class="col-md-6">
+								<ul>
+									<i class="fa fa-male"></i><input type="text" placeholder="Last Name" id="regLastfName" name="regLastfName"/> 
+								</ul>
+							</div>
+							<div class="col-md-12">
+								<div class="submit-form">
+									<input type="submit" value="Complete Sign-Up" id="registerButton"/>
+									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+									<p>By registering you comfirm that you agree with our <i>Term & Condition</i> and <i>Privacy Policy</i> </p>
+								</div>
+							</div>
 						</form>
 						
 					</div>
@@ -155,10 +155,23 @@
 	
 	<script type="text/javascript">
 	
-		$(document).ready(function() {			  
+		$(document).ready(function() {		
+		   <c:if test = "${pageName == 'sign_up'}">  
+			    $(".ev_user_login").hide();
+				$(".ev_user_register").show();
+				$(".signup_button_div").hide();
+				$(".signin_button_div").show();	
+		   </c:if> 
+		   <c:if test = "${pageName == 'sign_in'}">  
+			    $(".ev_user_login").show();
+				$(".ev_user_register").hide();
+				$(".signup_button_div").show();
+				$(".signin_button_div").hide();	
+	   	   </c:if> 
 		   <c:if test="${not empty error}">  
+		   
 		   		$('.error-box').slideDown('slow').removeClass('green').addClass('red');
-		     	$(".error-message").text("Incorrect login or password.");
+		     	$(".error-message").text("${reason}");
 		  </c:if> 
 		});
 		
@@ -181,27 +194,7 @@
 			
 		});
 		
-		function performLogin(form) {			
-			$.post(
-				'<c:url value="/login" />',
-				form.serialize(),
-				function (data, textStatus) {
-					//var modal_id = $(this).attr("#modal");	
-					
-					if (data.status) {
-						//window.location.reload(true);				
-						//$(document).off('keydown.leanModal');
-						//loadLinks();
-						alert("successfully login ");
-						
-					} else {
-						 $('.error-box').slideDown('slow').removeClass('green').addClass('red');
-					     $(".error-message").text("Incorrect login or password.");
-						/* var err = form.find(".error");
-						err.html("Login Failed [" + data.error + "]");
-						err.show(); */
-					}
-				}, "json");
-		};
+		
+		
 	</script>
 </body>

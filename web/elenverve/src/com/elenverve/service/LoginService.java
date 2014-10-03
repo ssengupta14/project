@@ -24,7 +24,7 @@ import com.elenverve.dvo.UserDvo;
   
 @SuppressWarnings("deprecation")
 @Service
-public class LoginService implements  UserDetailsService  {
+public class LoginService {//implements  UserDetailsService  {
  
 	//private JdbcTemplate jdbcTemplate;
 	 @Autowired
@@ -40,7 +40,7 @@ public class LoginService implements  UserDetailsService  {
 		return userDvo;
 	}
 	
-    @Override
+    /*@Override
     public UserDetails loadUserByUsername(String emailId) throws UsernameNotFoundException, DataAccessException
     {
     	try{
@@ -75,27 +75,26 @@ public class LoginService implements  UserDetailsService  {
     	}catch(Exception ex){
     		throw new UsernameNotFoundException(" Request is failed") ;
     	}
-    }
+    }*/
     
     /**
 	 * Checks if the user is an existing user
 	 * @param emailId
 	 * @return
 	 */
-	public boolean isExistingUser(String user){
-		//TODO: add 1st level householding keys in search
-		logger.debug("Checking if user already exists in db !!"); 
+	public boolean isExistingUser(String emailId) {
+		// TODO: add 1st level householding keys in search
+		logger.debug("Checking if user already exists in db !!");
 		Query userquery = new Query();
-		 userquery.addCriteria(Criteria.where("emailId").is(user));
-			UserDvo tmpUserDvo = mongoTemplate.findOne(userquery, UserDvo.class);
-			if(tmpUserDvo!=null){
-				return true;
-			}
-			return false;
+		userquery.addCriteria(Criteria.where("emailId").is(emailId));
+		UserDvo tmpUserDvo = mongoTemplate.findOne(userquery, UserDvo.class);
+		if (tmpUserDvo != null) {
+			return true;
+		}
+		return false;
 	}
         
-    public String registerUser(UserDvo userDvo) throws DataAccessException
-    {
+    public String registerUser(UserDvo userDvo) throws DataAccessException {
     	logger.debug("Creating new user ["+userDvo.getEmailId()+"] in db !!");
 		
     	if(!(userDvo==null) && !isExistingUser(userDvo.getEmailId())){

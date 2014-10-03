@@ -19,7 +19,8 @@
 
 	<context:annotation-config/>
 	
-		
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	
 	<bean id="shoppingCart" class="com.elenverve.service.ShoppingCart" scope="session">
 		<!-- This requires CGLIB -->
 		<aop:scoped-proxy/>

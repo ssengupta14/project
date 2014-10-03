@@ -40,7 +40,7 @@ public class Login {
 			
 		 	UserDetails user =null;
 			try{
-				user = loginService.loadUserByUsername(email);
+				//user = loginService.loadUserByUsername(email);
 			}catch(UsernameNotFoundException e){
 				user=null;
 			}
