@@ -930,12 +930,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', end
 }
 
 
-.whishlist-bar.bar-dropdown > li > a i, .language.bar-dropdown > li > a i, .compare-btn.bar-dropdown > li > a i, .profile.bar-dropdown > li > a i{
+.whishlist-bar.bar-dropdown > li > a i, .language.bar-dropdown > li > a i, .compare-btn.bar-dropdown > li > a i, .profile.bar-dropdown > li > a i, .shop-cart.bar-dropdown > li > a i{
     color: #6B6B6B;
     float: left;
-    font-size: 12px;
+    font-size: 20px;
     margin-right: 10px;
-    margin-top: 2px;
+    margin-top: -1px;
 }
 .profile.bar-dropdown > li > a:active i{
     color: #f0b70c;
@@ -12498,18 +12498,22 @@ footer-deal .owl-controls {
 
 /* Sign in Form */
 #login-bg {
-    background-image: url("../images/sign-bg.jpg");
+   
     background-repeat: no-repeat;
     background-size: 100% 100%;
     float: left;
     width: 100%;
+    margin-left: -250px;
 }
-.login-sec {
+/* .login-sec {
     display: table;
     float: none;
-    margin: 0 auto;
-    width: 50%;
-}
+    margin: 10 auto;
+    margin-left:20%;	
+    width: 100%;
+    position: fixed;
+    z-index:100;
+} */
 .login-sec > ul {
     border: medium none;
     float: left;
@@ -12549,7 +12553,7 @@ footer-deal .owl-controls {
     position: absolute;
 }
 .login-sec .tab-content {
-    background: none repeat scroll 0 0 rgba(236, 236, 236, 0.81);
+    background: none repeat scroll 0 0 rgba(236, 236, 236, 0.9);
     border: medium none;
     
 	-webkit-border-radius: 3px;
@@ -12557,19 +12561,31 @@ footer-deal .owl-controls {
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
     border-radius: 3px;
-	
+    		
     float: left;
-    margin-top: 15px;
+    margin-top: 1px;
     padding: 30px;
     width: 570px;
 }
 .signin-form {
     float: left;
     width: 100%;
+ margin-top: 15px;
 }
+.signin-form > h1 {
+    color: #4D4D4D;
+    float: left;
+
+    text-transform: uppercase;
+    width: 100%;
+    margin-left:45%;	
+}
+
 .signin-form > h3 {
     color: #4D4D4D;
     float: left;
+    padding-top:2%;
+    padding-left:20%;	
     font-family: open sans;
     font-weight: 600;
     letter-spacing: 0.3px;
@@ -12584,24 +12600,42 @@ footer-deal .owl-controls {
     margin-top: 35px;
     width: 100%;
 }
-.signin-form > form > input {
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.71);
+
+.signin-form > form > div > ul {
+ background: none repeat scroll 0 0 rgba(255, 255, 255, 0.7);
     border: 1px solid #C8C8C8;
     
-	-webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
+	-webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
 	
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 10 20px;
+	float:left;
+	width:100%;
+}
+
+.signin-form > form > div > ul > i {
+    color: #ABABAB;
+    float: left;
+    font-size: 15px;
+    line-height: 48px;
+    margin-right: 10px;
+}
+
+.signin-form > form > div > ul > input {  
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    color: #777777;
     float: left;
     font-family: open sans;
-    font-size: 13px;
-    height: 50px;
+    font-size: 14px;
+    height: 46px;
     letter-spacing: 0.3px;
-    margin-bottom: 15px;
-    padding: 0 20px;
-    width: 100%;
+    width: 80%;
 }
 .signin-form > a {
     color: #333333;
@@ -12631,6 +12665,97 @@ footer-deal .owl-controls {
     margin: 20px auto 0;
     padding: 10px 39px;
 }
+.signin-form > div > i {
+	margin-right:10px;
+	    font-size: 25px;			
+    /*background: none repeat scroll 0 0 #3f8ff2;
+    background-image: url("../images/login/fb-icon.png");	
+    border: medium none;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+	
+    color: #FFFFFF;
+    display: table;
+    float: left;
+    font-size: 14px;
+    margin: 20px auto 0;
+    padding: 10px 39px;
+    margin-top: -20px;
+    margin-left:10px;	*/
+
+}
+.signin-form > div > i > a{
+	font-size: 14px;
+/*
+    background: none repeat scroll 0 0 #28c4ff;
+    background-image: url("../images/login/fb-icon.png");	
+    border: medium none;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+	
+    color: #FFFFFF;
+    display: table;
+    float: left;
+    font-size: 14px;
+    margin: 20px auto 0;
+    padding: 10px 39px;
+    margin-top: -20px;
+    margin-left:10px;	
+*/
+}
+
+.signin-form > div > a > .fb-submit {
+    background: none repeat scroll 0 0 #3f8ff2;
+    background-image: url("../images/login/fb-icon.png");	
+    border: medium none;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+	
+    color: #FFFFFF;
+    display: table;
+    float: left;
+    font-family: open sans;
+    font-size: 15px;
+    margin: 20px auto 0;
+    padding: 10px 39px;
+    margin-top: -20px;
+    margin-left:0px;	
+
+}
+.signin-form > div > a > .twitter-submit {
+    background: none repeat scroll 0 0 #28c4ff;
+    background-image: url("../images/login/fb-icon.png");	
+    border: medium none;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+	
+    color: #FFFFFF;
+    display: table;
+    float: left;
+    font-family: open sans;
+    font-size: 15px;
+    margin: 20px auto 0;
+    padding: 10px 39px;
+    margin-top: -20px;
+    margin-left:25px;
+    padding-left:20px;		
+
+}
+
+
+
 .register-form  h3 {
     color: #666666;
     float: left;
@@ -12644,7 +12769,7 @@ footer-deal .owl-controls {
     text-transform: uppercase;
     width: 100%;
 }
-.register-form > .row > div > form {
+.register-form > .row > form > div > ul {
     background: none repeat scroll 0 0 rgba(255, 255, 255, 0.7);
     border: 1px solid #C8C8C8;
     
@@ -12654,36 +12779,44 @@ footer-deal .owl-controls {
     -o-border-radius: 2px;
     border-radius: 2px;
 	
-    height: 50px;
+    height: 40px;
     margin-bottom: 20px;
     padding: 0 20px;
 	float:left;
-	width:100%;
+	width:90%;
 }
-.register-form > .row > div > form > i {
+.register-form > .row > form >div > ul > i {
+    color: #ABABAB;
+    float: left;
+    font-size: 18px;
+    line-height: 38px;
+    margin-right: 20px;
+}
+.register-form > .row > div > span {
     color: #ABABAB;
     float: left;
     font-size: 15px;
     line-height: 48px;
     margin-right: 20px;
+    padding-left:10px;	
 }
-.register-form > .row > div > form > input {
+.register-form > .row > form > div > ul > input {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: medium none;
     color: #777777;
     float: left;
     font-family: open sans;
-    font-size: 14px;
-    height: 46px;
+    font-size: 16px;
+    height: 36px;
     letter-spacing: 0.3px;
-    width: 80%;
+    width: 70%;
 }
-.register-form > .row > div > p {
+.register-form > .row > form > div > p {
     float: left;
     margin: 0 0 10px;
     width: 100%;
 }
-.register-form > .row > div > p > label {
+.register-form > .row > form> div > p > label {
     color: #8B8B8B;
     float: left;
     font-family: open sans;
@@ -12703,7 +12836,7 @@ footer-deal .owl-controls {
 	
     float: left;
     padding: 15px;
-    width: 100%;
+    width: 90%;
 }
 .submit-form > input {
     border: medium none;
@@ -12724,6 +12857,7 @@ footer-deal .owl-controls {
     padding: 10px 90px;
 	background: none repeat scroll 0 0 #7A7A7A;
 }
+
 .submit-form > p {
     color: #8B8B8B;
     display: table;
@@ -12732,8 +12866,9 @@ footer-deal .owl-controls {
     font-size: 12px;
     letter-spacing: 0.3px;
     margin: 15px auto 0;
+    margin-top:3px;	
     text-align: center;
-    width: 70%;
+    width: 100%;
 }
 .submit-form > p > i {
     font-style: normal;
@@ -12746,17 +12881,20 @@ footer-deal .owl-controls {
     left: 0px;
     height:100%;
     width:100%;
-    background: #000;
+    background: #0;
     display: none;
 }
 
 .popupContainer{
+	background: rgba(255, 255, 255, 0.8);
 	position:absolute;
-	width:330px;
+	width:100%;
+	height:100%;
 	height: auto;
-	left:45%;
+	left:10%;
 	top:80px;
-	background: #FFF;
+
+	
 }
 
 
@@ -12795,7 +12933,8 @@ a.btn_red {color: #FFF;}
 .action_btns {clear:both; overflow: hidden;}
 .action_btns a {display: block;}
 
-/* User Login Form */
+/* User Login Form 
+
 .user_login {display: none;}
 .user_login label {display: block; margin-bottom:5px;}
 .user_login input[type="text"], .user_login input[type="email"], .user_login input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
@@ -12804,14 +12943,14 @@ a.btn_red {color: #FFF;}
 
 .user_login .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
 .forgot_password {display:block; margin: 20px 0 10px; clear: both; overflow: hidden; text-decoration: none; color:#ED6347;}
-
-/* User Register Form */
+*/
+/* User Register Form 
 .user_register {display: none;}
 .user_register label {display: block; margin-bottom:5px;}
 .user_register input[type="text"], .user_register input[type="email"], .user_register input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
 .user_register input[type="checkbox"] {float:left; margin-right:5px;}
 .user_register input[type="checkbox"]+label {float:left;}
-
+*/
 .user_register .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
 
 /* Start of profile dropdown */
@@ -12979,6 +13118,8 @@ a.btn_red {color: #FFF;}
     padding-right:10px;
 }
 
+
+
 /*
 1.  search .whishlist-bar.bar-dropdown > li > a, .language.bar-dropdown > li > a, .compare-btn.bar-dropdown > li > a, 
  and add the new one 
@@ -12989,5 +13130,3 @@ a.btn_red {color: #FFF;}
 
 */
 /* End of shopping cart */
-
-

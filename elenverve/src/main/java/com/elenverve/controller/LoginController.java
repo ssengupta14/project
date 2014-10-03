@@ -33,8 +33,10 @@ public class LoginController {
 	@RequestMapping(value = { "/evlogin" }, method = RequestMethod.GET)
 	public String checkoutLogin(ModelMap model, HttpServletRequest request) {
 		model.addAttribute("page", "evlogin");
+		model.addAttribute("noHeader", "true");
+		model.addAttribute("noFooter","true");
 		// return "evlogin";
-		return "logintemplate";
+		return "template";
 	}
 	
 	@RequestMapping(value = "/fail2login", method = RequestMethod.GET)
@@ -43,14 +45,18 @@ public class LoginController {
 		model.addAttribute("pageName", "sign_in");
 		model.addAttribute("reason", "Incorrect login or password.");
 		model.addAttribute("page", "evlogin");
-		return "logintemplate";
+		model.addAttribute("noHeader", "true");
+		model.addAttribute("noFooter","true");
+		return "template";
 
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model) {
 		model.addAttribute("page", "evlogin");
-		return "logintemplate";
+		model.addAttribute("noHeader", "true");
+		model.addAttribute("noFooter","true");		
+		return "template";
 
 	}
 	
@@ -70,8 +76,9 @@ public class LoginController {
 			model.addAttribute("pageName", "sign_up");
 			model.addAttribute("reason", "User already exists.");
 			model.addAttribute("page", "evlogin");
-			
-			return "logintemplate";
+			model.addAttribute("noHeader", "true");
+			model.addAttribute("noFooter","true");
+			return "template";
 		}else{
 			UserDvo userDvo = new UserDvo();
 			userDvo.setEmailId(regEmail);
@@ -83,7 +90,7 @@ public class LoginController {
 			userDvo.setCredentials(credentials);
 			loginService.registerUser(userDvo);	
 			model.addAttribute("page", "evlogin");
-			return "logintemplate";
+			return "template";
 			
 		}	
 	}	

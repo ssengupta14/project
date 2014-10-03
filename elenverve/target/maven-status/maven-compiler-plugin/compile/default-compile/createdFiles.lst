@@ -8,7 +8,11 @@ com/elenverve/dynamic/TestMenu.class
 com/elenverve/dvo/AddressDvo.class
 com/elenverve/dvo/GplusUserDvo.class
 com/elenverve/validator/FileUploadValidator.class
+com/elenverve/controller/CheckoutController.class
+com/elenverve/service/ShoppingCart.class
 com/elenverve/dpo/BagOffer$Get.class
+com/elenverve/controller/LoginController.class
+com/elenverve/service/LocalAuthenticationProvider.class
 com/elenverve/dynamic/TestBanner.class
 com/elenverve/dpo/BannerDpo$Slide.class
 com/elenverve/dvo/ProductDvo$ProductPromotions.class
@@ -46,6 +50,7 @@ com/elenverve/dvo/CustomerDvo.class
 com/elenverve/dvo/OfferDvo.class
 com/elenverve/controller/ContactController.class
 com/elenverve/dvo/CredentialsDvo.class
+com/elenverve/service/CartServiceImpl.class
 com/elenverve/dpo/SaleOffer.class
 com/elenverve/model/Home.class
 com/elenverve/dao/Person.class
@@ -59,9 +64,9 @@ com/elenverve/parser/ProductParser.class
 com/elenverve/dao/MapperDao.class
 com/elenverve/dvo/PaymentDvo.class
 com/elenverve/util/EncryptionDecryptionUtil.class
+com/elenverve/controller/csrf/CSRFTokenTag.class
 com/elenverve/dao/DbAccessService.class
 com/elenverve/dvo/CollectionDvo.class
-com/elenverve/controller/AjaxLoginController.class
 com/elenverve/dvo/TestimonialDvo.class
 com/elenverve/controller/ProductController.class
 com/elenverve/controller/UploadFormController.class
@@ -69,10 +74,13 @@ com/elenverve/dao/BaseDao.class
 com/elenverve/dvo/SocialProductDvo.class
 com/elenverve/dvo/DesignerDvo.class
 com/elenverve/dpo/MenuDpo.class
+com/elenverve/handler/EVAuthenticationSuccessHandler.class
+com/elenverve/service/CartService.class
 com/elenverve/dvo/InvoiceDvo.class
 com/elenverve/dpo/BannerDpo$Slide$Overlay$Text.class
 com/elenverve/dvo/UserDvo.class
 com/elenverve/dpo/BannerDpo.class
+com/elenverve/service/ShoppingCartItem.class
 com/elenverve/dao/MapperDao$1.class
 com/elenverve/db/beans/UserDetailBean.class
 com/elenverve/dpo/BagOffer$Buy.class
