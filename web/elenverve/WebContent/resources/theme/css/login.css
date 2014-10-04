@@ -57,7 +57,7 @@
 	margin-top: 15px;
 	padding: 30px;
 	width: 570px;
-	height: 520px;
+	height: 480px;
 }
 /*----------------------------------------------------------------------*/
 
@@ -66,7 +66,7 @@
 	margin: 0 auto;
 	width: 40%; 
 	float:left;
-	border:1px solid black;
+	border:0px solid black;
 }
 
 
@@ -120,14 +120,41 @@
 	border-radius: 3px;
 	float: left;
 	margin-top: 15px;
+	margin-right: 1px;	
 	padding: 30px;
 	width: 570px;
-	height: 520px;
+	height: 480px;
 }
 
 
-
-
+.register-form  h6 {
+	color: #666666;
+	font-size: 23px;
+ 	float: none;
+    	font-family: open sans;
+    	font-size: 20px;
+    	font-weight: bold;
+    	letter-spacing: 0.3px;
+    	line-height: 8px;
+    	margin: 0 0 25px;
+    	text-align: center;
+	
+	
+}
+.register-form  h7 {
+	color: #666666;
+	font-size: 23px;
+ 	float: none;
+    	font-family: open sans;
+    	font-size: 12px;
+    	font-weight: normal;
+    	letter-spacing: 0.3px;
+    	line-height: 8px;
+    	margin: 0 0 25px;
+    	text-align: center;
+	
+	
+}
 .ev-register-form  h3 {
     color: #666666;
     float: left;
@@ -138,7 +165,7 @@
     line-height: 18px;
     margin: 0 0 25px;
     text-align: center;
-    text-transform: uppercase;
+    
     width: 30%;
 }
 .ev-register-form > .row > form > div > ul {
@@ -196,6 +223,36 @@
     font-weight: normal;
     letter-spacing: 0.3px;
     margin: 1px 0 0 15px;
+}
+.ev_button_signup {
+    border: medium none;
+    border-radius: 2px;
+    color: #FFF;
+    display: table;
+    float: none;
+    font-family: open sans;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    margin: 0px auto;
+    
+    padding: 10px 75px;
+
+    background: none repeat scroll 0px 0px #7A7A7A;
+}
+.ev_button_guest {
+    border: medium none;
+    border-radius: 2px;
+    color: #FFF;
+    display: table;
+    float: none;
+    font-family: open sans;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    margin-left: 15px;
+    
+    padding: 10px 40px;
+
+    background: none repeat scroll 0px 0px #7A7A7A;
 }
 
 /* body {
@@ -354,6 +411,7 @@ form {
   color: #838383;
   margin: 10px 0 0 0;
   font-size: 15px;
+    
 } 
 .user_register input[type="text"], input[type="password"], input[type="email"] {
   padding: 10px 14px 12px 14px;
@@ -363,16 +421,36 @@ form {
   color: #838383;
   margin: 10px 0 0 0;
   font-size: 15px;
+    
 } 
-
+.ev_user_login input[type="password"] {
+  color: #111111;
+    margin-top: 1px;
+    margin-left: 5px;		
+    font-size: 16px;
+    border: 1px solid #1111111;
+    padding: 10px 8px 12px;	
+	
+}
+.ev_user_register input[type="password"] {
+  color: #111111;
+    margin-top: 1px;
+    margin-left: 5px;		
+    font-size: 16px;
+    border: 1px solid #1111111;
+    padding: 10px 8px 12px;	
+	
+}
 .social_login input[type="text"], input[type="password"] {
   padding: 10px 14px 12px 14px;
   background-color: #f2f2f2;
-  border: 1px solid #c8c8c8;
-  width: 335px;
+  border: 2px solid #111111;
+  width: 90%;
   color: #838383;
   margin: 10px 0 0 0;
   font-size: 15px;
+
+    
 } 
 
 
@@ -410,7 +488,9 @@ form input[type="submit"]:hover {
 
 .forgotten-password-link {
   float: left;
-  margin-top: 40px;
+  margin-top: 10px;
+ margin-left: -10px;	
+	
 }
 
 /*FORGOTTEN PASSWORD*/
@@ -439,10 +519,7 @@ form input[type="submit"]:hover {
   margin-top: 8px;
 }
 
-.forgotten-password-link  {
-  float: left;
-  margin-top: 40px;
-}
+
 label {
   line-height: 12px;
   padding-left: 5px;
@@ -474,6 +551,21 @@ label {
   background-color: #72d03e;
 }
 
+.nocolor{
+  color:#d03e3e;		
+  height:10px;
+  font-family: open sans;
+  font-size: 13px;
+  font-weight: normal;	
+  width:300px;
+  height:46px;
+  margin-left:0px;
+  font-family: open sans;
+  font-size: 12px;
+  position:absolute;	 	
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.0);
+
+}
 .success-message {
   line-height: 60px;
   margin: 30px 0 0 30px;

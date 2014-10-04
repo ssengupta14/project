@@ -28,6 +28,5 @@
 
 	</bean> -->
 	<bean id="loginService" class="com.elenverve.service.LoginService"></bean>
-	<!-- 
- -->
+	
 </beans>

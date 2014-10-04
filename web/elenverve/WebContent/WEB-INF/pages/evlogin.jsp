@@ -25,7 +25,23 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.leanModal.min.js"/>"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/login.js"/>"></script>
 </head>
-<body>	
+<body>
+
+<section class="block">
+				<div class="container">
+					<div class="row">
+						<div class="logo">
+							<a href="/elenverve/" title="">
+								<img src="<%=request.getContextPath()%>/resources/images/elenverve.png"	alt="" />
+							</a>
+						</div>
+					</div>	
+				</div>
+				
+			</section>
+<div class="fixed-img sec-bg7"></div>	
+<section class="block">	
+	
 	<div style="position: absolute;left: 10%;top: 15%;">	
 		<div class="ev-login-sec-left">			
 			<div class="tab-content" id="myTabContent">
@@ -33,40 +49,42 @@
 			  <div id="signin" class="ev_user_login">
 				<div class="register-form">
 					<div class="row">										
-						<h3>Login to your account</h3>
+						<h6>Sign-In to your account</h6>
+						<h7>&nbsp;</h7>
 						<form name="sign_in_form" action="<c:url value='j_spring_security_check' />"   method='POST'>
 						<div class="col-md-12">
 							<ul>
-								<i class="fa fa-envelope-o"></i>
-								<input type="text" placeholder="Your Email Address" id="j_username" name="j_username"/> 
+								<i class="fa fa-envelope-o"></i><input type="text" placeholder="Your Email Address" id="j_username" name="j_username"/> 
 							</ul>
 						</div>
 						
 						<div class="col-md-12">
 							<ul>
-								<i class="fa fa-lock"></i>
-								<input type="password" placeholder="Your Password" id="j_password" name="j_password"/> 
+								<i class="fa fa-lock"></i><input type="password" placeholder="Your Password" id="j_password" name="j_password"/> 
 							</ul>
 						</div>
 						
 						<div class="col-md-12">
 							<div class="submit-form">
-								<input type="submit" value="Sign-In" id="loginButton"/>
+								<p>By submitting you comfirm that <b>you are atleast 18 years old</b> and you agree with our <a>Terms & Conditions</a> and <a>Privacy Policy</a> </p>
+								<p></p>
+								<input type="submit" value="Secure Sign-In" id="loginButton"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-								<p>By submitting you comfirm that you agree with our <i>Term & Condition</i> and <i>Privacy Policy</i> </p>
+								
 							</div>
+								
+						</div>
+						<div class="col-md-12">
 							<div class="col-md-6">
 								<a class="forgotten-password-link" href="#">Forgot your email or Password ?</a>
+								
 							</div>
 							<div class="col-md-6">
 								<a class="forgotten-password-link" href="#">Need help with your account ?</a>
 							</div>	
 						</div>
-						
 						</form>
-						<div class="error-box red" style="position:absolute;top:600px;  width:500px; margin-left:25px;font-family: open sans;font-size: 25px;">
-        						<span class="error-message">Incorrect login or password.</span>
-    					</div>
+						
 						<div class="forgotten-password-box" style="position:absolute;top:300px;  width:400px; left:00px;">
 		        			<form class="input-form" id="forgotten-password-form" action="">
 		         				 <span class="ie-placeholders">Email:</span><input type="text" id="ipt-fp-email" class="forgotten-password-email" placeholder="E-mail" />
@@ -75,57 +93,96 @@
 		       				 </form>
 		    			</div>
 					</div>
+						
+					<div class="row">	
+						<div class="col-md-11">
+							<h6></h6>				
+							<h6>or Sign-In using</h6>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<ul>
+						<a class="forgotten-password-link" href="#"><i class="fa fa-facebook-square" style="font-size:48px; color:#7A7A7A;"></i>Facebook</a>
+						</ul>
+							
+					</div>	
+					<div class="col-md-3">
+						<ul>
+						<a class="forgotten-password-link" href="#"><i class="fa fa-twitter-square" style="font-size:48px; color:#7A7A7A;"></i>Twitter</a>
+						</ul>
+							
+					</div>	
+					<div class="col-md-3">
+						<ul>
+						<a class="forgotten-password-link" href="#"><i class="fa fa-google-plus-square" style="font-size:48px; color:#7A7A7A;"></i>Google+</a>
+						</ul>
+							
+					</div>	
+					<div class="col-md-3">
+						<ul>
+						<a class="forgotten-password-link" href="#"><i class="fa fa-pinterest-square" style="font-size:48px; color:#7A7A7A;"></i>Pinterest</a>
+						</ul>
+							
+					</div>
 				</div>
+				
 			  </div> <!-- signin  -->
 			 
 			  <div id="signup" style="display:none" class="ev_user_register">
 				<div class="register-form">
 					<div class="row">
-						<h3>Please Complete Your Details</h3>
+						<h6>Get started with Elen Verve</h6>
+						<h7>&nbsp;</h7>
 						<form name="sign_up_form" action="/elenverve/register"   method="POST">
-							<div class="col-md-12">
-								<ul>
-									<i class="fa fa-envelope-o"></i><input type="text" placeholder="Your Email Address" id="regEmail" name="regEmail"/> 
-								</ul>
-							</div>
+						<div class="col-md-12">
+							<ul>
+								<i class="fa fa-envelope-o"></i><input type="text" placeholder="Your Email Address" id="regEmail" name="regEmail"/> 
+							</ul>
+						</div>
+						
+						<div class="col-md-12">
+							<ul>
+								<i class="fa fa-lock"></i><input type="password" placeholder="Create a Password" id="regPassword" name="regPassword"/> 
+							</ul>
+						</div>
+						<div class="col-md-12">
+							<ul>
+								<i class="fa fa-lock"></i><input type="password" placeholder="Retype your Password" id="regRePassword" name="regRePassword"/> 
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul>
+								<i class="fa fa-male"></i><input type="text" placeholder="First Name" id="regFirstfName" name="regFirstfName"/> 
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul style="margin-left:-25px;">
+								<i class="fa fa-male"></i><input type="text" placeholder="Last Name" id="regLastfName" name="regLastfName" /> 
+							</ul>
+						</div>
+						<div class="col-md-12">
 							
-							<div class="col-md-12">
-								<ul>
-									<i class="fa fa-lock"></i><input type="password" placeholder="Create a Password" id="regPassword" name="regPassword"/> 
-								</ul>
+							<div class="submit-form">
+								<p>By registering you comfirm that <b>you are atleast 18 years old</b> and you agree with our <a>Terms & Conditions</a> and <a>Privacy Policy</a> </p>
+								<p></p>
+								<input type="submit" value="Complete Sign-Up" id="registerButton"/>
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+									
+								
+								
 							</div>
-							<div class="col-md-12">
-								<ul>
-									<i class="fa fa-lock"></i><input type="password" placeholder="Retype your Password" id="regRePassword" name="regRePassword"/> 
-								</ul>
-							</div>
-							<div class="col-md-6">
-								<ul>
-									<i class="fa fa-male"></i><input type="text" placeholder="First Name" id="regFirstfName" name="regFirstfName"/> 
-								</ul>
-							</div>
-							<div class="col-md-6">
-								<ul>
-									<i class="fa fa-male"></i><input type="text" placeholder="Last Name" id="regLastfName" name="regLastfName"/> 
-								</ul>
-							</div>
-							<div class="col-md-12">
-								<div class="submit-form">
-									<input type="submit" value="Complete Sign-Up" id="registerButton"/>
-									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-									<p>By registering you comfirm that you agree with our <i>Term & Condition</i> and <i>Privacy Policy</i> </p>
-								</div>
-							</div>
+						</div>
 						</form>
 						
 					</div>
 				</div>
 			<!-- Signup Form -->
 			  </div>
-			  <div class="error-box red" style="position:absolute;top:490px; height:46px; width:500px; 
-			  	margin-left:10px;font-family: open sans;font-size: 15px;">
- 				<span class="error-message">Incorrect login or password.</span>
-			   </div>	
+	
+			  <div id="error-box" class="error-box nocolor" style="top:50px;">
+				<span class="error-message">Incorrect login or password.</span>
+			   </div>
+					
 			</div><!-- myTabContent -->
 
 		</div>   <!-- login-sec -->
@@ -134,28 +191,37 @@
 				<form>
 					<div id="register" class="tab-pane fade in active" class="ev-register-form">
 						<div class="register-form">
-							<h3>REGISTER WITH ELEN VERVE</h3>
+							
 							<!-- <input type="submit" value="Complete Sign-Up" id="showRegister"/> -->
-							<div class="signup_button_div" style="position: absolute;left: 65%;top: 25%;">							
-								<input type="button" value="Sign Up" class="ev_button" id="sigh_up"/>							
+							<div class="signup_button_div">	
+								<h6>New to Elen Verve ?</h6>
+								<h7>Sign-Up to recieve exciting discounts & offers and for faster checkout experience</h7>						
+								<input type="button" value="Sign Up" class="ev_button_signup" id="sigh_up"style="margin-top:45px;"/>							
 							</div>	
-							<div class="signin_button_div" style="display:none;position: absolute;left: 65%;top: 25%;">
-								<input type="button" value="Sign In" class="ev_button" id="sigh_in"/>	
+							<div class="signin_button_div" style="display:none">
+								<h6>Already have an account ?</h6>
+								<h7>Sign-In to your account for faster checkout experience and other features</h7>	
+								<input type="button" value="Sign In" class="ev_button_signup" id="sigh_in" style="margin-top:45px;"/>	
 							</div>		
 							<div style="position: absolute;left: 65%;top: 40%;">
-							<h3>OR</h3>
-							<h3>Login as guest</h3>
+							
+							<div class="signup_button_div" style="position: absolute;left: 85%;top: 25%;">	
+							<h6>- or - </h6>						
+								<input type="button" value="Continue as guest" class="ev_button_guest" id="sigh_up"/>							
+							</div>
+							
 							</div>							
 						</div>	
 					</div>
+					
 				</form>
 			</div>
 		</div>
 	</div>
-	
+</section>	
 	<script type="text/javascript">
 	
-		$(document).ready(function() {		
+	$(document).ready(function() {		
 		   <c:if test = "${pageName == 'sign_up'}">  
 			    $(".ev_user_login").hide();
 				$(".ev_user_register").show();
@@ -173,28 +239,29 @@
 		   		$('.error-box').slideDown('slow').removeClass('green').addClass('red');
 		     	$(".error-message").text("${reason}");
 		  </c:if> 
+	});
+	$(document).ready(function(){
+		
+		$("#sigh_up").click(function() {
+			$(".ev_user_login").hide();
+			$(".ev_user_register").show();
+			$(".signup_button_div").hide();
+			$(".signin_button_div").show();	
+			$(".error-box").hide();
+			$(".ev_user_register").reload();	
+			return false;
+		});
+		$("#sigh_in").click(function() {
+			$(".ev_user_login").show();
+			$(".ev_user_register").hide();
+			$(".signup_button_div").show();
+			$(".signin_button_div").hide();	
+			$(".error-box").hide();	
+			$(".ev_user_login").reload();		
+			return false;
 		});
 		
-		$(function() {
-			
-			$("#sigh_up").click(function() {
-				$(".ev_user_login").hide();
-				$(".ev_user_register").show();
-				$(".signup_button_div").hide();
-				$(".signin_button_div").show();			
-				return false;
-			});
-			$("#sigh_in").click(function() {
-				$(".ev_user_login").show();
-				$(".ev_user_register").hide();
-				$(".signup_button_div").show();
-				$(".signin_button_div").hide();			
-				return false;
-			});
-			
-		});
-		
-		
-		
+	});	
+	
 	</script>
 </body>

@@ -12779,17 +12779,17 @@ footer-deal .owl-controls {
     -o-border-radius: 2px;
     border-radius: 2px;
 	
-    height: 50px;
+    height: 40px;
     margin-bottom: 20px;
     padding: 0 20px;
 	float:left;
-	width:100%;
+	width:90%;
 }
 .register-form > .row > form >div > ul > i {
     color: #ABABAB;
     float: left;
-    font-size: 15px;
-    line-height: 48px;
+    font-size: 18px;
+    line-height: 38px;
     margin-right: 20px;
 }
 .register-form > .row > div > span {
@@ -12806,10 +12806,10 @@ footer-deal .owl-controls {
     color: #777777;
     float: left;
     font-family: open sans;
-    font-size: 14px;
-    height: 46px;
+    font-size: 16px;
+    height: 36px;
     letter-spacing: 0.3px;
-    width: 80%;
+    width: 70%;
 }
 .register-form > .row > form > div > p {
     float: left;
@@ -12836,7 +12836,7 @@ footer-deal .owl-controls {
 	
     float: left;
     padding: 15px;
-    width: 100%;
+    width: 90%;
 }
 .submit-form > input {
     border: medium none;
@@ -12857,6 +12857,7 @@ footer-deal .owl-controls {
     padding: 10px 90px;
 	background: none repeat scroll 0 0 #7A7A7A;
 }
+
 .submit-form > p {
     color: #8B8B8B;
     display: table;
@@ -12865,8 +12866,9 @@ footer-deal .owl-controls {
     font-size: 12px;
     letter-spacing: 0.3px;
     margin: 15px auto 0;
+    margin-top:3px;	
     text-align: center;
-    width: 70%;
+    width: 100%;
 }
 .submit-form > p > i {
     font-style: normal;
@@ -13117,19 +13119,7 @@ a.btn_red {color: #FFF;}
 }
 
 
-.ev_button {
-    border: medium none;
-    border-radius: 2px;
-    color: #FFF;
-    display: table;
-    float: none;
-    font-family: open sans;
-    font-size: 15px;
-    letter-spacing: 0.3px;
-    margin: 0px auto;
-    padding: 10px 90px;
-    background: none repeat scroll 0px 0px #7A7A7A;
-}
+
 /*
 1.  search .whishlist-bar.bar-dropdown > li > a, .language.bar-dropdown > li > a, .compare-btn.bar-dropdown > li > a, 
  and add the new one 
@@ -13140,4 +13130,3 @@ a.btn_red {color: #FFF;}
 
 */
 /* End of shopping cart */
-
