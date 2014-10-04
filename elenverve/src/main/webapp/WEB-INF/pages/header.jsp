@@ -73,14 +73,16 @@
 											<div class="cart-bar-hover">
 												<ul>
 													<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
-													<li><a href="#" title=""><i class="fa fa-trash-o"></i></a></li>
+													<li><a href="${contextPath}/elenverve/removeFromCart?productId=${product.getProduct().productId}" title=""><i class="fa fa-trash-o"></i></a></li>
+													
 												</ul>
 											</div>
 										</li>									
 									</c:forEach>
 									<li>
 										<h6>Total : ${shoppingCart.getTotalPriceInDollars()}</h6> 
-										<a href="${contextPath}/elenverve/checkout" title="" class="checkout-btn">Checkout</a>
+										<%-- <a href="${contextPath}/elenverve/checkout" title="" class="checkout-btn">Checkout</a> --%>
+										<a href="${contextPath}/elenverve/viewcart" title="" class="checkout-btn">Cart</a>
 									</li>
 								</ul>
 							</c:if>
@@ -133,6 +135,16 @@
 							<i></i></a>
 						</li>
 					</ul>
+					<security:authorize ifNotGranted="ROLE_USER">		
+					<div class="fa fa-user">						
+						<ul class="profile bar-dropdown">				
+							<li>	
+								<a  href="/elenverve/evlogin" style="font-size: 12px;">SignIn|Register</a>		
+								
+							</li> 						
+						</ul>
+					</div>	
+				</security:authorize>
 					<security:authorize ifAllGranted="ROLE_USER">	
 					<ul class="profile bar-dropdown">
 						<%-- <li>
@@ -140,7 +152,7 @@
 							<a><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi!</font> &nbsp;<security:authentication property="principal.username"/></a>
 						</li> --%>	
 						<li>	
-							<a><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi!</font> &nbsp;<security:authentication property="principal.username"/></a>			
+							<a><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi </font> &nbsp;<security:authentication property="principal.username"/></a>			
 							<%-- <a href="<c:url value="/j_spring_security_logout" />">Hi! &nbsp;<security:authentication property="principal.username"/> Logout</a> --%> 
 							<ul>
 								<li><a href="#" title="">Profile</a></li>
@@ -151,7 +163,7 @@
 							</ul>				
 						</li> 					
 					</ul>
-					 </security:authorize>
+					</security:authorize>
 				</div>
 			</div>
 

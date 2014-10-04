@@ -36,13 +36,11 @@
 
 <security:authorize ifNotGranted="ROLE_USER">
 	
-	<div class="fa fa-user">
-		<font color="#898787">Hi! &nbsp;</font>
+	<div class="fa fa-user">		
 		<ul class="profile bar-dropdown">
-
 			<li>	
-				<a id="modal_trigger" href="#modal" style="color:#4d8cff;font-weight: 300;font-family: open sans;font-size: 12px;">Sign in or Register</a>		
-							
+				<a id="modal_trigger" href="#modal" style="color:#4d8cff;font-weight: 300;font-family: open sans;font-size: 12px;">SignIn|Register</a>		
+			
 			</li> 						
 		</ul>
 	</div>	

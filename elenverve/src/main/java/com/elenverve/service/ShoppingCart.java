@@ -29,6 +29,14 @@ public class ShoppingCart implements Serializable {
 	}
 	/**
 	 * 
+	 * @param product
+	 */
+	public void removeItem(String productId) {
+		System.out.println("Removing Product from cart " + productId);			
+		items.remove(productId);;		
+	}
+	/**
+	 * 
 	 * @return
 	 */
 	public int getItemCount() {		
