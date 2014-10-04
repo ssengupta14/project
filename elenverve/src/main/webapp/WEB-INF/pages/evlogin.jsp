@@ -30,17 +30,14 @@
 <section class="block">
 				<div class="container">
 					<div class="row">
-						<Div class="logo">
-			<a href="/elenverve/" title="">
-				<img src="<%=request.getContextPath()%>/resources/images/elenverve.png"	alt="" />
-			</a>
-		</div
-						
-						
-					</div>			
-	
-					</div>
+						<div class="logo">
+							<a href="/elenverve/" title="">
+								<img src="<%=request.getContextPath()%>/resources/images/elenverve.png"	alt="" />
+							</a>
+						</div>
+					</div>	
 				</div>
+				
 			</section>
 <div class="fixed-img sec-bg7"></div>	
 <section class="block">	
@@ -54,7 +51,7 @@
 					<div class="row">										
 						<h6>Sign-In to your account</h6>
 						<h7>&nbsp;</h7>
-						<form name='f' action="<c:url value='j_spring_security_check' />"   method='POST'>
+						<form name="sign_in_form" action="<c:url value='j_spring_security_check' />"   method='POST'>
 						<div class="col-md-12">
 							<ul>
 								<i class="fa fa-envelope-o"></i><input type="text" placeholder="Your Email Address" id="j_username" name="j_username"/> 
@@ -136,7 +133,7 @@
 					<div class="row">
 						<h6>Get started with Elen Verve</h6>
 						<h7>&nbsp;</h7>
-						<form>
+						<form name="sign_up_form" action="/elenverve/register"   method="POST">
 						<div class="col-md-12">
 							<ul>
 								<i class="fa fa-envelope-o"></i><input type="text" placeholder="Your Email Address" id="regEmail" name="regEmail"/> 
@@ -223,6 +220,26 @@
 	</div>
 </section>	
 	<script type="text/javascript">
+	
+	$(document).ready(function() {		
+		   <c:if test = "${pageName == 'sign_up'}">  
+			    $(".ev_user_login").hide();
+				$(".ev_user_register").show();
+				$(".signup_button_div").hide();
+				$(".signin_button_div").show();	
+		   </c:if> 
+		   <c:if test = "${pageName == 'sign_in'}">  
+			    $(".ev_user_login").show();
+				$(".ev_user_register").hide();
+				$(".signup_button_div").show();
+				$(".signin_button_div").hide();	
+	   	   </c:if> 
+		   <c:if test="${not empty error}">  
+		   
+		   		$('.error-box').slideDown('slow').removeClass('green').addClass('red');
+		     	$(".error-message").text("${reason}");
+		  </c:if> 
+	});
 	$(document).ready(function(){
 		
 		$("#sigh_up").click(function() {
@@ -244,29 +261,7 @@
 			return false;
 		});
 		
-	});
+	});	
 	
-	function performLogin(form) {			
-		$.post(
-			'<c:url value="/login" />',
-			form.serialize(),
-			function (data, textStatus) {
-				//var modal_id = $(this).attr("#modal");	
-				
-				if (data.status) {
-					//window.location.reload(true);				
-					//$(document).off('keydown.leanModal');
-					//loadLinks();
-					alert("successfully login ");
-					
-				} else {
-					 $('.error-box').slideDown('slow').removeClass('green').addClass('red');
-				     $(".error-message").text("Incorrect login or password.");
-					/* var err = form.find(".error");
-					err.html("Login Failed [" + data.error + "]");
-					err.show(); */
-				}
-			}, "json");
-	};
 	</script>
 </body>
