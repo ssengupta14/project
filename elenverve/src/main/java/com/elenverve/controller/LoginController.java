@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.elenverve.dvo.CredentialsDvo;
+import com.elenverve.dvo.CustomerDvo;
 import com.elenverve.dvo.UserDvo;
 import com.elenverve.service.LoginService;
 
@@ -80,15 +81,15 @@ public class LoginController {
 			model.addAttribute("noFooter","true");
 			return "template";
 		}else{
-			UserDvo userDvo = new UserDvo();
-			userDvo.setEmailId(regEmail);
-			userDvo.setFirstName(regFirstfName);
-			userDvo.setLastName(regLastfName);
+			CustomerDvo customerDvo = new CustomerDvo();
+			customerDvo.setEmailId(regEmail);
+			customerDvo.setFirstName(regFirstfName);
+			customerDvo.setLastName(regLastfName);
 			CredentialsDvo credentials = new CredentialsDvo();
 			credentials.setAuthority("ROLE_USER");
 			credentials.setPassword(regPassword);
-			userDvo.setCredentials(credentials);
-			loginService.registerUser(userDvo);	
+			customerDvo.setCredentials(credentials);
+			loginService.registerUser(customerDvo);	
 			model.addAttribute("page", "evlogin");
 			return "template";
 			
