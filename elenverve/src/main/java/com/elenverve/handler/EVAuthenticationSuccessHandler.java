@@ -15,8 +15,6 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-import com.elenverve.controller.AdminController;
-
 public class EVAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
     //protected Log logger = LogFactory.getLog(this.getClass());
     private final Logger logger = Logger.getLogger(this.getClass());
