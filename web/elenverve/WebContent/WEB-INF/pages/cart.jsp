@@ -39,7 +39,8 @@
 								<div class="cart-product">
 									<div class="cart-thumb">
 										<img src="http://placehold.it/115x125" alt="" />
-										<a title=""><i class="fa fa-trash-o"></i></a>
+										<a href="${contextPath}/elenverve/removeFromCart?productId=${shoppingCart.getProduct().productId}" title=""><i class="fa fa-trash-o"></i></a>
+										
 									</div>
 									<div class="cart-detals">
 										<h5>${shoppingCart.getProduct().getDetails().productName}</h5>
@@ -78,7 +79,7 @@
 						<li><span>Cart Subtotal</span><i>${shoppingCart.getTotalPriceInDollars()}</i></li>
 						<li><span>Shipping</span><i>Free Shipping</i></li>
 						<li><span>Order Total</span><i>Free Shipping</i></li>
-						<li><a href="${contextPath}/elenverve/checkout" title="" class="checkout-btn">Checkout</a></li>
+						<li><a href="${contextPath}/elenverve/checkout" title="" class="checkout-btn">Proceed to checkout</a></li>
 						
 					</ul>
 				</div>
@@ -97,7 +98,7 @@
 							  <option>03</option>
 							  <option>04</option>
 							  <option>05</option>
-							</select>
+							</select>	
 						</li>
 						<li class="customlist">		
 							<select>
@@ -119,10 +120,5 @@
 		</div>
 	</div>
 </section>
-
-
-
-
-
 </body>
 </html>
