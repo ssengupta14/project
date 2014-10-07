@@ -9,14 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -44,8 +43,7 @@ public class LocalAuthenticationProvider extends AbstractUserDetailsAuthenticati
 	}
 
 	@Override
-	public UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken authentication)
-			throws AuthenticationException {
+	public UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
         String password = (String) authentication.getCredentials();
         if (!StringUtils.hasText(password)) {
         	logger.warn("Username {}: no password provided", username);
@@ -58,7 +56,7 @@ public class LocalAuthenticationProvider extends AbstractUserDetailsAuthenticati
             throw new UsernameNotFoundException("Invalid Login");
         }
         
-        if (!encoder.matches(password, user.getPassword())) {
+        if (!encoder.matches(password, user.getCredentials().getPassword())) {
         	logger.warn("Username {} password {}: invalid password", username, password);
             throw new BadCredentialsException("Invalid Login");
         }
@@ -81,7 +79,7 @@ public class LocalAuthenticationProvider extends AbstractUserDetailsAuthenticati
         	//auths = AuthorityUtils.NO_AUTHORITIES;
         }
 
-        return new User(username, password, 
+        return new User(username, user.getCredentials().getPassword(), 
         		true, // enabled
                 true, // account not expired
                 true, // credentials not expired
