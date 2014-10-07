@@ -32,10 +32,12 @@ import com.elenverve.common.IConstants;
 import com.elenverve.common.Parameters;
 import com.elenverve.dao.DbAccessService;
 import com.elenverve.dao.Person;
+import com.elenverve.dvo.BrowserInfoDvo;
 import com.elenverve.dvo.CategoryDvo;
 import com.elenverve.dvo.CollectionDvo;
 import com.elenverve.dvo.OfferDvo;
 import com.elenverve.dvo.ProductDvo;
+import com.elenverve.dvo.UserDvo;
 import com.elenverve.model.Home;
 import com.elenverve.model.Products;
 import com.elenverve.service.PersonService;
@@ -46,7 +48,7 @@ import com.elenverve.service.ProductService;
  
 @Controller
 @RequestMapping("/")
-public class HomeController extends DefaultController{
+public class HomeController{
 	private static final Logger logger = Logger.getLogger(HomeController.class);
 	// Initialize the dbAccess layer & remove the below line
 	
@@ -61,24 +63,38 @@ public class HomeController extends DefaultController{
 	public String landing(ModelMap model,
 			HttpServletRequest request,
 			 String id, Device device) {
+		UserDvo aUser = new UserDvo(); 
 		Enumeration headerNames = request.getHeaderNames();
 		Map<String, String> map = new HashMap<String, String>();
 		logger.debug("Invoking method [landing] from controller [HomeController] for context [/]");
 		
 		logger.debug("Browser information from controller [HomeController] for context [/]");
 		
+		BrowserInfoDvo browserInfo = new BrowserInfoDvo();
+		StringBuilder str = new StringBuilder();
 		while (headerNames.hasMoreElements()) {
+			
 			String key = (String) headerNames.nextElement();
 			String value = request.getHeader(key);
+			if(key.equals("user-agent")){
+				browserInfo.setUserAgent(value);
+			}
+			if(key.equals("cookie")){
+				browserInfo.setCookie(value);
+			}
+			if(key.equals("host")){
+				browserInfo.setHost(value);
+			}
+			str.append(key+" =[" + value+"]");
 			logger.debug(key+" =[" + value+"]");
 			map.put(key, value);
 		}
-		
-			 String ipAddress = request.getHeader("X-FORWARDED-FOR");  
+			browserInfo.setHeaderInfo(str.toString());
+			String ipAddress = request.getHeader("X-FORWARDED-FOR");  
 		   if (ipAddress == null) {  
 			   ipAddress = request.getRemoteAddr();  
 		   }
-		   
+		browserInfo.setIpAddress(ipAddress);   
 		logger.debug("ipAddress :"+ipAddress);
 		
 		String deviceType = "unknown";
@@ -89,8 +105,11 @@ public class HomeController extends DefaultController{
 	    } else if (device.isTablet()) {
 	        deviceType = "tablet";
 	    }
+	    browserInfo.setDeviceType(deviceType);
 	    logger.debug("Detected ["+deviceType+"] with browser id ["+id+ "] from controller [HomeController] for context [/]");
-		/*
+		aUser.setBrowserInfo(browserInfo);
+		request.getSession().setAttribute(IConstants.ANONYMOUS_USER, aUser);
+	    /*
 		ProductParser parser = new ProductParser();
 		List<Product> prodList = parser.getProductList();
 		model.addAttribute("prodList", prodList);

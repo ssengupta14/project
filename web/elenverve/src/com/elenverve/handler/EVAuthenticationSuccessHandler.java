@@ -8,14 +8,25 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.savedrequest.SavedRequest;
+
+import com.elenverve.common.IConstants;
+import com.elenverve.dvo.BrowserInfoDvo;
+import com.elenverve.dvo.CustomerDvo;
+import com.elenverve.dvo.UserDvo;
+import com.elenverve.service.LoginService;
 
 public class EVAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+	
+	@Autowired LoginService loginService;
+	
     //protected Log logger = LogFactory.getLog(this.getClass());
     private final Logger logger = Logger.getLogger(this.getClass());
  
@@ -28,8 +39,18 @@ public class EVAuthenticationSuccessHandler implements AuthenticationSuccessHand
     }
  
     protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
-        String targetUrl = determineTargetUrl(authentication);
- 
+    	CustomerDvo dvo = (CustomerDvo) authentication.getPrincipal();
+    	Object aUser = request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
+    	logger.debug("Inside EVAuthenticationSuccessHandler , retrieved user : ["+dvo.getEmailId()+"], ["+dvo.getLastName()+"]");
+    	if(aUser!=null){
+    		BrowserInfoDvo browserInfo = ((UserDvo)aUser).getBrowserInfo();
+    		dvo.getFraudCheck().addBrowserInfo(browserInfo.getKey());
+    		loginService.updateCustomer(dvo);
+    	}
+    	logger.debug("Inside EVAuthenticationSuccessHandler , retrieved user : ["+dvo.getEmailId()+"], ["+dvo.getLastName()+"]");
+    	
+    	String targetUrl = determineTargetUrl(authentication,request,response);
+        logger.debug("Inside handle method of EVAuthenticationSuccessHandler with ["+authentication.getDetails().toString()+"]" );
         if (response.isCommitted()) {
             logger.debug("Response has already been committed. Unable to redirect to " + targetUrl);
             return;
@@ -38,11 +59,12 @@ public class EVAuthenticationSuccessHandler implements AuthenticationSuccessHand
     }
  
     /** Builds the target URL according to the logic defined in the main class Javadoc. */
-    protected String determineTargetUrl(Authentication authentication) {
+    protected String determineTargetUrl(Authentication authentication , HttpServletRequest request, HttpServletResponse response) {
         boolean isUser = false;
         boolean isAdmin = false;
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
+        	logger.debug("Inside determineTargetUrl role ="+grantedAuthority.getAuthority());
             if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
                 isUser = true;
                 break;
@@ -51,10 +73,19 @@ public class EVAuthenticationSuccessHandler implements AuthenticationSuccessHand
                 break;
             }
         }
- 
-        if (isUser) {
-            return "/";
-        } else if (isAdmin) {
+        logger.debug("Inside determineTargetUrl isUser ="+isUser);
+		if (isUser) {
+			SavedRequest savedRequest = (SavedRequest) request.getSession().getAttribute("SPRING_SECURITY_SAVED_REQUEST");
+			if (savedRequest == null) {
+
+				return "/";
+
+			} else {
+
+				return savedRequest.getRedirectUrl();
+
+			}
+		} else if (isAdmin) {
             return "/console.html";
         } else {
             throw new IllegalStateException();

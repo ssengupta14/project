@@ -19,6 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+import com.elenverve.dvo.CustomerDvo;
 import com.elenverve.dvo.UserDvo;
 
 
@@ -45,17 +46,19 @@ public class LocalAuthenticationProvider extends AbstractUserDetailsAuthenticati
 	@Override
 	public UserDetails retrieveUser(String username, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
         String password = (String) authentication.getCredentials();
+       
         if (!StringUtils.hasText(password)) {
         	logger.warn("Username {}: no password provided", username);
             throw new BadCredentialsException("Please enter password");
         }
 
-        UserDvo user = loginService.getUserByEmailId(username);
+        CustomerDvo user = loginService.getUserByEmailId(username);
         if (user == null) {
         	logger.warn("Username {} password {}: user not found", username, password);
             throw new UsernameNotFoundException("Invalid Login");
         }
         
+        logger.debug("original pass ["+password+"] from db ["+user.getCredentials().getPassword()+"]");
         if (!encoder.matches(password, user.getCredentials().getPassword())) {
         	logger.warn("Username {} password {}: invalid password", username, password);
             throw new BadCredentialsException("Invalid Login");
@@ -71,20 +74,23 @@ public class LocalAuthenticationProvider extends AbstractUserDetailsAuthenticati
         }*/
 
         //final List<GrantedAuthority> auths;
-        List<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
-        if (!user.getCredentials().getAuthority().isEmpty()) {
+       /* List<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
+        if (!user..getAuthority().isEmpty()) {
         	GrantedAuthority grantedAuthority = new GrantedAuthorityImpl(user.getCredentials().getAuthority());
 	    	auths.add(grantedAuthority) ; //AuthorityUtils.commaSeparatedStringToAuthorityList(user.getRolesCSV());
         } else {
         	//auths = AuthorityUtils.NO_AUTHORITIES;
-        }
-
-        return new User(username, user.getCredentials().getPassword(), 
-        		true, // enabled
+        }*/
+        logger.debug("Inside LocalAuthenticationProvider class, returning user ["+user.getEmailId()+"]");
+        return user;
+        /*
+        return new UserDvo(username, user.getCredentials().getPassword(), 
+        		user.getFraudCheck().isAccountActive(), // enabled
                 true, // account not expired
                 true, // credentials not expired
                 true, // account not locked
                 auths);
+        */
 	}
 
 }

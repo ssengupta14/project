@@ -2,14 +2,6 @@ package com.elenverve.dvo;
 
 import java.util.Collection;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Pattern;
-
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
-import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
@@ -40,6 +32,7 @@ public class UserDvo extends BaseDvo implements UserDetails{
 	
 	
 	private CredentialsDvo credentials;
+	private BrowserInfoDvo browserInfo;
 	/*
 	public long getId() {
 		return id;
@@ -100,17 +93,17 @@ public class UserDvo extends BaseDvo implements UserDetails{
 	@Override
 	public Collection<GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return credentials.getAuthorities();
 	}
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return null;
+		return credentials.getPassword();
 	}
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return null;
+		return credentials.getUsername();
 	}
 	@Override
 	public boolean isAccountNonExpired() {
@@ -131,6 +124,12 @@ public class UserDvo extends BaseDvo implements UserDetails{
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	public BrowserInfoDvo getBrowserInfo() {
+		return browserInfo;
+	}
+	public void setBrowserInfo(BrowserInfoDvo browserInfo) {
+		this.browserInfo = browserInfo;
 	}
 
 }
