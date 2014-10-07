@@ -15,6 +15,7 @@ import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.savedrequest.SavedRequest;
 
 import com.elenverve.common.IConstants;
 import com.elenverve.dvo.BrowserInfoDvo;
@@ -48,7 +49,7 @@ public class EVAuthenticationSuccessHandler implements AuthenticationSuccessHand
     	}
     	logger.debug("Inside EVAuthenticationSuccessHandler , retrieved user : ["+dvo.getEmailId()+"], ["+dvo.getLastName()+"]");
     	
-    	String targetUrl = determineTargetUrl(authentication);
+    	String targetUrl = determineTargetUrl(authentication,request,response);
         logger.debug("Inside handle method of EVAuthenticationSuccessHandler with ["+authentication.getDetails().toString()+"]" );
         if (response.isCommitted()) {
             logger.debug("Response has already been committed. Unable to redirect to " + targetUrl);
@@ -58,7 +59,7 @@ public class EVAuthenticationSuccessHandler implements AuthenticationSuccessHand
     }
  
     /** Builds the target URL according to the logic defined in the main class Javadoc. */
-    protected String determineTargetUrl(Authentication authentication) {
+    protected String determineTargetUrl(Authentication authentication , HttpServletRequest request, HttpServletResponse response) {
         boolean isUser = false;
         boolean isAdmin = false;
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -73,9 +74,18 @@ public class EVAuthenticationSuccessHandler implements AuthenticationSuccessHand
             }
         }
         logger.debug("Inside determineTargetUrl isUser ="+isUser);
-        if (isUser) {
-            return "/";
-        } else if (isAdmin) {
+		if (isUser) {
+			SavedRequest savedRequest = (SavedRequest) request.getSession().getAttribute("SPRING_SECURITY_SAVED_REQUEST");
+			if (savedRequest == null) {
+
+				return "/";
+
+			} else {
+
+				return savedRequest.getRedirectUrl();
+
+			}
+		} else if (isAdmin) {
             return "/console.html";
         } else {
             throw new IllegalStateException();
