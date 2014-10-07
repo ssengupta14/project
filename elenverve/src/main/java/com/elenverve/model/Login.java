@@ -53,7 +53,7 @@ public class Login {
 				dvo.setFirstName(firstName);
 				dvo.setLastName(lastName);
 				CredentialsDvo credentials = new CredentialsDvo();
-				credentials.setAuthority("ROLE_USER");
+				credentials.addAuthority(credentials.new RoleUser());
 				credentials.setPassword(password);
 				dvo.setCredentials(credentials);
 				logger.debug("user dao here is "+loginService.toString());

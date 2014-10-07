@@ -29,6 +29,7 @@ com/elenverve/controller/DefaultController.class
 com/elenverve/dpo/Offer.class
 com/elenverve/common/GlobalConfig.class
 com/elenverve/controller/HomeController.class
+com/elenverve/dvo/BrowserInfoDvo.class
 com/elenverve/common/IConstants.class
 com/elenverve/handler/XmlPropertiesHandler.class
 com/elenverve/util/ConversionPolicyUtil.class
@@ -48,6 +49,7 @@ com/elenverve/dpo/DiscountsDpo.class
 com/elenverve/controller/AdminController.class
 com/elenverve/dvo/CustomerDvo.class
 com/elenverve/dvo/OfferDvo.class
+com/elenverve/dvo/CredentialsDvo$RoleAdmin.class
 com/elenverve/controller/ContactController.class
 com/elenverve/dvo/CredentialsDvo.class
 com/elenverve/service/CartServiceImpl.class
@@ -85,6 +87,7 @@ com/elenverve/dao/MapperDao$1.class
 com/elenverve/db/beans/UserDetailBean.class
 com/elenverve/dpo/BagOffer$Buy.class
 com/elenverve/dpo/ShippingOffer.class
+com/elenverve/dvo/CredentialsDvo$RoleUser.class
 com/elenverve/model/Product.class
 com/elenverve/dvo/ProductDvo$ProductFeatures.class
 com/elenverve/service/ProductService.class

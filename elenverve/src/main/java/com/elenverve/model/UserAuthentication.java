@@ -37,7 +37,7 @@ public class UserAuthentication  extends Default{
 		user.setEmailId(email);
 		CredentialsDvo credentials = new CredentialsDvo();
 		credentials.setPassword(password);
-		credentials.setAuthority("ROLE_USER");
+		credentials.addAuthority(credentials.new RoleUser());
 		user.setCredentials(credentials);
 		if(service == null){
 			logger.debug("login service is null ...");
