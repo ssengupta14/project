@@ -63,6 +63,7 @@ com/elenverve/dvo/ProductDvo$ProductAnalytics.class
 com/elenverve/model/Login.class
 com/elenverve/dvo/PurchaseDvo.class
 com/elenverve/parser/ProductParser.class
+com/elenverve/controller/interceptor/DefaultHandlerInterceptor.class
 com/elenverve/dao/MapperDao.class
 com/elenverve/dvo/PaymentDvo.class
 com/elenverve/util/EncryptionDecryptionUtil.class

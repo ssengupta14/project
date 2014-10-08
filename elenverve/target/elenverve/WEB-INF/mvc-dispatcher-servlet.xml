@@ -27,6 +27,27 @@
 			<mvc:mapping path="/products**" />
 			<bean class="com.elenverve.controller.interceptor.DataLookupHandlerInterceptor" />
 		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.elenverve.controller.interceptor.DefaultHandlerInterceptor"
+				init-method="init">
+				<property name="mobileUserAgents">
+					<list value-type="java.lang.String">
+						<value>.*(webos|palm|treo).*</value>
+						<value>.*(android).*</value>
+						<value>.*(kindle|pocket|o2|vodaphone|wap|midp|psp).*</value>
+						<value>.*(iphone|ipod).*</value>
+						<value>.*(blackberry|opera mini).*</value>
+					</list>
+				</property>
+				<property name="normalUserAgents">
+					<list value-type="java.lang.String">
+						<value>.*(Macintosh|Mac OS).*</value>
+						<value>.*(Windows).*</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:interceptor>
 	</mvc:interceptors>
 
 	 <mvc:annotation-driven>
