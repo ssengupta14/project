@@ -36,13 +36,11 @@
 
 <security:authorize ifNotGranted="ROLE_USER">
 	
-	<div class="fa fa-user">
-		<font color="#898787">Hi! &nbsp;</font>
+	<div class="fa fa-user">		
 		<ul class="profile bar-dropdown">
-
 			<li>	
-				<a id="modal_trigger" href="#modal" style="color:#4d8cff;font-weight: 300;font-family: open sans;font-size: 12px;">Sign in or Register</a>		
-							
+				<a id="modal_trigger" href="#modal" style="color:#4d8cff;font-weight: 300;font-family: open sans;font-size: 12px;">SignIn|Register</a>		
+			
 			</li> 						
 		</ul>
 	</div>	
@@ -108,42 +106,42 @@
 						
 						<h3>Login to your account</h3>
 						<form>
-							<div class="col-md-12">
-								<ul>
-									<i class="fa fa-envelope-o"></i><input type="text" placeholder="Your Email Address" id="j_username" name="j_username"/> 
-								</ul>
+						<div class="col-md-12">
+							<ul>
+								<i class="fa fa-envelope-o"></i><input type="text" placeholder="Your Email Address" id="j_username" name="j_username"/> 
+							</ul>
+						</div>
+						
+						<div class="col-md-12">
+							<ul>
+								<i class="fa fa-lock"></i><input type="password" placeholder="Your Password" id="j_password" name="j_password"/> 
+							</ul>
+						</div>
+						
+						<div class="col-md-12">
+							<div class="submit-form">
+								<input type="submit" value="Sign-In" id="loginButton"/>
+								<p>By submitting you comfirm that you agree with our <i>Term & Condition</i> and <i>Privacy Policy</i> </p>
 							</div>
-							
-							<div class="col-md-12">
-								<ul>
-									<i class="fa fa-lock"></i><input type="password" placeholder="Your Password" id="j_password" name="j_password"/> 
-								</ul>
+							<div class="col-md-6">
+								<a class="forgotten-password-link" href="#">Forgot your email or Password ?</a>
 							</div>
-							
-							<div class="col-md-12">
-								<div class="submit-form">
-									<input type="submit" value="Sign-In" id="loginButton"/>
-									<p>By submitting you comfirm that you agree with our <i>Term & Condition</i> and <i>Privacy Policy</i> </p>
-								</div>
-								<div class="col-md-6">
-									<a class="forgotten-password-link" href="#">Forgot your email or Password ?</a>
-								</div>
-								<div class="col-md-6">
-									<a class="forgotten-password-link" href="#">Need help with your account ?</a>
-								</div>	
-							</div>
+							<div class="col-md-6">
+								<a class="forgotten-password-link" href="#">Need help with your account ?</a>
+							</div>	
+						</div>
 						
 						</form>
 						<div class="error-box red" style="position:absolute;top:600px;  width:500px; margin-left:25px;font-family: open sans;font-size: 25px;">
         						<span class="error-message">Incorrect login or password.</span>
     						</div>
 						<div class="forgotten-password-box" style="position:absolute;top:300px;  width:400px; left:00px;">
-		        			<form class="input-form" id="forgotten-password-form" action="">
-		         				 <span class="ie-placeholders">Email:</span><input type="text" id="ipt-fp-email" class="forgotten-password-email" placeholder="E-mail" />
-		          				<input type="submit" class="btn-orange" value="Send" /><br /><br />
-		         				 We'll send you e-mail with password reset.
-		       				 </form>
-			    		</div>
+			        			<form class="input-form" id="forgotten-password-form" action="">
+			         				 <span class="ie-placeholders">Email:</span><input type="text" id="ipt-fp-email" class="forgotten-password-email" placeholder="E-mail" />
+			          				<input type="submit" class="btn-orange" value="Send" /><br /><br />
+			         				 We'll send you e-mail with password reset.
+			       				 </form>
+			    			</div>
 					</div>
 				</div>
 			  </div>
@@ -151,7 +149,6 @@
 				<div class="register-form">
 					<div class="row">
 						<h3>Please Complete Your Details</h3>
-						
 						<form>
 						<div class="col-md-12">
 							<ul>

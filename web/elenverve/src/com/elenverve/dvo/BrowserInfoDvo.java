@@ -1,12 +1,17 @@
 package com.elenverve.dvo;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class BrowserInfoDvo {
+public class BrowserInfoDvo implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5353662567091612783L;
 	@Id
 	private String key;
 	private String host;
