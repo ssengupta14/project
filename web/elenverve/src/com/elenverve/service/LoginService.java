@@ -6,10 +6,12 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import com.elenverve.dvo.CustomerDvo;
 import com.elenverve.dvo.UserDvo;
+import com.mongodb.WriteResult;
 
 @Service
 public class LoginService {
@@ -44,6 +46,18 @@ public class LoginService {
 		}
 		return false;
 	}
+	public boolean updateCustomer(CustomerDvo customerDvo){
+		
+		logger.debug("Updating user in db !!");
+		Query userquery = new Query();
+		Update update = new Update();
+		update.addToSet("customerDvo", customerDvo);
+		userquery.addCriteria(Criteria.where("emailId").is(customerDvo.getEmailId()));
+		mongoTemplate.updateFirst(userquery, update, CustomerDvo.class);
+		return true;
+		
+	}
+	
     /**
      *     
      * @param userDvo
@@ -73,5 +87,14 @@ public class LoginService {
         return "SUCCESS";
     }
 
+    public static void main(String arg[]){
+    	LoginService serv = new LoginService();
+    	CustomerDvo customerDvo = new CustomerDvo();
+    	customerDvo.setEmailId("a@gmail.com");
+    	customerDvo.setFirstName("s");
+    	customerDvo.setLastName("sen");
+    	
+    	serv.updateCustomer(customerDvo);
+    }
 	
 }

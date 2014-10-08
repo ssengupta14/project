@@ -3,9 +3,13 @@ package com.elenverve.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.acls.domain.GrantedAuthoritySid;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.elenverve.dvo.CredentialsDvo;
+import com.elenverve.dvo.CredentialsDvo.RoleUser;
 import com.elenverve.dvo.CustomerDvo;
 import com.elenverve.dvo.UserDvo;
 import com.elenverve.service.LoginService;
@@ -23,10 +28,11 @@ import com.elenverve.service.LoginService;
 @Controller
 // @RequestMapping("/login")
 public class LoginController {
+	private static final Logger logger = Logger.getLogger(LoginController.class);
 	@Autowired
 	@Qualifier("authenticationManager")
 	AuthenticationManager authenticationManager;
-	
+	@Autowired private PasswordEncoder encoder;
 	@Autowired
 	@Qualifier("loginService")
 	LoginService loginService;
@@ -81,16 +87,18 @@ public class LoginController {
 			model.addAttribute("noFooter","true");
 			return "template";
 		}else{
+			logger.debug("Inside LoginController, creating a customer ....");
 			CustomerDvo customerDvo = new CustomerDvo();
 			customerDvo.setEmailId(regEmail);
 			customerDvo.setFirstName(regFirstfName);
 			customerDvo.setLastName(regLastfName);
 			CredentialsDvo credentials = new CredentialsDvo();
-			credentials.setAuthority("ROLE_USER");
-			credentials.setPassword(regPassword);
+			credentials.addAuthority(credentials.new RoleUser());
+			credentials.setPassword(encoder.encode(regPassword));
 			customerDvo.setCredentials(credentials);
 			loginService.registerUser(customerDvo);	
 			model.addAttribute("page", "evlogin");
+			logger.debug("Inside LoginController, returning to evlogin ....");
 			return "template";
 			
 		}	

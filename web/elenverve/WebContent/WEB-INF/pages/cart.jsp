@@ -79,7 +79,7 @@
 						<li><span>Cart Subtotal</span><i>${shoppingCart.getTotalPriceInDollars()}</i></li>
 						<li><span>Shipping</span><i>Free Shipping</i></li>
 						<li><span>Order Total</span><i>Free Shipping</i></li>
-						<li><a href="${contextPath}/elenverve/checkout" title="" class="checkout-btn">Proceed to checkout</a></li>
+						<li><a href="${contextPath}/elenverve/chaddress" title="" class="checkout-btn">Proceed to checkout</a></li>
 						
 					</ul>
 				</div>

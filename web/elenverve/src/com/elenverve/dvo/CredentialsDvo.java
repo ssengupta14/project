@@ -1,8 +1,12 @@
 package com.elenverve.dvo;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.security.core.GrantedAuthority;
 
 @Document
 public class CredentialsDvo {
@@ -21,7 +25,7 @@ public class CredentialsDvo {
 	private String securityAnswer1;
 	private String securityAnswer2;
 	private String securityAnswer3;
-	private String authority;
+	private Collection<GrantedAuthority> authorities= new ArrayList<GrantedAuthority>();
 	
 	public String getUsername() {
 		return username;
@@ -83,11 +87,41 @@ public class CredentialsDvo {
 	public void setSecurityAnswer3(String securityAnswer3) {
 		this.securityAnswer3 = securityAnswer3;
 	}
-	public String getAuthority() {
-		return authority;
+	public Collection<GrantedAuthority> getAuthorities() {
+		return authorities;
 	}
-	public void setAuthority(String authority) {
-		this.authority = authority;
-	}	
+	public void addAuthority(GrantedAuthority authority) {
+		this.authorities.add(authority);
+	}
+	
+	public class RoleUser implements GrantedAuthority{
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -6193630574798727375L;
+
+		@Override
+		public String getAuthority() {
+			// TODO Auto-generated method stub
+			return "ROLE_USER";
+		}
+		
+	}
+	
+	public class RoleAdmin implements GrantedAuthority{
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 2474377195507516630L;
+
+		@Override
+		public String getAuthority() {
+			// TODO Auto-generated method stub
+			return "ROLE_ADMIN";
+		}
+		
+	}
 	
 }
