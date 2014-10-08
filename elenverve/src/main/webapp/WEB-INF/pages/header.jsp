@@ -135,35 +135,42 @@
 							<i></i></a>
 						</li>
 					</ul>
-					<security:authorize ifNotGranted="ROLE_USER">		
-					<div class="fa fa-user">						
-						<ul class="profile bar-dropdown">				
-							<li>	
-								<a  href="/elenverve/evlogin" style="font-size: 12px;">SignIn|Register</a>		
-								
-							</li> 						
-						</ul>
-					</div>	
-				</security:authorize>
-					<security:authorize ifAllGranted="ROLE_USER">	
 					<ul class="profile bar-dropdown">
-						<%-- <li>
-							<!-- <div id="links"></div> -->	
-							<a><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi!</font> &nbsp;<security:authentication property="principal.username"/></a>
-						</li> --%>	
-						<li>	
-							<a><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi </font> &nbsp;<security:authentication property="principal.username"/></a>			
-							<%-- <a href="<c:url value="/j_spring_security_logout" />">Hi! &nbsp;<security:authentication property="principal.username"/> Logout</a> --%> 
-							<ul>
-								<li><a href="#" title="">Profile</a></li>
-								<li><a href="#" title="">Help</a></li>
-								<li><a href="#" title="">Privacy</a></li>
-								<li><a href="<c:url value="/j_spring_security_logout" />" title="">Logout</a></li>
-								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							</ul>				
-						</li> 					
+						<li>
+							<div id="links"></div>
+						</li>						
 					</ul>
+					<%-- 
+					<security:authorize ifNotGranted="ROLE_USER">		
+						<div class="fa fa-user">						
+							<ul class="profile bar-dropdown">				
+								<li>	
+									<a  href="/elenverve/evlogin" style="font-size: 12px;">SignIn|Register</a>		
+									
+								</li> 						
+							</ul>
+						</div>	
 					</security:authorize>
+					<security:authorize ifAllGranted="ROLE_USER">	
+						<ul class="profile bar-dropdown">
+							<li>
+								<!-- <div id="links"></div> -->	
+								<a><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi!</font> &nbsp;<security:authentication property="principal.username"/></a>
+							</li>	
+							<li>	
+								<a><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi </font> &nbsp;<security:authentication property="principal.username"/></a>			
+								<a href="<c:url value="/j_spring_security_logout" />">Hi! &nbsp;<security:authentication property="principal.username"/> Logout</a> 
+								<ul>
+									<li><a href="#" title="">Profile</a></li>
+									<li><a href="#" title="">Help</a></li>
+									<li><a href="#" title="">Privacy</a></li>
+									<li><a href="<c:url value="/j_spring_security_logout" />" title="">Logout</a></li>
+									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+								</ul>				
+							</li> 					
+						</ul>
+					</security:authorize> 
+					--%>
 				</div>
 			</div>
 

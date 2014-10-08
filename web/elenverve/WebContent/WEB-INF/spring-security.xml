@@ -14,6 +14,7 @@
 		<intercept-url pattern="/links" access="permitAll" />		
 		<intercept-url pattern="/evlogin" access="permitAll" />	
 		<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/chaddress" access="hasRole('ROLE_ADMIN')" />	
 		<intercept-url pattern="/checkout" access="hasRole('ROLE_ADMIN')" />	
 		<session-management>
 		    <concurrency-control max-sessions="1" expired-url="/cart" error-if-maximum-exceeded="true"/>

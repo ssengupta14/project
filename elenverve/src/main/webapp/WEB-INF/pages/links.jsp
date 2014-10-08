@@ -27,7 +27,7 @@
 	
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.leanModal.min.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/login.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/ajaxlogin.js"/>"></script>
 		
 
 </head>

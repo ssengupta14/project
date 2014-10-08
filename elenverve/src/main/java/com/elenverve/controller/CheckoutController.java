@@ -28,9 +28,9 @@ public class CheckoutController extends DefaultController{
 		this.cartService = cartService;
 	}
 	
-	@RequestMapping(value={ "/checkout" }, method = RequestMethod.GET)
-	public String products(ModelMap model,HttpServletRequest request) {		
-		model.addAttribute("page", "cart");		
+	@RequestMapping(value={ "/chaddress" }, method = RequestMethod.GET)
+	public String chAddress(ModelMap model,HttpServletRequest request) {		
+		model.addAttribute("page", "shippingaddress");		
 		return "template"; 
 	}
 	
