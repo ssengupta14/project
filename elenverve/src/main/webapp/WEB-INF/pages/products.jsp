@@ -138,8 +138,6 @@
 							</c:forEach>
 						</div>
 						 </c:forEach>
-						 
-						
 					</div>
 		
 				</div>
