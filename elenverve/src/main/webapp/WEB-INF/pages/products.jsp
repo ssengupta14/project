@@ -89,17 +89,31 @@
 									<!--  <img alt="" src="http://placehold.it/248x273">-->
 									
 									<img src="<%=request.getContextPath() %>${model.productDvos.get(value-1).details.imageUrls.get(0)}" alt="">
-									<a href="single-post.html" title="">VIEW DETAILS</a>
+									<span>
+									<ul class="features-btn">
+										<li class="arrival"><i class="fa fa-star"></i></li>
+										<li class="shipping"><i class="fa fa-truck"></i></li>	
+										<li class="rewards"><i class="fa fa-trophy"></i></li>
+										<li class="gift"><i class="fa fa-gift"></i></li>
+									</ul>
+									</span>
 									
+									
+									
+									
+									<ul class="details">
+										<li class="view"><a href="single-post.html" title=""><i class="fa fa-eye"></i>&nbsp;VIEW DETAILS</a></li>
+										<li class="view"><a href="single-post.html" title=""><i class="fa fa-shopping-cart"></i>&nbsp;QUICK BUY</a></li>
+									</ul>
 									<i class="box1"></i>
 									<i class="box2"></i>
 									<i class="box3"></i>
 									<i class="box4"></i>
+									<!--  <h3>BEST KIDS DESIGN 2014</h3> -->
+									
 								</div>
-													
-								<!--  <h3>BEST KIDS DESIGN 2014</h3> -->
-								<h3>${model.productDvos.get(value-1).details.productName}</h3>
-								
+									<span><a href="">Gifts & Decor Artisan Deco Bowl and Ball Centerpiece
+								${model.productDvos.get(value-1).details.productName}</a></span>						
 								<ul class="tooltip-btn">
 									<!-- 
 									<li class="cart"><a href="#" title=""><i class="fa fa-heart"></i></a></li>
@@ -107,18 +121,18 @@
 									-->
 									
 								<li class="shop"><a title="" href="#"><i class="fa fa-heart"></i></a></li>								
-								
-								<li class="cart">
-								<a title="" href="${contextPath}/elenverve/addToCart?productId=${model.productDvos.get(value-1).productId}">
-								<i class="fa fa-shopping-cart"></i></a></li>						
-								
+								<li class="cart"><a title="" href="${contextPath}/elenverve/addToCart?productId=${model.productDvos.get(value-1).productId}"><i class="fa fa-shopping-cart"></i></a></li>						
 								</ul>
 								<a href="#" title="">DETAILS</a>
 								<c:if test="${model.productDvos.get(value-1).details.newInd == true}"> 
 									<h6>NEW</h6>
 								</c:if>
 								<!--  <span><i>$360</i>$460</span> -->
-								<span><i>$ ${model.productDvos.get(value-1).details.initialPrice}</i>$ ${model.productDvos.get(value-1).details.finalPrice}</span>
+								<span><i>$${model.productDvos.get(value-1).details.initialPrice}</i></span>
+								<span>$${model.productDvos.get(value-1).details.finalPrice} USD</span>
+								<ul>
+									
+								</ul>
 							</div>
 								<c:set var="counter" value="${counter+1}" scope="page" />
 							</c:forEach>
@@ -153,7 +167,7 @@
 								<div class="tab-recent" id="tab-recent">
 									<ul>
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envatoâ€™s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envatoâ??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -162,7 +176,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envatoâ€™s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envatoâ??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -171,7 +185,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envatoâ€™s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envatoâ??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -182,7 +196,7 @@
 									
 									<ul>
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envatoâ€™s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envatoâ??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -191,7 +205,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envatoâ€™s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envatoâ??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -200,7 +214,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envatoâ€™s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envatoâ??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -216,7 +230,7 @@
 								<div class="tab-recent" id="tab-popular">
 									<ul>
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envatoâ€™s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envatoâ??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -225,7 +239,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envatoâ€™s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envatoâ??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -234,7 +248,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envatoâ€™s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envatoâ??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -245,7 +259,7 @@
 									
 									<ul>
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envatoâ€™s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envatoâ??s Most Wanted: BuddyPress</a></h3>
 											<p>Lor ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -254,7 +268,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envatoâ€™s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envatoâ??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -263,7 +277,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envatoâ€™s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envatoâ??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
