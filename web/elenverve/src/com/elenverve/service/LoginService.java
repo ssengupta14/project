@@ -50,10 +50,9 @@ public class LoginService {
 		
 		logger.debug("Updating user in db !!");
 		Query userquery = new Query();
-		Update update = new Update();
-		update.addToSet("customerDvo", customerDvo);
 		userquery.addCriteria(Criteria.where("emailId").is(customerDvo.getEmailId()));
-		mongoTemplate.updateFirst(userquery, update, CustomerDvo.class);
+		mongoTemplate.remove(userquery, CustomerDvo.class);
+		mongoTemplate.save(customerDvo);
 		return true;
 		
 	}
@@ -92,7 +91,7 @@ public class LoginService {
     	CustomerDvo customerDvo = new CustomerDvo();
     	customerDvo.setEmailId("a@gmail.com");
     	customerDvo.setFirstName("s");
-    	customerDvo.setLastName("sen");
+    	customerDvo.setLastName("sengupta");
     	
     	serv.updateCustomer(customerDvo);
     }

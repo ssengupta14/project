@@ -63,52 +63,10 @@ public class HomeController{
 	public String landing(ModelMap model,
 			HttpServletRequest request,
 			 String id, Device device) {
-		UserDvo aUser = new UserDvo(); 
-		Enumeration headerNames = request.getHeaderNames();
-		Map<String, String> map = new HashMap<String, String>();
+		
 		logger.debug("Invoking method [landing] from controller [HomeController] for context [/]");
 		
-		logger.debug("Browser information from controller [HomeController] for context [/]");
 		
-		BrowserInfoDvo browserInfo = new BrowserInfoDvo();
-		StringBuilder str = new StringBuilder();
-		while (headerNames.hasMoreElements()) {
-			
-			String key = (String) headerNames.nextElement();
-			String value = request.getHeader(key);
-			if(key.equals("user-agent")){
-				browserInfo.setUserAgent(value);
-			}
-			if(key.equals("cookie")){
-				browserInfo.setCookie(value);
-			}
-			if(key.equals("host")){
-				browserInfo.setHost(value);
-			}
-			str.append(key+" =[" + value+"]");
-			logger.debug(key+" =[" + value+"]");
-			map.put(key, value);
-		}
-			browserInfo.setHeaderInfo(str.toString());
-			String ipAddress = request.getHeader("X-FORWARDED-FOR");  
-		   if (ipAddress == null) {  
-			   ipAddress = request.getRemoteAddr();  
-		   }
-		browserInfo.setIpAddress(ipAddress);   
-		logger.debug("ipAddress :"+ipAddress);
-		
-		String deviceType = "unknown";
-	    if (device.isNormal()) {
-	        deviceType = "normal";
-	    } else if (device.isMobile()) {
-	        deviceType = "mobile";
-	    } else if (device.isTablet()) {
-	        deviceType = "tablet";
-	    }
-	    browserInfo.setDeviceType(deviceType);
-	    logger.debug("Detected ["+deviceType+"] with browser id ["+id+ "] from controller [HomeController] for context [/]");
-		aUser.setBrowserInfo(browserInfo);
-		request.getSession().setAttribute(IConstants.ANONYMOUS_USER, aUser);
 	    /*
 		ProductParser parser = new ProductParser();
 		List<Product> prodList = parser.getProductList();

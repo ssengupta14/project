@@ -46,6 +46,7 @@ public class EVAuthenticationSuccessHandler implements AuthenticationSuccessHand
     		BrowserInfoDvo browserInfo = ((UserDvo)aUser).getBrowserInfo();
     		dvo.getFraudCheck().addBrowserInfo(browserInfo.getKey());
     		loginService.updateCustomer(dvo);
+    		 request.getSession().setAttribute(IConstants.ANONYMOUS_USER, dvo);
     	}
     	logger.debug("Inside EVAuthenticationSuccessHandler , retrieved user : ["+dvo.getEmailId()+"], ["+dvo.getLastName()+"]");
     	

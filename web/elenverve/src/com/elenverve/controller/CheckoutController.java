@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.elenverve.common.IConstants;
 import com.elenverve.service.CartService;
 import com.elenverve.service.ProductService;
 
@@ -28,9 +29,11 @@ public class CheckoutController extends DefaultController{
 		this.cartService = cartService;
 	}
 	
-	@RequestMapping(value={ "/checkout" }, method = RequestMethod.GET)
-	public String products(ModelMap model,HttpServletRequest request) {		
-		model.addAttribute("page", "cart");		
+	@RequestMapping(value={ "/chaddress" }, method = RequestMethod.GET)
+	public String chAddress(ModelMap model,HttpServletRequest request) {		
+		model.addAttribute("page", "shippingaddress");		
+		Object aUser = request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
+		model.addAttribute("page", "shippingaddress");
 		return "template"; 
 	}
 	
