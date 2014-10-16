@@ -21,7 +21,7 @@
 		<section class="block">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-9">
+			<div class="col-md-12">
 				<div class="masonary-post">	
 					<div id="masonay-nav">
 						<ul>
@@ -58,13 +58,206 @@
 										<option value="audi">ALL</option>
 								</select>
 							</li>
+							
 							<li>
 							<a href="/elenverve/products?page=previous" title=""><span>Previous</span></a>
 							<a href="/elenverve/products?page=next" title=""><span>Next Page</span></a>							
 							</li>
 						</ul>
+						
 					</div>
+				</div>
 				
+			</div>
+		</div>	
+		<div class="row">
+		<div class="col-md-2">
+				<aside>
+					<div class="categories-widget widget-body">
+						<div class="heading-5">
+							<h2>Shop by Category</h2>
+						</div>
+						
+						<ul>
+							<li>							
+								<input class="toggle-box" id="header1" type="checkbox" >
+								<label for="header1">Artwork</label>
+								 <!-- <div>Canvas</div>
+								 <div>Artistic frames</div>
+								 <div>Fabric</div>
+								 <div>Walls</div>
+								  -->
+								<div>
+								  <input class="toggle-box" id="header2" type="checkbox" >
+								  <label class="inner" for="header2">Canvas</label>
+								  <div>1111111111</div>	
+								  <input class="toggle-box" id="header3" type="checkbox" >
+								  <label class="inner" for="header3">Artistic frames</label>
+								  <input class="toggle-box" id="header4" type="checkbox" >
+								  <label class="inner" for="header4">Fabric</label>
+								   <input class="toggle-box" id="header5" type="checkbox" >
+								  <label class="inner" for="header5">Walls</label>
+								</div>
+								
+								
+							</li>
+							<li>							
+								<input class="toggle-box" id="header6" type="checkbox" >
+								<label for="header6">Home Deco'r</label>
+								<div>
+								  <input class="toggle-box" id="header7" type="checkbox" >
+								  <label for="header7">T-Shirts</label>
+
+								</div>
+
+							</li>		
+							</li>
+							<!-- 	
+							<li><i></i><a href="#" title="">Jeans Paints </a><span>10</span></li>
+							<li><i></i><a href="#" title="">Western Shoes </a><span>16</span></li>
+							<li><i></i><a href="#" title="">Kids Special</a> <span>20</span></li>
+							 -->
+						</ul>
+					</div>
+					<div class="categories-widget widget-body">
+						<div class="heading-5">
+							<h2>Refine Search by</h2>
+						</div>
+						<ul>
+							<li>							
+								<input class="toggle-box" id="header8" type="checkbox" >
+								<label for="header8">Price</label>
+								
+								<div>
+								  <input class="toggle-box" id="header9" type="checkbox" >
+								  <label class="inner" for="header9">Under $50</label>
+								  <input class="toggle-box" id="header10" type="checkbox" >
+								  <label class="inner" for="header10">$50 to $300</label>	
+								  <input class="toggle-box" id="header11" type="checkbox" >
+								  <label class="inner" for="header11">$300 and Above</label>
+								</div>
+
+							</li>
+							<li>							
+								<input class="toggle-box" id="header1" type="checkbox" >
+								<label for="header1">Features</label>
+								<div>
+								  <input class="toggle-box" id="header2" type="checkbox" >
+								  <label class="inner" for="header2">Color</label>
+								  <div>Red</div>	
+								  <div>Blue</div>
+								  <div>Green</div>
+								</div>
+								<div>
+								  <input class="toggle-box" id="header2" type="checkbox" >
+								  <label class="inner" for="header2">Material</label>
+								  <div>Wood</div>	
+								  <div>Metal</div>
+								  <div>Glass</div>
+								  <div>Fabric</div>
+								  <div>Paper</div>
+								</div>
+
+							</li>
+							<li>							
+								<input class="toggle-box" id="header3" type="checkbox" >
+								<label for="header3">Shipping type</label>
+								<div>Free shipping</div>	
+								<div>One day shipping</div>	
+								<div>Regular shipping</div>
+								<div>International shipping</div>
+									
+
+							</li>		
+							</li>
+							<!-- 	
+							<li><i></i><a href="#" title="">Jeans Paints </a><span>10</span></li>
+							<li><i></i><a href="#" title="">Western Shoes </a><span>16</span></li>
+							<li><i></i><a href="#" title="">Kids Special</a> <span>20</span></li>
+							 -->
+						</ul>
+						<!-- 
+						<ul>
+							<li><i></i><a href="#" title="">T-Shirts</a> 
+								<span>18</span>
+									
+							</li>
+								
+							<li><i></i><a href="#" title="">Jeans Paints </a><span>10</span></li>
+							<li><i></i><a href="#" title="">Western Shoes </a><span>16</span></li>
+							<li><i></i><a href="#" title="">Kids Special</a> <span>20</span></li>
+						</ul>
+						-->
+					</div>
+					<div class="widget-body range-slider">
+						<div class="heading-5">
+							<h2><i class="fa fa-folder-open"></i>PRICE RANGE</h2>
+						</div>
+						<div class="demo demo_left">
+							<input id="range_1" type="text" name="range_2" value="" /><!-- Range 1 -->	
+						</div>
+					</div>
+					
+					<div class="widget-body">
+						<div class="heading-5">
+							<h2><i class="fa fa-folder-open"></i>DISCOUNT PRODUCT</h2>
+						</div>
+						
+						<div class="w-discount">
+							<img alt="" src="http://placehold.it/368x286">
+							<div class="w-discount-des">
+								<h3>WEBINANE.COM</h3>
+								<i>20% OFF</i>
+								<p>ODDER OVER $80</p>
+								<a title="" href="#">SHOP NOW</a>
+							</div>
+						</div>
+					</div>
+
+				</aside>
+			</div>
+			<div class="col-md-8">
+				<div class="masonary-post">	
+					<div id="masonay-nav">
+						<ul>
+							
+							
+							<!-- 
+							<li><a href="" data-filter="*" class="active">All</a></li>
+							<li><a href="" data-filter=".cat1">Jacket</a></li>
+							<li><a href="" data-filter=".cat2">Shirt</a></li>
+							<li><a href="" data-filter=".cat3">Dresses</a></li>
+							<li><a href="" data-filter=".cat4">Jewellery</a></li>
+							-->
+							<li>
+								<select>
+										Sort by
+										<option value="volvo">Added recently</option>
+										<option value="saab">Popularity</option>
+										<option value="mercedes">Price: Low to high</option>
+										<option value="audi">Price: High to low</option>
+										<option value="audi">Review & Rating</option>
+								</select>
+							</li>
+							<li>
+								<select>
+										Items per page
+										<option value="volvo">10</option>
+										<option value="saab">20</option>
+										<option value="mercedes">50</option>
+										<option value="audi">100</option>
+										<option value="audi">ALL</option>
+								</select>
+							</li>
+							
+							<li>
+							<a href="/elenverve/products?page=previous" title=""><span>Previous</span></a>
+							<a href="/elenverve/products?page=next" title=""><span>Next Page</span></a>							
+							</li>
+						</ul>
+						
+					</div>
+						
 						<div id="masonary-content" class="row">
 						<c:set var="factor" value="0" scope="page" />
 						<c:set var="counter" value="0" scope="page" />
@@ -89,43 +282,66 @@
 									<!--  <img alt="" src="http://placehold.it/248x273">-->
 									
 									<img src="<%=request.getContextPath() %>${model.productDvos.get(value-1).details.imageUrls.get(0)}" alt="">
-									<a href="single-post.html" title="">VIEW DETAILS</a>
+									<div class="new"></div>
+									<span>
+									<ul class="features-btn">
+										<li class="arrival"><i class="fa fa-bolt"></i></li>
+										<li class="shipping"><i class="fa fa-truck"></i></li>	
+										<li class="rewards"><i class="fa fa-trophy"></i></li>
+										<li class="gift"><i class="fa fa-gift"></i></li>
+									</ul>
+									</span>
 									
+									
+									
+									
+									<ul class="details">
+										<li class="view"><a href="single-post.html" title=""><i class="fa fa-eye"></i>&nbsp;VIEW DETAILS</a></li>
+										<li class="view"><a href="single-post.html" title=""><i class="fa fa-shopping-cart"></i>&nbsp;QUICK BUY</a></li>
+									</ul>
 									<i class="box1"></i>
 									<i class="box2"></i>
 									<i class="box3"></i>
 									<i class="box4"></i>
+									<!--  <h3>BEST KIDS DESIGN 2014</h3> -->
+									
 								</div>
-													
-								<!--  <h3>BEST KIDS DESIGN 2014</h3> -->
-								<h3>${model.productDvos.get(value-1).details.productName}</h3>
+									<span><a href="">Gifts & Decor Artisan Deco Bowl and Ball Centerpiece
+								${model.productDvos.get(value-1).details.productName}</a></span>
 								
+
 								<ul class="tooltip-btn">
 									<!-- 
 									<li class="cart"><a href="#" title=""><i class="fa fa-heart"></i></a></li>
 									<li class="shop"><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
 									-->
-									
-								<li class="shop"><a title="" href="#"><i class="fa fa-heart"></i></a></li>								
-								
-								<li class="cart">
-								<a title="" href="${contextPath}/elenverve/addToCart?productId=${model.productDvos.get(value-1).productId}">
-								<i class="fa fa-shopping-cart"></i></a></li>						
-								
+								<li class="shop"><a title="" href="#"><i class="fa fa-heart"></i></a></li>
+								<li class="cart"><a title="" href="${contextPath}/elenverve/addToCart?productId=${model.productDvos.get(value-1).productId}"><i class="fa fa-shopping-cart"></i></a></li>						
+								</ul>
+								<ul class="tooltip-btn-left">
+									<!-- 
+									<li class="cart"><a href="#" title=""><i class="fa fa-heart"></i></a></li>
+									<li class="shop"><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
+									-->
+										
+								<span><i>$${model.productDvos.get(value-1).details.initialPrice}</i></span>
+								<span>$${model.productDvos.get(value-1).details.finalPrice} USD</span>
+
 								</ul>
 								<a href="#" title="">DETAILS</a>
 								<c:if test="${model.productDvos.get(value-1).details.newInd == true}"> 
 									<h6>NEW</h6>
 								</c:if>
 								<!--  <span><i>$360</i>$460</span> -->
-								<span><i>$ ${model.productDvos.get(value-1).details.initialPrice}</i>$ ${model.productDvos.get(value-1).details.finalPrice}</span>
+								
+								<ul>
+									
+								</ul>
 							</div>
 								<c:set var="counter" value="${counter+1}" scope="page" />
 							</c:forEach>
 						</div>
 						 </c:forEach>
-						 
-						
 					</div>
 		
 				</div>
@@ -140,8 +356,7 @@
 					<a href="#" title=""><span>Previous</span></a>
 				</div>
 			</div>
-			
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<aside>
 					<div class="product-tab">
 					  <ul class="nav nav-tabs" id="myTab">
@@ -153,7 +368,7 @@
 								<div class="tab-recent" id="tab-recent">
 									<ul>
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envato’s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -162,7 +377,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envato’s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -171,7 +386,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envato’s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -182,7 +397,7 @@
 									
 									<ul>
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envato’s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -191,7 +406,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envato’s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -200,7 +415,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envato’s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -216,7 +431,7 @@
 								<div class="tab-recent" id="tab-popular">
 									<ul>
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envato’s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -225,7 +440,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envato’s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -234,7 +449,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envato’s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -245,7 +460,7 @@
 									
 									<ul>
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envato’s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lor ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -254,7 +469,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envato’s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -263,7 +478,7 @@
 										</li>
 										
 										<li><span><img src="http://placehold.it/85x106" alt="" /></span>
-											<h3><a href="#" title="">Envato’s Most Wanted: BuddyPress</a></h3>
+											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
 											<ul>
 												<li><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
@@ -317,6 +532,7 @@
 
 				</aside>
 			</div>
+
 			
 		</div>
 	</div>
@@ -324,4 +540,71 @@
 	</div>
 
 </body>
+<script type="text/javascript">
+	$(function () {
+    /*-------------------- EXPANDABLE PANELS ----------------------*/
+    var panelspeed = 500; //panel animate speed in milliseconds
+    var totalpanels = 3; //total number of collapsible panels   
+    var defaultopenpanel = 1; //leave 0 for no panel open   
+    var accordian = false; //set panels to behave like an accordian, with one panel only ever open at once      
+
+    var panelheight = new Array();
+    var currentpanel = defaultopenpanel;
+    var iconheight = parseInt($('.icon-close-open').css('height'));
+
+    //Initialise collapsible panels
+    function panelinit() {
+        for (var i = 1; i <= totalpanels; i++) {
+            panelheight[i] = parseInt($('#cp-' + i).find('.expandable-panel-content').css('height'));
+            $('#cp-' + i).find('.expandable-panel-content').css('margin-top', -panelheight[i]);
+            if (defaultopenpanel == i) {
+                $('#cp-' + i).find('.icon-close-open').css('background-position', '0px -' + iconheight + 'px');
+                $('#cp-' + i).find('.expandable-panel-content').css('margin-top', 0);
+            }
+        }
+    }
+
+
+
+    $('.expandable-panel-heading').click(function () {
+        var obj = $(this).next();
+        var objid = parseInt($(this).parent().attr('ID').substr(3, 2));
+        currentpanel = objid;
+        if (accordian == true) {
+            resetpanels();
+        }
+
+        if (parseInt(obj.css('margin-top')) <= (panelheight[objid] * -1)) {
+            obj.clearQueue();
+            obj.stop();
+            obj.prev().find('.icon-close-open').css('background-position', '0px -' + iconheight + 'px');
+            obj.animate({
+                'margin-top': 0
+            }, panelspeed);
+        } else {
+            obj.clearQueue();
+            obj.stop();
+            obj.prev().find('.icon-close-open').css('background-position', '0px 0px');
+            obj.animate({
+                'margin-top': (panelheight[objid] * -1)
+            }, panelspeed);
+        }
+    });
+
+    function resetpanels() {
+        for (var i = 1; i <= totalpanels; i++) {
+            if (currentpanel != i) {
+                $('#cp-' + i).find('.icon-close-open').css('background-position', '0px 0px');
+                $('#cp-' + i).find('.expandable-panel-content').animate({
+                    'margin-top': -panelheight[i]
+                }, panelspeed);
+            }
+        }
+    }
+    
+   // run once window has loaded    
+   panelinit();
+
+});
+</script>
 </html>

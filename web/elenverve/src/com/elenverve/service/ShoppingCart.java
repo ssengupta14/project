@@ -39,8 +39,11 @@ public class ShoppingCart implements Serializable {
 	 * 
 	 * @return
 	 */
-	public int getItemCount() {		
-		return items.size();
+	public String getItemCount() {		
+		if (items.size() != 0){
+			return items.size() + "";
+		}
+		return "";
 	}
 	/**
 	 * 

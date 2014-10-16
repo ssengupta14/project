@@ -1,6 +1,7 @@
 package com.elenverve.dvo;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -25,12 +26,15 @@ public class UserDvo extends BaseDvo implements UserDetails{
 	//@Pattern(regexp="\\(\\d{3}\\)-\\d{3}-\\d{4}")
 	private String phoneNumber;
 	private int phoneType;
-	
+	private Date createDate = new Date();
 	//@Email
 	//@NotBlank
 	//@Length(max=65)
 	
 	
+	public Date getCreateDate() {
+		return createDate;
+	}
 	private CredentialsDvo credentials;
 	private BrowserInfoDvo browserInfo;
 	/*

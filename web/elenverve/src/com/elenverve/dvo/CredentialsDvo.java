@@ -19,8 +19,30 @@ public class CredentialsDvo {
 	private String password;
 	private int veriStat;
 	private Date vmailLastSentDate;
+	public String getSecret() {
+		return secret;
+	}
+	public void setSecret(String secret) {
+		this.secret = secret;
+	}
+	public String getRefreshToken() {
+		return refreshToken;
+	}
+	public void setRefreshToken(String refreshToken) {
+		this.refreshToken = refreshToken;
+	}
+	public Long getExpireTime() {
+		return expireTime;
+	}
+	public void setExpireTime(Long expireTime) {
+		this.expireTime = expireTime;
+	}
+
 	private boolean isSocialLogin;	
 	private String authToken;
+	private String secret;
+	private String refreshToken;
+	private Long expireTime;
 	private SocialUserDvo socialUser;
 	private String securityAnswer1;
 	private String securityAnswer2;

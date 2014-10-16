@@ -1,8 +1,5 @@
 package com.elenverve.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +7,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,7 +14,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.elenverve.dvo.CustomerDvo;
-import com.elenverve.dvo.UserDvo;
 
 
 /*
@@ -82,6 +75,7 @@ public class LocalAuthenticationProvider extends AbstractUserDetailsAuthenticati
         	//auths = AuthorityUtils.NO_AUTHORITIES;
         }*/
         logger.debug("Inside LocalAuthenticationProvider class, returning user ["+user.getEmailId()+"]");
+        user.getCredentials().setUsername(user.getFirstName());
         return user;
         /*
         return new UserDvo(username, user.getCredentials().getPassword(), 
