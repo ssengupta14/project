@@ -6,7 +6,9 @@ public abstract class AddressDvo{
 	public static int BILLING=1;
 	public static int Res=3;
 	public static int Offi=4;
-	
+
+	protected String id;
+	private String fullName;
 	private String comments;
 	private int addressType;
 	private String streetNo;
@@ -16,6 +18,20 @@ public abstract class AddressDvo{
 	private String city;
 	private String state;
 	private String zip;
+	private String country;
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 	
 	public int getAddressType() {
 		return addressType;
@@ -72,7 +88,12 @@ public abstract class AddressDvo{
 		this.comments = comments;
 	}
 	
-	
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
 	
 	
 }
