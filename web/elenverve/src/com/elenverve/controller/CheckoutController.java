@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.elenverve.common.IConstants;
-import com.elenverve.dvo.AddressDvo;
 import com.elenverve.dvo.CustomerDvo;
 import com.elenverve.dvo.ShippingAddressDvo;
 import com.elenverve.model.ShippingAddress;

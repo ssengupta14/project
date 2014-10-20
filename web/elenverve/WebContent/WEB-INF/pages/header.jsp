@@ -9,10 +9,10 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta name="_csrf" content="${_csrf.token}"/>
-     <meta name="_csrf_header" content="${_csrf.headerName}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+    
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Raleway:400,300,600,700,500|Noto+Sans:400,700|Ubuntu:300,400,500,700'
 		rel='stylesheet' type='text/css'>
-
 	<!-- Styles -->
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>" type="text/css" />
 	<!-- Bootstrap -->
@@ -36,10 +36,11 @@
 	<!-- Orange -->
 	<link rel="stylesheet" type="text/css"	href="<c:url value="/resources/css/setting.css"/>" media="screen" />
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/mystyle.css"/>" media="screen" />
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
 	<%-- <script type="text/javascript"	src="<c:url value="/resources/js/jquery-1.10.2.js"/>"></script> --%>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.leanModal.min.js"/>"></script>
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+	<script type="text/javascript" src="<c:url value="/resources/js/cart.js"/>"></script>
 
 </head>
 <body>
@@ -73,8 +74,10 @@
 											<div class="cart-bar-hover">
 												<ul>
 													<li><a href="#" title=""><i class="fa fa-cog"></i></a></li>
-													<li><a href="${contextPath}/elenverve/removeFromCart?productId=${product.getProduct().productId}" title=""><i class="fa fa-trash-o"></i></a></li>
-													
+													<li>
+														<%-- <a href="${contextPath}/elenverve/removeFromCart?productId=${product.getProduct().productId}" title=""><i class="fa fa-trash-o"></i></a> --%>
+														<a href="" title="" onclick="removeProduct('${product.getProduct().productId}');"><i class="fa fa-trash-o"></i></a>
+													</li>													
 												</ul>
 											</div>
 										</li>									

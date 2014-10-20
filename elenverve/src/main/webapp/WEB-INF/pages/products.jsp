@@ -1,6 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -290,9 +289,7 @@
 										<li class="rewards"><i class="fa fa-trophy"></i></li>
 										<li class="gift"><i class="fa fa-gift"></i></li>
 									</ul>
-									</span>
-									
-									
+									</span>								
 									
 									
 									<ul class="details">
@@ -316,7 +313,12 @@
 									<li class="shop"><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
 									-->
 								<li class="shop"><a title="" href="#"><i class="fa fa-heart"></i></a></li>
-								<li class="cart"><a title="" href="${contextPath}/elenverve/addToCart?productId=${model.productDvos.get(value-1).productId}"><i class="fa fa-shopping-cart"></i></a></li>						
+								<li class="cart">
+									<%-- <a title="" href="${contextPath}/elenverve/addToCart?productId=${model.productDvos.get(value-1).productId}"> --%>
+									<a onclick="addProduct('${model.productDvos.get(value-1).productId}');">
+										<i class="fa fa-shopping-cart"></i>
+									</a>
+								</li>						
 								</ul>
 								<ul class="tooltip-btn-left">
 									<!-- 
@@ -542,69 +544,70 @@
 </body>
 <script type="text/javascript">
 	$(function () {
-    /*-------------------- EXPANDABLE PANELS ----------------------*/
-    var panelspeed = 500; //panel animate speed in milliseconds
-    var totalpanels = 3; //total number of collapsible panels   
-    var defaultopenpanel = 1; //leave 0 for no panel open   
-    var accordian = false; //set panels to behave like an accordian, with one panel only ever open at once      
-
-    var panelheight = new Array();
-    var currentpanel = defaultopenpanel;
-    var iconheight = parseInt($('.icon-close-open').css('height'));
-
-    //Initialise collapsible panels
-    function panelinit() {
-        for (var i = 1; i <= totalpanels; i++) {
-            panelheight[i] = parseInt($('#cp-' + i).find('.expandable-panel-content').css('height'));
-            $('#cp-' + i).find('.expandable-panel-content').css('margin-top', -panelheight[i]);
-            if (defaultopenpanel == i) {
-                $('#cp-' + i).find('.icon-close-open').css('background-position', '0px -' + iconheight + 'px');
-                $('#cp-' + i).find('.expandable-panel-content').css('margin-top', 0);
-            }
-        }
-    }
-
-
-
-    $('.expandable-panel-heading').click(function () {
-        var obj = $(this).next();
-        var objid = parseInt($(this).parent().attr('ID').substr(3, 2));
-        currentpanel = objid;
-        if (accordian == true) {
-            resetpanels();
-        }
-
-        if (parseInt(obj.css('margin-top')) <= (panelheight[objid] * -1)) {
-            obj.clearQueue();
-            obj.stop();
-            obj.prev().find('.icon-close-open').css('background-position', '0px -' + iconheight + 'px');
-            obj.animate({
-                'margin-top': 0
-            }, panelspeed);
-        } else {
-            obj.clearQueue();
-            obj.stop();
-            obj.prev().find('.icon-close-open').css('background-position', '0px 0px');
-            obj.animate({
-                'margin-top': (panelheight[objid] * -1)
-            }, panelspeed);
-        }
-    });
-
-    function resetpanels() {
-        for (var i = 1; i <= totalpanels; i++) {
-            if (currentpanel != i) {
-                $('#cp-' + i).find('.icon-close-open').css('background-position', '0px 0px');
-                $('#cp-' + i).find('.expandable-panel-content').animate({
-                    'margin-top': -panelheight[i]
-                }, panelspeed);
-            }
-        }
-    }
-    
-   // run once window has loaded    
-   panelinit();
-
-});
+	    /*-------------------- EXPANDABLE PANELS ----------------------*/
+	    var panelspeed = 500; //panel animate speed in milliseconds
+	    var totalpanels = 3; //total number of collapsible panels   
+	    var defaultopenpanel = 1; //leave 0 for no panel open   
+	    var accordian = false; //set panels to behave like an accordian, with one panel only ever open at once      
+	
+	    var panelheight = new Array();
+	    var currentpanel = defaultopenpanel;
+	    var iconheight = parseInt($('.icon-close-open').css('height'));
+	
+	    //Initialise collapsible panels
+	    function panelinit() {
+	        for (var i = 1; i <= totalpanels; i++) {
+	            panelheight[i] = parseInt($('#cp-' + i).find('.expandable-panel-content').css('height'));
+	            $('#cp-' + i).find('.expandable-panel-content').css('margin-top', -panelheight[i]);
+	            if (defaultopenpanel == i) {
+	                $('#cp-' + i).find('.icon-close-open').css('background-position', '0px -' + iconheight + 'px');
+	                $('#cp-' + i).find('.expandable-panel-content').css('margin-top', 0);
+	            }
+	        }
+	    }
+	
+	
+	
+	    $('.expandable-panel-heading').click(function () {
+	        var obj = $(this).next();
+	        var objid = parseInt($(this).parent().attr('ID').substr(3, 2));
+	        currentpanel = objid;
+	        if (accordian == true) {
+	            resetpanels();
+	        }
+	
+	        if (parseInt(obj.css('margin-top')) <= (panelheight[objid] * -1)) {
+	            obj.clearQueue();
+	            obj.stop();
+	            obj.prev().find('.icon-close-open').css('background-position', '0px -' + iconheight + 'px');
+	            obj.animate({
+	                'margin-top': 0
+	            }, panelspeed);
+	        } else {
+	            obj.clearQueue();
+	            obj.stop();
+	            obj.prev().find('.icon-close-open').css('background-position', '0px 0px');
+	            obj.animate({
+	                'margin-top': (panelheight[objid] * -1)
+	            }, panelspeed);
+	        }
+	    });
+	
+	    function resetpanels() {
+	        for (var i = 1; i <= totalpanels; i++) {
+	            if (currentpanel != i) {
+	                $('#cp-' + i).find('.icon-close-open').css('background-position', '0px 0px');
+	                $('#cp-' + i).find('.expandable-panel-content').animate({
+	                    'margin-top': -panelheight[i]
+	                }, panelspeed);
+	            }
+	        }
+	    }	    
+	    // run once window has loaded    
+	    panelinit(); 
+	});
+	
+ 
+	
 </script>
 </html>
