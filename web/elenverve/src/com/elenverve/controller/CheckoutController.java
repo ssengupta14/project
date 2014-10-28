@@ -37,11 +37,11 @@ public class CheckoutController extends DefaultController{
 		this.cartService = cartService;
 	}
 	
-	@RequestMapping(value={ "/chaddress" }, method = RequestMethod.GET)
-	public String chAddress(ModelMap model,HttpServletRequest request) {		
-		model.addAttribute("page", "shippingaddress");		
+	@RequestMapping(value={ "/shippingaddress" }, method = RequestMethod.GET)
+	public String shippingAddress(ModelMap model,HttpServletRequest request) {		
+		
 		CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
-		ShippingAddress shippingAddress = new ShippingAddress(customerDvo).setShippingAddress();
+		ShippingAddress shippingAddress = new ShippingAddress(customerDvo);
 		model.addAttribute("modal", shippingAddress );		
 		model.addAttribute("page", "shippingaddress");
 		model.addAttribute("noFooter","true");
@@ -54,8 +54,8 @@ public class CheckoutController extends DefaultController{
 		return "template"; 
 	}
 	
-	@RequestMapping(value={ "/addshaddress" }, method = RequestMethod.POST)
-	public String addshaddress(	@RequestParam("fullName") String fullName, 
+	@RequestMapping(value={ "/addnewaddress" }, method = RequestMethod.POST)
+	public String addNewAddress(	@RequestParam("fullName") String fullName, 
 								@RequestParam("streetNo") String streetNo,
 								@RequestParam("streetName") String streetName,
 								@RequestParam("aptNo") String aptNo,
@@ -77,11 +77,30 @@ public class CheckoutController extends DefaultController{
 		shippingAddressDvo.setZip(zip);
 		shippingAddressDvo.setCountry(country);
 		CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
-		customerDvo.setShippingAddressId(generatedId);
+		customerDvo.setDefaultShippingAddressId(generatedId);
 		customerDvo.addShipingAddress(shippingAddressDvo);
 		loginService.updateCustomer(customerDvo);
 		logger.info("Updated shipping address");
-		model.addAttribute("page", "payment");		
+		request.getSession().setAttribute(IConstants.ANONYMOUS_USER, customerDvo);
+		ShippingAddress shippingAddress = new ShippingAddress(customerDvo);
+		model.addAttribute("modal", shippingAddress );		
+		model.addAttribute("page", "shippingaddress");
+		model.addAttribute("noFooter","true");
+		return "template"; 
+	}
+	
+	@RequestMapping(value={ "/shiptothisaddress" }, method = RequestMethod.POST)
+	public String shipToThisAddress(@RequestParam("addressId") String addressId, ModelMap model,HttpServletRequest request) {	
+		CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
+		ShippingAddress shippingAddress = new ShippingAddress(customerDvo);
+		try {
+			model.addAttribute("modal", shippingAddress.getDefaultShippingAddressDvo(addressId));
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}		
+		model.addAttribute("page", "shippingoptions");	
+		model.addAttribute("noFooter","true");
 		return "template"; 
 	}
 

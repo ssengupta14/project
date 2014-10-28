@@ -1,25 +1,19 @@
 package com.elenverve.dvo;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.elenverve.common.IConstants;
 
-public class CustomerDvo extends UserDvo{
+public class CustomerDvo extends UserDvo{	
 	
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7694401950284081381L;
 	private FraudCheckDvo fraudCheck= new FraudCheckDvo();
 	private Set<ShippingAddressDvo> shipingAddresses = new HashSet<ShippingAddressDvo>();
 	private BillingAddressDvo billingAddress;
-	private String shippingAddressId ;
+	private String defaultShippingAddressId ;
 	@Override
 	public boolean isAccountNonExpired(){
 		return fraudCheck.isAccountActive();
@@ -28,9 +22,7 @@ public class CustomerDvo extends UserDvo{
 	public boolean isAccountNonLocked(){
 		return fraudCheck.isAccountNonLocked();
 	}
-	/**
-	 * Operations on the account
-	 */
+
 	public void lockAccount(){
 		fraudCheck.setAccountNonLocked();
 	}
@@ -76,10 +68,10 @@ public class CustomerDvo extends UserDvo{
 	public void setBillingAddress(BillingAddressDvo billingAddress) {
 		this.billingAddress = billingAddress;
 	}
-	public String getShippingAddressId() {
-		return shippingAddressId;
+	public String getDefaultShippingAddressId() {
+		return defaultShippingAddressId;
 	}
-	public void setShippingAddressId(String shippingAddressId) {
-		this.shippingAddressId = shippingAddressId;
+	public void setDefaultShippingAddressId(String defaultShippingAddressId) {
+		this.defaultShippingAddressId = defaultShippingAddressId;
 	}
 }

@@ -85,7 +85,7 @@
 									<li>
 										<h6>Total : ${shoppingCart.getTotalPriceInDollars()}</h6> 
 										<%-- <a href="${contextPath}/elenverve/checkout" title="" class="checkout-btn">Checkout</a> --%>
-										<a href="${contextPath}/elenverve/viewcart" title="" class="checkout-btn">Cart</a>
+										<a href="${contextPath}/elenverve/viewcart" title="" class="checkout-btn">View Cart</a>
 									</li>
 								</ul>
 							</c:if>

@@ -35,7 +35,7 @@
 					
 					<%-- <div id="${shippingAddress.id}" style="display: none;">	 --%>
 					<c:choose>
-      					<c:when test="${shippingAddress.id==modal.defaultShippingAddress}">
+      					<c:when test="${shippingAddress.id==modal.defaultShippingAddressId}">
       						<div id="${shippingAddress.id}">
       					</c:when>
       					<c:otherwise>
@@ -44,7 +44,7 @@
       					</c:otherwise>
     				</c:choose>
 						
-						<form name="sign_up_form_test" action="/elenverve/addshaddress" method="POST"> 									
+						<form name="ship_to_this_address" action="/elenverve/shiptothisaddress" method="POST"> 									
 							<div class="col-md-12">
 								<ul><i class="fa fa-envelope-o"></i><input type="text" placeholder="Full name" id="fullName" name="fullName" value="${shippingAddress.fullName}"/></ul>
 							</div>	
@@ -78,7 +78,8 @@
 												
 							<div class="col-md-12">
 								<div class="submit-form">							
-									<input type="submit" value="Ship to this address"/>	
+									<input type="submit" value="Ship to this address" id="shippingAddress"/>	
+									<input type="submit" value="Edit" id="edit"/>	
 									<input type="hidden" id="addressId" name="addressId" value="${shippingAddress.id}"/>														
 									<input type="hidden" name="${_csrf.parameterName}" 	value="${_csrf.token}" />
 								</div>
@@ -88,7 +89,7 @@
 				</c:forEach>
 				<!-- This is for new Address -->
 				<div id="new_address" style="display: none;">		
-					<form name="sign_up_form_test" action="/elenverve/addshaddress" method="POST"> 									
+					<form name="new_address_form" action="/elenverve/addnewaddress" method="POST"> 									
 						<div class="col-md-12">
 							<ul><i class="fa fa-envelope-o"></i><input type="text" placeholder="Full name" id="fullName" name="fullName" /></ul>
 						</div>	
@@ -122,7 +123,7 @@
 											
 						<div class="col-md-12">
 							<div class="submit-form">							
-								<input type="submit" value="Ship to this address"/>	
+								<input type="submit" value="Add new address"/>	
 								<input type="hidden" id="addressId" name="addressId" value="${shippingAddress.id}"/>														
 								<input type="hidden" name="${_csrf.parameterName}" 	value="${_csrf.token}" />
 							</div>

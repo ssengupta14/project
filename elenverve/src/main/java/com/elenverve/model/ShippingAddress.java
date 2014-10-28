@@ -5,39 +5,22 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
-
 import com.elenverve.dvo.CustomerDvo;
 import com.elenverve.dvo.ShippingAddressDvo;
 
 public class ShippingAddress {
 	
 	private List<String> addressIds = new ArrayList<String>();
-	private Set<ShippingAddressDvo> shippingAddressDvos  = new HashSet<ShippingAddressDvo>() ;
-	//private ShippingAddressDvo defaultShippingAddressDvo ;
+	private Set<ShippingAddressDvo> shippingAddressDvos  = new HashSet<ShippingAddressDvo>() ;	
 	private CustomerDvo customerDvo ;
-	private String defaultShippingAddress ;	
+	private String defaultShippingAddressId ;	
 	
 	public ShippingAddress(CustomerDvo customerDvo){
 		this.customerDvo =customerDvo;
-	}
-	
-	public ShippingAddress setShippingAddress(){
 		this.shippingAddressDvos = customerDvo.getShipingAddresses() ; 
-		this.defaultShippingAddress = customerDvo.getShippingAddressId();
-		/*for(ShippingAddressDvo shippingAddressDvo : customerDvo.getShipingAddresses()){			
-			addressIds.add(shippingAddressDvo.getId());
-			if(		StringUtils.isNotBlank(shippingAddressDvo.getId()) &&  
-					shippingAddressDvo.getId().equalsIgnoreCase(customerDvo.getShippingAddressId())){
-				defaultShippingAddressDvo = shippingAddressDvo ;
-			}else{				
-				shippingAddressDvos.add(shippingAddressDvo);
-			}			
-		}*/		
-		return this;
-	}
-
+		this.defaultShippingAddressId = customerDvo.getDefaultShippingAddressId();
+	}	
+	
 	public List<String> getAddressIds() {
 		return addressIds;
 	}
@@ -46,6 +29,14 @@ public class ShippingAddress {
 		return shippingAddressDvos;
 	}
 
+	public ShippingAddressDvo getDefaultShippingAddressDvo(String addressId) throws Exception{
+		for(ShippingAddressDvo shippingAddressDvo : shippingAddressDvos){
+			if (addressId.equalsIgnoreCase(shippingAddressDvo.getId()))
+				return shippingAddressDvo;
+		}
+		throw new Exception("Shipping address not foud");
+	}
+	
 	public void setAddressIds(List<String> addressIds) {
 		this.addressIds = addressIds;
 	}
@@ -54,11 +45,11 @@ public class ShippingAddress {
 		this.shippingAddressDvos = shippingAddressDvos;
 	}
 
-	public String getDefaultShippingAddress() {
-		return defaultShippingAddress;
+	public String getDefaultShippingAddressId() {
+		return defaultShippingAddressId;
 	}
 
-	public void setDefaultShippingAddress(String defaultShippingAddress) {
-		this.defaultShippingAddress = defaultShippingAddress;
+	public void setDefaultShippingAddressId(String defaultShippingAddressId) {
+		this.defaultShippingAddressId = defaultShippingAddressId;
 	}
 }
