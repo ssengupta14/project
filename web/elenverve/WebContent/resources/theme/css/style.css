@@ -10126,14 +10126,17 @@ li.customlist {
     -o-box-shadow: 0 1px 2px #E9F3F6;
     box-shadow: 0 1px 2px #E9F3F6;
 	
-    color: #D2D2D2;
+    color: white;
     float: left;
     font-family: Raleway;
     font-size: 13px;
     height: 30px;
     padding: 0 0 0 15px;
     width: 100%;
+     font-weight: bold;
+    background: none repeat scroll 0px 0px #F0B70C;
 }
+
 .cart-total-box .cart-checkout > li a {
 	background: none repeat scroll 0 0 #F0B70C;
 	

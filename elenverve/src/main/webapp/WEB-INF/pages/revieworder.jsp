@@ -10,6 +10,7 @@
 <html>
 
 <body>
+<form name="revieworder" action="/elenverve/payment"   method="POST">
 <div class="theme-layout">
 <section class="block" id="inner-head">
 	
@@ -100,58 +101,22 @@
 							Your Order summary:
 							<li class="validated"><i class="fa fa-check"></i>Total :$450.00 USD</a></li>
 						   	<li class="validated"><i class="fa fa-check"></i>FREE shipping</li>
-						   	<li class="validated"><i class="fa fa-check"></i>As a gift </li>
-							
+						   	<li class="validated"><i class="fa fa-check"></i>As a gift </li>		
 																			
 						</ul>
 						<ul class="cart-checkout" id="cart-checkout">
 							Note: You can either select individual items as a gift here or you can also select the whole shopping bag as a gift
 							as well as redeem Elen Verve <a href="#">gift card</a>/<a href="#">coupons</a> and/or <a href="#">reward points</a> in the review page
-							<li><a href="${contextPath}/elenverve/payment" title="" class="checkout-btn">Proceed to Checkout</a></li>
+							<li><input type="submit" value="Proceed to Checkout" class="checkout-btn"/></li>
 						</ul>
 					</div>
-				</div>
-				
-				<!--<div class="col-md-5">
-					<div class="cart-total-box">
-						<div class="cart-head">
-							<h2 class="cart-product">CALCULATE SHIPPING</h2>
-						</div>
-						<ul>
-							<li class="customlist">		
-								<select>
-								  <option>United State</option>
-								  <option>02</option>
-								  <option>03</option>
-								  <option>04</option>
-								  <option>05</option>
-								</select>	
-							</li>
-							<li class="customlist">		
-								<select>
-								  <option>Select State</option>
-								  <option>02</option>
-								  <option>03</option>
-								  <option>04</option>
-								  <option>05</option>
-								</select>
-							</li>
-							<li><input type="text" placeholder="Postal Code / Zip Code" /></li>
-							<li><a href="#" title="">Update Total</a></li>
-						</ul>
-						
-					</div>
-				</div>
-				-->
-				
-				
+				</div>				
 			</div>
 	</div>
 
 </section>
 
-<section class="block">
-
-</section>
+</div>
+</form>
 </body>
 </html>
