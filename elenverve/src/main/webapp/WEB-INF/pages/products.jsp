@@ -25,12 +25,10 @@
 		<section class="block"  style="padding:15px;">
 			<div class="container">
 					
-				<div class="col-md-4">
-					<img src="<%=request.getContextPath() %>/images/prod-banner-top.jpg" alt="" style="height:auto; width:auto; max-width:500px; max-height:300px;">				
+				<div class="col-md-3">
+					<!--<img src="<%=request.getContextPath() %>/images/prod-banner-top.jpg" alt="" style="height:auto; width:auto; max-width:500px; max-height:300px;">-->				
 				</div>
-				<div class="col-md-1">
-				</div>	
-				<div class="col-md-4">
+				<div class="col-md-8">
 					<img src="<%=request.getContextPath() %>/images/prod-banner-top.jpg" alt="" style="height:auto; width:auto; max-width:500px; max-height:300px;">				
 				</div>
 				
