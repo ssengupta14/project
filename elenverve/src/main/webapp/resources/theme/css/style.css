@@ -130,7 +130,12 @@ body {
 }
 .widget-body {
     float: left;
-    margin-top: 60px;
+    margin-top: 0px;
+    width: 100%;
+}
+.widget-head {
+    float: left;
+    margin-top: 40px;
     width: 100%;
 }
 .weekly-deals-widget-body {
@@ -335,7 +340,6 @@ body {
     position: relative;
     text-transform: uppercase;
     width: 100%;
-    
 }
 .heading4 > h2 {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -1037,7 +1041,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', end
 /* Header2 */
 .header2 {
     background: none repeat scroll 0 0 #252525; /* change this color for top bar*/
-    	
     float: left;
     position: relative;
     width: 100%;
@@ -4583,19 +4586,25 @@ background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
 
 /* Pagination */
 .custom-pagination {
+
+-webkit-box-shadow: -1px 0px 18px -5px rgba(255,255,255,1);
+-moz-box-shadow: -1px 0px 18px -5px rgba(255,255,255,1);
+box-shadow: -1px 0px 18px -5px rgba(255,255,255,1);
+padding-top:10px;
     float: left;
     position: relative;
     width: 100%;
     margin-top: 10px;
+    /*background: none repeat scroll 0 0 #FFFFFF;*/	
 }
 .custom-pagination > ul {
-    background: none repeat scroll 0 0 #FFFFFF;
-    float: left;
+    left:24%;
     margin: 0;
     padding: 0;
     position: relative;
     z-index: 99;
 }
+/*
 .custom-pagination:before {
     background: none repeat scroll 0 0 #DADADA;
     content: "";
@@ -4604,46 +4613,51 @@ background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
     position: absolute;
     top: 15px;
     width: 100%;
-}
+	
+
+} */
 .custom-pagination > ul > li {
     float: left;
     list-style: none outside none;
     margin-right: 10px;
 }
 .custom-pagination > ul > li > a {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #E0E0E0;
-
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
-    border-radius: 2px;
-
     color: #696969;
     float: left;
     font-family: open sans;
     font-size: 19px;
-    line-height: 10px;
-    padding: 10px;
-
-    -webkit-transition: all 0.4s ease 0s;
-    -moz-transition: all 0.4s ease 0s;
-    -ms-transition: all 0.4s ease 0s;
-    -o-transition: all 0.4s ease 0s;
-    transition: all 0.4s ease 0s;
-
+   
 }
 .custom-pagination > ul > li > a:hover {
-    background: #F0B70C;
-    border: 1px solid #F0B70C;
-    color: #fff;
+    color: #F0B70C;
+}
+.custom-pagination > ul > li > a > i > span {
+   font-size: 19px;
+   text-align: center;
+   
+}
+.custom-pagination > ul > li > a > span {
+   font-size: 19px;
+   text-align: center;
+
+	
+
+   
+}
+.custom-pagination > ul > li > a > i{
+    font-size: 29px;
+    color: #F0B70C;
+   
+}
+
+.custom-pagination > ul > li > a > i:hover {
+    color: #F0B70C;
 }
 .custom-pagination > span {
     background: none repeat scroll 0 0 #FFFFFF;
     left: 50%;
-    margin-left: -56px;
-    padding: 0 10px;
+ 
+   
     position: absolute;
     top: -2px;
 }
@@ -7108,6 +7122,7 @@ color: #F0B70C;
 
 
 /* Product Tab */
+
 aside {
     float: left;
     width: 100%;
@@ -7119,6 +7134,7 @@ aside {
 .product-tab > ul .active > a {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #AFAFAF;
+	
 }
 
 .product-tab .nav-tabs > li {
@@ -7178,6 +7194,7 @@ aside {
     margin-bottom: 20px;
     padding: 0 20px 20px;
     width: 100%;
+
 }
 .tab-recent li span {
     float: left;
@@ -7900,14 +7917,18 @@ aside {
     line-height: 27px;
 
 }
+/*
 .categories-widget ul li:hover {
     padding-left: 20px;
 }
+*/
 
 .categories-widget ul li span {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #E7E7E7;
-	
+    float:left;	
+    margin-top:6px;
+    margin-left:-26px;		
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
@@ -7922,11 +7943,10 @@ aside {
     box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.08) inset;
 	
     color: #474646;
-    float: right;
     font-family: Open Sans;
     font-size: 13px;
-    line-height: 8px;
-    padding: 9px 8px;
+    line-height: 4px;
+    padding: 5px 5px;
 }
 .categories-widget ul li i {
    /* background: none repeat scroll 0 0 #F0B70C;
@@ -10503,6 +10523,7 @@ margin-bottom: 10px;
 #masonay-nav {
     float: left;
     margin: 0;
+    margin-top:40px;
     padding: 0;
     width: 100%;
 }
@@ -10521,6 +10542,9 @@ margin-bottom: 10px;
     list-style: none outside none;
     margin-right: 18px;
 }
+*/
+
+/*
 #masonay-nav a {
     background: none repeat scroll 0 0 #EFEFEF;
     border: 1px solid #E2E2E2;
@@ -10537,7 +10561,57 @@ margin-bottom: 10px;
     font-size: 14px;
     line-height: 10px;
     padding: 12px 22px;
+}*/
+
+
+/*
+#masonay-nav a:before{
+content: "";  
+    display: block;  
+    z-index: -2;  
+    position: absolute;  
+    background-color: rgb(26,27,29);  
+    left: -5px;  
+    top: -2px;  
+    border-radius: 1px;  
+    box-shadow: 0px 1px 0px 0px rgba(250,250,250,0.1),   
+                inset 0px 1px 2px rgba(0, 0, 0, 0.5);  
 }
+
+#masonay-nav a .test {  
+    display: block;  
+    background-color: rgb(226,0,0);  
+    box-shadow: inset 0px 1px 0px 0px rgba(250,250,250,0.5),  
+                0px 0px 3px 2px rgba(226,0,0,0.5);  
+    border-radius: 40px; 
+    width:1px;
+    height:1px;		  
+     
+    position: absolute;  
+    bottombottom: 0;  
+    padding-left: 2px;  
+}
+
+#masonay-nav a {
+font-family: "FontAwesome";  
+    color: rgb(37,37,37);  
+    text-shadow: 0px 1px 1px rgba(250,250,250,0.1);  
+    font-size: 12pt;  
+    display: block;  
+    position: relative;  
+    text-decoration: none;  
+    background-color: rgb(83,87,93);  
+    box-shadow: 0px 3px 0px 0px rgb(34,34,34),  
+                0px 7px 10px 0px rgb(17,17,17), 
+                inset 0px 1px 1px 0px rgba(250, 250, 250, .2), 
+                inset 0px -12px 35px 0px rgba(0, 0, 0, .5); 
+    border: 0;  
+    border-radius: 1px;  
+    text-align: center;  
+    line-height: 19px;  
+}
+
+*/
 .isotope-item {
   z-index: 2;
 }
@@ -13693,12 +13767,13 @@ a.btn_red {color: #FFF;}
   content: "\2212";
 }
 
-/*----- ribbon ----*/
-.featured{
+/*----- ribbons ----*/
+/* New product ribbon */
+.sold-thumb .new{
     margin: 40px auto 30px auto;
     width: 200px;
-    height: 180px;
-    box-shadow: -1px -1px 10px #DDD;
+    height: 140px;
+    box-shadow: -1px -1px 10px rgba(255,255,25,0.1);
 }
 
 /* This bit does the rhombus that sits in the top left hand corner */
@@ -13708,19 +13783,19 @@ a.btn_red {color: #FFF;}
     position: absolute;
     width:0px;
     height: 0px;
-    top: 2px;
-    left: -40px;
+    top: -10px;
+    left: -45px;
     
     width: 180px;
     height: 10px;
-    box-shadow: 0 2px 0 #DDD;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
     
     text-align: center;
     -webkit-transform: rotateZ(-45deg);
     -moz-transform: rotateZ(-45deg);
     
     /* Rhombus */
-    border-width: 0 30px 30px 30px;
+    border-width: 0 20px 18px 30px;
     border-style: solid;
     border-color: transparent transparent #3AE transparent;
     
@@ -13728,13 +13803,112 @@ a.btn_red {color: #FFF;}
 }
 
 /* This does the text "featured" and the gradient that makes it look curved */
+
 .sold-thumb .new:after{
     display: block;
     position: absolute;
     content: "New";
     
     color: green;
-    top: 19px;
+    top: 12px;
+    left: -25px;
+    width: 95px;
+    border:1px bold;
+    height: 18px;
+    padding-top: 1px;
+    
+    background: transparent;
+    background-image:
+        
+        -webkit-linear-gradient(45deg, 
+        transparent 0%,
+        transparent 77%,
+        rgba(255,255,255,0.3) 80%,
+        rgba(255,255,255,0.3) 81%, 
+        rgba(0,0,0,0.4) 82%,
+        transparent 83%
+        ),
+        
+        -webkit-linear-gradient(-45deg,
+        transparent 0%,
+        transparent 17%,
+        rgba(0,0,0,0.5) 18%,
+        rgba(255,255,255,0.3) 19%,
+        rgba(255,255,255,0.3) 20%,
+        transparent 23%
+        );
+    background-image:
+        -moz-linear-gradient(45deg, 
+        transparent 0%,
+        transparent 77%,
+        rgba(255,255,255,0.3) 80%,
+        rgba(255,255,255,0.3) 81%, 
+        rgba(0,0,0,0.4) 82%,
+        transparent 83%
+        ),
+        -moz-linear-gradient(-45deg,
+        transparent 0%,
+        transparent 17%,
+        rgba(0,0,0,0.5) 18%,
+        rgba(255,255,255,0.3) 19%,
+        rgba(255,255,255,0.3) 20%,
+        transparent 23%
+        );
+    
+    -webkit-transform: rotateZ(-45deg);
+    -moz-transform: rotateZ(-45deg);
+    
+    color: rgba(0,0,0,0.5);
+    font-family: Noto sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 1px rgba(255,255,25,0.1);
+}
+/* Out of stock ribbon */
+.sold-thumb .outOfStock{
+    margin: 40px auto 30px auto;
+    width: 200px;
+    height: 140px;
+    box-shadow: -1px -1px 10px rgba(255,255,25,0.1);
+}
+
+/* This bit does the rhombus that sits in the top left hand corner */
+.sold-thumb .outOfStock:before{
+    content: "";
+    display: block;
+    position: absolute;
+    width:0px;
+    height: 0px;
+    top: 5px;
+    left: -45px;
+    
+    width: 180px;
+    height: 10px;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+    
+    text-align: center;
+    -webkit-transform: rotateZ(-45deg);
+    -moz-transform: rotateZ(-45deg);
+    
+    /* Rhombus */
+    border-width: 0 30px 22px 30px;
+    border-style: solid;
+    border-color: transparent transparent rgb(199,59,60); transparent;
+    
+    
+}
+
+/* This does the text "featured" and the gradient that makes it look curved */
+.sold-thumb .outOfStock:after{
+    display: block;
+    position: absolute;
+    content: "Out of Stock";
+    
+    color: green;
+    top: 15px;
     left: -35px;
     width: 140px;
     height: 28px;
@@ -13783,13 +13957,442 @@ a.btn_red {color: #FFF;}
     
     color: rgba(0,0,0,0.5);
     font-family: Noto sans;
-    font-size: 17px;
+    font-size: 12px;
     font-weight: 600;
     line-height: 16px;
     font-weight: bold;
     text-align: center;
     text-shadow: 0 1px rgba(255,255,25,0.1);
 }
+
+/* Best Seller ribbon */
+.sold-thumb .bestSeller{
+    margin: 40px auto 30px auto;
+    width: 200px;
+    height: 140px;
+    box-shadow: -1px -1px 10px rgba(255,255,25,0.1);
+}
+
+/* This bit does the rhombus that sits in the top left hand corner */
+.sold-thumb .bestSeller:before{
+    content: "";
+    display: block;
+    position: absolute;
+    width:0px;
+    height: 0px;
+    top: 5px;
+    left: -45px;
+    
+    width: 180px;
+    height: 10px;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+    
+    text-align: center;
+    -webkit-transform: rotateZ(-45deg);
+    -moz-transform: rotateZ(-45deg);
+    
+    /* Rhombus */
+    border-width: 0 30px 22px 30px;
+    border-style: solid;
+    border-color: transparent transparent #FF6600 transparent;
+    
+    
+}
+
+/* This does the text "featured" and the gradient that makes it look curved */
+.sold-thumb .bestSeller:after{
+    display: block;
+    position: absolute;
+    content: "Best Seller";
+    
+    color: green;
+    top: 15px;
+    left: -35px;
+    width: 140px;
+    height: 28px;
+    padding-top: 5px;
+    
+    background: transparent;
+    background-image:
+        
+        -webkit-linear-gradient(45deg, 
+        transparent 0%,
+        transparent 77%,
+        rgba(255,255,255,0.3) 80%,
+        rgba(255,255,255,0.3) 81%, 
+        rgba(0,0,0,0.4) 82%,
+        transparent 83%
+        ),
+        
+        -webkit-linear-gradient(-45deg,
+        transparent 0%,
+        transparent 17%,
+        rgba(0,0,0,0.5) 18%,
+        rgba(255,255,255,0.3) 19%,
+        rgba(255,255,255,0.3) 20%,
+        transparent 23%
+        );
+    background-image:
+        -moz-linear-gradient(45deg, 
+        transparent 0%,
+        transparent 77%,
+        rgba(255,255,255,0.3) 80%,
+        rgba(255,255,255,0.3) 81%, 
+        rgba(0,0,0,0.4) 82%,
+        transparent 83%
+        ),
+        -moz-linear-gradient(-45deg,
+        transparent 0%,
+        transparent 17%,
+        rgba(0,0,0,0.5) 18%,
+        rgba(255,255,255,0.3) 19%,
+        rgba(255,255,255,0.3) 20%,
+        transparent 23%
+        );
+    
+    -webkit-transform: rotateZ(-45deg);
+    -moz-transform: rotateZ(-45deg);
+    
+    color: rgba(0,0,0,0.5);
+    font-family: Noto sans;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 1px rgba(255,255,25,0.1);
+}
+
+/* Side Navigation*/
+.categories-widget .goo-collapsible li:hover{
+/*background: #F8F8F8;*/
+background:#6C6C6C;
+background-image:
+        -moz-linear-gradient(45deg, 
+        transparent 0%,
+        transparent 77%,
+        rgba(255,255,255,0.3) 80%,
+        rgba(255,255,255,0.3) 81%, 
+        rgba(0,0,0,0.4) 82%,
+        transparent 83%
+        ),
+        -moz-linear-gradient(-45deg,
+        transparent 0%,
+        transparent 17%,
+        rgba(0,0,0,0.5) 18%,
+        rgba(255,255,255,0.3) 19%,
+        rgba(255,255,255,0.3) 20%,
+        transparent 23%
+        );
+}
+
+/*remove list style (circles)*/
+.categories-widget .goo-collapsible {
+	list-style: none;
+	font-family: Noto sans;
+    	font-size: 12px;
+	
+}
+/*header line style and border*/
+.categories-widget .goo-collapsible li.header {
+	color: #666;
+	padding: 4px 4px;
+	border: 1px solid #bbb;
+}
+/*set border for every line of menu nad remove top border becouse we dont want double border with header border. */
+.categories-widget .goo-collapsible li {
+	border: 1px solid #111111;
+	border: 0;
+	margin: 1px;
+	background: #4F5150;
+	-webkit-box-shadow: inset 3px -1px 22px 9px rgba(255,255,255,0.2);
+-moz-box-shadow: inset 3px -1px 22px 9px rgba(255,255,255,0.2);
+box-shadow: inset 3px -1px 22px 9px rgba(255,255,255,0.2);
+
+}
+/*remove decoration from text links and treat it as a block.*/
+.categories-widget .goo-collapsible li a {
+	text-decoration: none;
+	color: #FFF;
+	display: block;
+	padding: 2px 4px;
+	width:100%;
+	
+}
+/*we dont want text to be underline as regular link*/
+.categories-widget .goo-collapsible li a:hover {
+	background: #6C6C6C;
+	text-decoration: none;
+	width:100%;
+}
+/*remove list style (circles) for submenu*/
+.categories-widget .goo-collapsible li ul {
+	list-style: none;
+	background: #4F5150;
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+/*remove border and set only bottom border for submenu*/
+.categories-widget .goo-collapsible li ul li {
+	margin: 0;
+	border: 0;
+	border-bottom: 0px solid #bbb;
+	background: #111111;
+}
+/*remove bottom border from last element in submenu*/
+.categories-widget .goo-collapsible li ul li:last-child {
+	border-bottom: 0;
+}
+/*set padding for submenu to be inline with maimenu*/
+.categories-widget .goo-collapsible li ul li a {
+	padding: 5px 10px;
+	display: block;
+	padding-left: 33px;
+	background: #818181;
+-webkit-box-shadow: inset 0px -1px 241px -11px rgba(17,17,17,0.87);
+-moz-box-shadow: inset 0px -1px 241px -11px rgba(17,17,17,0.87);
+box-shadow: inset 0px -1px 241px -11px rgba(17,17,17,0.87);
+}
+
+/*remove text decoration for links */
+.categories-widget .goo-collapsible li ul li a:hover {
+	width:100%;
+	text-decoration: none;
+	background: #d9d9d9;
+} 
+/*for menu witch have a submenu display some icom*/
+.categories-widget .goo-collapsible .dropdown>a {
+	background: url(../images/Triangle.png) no-repeat right center;
+	background-size: 8% 30%;
+	
+}
+/*set some hover color on drop down menu*/
+.categories-widget .goo-collapsible .dropdown>a:hover {
+background: url(../images/Triangle.png) no-repeat right center;
+	background-size: 8% 30%;
+	
+}
+
+#toggle{
+border: 3px solid #52A7D3;
+background-color: #52A7D3;
+color: #000000;
+}
+
+#toggle.active {
+border: 3px solid red;
+background-color: red;
+color: #FFFFFF;
+}
+
+.product-nav-bar{
+
+-webkit-box-shadow: -1px 0px 18px -5px rgba(255,255,255,1);
+-moz-box-shadow: -1px 0px 18px -5px rgba(255,255,255,1);
+box-shadow: -1px 0px 18px -5px rgba(255,255,255,1);
+padding-top:10px;
+
+}
+
+select {
+	
+    padding:3px;
+    font:11px "Noto Sans";
+    margin: -8px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border: 1px solid #666;
+     background: #252525;
+    color:#DDD;
+    width:150%; height:50%;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    
+     
+}
+
+label {position:relative}
+label:after {
+     content:'<>';
+    font:12px "Consolas", monospace;
+    color:#f0b70c;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:-28px; top:-4px;
+    padding:0 0 2px;
+    border-bottom:1px solid #f0b70c;
+    position:absolute;
+    pointer-events:none;
+}
+label:before {
+    content:'';
+    right:16px; top:-3px;
+    width:30px; height:20px;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}
+
+
+#mybreadcrumb{
+  padding: .1em 1em .1em 1.5em;
+  float: left;
+  text-decoration: none;
+  color: #444;
+  position: relative;
+  list-style-type: none;
+  
+}
+#mybreadcrumb li{
+  float: left;
+  border:1px;
+  border-color: #fff;
+ 
+}
+
+#mybreadcrumb li a{
+  float: left;
+  font-size:14px;
+  color: #6c6c6c;
+  padding-left:5px;
+  padding-right:5px;
+  letter-spacing: 0.3px;
+  
+  
+  	
+}
+#mybreadcrumb li .current{
+ pointer-events: none;
+   cursor: default;
+  color: #444;
+  
+  
+  	
+}
+
+#mybreadcrumb li a i:hover,
+#mybreadcrumb li a:hover{
+  color: #F0B70C;
+  text-decoration: underline;
+  
+  	
+}
+#mybreadcrumb li i{
+text-decoration: none;	
+  float: left;
+  font-size:10px;
+  color: #444;	
+  padding-top:5px;		
+}
+#mybreadcrumb li a i{
+text-decoration: none;	
+  float: left;
+  font-size:18px;
+  color: #6c6c6c;
+  padding-right:2px;		
+  margin-top:-4px;	
+}
+
+
+#breadcrumbs-one{
+  background: #111;
+  border-width: 0px;
+  border-style: solid;
+  border-color: #f5f5f5 #e5e5e5 #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgba(0,0,0,.2);
+  overflow: hidden;
+  width: 100%;
+  font-style:open-sans;
+  font-size:14px;	
+
+}
+
+#breadcrumbs-one li{
+  float: left;
+  
+
+}
+
+
+
+
+#breadcrumbs-one a{
+  padding: .1em 1em .1em 1.5em;
+  float: left;
+  text-decoration: none;
+  color: #444;
+  position: relative;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  background-color: #ddd;
+  background-image: linear-gradient(to right, #f5f5f5, #ddd); 
+
+}
+#breadcrumbs-one a i{
+  text-decoration: none;
+  color: #444;
+  font-size:20px;
+  font-style:open-sans;
+  	
+}
+#breadcrumbs-one li:first-child a{
+  border-radius: 5px 0 0 5px;
+  padding: .1em 1em .1em 1em;
+}
+
+#breadcrumbs-one a:hover{
+  background: #fff;
+}
+
+#breadcrumbs-one a::after,
+#breadcrumbs-one a::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -1.5em;
+  	   
+  border-top: 1.5em solid transparent;
+  border-bottom: 1.5em solid transparent;
+  border-left: 1em solid;
+  right: -1em;
+
+}
+
+#breadcrumbs-one a::after{ 
+  z-index: 2;
+  border-left-color: #ddd;  
+ margin-left:-10px;	
+}
+
+#breadcrumbs-one a::before{
+  border-left-color: #ccc;  
+  right: -1.1em;
+  z-index: 1; 
+}
+
+#breadcrumbs-one a:hover::after{
+  border-left-color: #fff;
+}
+
+#breadcrumbs-one .current,
+#breadcrumbs-one .current:hover{
+  font-weight: bold;
+  background: none;
+}
+
+#breadcrumbs-one .current::after,
+#breadcrumbs-one .current::before{
+  content: normal;  
+}
+
 
 
 /*
