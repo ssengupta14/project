@@ -1,6 +1,6 @@
-function addProduct(productId) {      
+function addProduct(productId) {  
      
-	alert(productId) ;	 
+	
    	$.ajax({  
     	type : "Get",   
     	url : "/elenverve/addProduct",   

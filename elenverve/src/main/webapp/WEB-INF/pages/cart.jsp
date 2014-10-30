@@ -107,7 +107,7 @@
 						<ul class="cart-checkout" id="cart-checkout">
 							Note: You can either select individual items as a gift here or you can also select the whole shopping bag as a gift
 							as well as redeem Elen Verve <a href="#">gift card</a>/<a href="#">coupons</a> and/or <a href="#">reward points</a> in the review page
-							<li><a href="${contextPath}/elenverve/chaddress" title="" class="checkout-btn">Proceed to checkout</a></li>
+							<li><a href="${contextPath}/elenverve/shippingaddress" title="" class="checkout-btn">Continue</a></li>
 						</ul>
 					</div>
 				</div>

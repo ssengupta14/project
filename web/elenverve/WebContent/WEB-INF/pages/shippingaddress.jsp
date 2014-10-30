@@ -44,7 +44,7 @@
       					</c:otherwise>
     				</c:choose>
 						
-						<form name="ship_to_this_address" action="/elenverve/shiptothisaddress" method="POST"> 									
+						<form name="ship_to_this_address" action="/elenverve/revieworder" method="POST"> 									
 							<div class="col-md-12">
 								<ul><i class="fa fa-envelope-o"></i><input type="text" placeholder="Full name" id="fullName" name="fullName" value="${shippingAddress.fullName}"/></ul>
 							</div>	

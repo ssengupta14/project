@@ -37,6 +37,12 @@ public class CheckoutController extends DefaultController{
 		this.cartService = cartService;
 	}
 	
+	@RequestMapping(value={ "/viewcart" }, method = RequestMethod.GET)
+	public String viewCart(ModelMap model,HttpServletRequest request) {		
+		model.addAttribute("page", "cart");		
+		return "template"; 
+	}
+	
 	@RequestMapping(value={ "/shippingaddress" }, method = RequestMethod.GET)
 	public String shippingAddress(ModelMap model,HttpServletRequest request) {		
 		
@@ -45,12 +51,6 @@ public class CheckoutController extends DefaultController{
 		model.addAttribute("modal", shippingAddress );		
 		model.addAttribute("page", "shippingaddress");
 		model.addAttribute("noFooter","true");
-		return "template"; 
-	}
-	
-	@RequestMapping(value={ "/viewcart" }, method = RequestMethod.GET)
-	public String viewCart(ModelMap model,HttpServletRequest request) {		
-		model.addAttribute("page", "cart");		
 		return "template"; 
 	}
 	
@@ -89,17 +89,25 @@ public class CheckoutController extends DefaultController{
 		return "template"; 
 	}
 	
-	@RequestMapping(value={ "/shiptothisaddress" }, method = RequestMethod.POST)
-	public String shipToThisAddress(@RequestParam("addressId") String addressId, ModelMap model,HttpServletRequest request) {	
+	@RequestMapping(value={ "/revieworder" }, method = RequestMethod.POST)
+	public String reviewOrder(@RequestParam("addressId") String addressId, ModelMap model,HttpServletRequest request) {	
 		CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
 		ShippingAddress shippingAddress = new ShippingAddress(customerDvo);
 		try {
 			model.addAttribute("modal", shippingAddress.getDefaultShippingAddressDvo(addressId));
-		} catch (Exception e) {
-			
+		} catch (Exception e) {			
 			e.printStackTrace();
 		}		
-		model.addAttribute("page", "shippingoptions");	
+		model.addAttribute("page", "revieworder");	
+		model.addAttribute("noFooter","true");
+		return "template"; 
+	}
+	
+	@RequestMapping(value={ "/payment" }, method = RequestMethod.POST)
+	public String payment(ModelMap model,HttpServletRequest request) {	
+		CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
+		
+		model.addAttribute("page", "payment");	
 		model.addAttribute("noFooter","true");
 		return "template"; 
 	}
