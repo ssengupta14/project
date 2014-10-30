@@ -43,7 +43,7 @@ public class CheckoutController extends DefaultController{
 		return "template"; 
 	}
 	
-	@RequestMapping(value={ "/shippingaddress" }, method = RequestMethod.GET)
+	@RequestMapping(value={ "/shippingaddress" }, method = RequestMethod.POST)
 	public String shippingAddress(ModelMap model,HttpServletRequest request) {		
 		
 		CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
@@ -105,7 +105,6 @@ public class CheckoutController extends DefaultController{
 	
 	@RequestMapping(value={ "/payment" }, method = RequestMethod.POST)
 	public String payment(ModelMap model,HttpServletRequest request) {	
-		CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
 		
 		model.addAttribute("page", "payment");	
 		model.addAttribute("noFooter","true");

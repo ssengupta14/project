@@ -66,7 +66,7 @@
 						
 						<div class="col-md-12">
 							<div class="submit-form">
-								<p>By submitting you comfirm that <b>you are atleast 18 years old</b> and you agree with our <a>Terms & Conditions</a> and <a>Privacy Policy</a> </p>
+								<p>By submitting you confirm that <b>you are at least 18 years old</b> and you agree with our <a>Terms & Conditions</a> and <a>Privacy Policy</a> </p>
 								<p></p>
 								<input type="submit" value="Secure Sign-In" id="loginButton"/>
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
