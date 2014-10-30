@@ -335,6 +335,7 @@ body {
     position: relative;
     text-transform: uppercase;
     width: 100%;
+    
 }
 .heading4 > h2 {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -389,6 +390,7 @@ body {
     font-style: none;
     font-weight: 600;
     text-transform: none;
+    
 }
 
 .heading4 > h4 > i:before{
@@ -1035,6 +1037,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', end
 /* Header2 */
 .header2 {
     background: none repeat scroll 0 0 #252525; /* change this color for top bar*/
+    	
     float: left;
     position: relative;
     width: 100%;
@@ -1085,7 +1088,7 @@ height:28px;
     width:135px;
 }
 .header2 nav {
-    background: none repeat scroll 0 0 #111111; /* change color for menu background */
+    background: none repeat scroll 0 0 #111111; /* change color for menu background */   
     padding-bottom: 2px;
 }
 .header2 .logo {
@@ -9717,6 +9720,9 @@ input.w-news-letter[type="checkbox"]:disabled + label {
     width: 28px;
     cursor: pointer;
 }
+.cart-thumb > a > i{
+  margin-top:5px;
+}
 .add-cart-sec > ul > li:hover .cart-thumb > a {
     opacity: 1;
 	
@@ -9732,10 +9738,11 @@ input.w-news-letter[type="checkbox"]:disabled + label {
     width: 65%;
 }
 .cart-detals > h5 {
-    color: #F0B70C;
+    color: #0066c0;
+    font-weight:bold;
     float: left;
-    font-family: Raleway;
-    font-size: 15px;
+    font-family: Open sans;
+    font-size: 14px;
     line-height: 22px;
     margin: 0;
 }
