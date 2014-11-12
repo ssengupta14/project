@@ -14,126 +14,81 @@
 </head>
 <html>
 <body>
-	<br>
-	<br>
-		
-	<div id="signup" class="shippingaddress" >
-		<div class="address-form">
-			<div class="row">				
-				<p>
-					<label for="lblshippingaddress">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select a shipping address</label> &nbsp;&nbsp;&nbsp;
-					<!-- <select name="shippingaddress" onchange="showAddress(this.id)"> -->	
-					<select name="shippingaddress" id="showAddress">	
-						<option value="select" selected="selected" >Select Address</option>				
-						<c:forEach var="shippingAddressIds" items="${modal.getShippingAddressDvos()}">
-	    					<option value ="${shippingAddressIds.id}"><c:out value="${shippingAddressIds.id}"/></option>
-						</c:forEach>	
-						<option value="new_address">Add New Address</option>				
-					</select>
-				</p>
-				<c:forEach var="shippingAddress" items="${modal.getShippingAddressDvos()}">		
+	<div class="theme-layout">
+		<section class="block" id="inner-head">
+			<div class="fixed-img sec-bg4"></div>
+			<div class="container">	
+				<h1>PRICE TABLE</h1>
+			</div>
+			
+		</section>
+		<section class="block">
+			<div class="container">
+				<div class="row">
+					<c:forEach var="shippingAddress" items="${modal.getShippingAddressDvos()}">
+					<div class="col-md-3">
+						<div class="price-table small">
+							<ul>
+								<li class="price-head"><h6>${shippingAddress.id}</h6>
+									<span>${shippingAddress.fullName}</span>
+								</li>
+								<li class="price-features">${shippingAddress.streetNo} &nbsp; ${shippingAddress.streetName} # ${shippingAddress.unitType},${shippingAddress.city} ,${shippingAddress.state} ,${shippingAddress.zip},${shippingAddress.country} </li>
+								<li class="price-features">
+								 <a id="modal_trigger" href="#modal" style="color:#4d8cff;font-weight: 300;font-family: open sans;font-size: 12px;">Select products to ship to this address</a>
+								 <div id="links"></div>
+								</li>
+								<li class="price-footer"><span><a href="#" title="">Edit</a></span><a href="#" title=""><i class="fa fa-truck"></i></a><span><a href="#" title="">Delete</a></span></li>
+								
+							</ul>
+						</div>
+					</div>
+					</c:forEach>
 					
-					<%-- <div id="${shippingAddress.id}" style="display: none;">	 --%>
-					<c:choose>
-      					<c:when test="${shippingAddress.id==modal.defaultShippingAddressId}">
-      						<div id="${shippingAddress.id}">
-      					</c:when>
-      					<c:otherwise>
-     						<div id="${shippingAddress.id}" style="display: none;">
-     						
-      					</c:otherwise>
-    				</c:choose>
-						
-						<form name="ship_to_this_address" action="/elenverve/revieworder" method="POST"> 									
-							<div class="col-md-12">
-								<ul><i class="fa fa-envelope-o"></i><input type="text" placeholder="Full name" id="fullName" name="fullName" value="${shippingAddress.fullName}"/></ul>
-							</div>	
-							<div class="col-md-12">
-								<ul><i class="fa fa-lock"></i><input type="text" placeholder="Street no" id="streetNo" name="streetNo" value="${shippingAddress.streetNo}"/></ul>
-							</div>
-							<div class="col-md-12">
-								<ul><i class="fa fa-lock"></i><input type="text" placeholder="Street name" id="streetName" name="streetName" value="${shippingAddress.streetName}"/></ul>
-							</div>
-							<div class="col-md-6">
-								<ul><i class="fa fa-male"></i><input type="text" placeholder="Apt no" id="aptNo" name="aptNo" value="${shippingAddress.unitType}"/></ul>
-							</div>
-							<div class="col-md-6">
-								<ul style="margin-left: -25px;">
-									<i class="fa fa-male"></i>
-									<input type="text" placeholder="City" id="city" name="city" value="${shippingAddress.city}"/>
-								</ul>
-							</div>						
-							<div class="col-md-6">
-								<ul><i class="fa fa-male"></i><input type="text" placeholder="State" id="state" name="state" value="${shippingAddress.state}"/></ul>
-							</div>
-							<div class="col-md-6">
-								<ul style="margin-left: -25px;">
-									<i class="fa fa-male"></i>
-									<input type="text" placeholder="Zip" id="zip" name="zip" value="${shippingAddress.zip}"/>
-								</ul>
-							</div>
-							<div class="col-md-6">
-								<ul><i class="fa fa-male"></i><input type="text" placeholder="Country" id="country" name="country" value="${shippingAddress.country}"/></ul>
-							</div>
-												
-							<div class="col-md-12">
-								<div class="submit-form">							
-									<input type="submit" value="Ship to this address" id="shippingAddress"/>	
-									<input type="submit" value="Edit" id="edit"/>	
-									<input type="hidden" id="addressId" name="addressId" value="${shippingAddress.id}"/>														
-									<input type="hidden" name="${_csrf.parameterName}" 	value="${_csrf.token}" />
-								</div>
-							</div>
-						</form>
-					</div>	
-				</c:forEach>
-				<!-- This is for new Address -->
-				<div id="new_address" style="display: none;">		
-					<form name="new_address_form" action="/elenverve/addnewaddress" method="POST"> 									
-						<div class="col-md-12">
-							<ul><i class="fa fa-envelope-o"></i><input type="text" placeholder="Full name" id="fullName" name="fullName" /></ul>
-						</div>	
-						<div class="col-md-12">
-							<ul><i class="fa fa-lock"></i><input type="text" placeholder="Street no" id="streetNo" name="streetNo" /></ul>
-						</div>
-						<div class="col-md-12">
-							<ul><i class="fa fa-lock"></i><input type="text" placeholder="Street name" id="streetName" name="streetName" /></ul>
-						</div>
-						<div class="col-md-6">
-							<ul><i class="fa fa-male"></i><input type="text" placeholder="Apt no" id="aptNo" name="aptNo" /></ul>
-						</div>
-						<div class="col-md-6">
-							<ul style="margin-left: -25px;">
-								<i class="fa fa-male"></i>
-								<input type="text" placeholder="City" id="city" name="city" />
-							</ul>
-						</div>						
-						<div class="col-md-6">
-							<ul><i class="fa fa-male"></i><input type="text" placeholder="State" id="state" name="state" /></ul>
-						</div>
-						<div class="col-md-6">
-							<ul style="margin-left: -25px;">
-								<i class="fa fa-male"></i>
-								<input type="text" placeholder="Zip" id="zip" name="zip" />
-							</ul>
-						</div>
-						<div class="col-md-6">
-							<ul><i class="fa fa-male"></i><input type="text" placeholder="Country" id="country" name="country" /></ul>
-						</div>
-											
-						<div class="col-md-12">
-							<div class="submit-form">							
-								<input type="submit" value="Add new address"/>	
-								<input type="hidden" id="addressId" name="addressId" value="${shippingAddress.id}"/>														
-								<input type="hidden" name="${_csrf.parameterName}" 	value="${_csrf.token}" />
-							</div>
-						</div>
-					</form>
+					
 				</div>
 			</div>
-		</div>
+		</section>
 	</div>
+
 </body>
+<script type="text/javascript">
+		function loadLinks() {
+			var links = $("#links");
+			links.load(
+				'<c:url value="/links" />',
+				function(responseText, textStatus, xhr) {
+					
+					if (xhr.status == 200) {
+						$("#ajaxLogin").click(function() {
+							loadLogin();
+						});
+					} else {
+						links.html('<h4 style="color: #F00">Could not load URL "/links"</h4>');
+						links.show();
+					}
+				});
+		}
+		 function loadLogin() {
+			 $("#modal_trigger").leanModal({
+					top : 200,
+					overlay : 0.6,
+					closeButton : ".modal_close"
+				});
+			/* $("#login").load(
+				'<c:url value="/login" />',
+				function(responseText, textStatus, xhr) {
+					if (xhr.status == 200) {
+						$("#login").dialog('open');
+					} else {
+						$("#login").html('<h4 style="color: #F00">Could not load URL "/login"</h4>');
+					}
+				}); */
+		}; 
+		$(document).ready(function() {
+			loadLinks();
+		});
+	</script>
+	
  <script type="text/javascript">
 
  $(document).ready(function() {
@@ -148,5 +103,10 @@
 
 	    });
 	});
+</script>
+<script type="text/javascript">
+function openDialog() {
+       $("#somediv").load('revieworder.jsp').dialog({modal:true}); 
+    } 
 </script>
 </html>
