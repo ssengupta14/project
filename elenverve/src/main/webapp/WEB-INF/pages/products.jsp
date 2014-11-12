@@ -8,11 +8,11 @@
 <meta name="_csrf" content="${_csrf.token}"/>
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
 
+
 </head>
 <body>
 	${_csrf.headerName} &nbsp;&nbsp;&nbsp;&nbsp; ${_csrf.token}
 	
-
 	<div class="theme-layout">
 		<!--
 		<section class="block" id="inner-head">
@@ -82,11 +82,11 @@
 	   </div>	
 		
 	</div>		
-	</section>	
+	</section>
 	<section class="block">
 	<div class="container">
 		<div class="row">
-
+			<input type="hidden" id="tags" value="tag1,tag2" style="width: 400px;">
 		<div class="col-md-2">
 				<aside>
 					<div class="categories-widget widget-body">
@@ -137,7 +137,14 @@
 					<div class="categories-widget widget-head"></div>
 					<div id="masonay-nav" class="categories-widget widget-body">
 						<div class="heading-5">
+                                                       <h2>Your selections</h2>
+                                               </div>
+                                               <div class="tagholder">
+                                                       <input type="label" placeholder="" id="tag_list"/>
+                                               </div>		
+						<div class="heading-5">
 							<h2>Refine Search by</h2>
+							
 						</div>
 						<div class="featured_services_find">
        							 <h1 class="result_count"></h1>
@@ -147,59 +154,60 @@
 						<ul class="goo-collapsible">
 
 							<li class="dropdown"><a  href="#" name="activia" id="activia" class="active" > Price</a>
-
 								<ul>
+									<li><a href="" data-filter=".cat1" class="trigger">Under $50<input type="hidden" value="0-50"/></a></li>
+                                                                        <li><a href="" data-filter="*" class="trigger">$50 to $300<input type="hidden" value="51-300" /></a></li>
+                                                                    	<li><a href="" data-filter=".cat2 " class="trigger">$300 and Above<input type="hidden" value="301-5000"/></a></li>
 
-									<li><a href="" data-filter=".cat1">Under $50<span class="test"></span></a></li>
-									 <input type="hidden" id="price_filter" value="0-50"/>
-									<li><a href="" data-filter="*" class="active">$50 to $300</a></li>
-									 <input type="hidden" id="price_filter" value="50-300"/>	
-									<li><a href="" data-filter=".cat2">$300 and Above</a></li>
-									 <input type="hidden" id="price_filter" value="300-10000"/>
-
-								</ul>
-							 </li>
-							<li class="dropdown"><a  href="#" name="activia" id="activia" class="active" > Features</a>
-
-								<ul>
-
-									<input type="hidden" id="price_filter" value="0-50"/>
-									<li><a href="#" >$50 to $300</a></li>
-									 <input type="hidden" id="price_filter" value="50-300"/>	
-									<li><a href="#">$300 and Above</a></li>
-									 <input type="hidden" id="price_filter" value="300-10000"/>
-
-								</ul>
-							 </li>
-
-							<li><a href="#">Folder</a></li>
-
-							<li class="dropdown"><a href="#"> Users</a>
-
-								<ul>
-
-									<li><a href="#">Group</a></li>
-
-									<li><a href="#">User</a></li>
-
-								</ul></li>
-
-							<li><a href="#"> Settings</a></li>
-
-						</ul>
-						<!-- 
-						<ul>
-							<li><i></i><a href="#" title="">T-Shirts</a> 
-								<span>18</span>
-									
+                                                               	</ul>
 							</li>
-								
-							<li><i></i><a href="#" title="">Jeans Paints </a><span>10</span></li>
-							<li><i></i><a href="#" title="">Western Shoes </a><span>16</span></li>
-							<li><i></i><a href="#" title="">Kids Special</a> <span>20</span></li>
+                                                       			
+							<li class="dropdown"><a  href="#" name="activia" id="activia" class="active" > Color</a>
+								<ul>
+						 			<li><a href="" data-filter=".cat1" class="trigger">Brown<input type="hidden" value="Brown"/></a></li>
+                                                                       	<li><a href="" data-filter="*" class="trigger">Black<input type="hidden" value="Black"/></a></li>
+                                                                       	<li><a href="" data-filter=".cat2 " class="trigger">White<input type="hidden" value="White"/></a></li>
+                                                                       	<li><a href="" data-filter=".cat2 " class="trigger">Green<input type="hidden" value="Green"/></a></li>
+
+                                                             	</ul>
+							</li>
+							<li class="dropdown"><a  href="#" name="activia" id="activia" class="active" > Shipping</a>
+                                                        	<ul>               
+                                                                       	<li><a href="" data-filter=".cat1" class="trigger">Overnight<input type="hidden" value="1"/></a></li>
+                                                                        <li><a href="" data-filter="*" class="trigger">2 to 5 Business days<input type="hidden" value="2-5"/></a></li>
+                                                                        <li><a href="" data-filter=".cat2 " class="trigger">Weekend<input type="hidden" value="7"/></a></li>
+                                                                        <li><a href="" data-filter=".cat2 " class="trigger">Free<input type="hidden" value="9"/></a></li>
+
+                                                              	</ul>
+							</li>
+							<li class="dropdown"><a  href="#" name="activia" id="activia" class="active" > Discount</a>
+								<ul>
+                                                                       
+                                                                       	<li><a href="" data-filter=".cat1" class="trigger">Upto 10% off<input type="hidden" value="0-10"/></a></li>
+                                                                       	<li><a href="" data-filter="*" class="trigger">Upto 25% off<input type="hidden" value="0-25" /></a></li>
+                                                                       	<li><a href="" data-filter=".cat2 " class="trigger">Upto 50% off<input type="hidden" value="0-50"/></a></li>
+									<li><a href="" data-filter=".cat2 " class="trigger">Upto 75% off<input type="hidden" value="0-75"/></a></li>
+									<li><a href="" data-filter=".cat2 " class="trigger">75% off or more<input type="hidden" value="75-100"/></a></li>
+                                                               	</ul>
+							</li>
+
+								</ul>
+								<!--
+								<ul>
+
+									<li><input class="roundedOne" type="checkbox" id="price_filter" value="0-50">Under $50<span class="test"></span></input></li>
+									<li><a href="" data-filter=".cat1">Under $50<span class="test"></span></a></li>
+									 <input type="checkbox" id="price_filter" value="0-50"/>
+									<li><a href="" data-filter="*" class="active">$50 to $300</a></li>
+									 <input type="checkbox" id="e9_pr" value="50-300"/>	
+									<li><a href="" data-filter=".cat2">$300 and Above</a></li>
+									 <input type="checkbox" id="price_filter" value="300-10000"/>
+
 						</ul>
-						-->
+								
+							
 					</div>
+					
 					<div class="categories-widget widget-head"></div>
 					<div class="heading-5">
 						<h2>Shop Deals</h2>
@@ -212,7 +220,7 @@
 									<ul>
 										<li><span>
 											<img src="<%=request.getContextPath() %>/images/product-tab.jpg" alt="">	
-											<!--<img src="http://placehold.it/85x106" alt="" /> -->
+											
 										    </span>
 											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
@@ -223,7 +231,7 @@
 										</li>
 										
 										<li><span>
-											<!--<img src="http://placehold.it/85x106" alt="" /> -->
+											
 										   <img src="<%=request.getContextPath() %>/images/product-tab2.jpg" alt=""> 
 										   </span>
 											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
@@ -238,7 +246,7 @@
 									
 									<ul>
 										<li><span>
-											<!--<img src="http://placehold.it/85x106" alt="" />-->
+										
 											<img src="<%=request.getContextPath() %>/images/product-tab3.jpg" alt="">
 										</span>
 											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
@@ -250,7 +258,6 @@
 										</li>
 										
 										<li><span>
-											<!--<img src="http://placehold.it/85x106" alt="" />-->
 											<img src="<%=request.getContextPath() %>/images/product-tab4.jpg" alt="">
 										   </span>
 											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
@@ -268,6 +275,8 @@
 							</div>
 							</div>
 						</div>
+
+
 					<!-- Left side 3rd party advertisement -->
 					<div class="categories-widget widget-head"></div>
 					<div class="product-tab">
@@ -401,6 +410,7 @@
 				</div>
 				
 			</div>
+
 			<div class="col-md-2">
 				<aside>
 					<div class="categories-widget widget-body">
@@ -414,8 +424,7 @@
 								<div class="tab-recent" id="tab-recent">
 									<ul>
 										<li><span>
-											 <!--<img src="http://placehold.it/85x106" alt="" />-->
-											<img src="<%=request.getContextPath() %>/images/product-tab.jpg" alt="">
+											 <img src="<%=request.getContextPath() %>/images/product-tab.jpg" alt="">
 										    </span>
 											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
@@ -426,7 +435,6 @@
 										</li>
 										
 										<li><span>
-											<!--<img src="http://placehold.it/85x106" alt="" />-->
 											<img src="<%=request.getContextPath() %>/images/product-tab2.jpg" alt="">
 										</span>
 											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
@@ -442,8 +450,7 @@
 									
 									<ul>
 										<li><span>
-											<!--<img src="http://placehold.it/85x106" alt="" /> -->
-										       <img src="<%=request.getContextPath() %>/images/product-tab4.jpg" alt="">
+											<img src="<%=request.getContextPath() %>/images/product-tab4.jpg" alt="">
  										   </span>
 											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
@@ -454,7 +461,6 @@
 										</li>
 										
 										<li><span>
-											<!--<img src="http://placehold.it/85x106" alt="" />-->
 											<img src="<%=request.getContextPath() %>/images/product-tab5.jpg" alt="">
 										    </span>
 											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
@@ -470,6 +476,7 @@
 									
 								</div>
 							</div>
+
 							<div id="popular" class="tab-pane fade">
 							  <div id="recent2" class="tab-pane fade in active">
 								<div class="tab-recent" id="tab-popular">
@@ -523,7 +530,7 @@
 					</div>
 					</div>
 					<div class="categories-widget widget-head"></div>					
-					<!-- Recent User Search -->
+					
 					
 					<div class="categories-widget widget-body">
 					<div class="heading-5">
@@ -536,8 +543,7 @@
 								<div class="tab-recent" id="tab-recently-viewed">
 									<ul>
 										<li><span>
-											 <!--<img src="http://placehold.it/85x106" alt="" />-->
-											<img src="<%=request.getContextPath() %>/images/product-tab.jpg" alt="">
+											 <img src="<%=request.getContextPath() %>/images/product-tab.jpg" alt="">
 										    </span>
 											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
@@ -548,7 +554,6 @@
 										</li>
 										
 										<li><span>
-											<!--<img src="http://placehold.it/85x106" alt="" />-->
 											<img src="<%=request.getContextPath() %>/images/product-tab2.jpg" alt="">
 										</span>
 											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
@@ -564,8 +569,7 @@
 									
 									<ul>
 										<li><span>
-											<!--<img src="http://placehold.it/85x106" alt="" /> -->
-										       <img src="<%=request.getContextPath() %>/images/product-tab4.jpg" alt="">
+											<img src="<%=request.getContextPath() %>/images/product-tab4.jpg" alt="">
  										   </span>
 											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
 											<p>Lorem ipsum dolor sit ame, consectetur adipiscing</p>
@@ -576,7 +580,6 @@
 										</li>
 										
 										<li><span>
-											<!--<img src="http://placehold.it/85x106" alt="" />-->
 											<img src="<%=request.getContextPath() %>/images/product-tab5.jpg" alt="">
 										    </span>
 											<h3><a href="#" title="">Envato‚??s Most Wanted: BuddyPress</a></h3>
@@ -677,10 +680,9 @@
 	</div>
 
 </body>
-<script type="text/javascript">
-	$("#toggle").click(function() {$(this).toggleClass( "active")});
-</script>
-	
+
+
+
 <script type="text/javascript">
 	$(function () {
     /*-------------------- EXPANDABLE PANELS ----------------------*/
@@ -693,6 +695,7 @@
     var currentpanel = defaultopenpanel;
     var iconheight = parseInt($('.icon-close-open').css('height'));
 
+		
     //Side navigation
 	function navMenu() {
 		$("*[name='activia']").removeClass("active");
@@ -700,6 +703,7 @@
 		
     	}
 	window.onload = navMenu;
+	
 	$(".goo-collapsible > li > a").on("click", function(e) {
 			//if submenu is hidden, does not have active class 
 
@@ -718,6 +722,7 @@
 			}
 		});
 
+		
 		//Initialise collapsible panels
 		function panelinit() {
 			for (var i = 1; i <= totalpanels; i++) {
@@ -782,4 +787,25 @@
 
 	});
 </script>
+<script  type="text/javascript">
+	$('.trigger').click(function(e){ 
+       		/*var tag = $(this).text()+ '('+$(this).children('input[type=hidden]').val() + ')';*/
+       		var tag = $(this).text();
+        	createTag(tag);
+	});
+
+
+	$(document).on('click', '.delete', function () {
+	   $(this).parent().remove();
+	});
+
+	function createTag(text) {
+	   if (text != '') {
+	       var tag = $('<div class="tags">' + text + '<a class="delete"></a></div>');
+	       tag.insertBefore($('#tag_list'), $('#tag_list'));
+	       $('#tag_list').val('');
+	   }
+	}
+</script>
+
 </html>
