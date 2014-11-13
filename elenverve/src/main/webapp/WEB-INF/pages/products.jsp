@@ -355,8 +355,13 @@
 									<li class="cart"><a href="#" title=""><i class="fa fa-heart"></i></a></li>
 									<li class="shop"><a href="#" title=""><i class="fa fa-shopping-cart"></i></a></li>
 									-->
-								<li class="shop"><a title="" href="#"><i class="fa fa-heart"></i></a></li>
-								<li class="cart"><a title="" href="${contextPath}/elenverve/addToCart?productId=${model.productDvos.get(value-1).productId}"><i class="fa fa-shopping-cart"></i></a></li>						
+									<li class="shop"><a title="" href="#"><i class="fa fa-heart"></i></a></li>
+									<li class="cart">
+										<%-- <a title="" href="${contextPath}/elenverve/addToCart?productId=${model.productDvos.get(value-1).productId}"><i class="fa fa-shopping-cart"></i></a> --%>
+										<a href="#"  onclick="addProduct('${model.productDvos.get(value-1).productId}');">
+											<i class="fa fa-shopping-cart"></i>
+										</a>
+									</li>						
 								</ul>
 								<ul class="tooltip-btn-left">
 									<!-- 

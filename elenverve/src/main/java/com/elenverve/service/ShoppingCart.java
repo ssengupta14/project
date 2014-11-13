@@ -61,7 +61,7 @@ public class ShoppingCart implements Serializable {
 	public int getTotalPriceInDollars() {
 		int total = 0;
 		for (ShoppingCartItem item : items.values()) {
-			total += item.getProduct().getDetails().getInitialPrice();
+			total += item.getProduct().getDetails().getFinalPrice();
 		}
 		return total;
 	}

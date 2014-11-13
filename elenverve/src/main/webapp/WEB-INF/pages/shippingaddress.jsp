@@ -10,7 +10,11 @@
 	<link rel="stylesheet"	href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="<c:url value="/resources/css/address.css"/>"	type="text/css"  />	
 	<link rel="stylesheet" href="<c:url value="/resources/css/login.css"/>"	type="text/css"  />	
-	<script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script>
+	<%-- <script type="text/javascript" src="<c:url value="/resources/js/jquery-1.11.0.min.js"/>"></script> --%>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css"> 	
+  	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 </head>
 <html>
 <body>
@@ -49,58 +53,37 @@
 			</div>
 		</section>
 	</div>
-
+	<a class="dialog_trigger"  href="#">open the dialog <input type="hidden" value="0-50"/></a>
+	<a class="dialog_trigger"  href="#">o dialog <input type="hidden" value="0100-50"/></a>
+	<div id="dialog"></div>
+	<div><input type="text" id="txtName" readonly="readonly" /></div>
 </body>
-<script type="text/javascript">
-		function loadLinks() {
-			var links = $("#links");
-			links.load(
-				'<c:url value="/links" />',
-				function(responseText, textStatus, xhr) {
-					
-					if (xhr.status == 200) {
-						$("#ajaxLogin").click(function() {
-							loadLogin();
-						});
-					} else {
-						links.html('<h4 style="color: #F00">Could not load URL "/links"</h4>');
-						links.show();
-					}
-				});
-		}
-		 function loadLogin() {
-			 $("#modal_trigger").leanModal({
-					top : 200,
-					overlay : 0.6,
-					closeButton : ".modal_close"
-				});
-			/* $("#login").load(
-				'<c:url value="/login" />',
-				function(responseText, textStatus, xhr) {
-					if (xhr.status == 200) {
-						$("#login").dialog('open');
-					} else {
-						$("#login").html('<h4 style="color: #F00">Could not load URL "/login"</h4>');
-					}
-				}); */
-		}; 
-		$(document).ready(function() {
-			loadLinks();
-		});
-	</script>
-	
- <script type="text/javascript">
 
- $(document).ready(function() {
+<script type="text/javascript">
+ 	$(document).ready(function() {
 	    $("#showAddress").change(function() {
 	    	selectedvalue = $('option:selected', $(this)).val();
-	    	$("#showAddress > option").each(function() {
-	    		
-	    		$("#"+this.value).hide();
-	    	    
+	    	$("#showAddress > option").each(function() {	    		
+	    		$("#"+this.value).hide();	    	    
 	    	});
 	    	$("#"+selectedvalue).show();
-
+	    });
+	    
+	    $( ".dialog_trigger" ).click(function() {
+	   	 	$("#dialog").load("selectProduct");
+	   	 	$( "#dialog" ).dialog( 'open' );
+	   	 	var tag = $(this).text()+ '('+$(this).children('input[type=hidden]').val() + ')';   	 	
+	   	 	
+	   	});
+	    $("#dialog").dialog({
+	        autoOpen: false,
+	        //position: 'center' ,
+	        title: 'Select Product',
+	        draggable: false,
+	        width : 300,
+	        height : 300, 
+	        resizable : true,
+	        modal : true,
 	    });
 	});
 </script>
