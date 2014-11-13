@@ -43,7 +43,7 @@ public class CheckoutController extends DefaultController{
 		return "template"; 
 	}
 	
-	@RequestMapping(value={ "/shippingaddress" }, method = RequestMethod.POST)
+	@RequestMapping(value={ "/shippingaddress" }, method = {RequestMethod.POST,RequestMethod.GET})
 	public String shippingAddress(ModelMap model,HttpServletRequest request) {		
 		
 		CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
@@ -51,6 +51,7 @@ public class CheckoutController extends DefaultController{
 		model.addAttribute("modal", shippingAddress );		
 		model.addAttribute("page", "shippingaddress");
 		model.addAttribute("noFooter","true");
+		model.addAttribute("noHeader","true");
 		return "template"; 
 	}
 	
@@ -103,11 +104,25 @@ public class CheckoutController extends DefaultController{
 		return "template"; 
 	}
 	
-	@RequestMapping(value={ "/payment" }, method = RequestMethod.POST)
-	public String payment(ModelMap model,HttpServletRequest request) {	
-		
+	@RequestMapping(value={ "/payment" }, method = RequestMethod.POST, params={"checkout", "!edit"})	
+	public String payment(@RequestParam String checkout,ModelMap model,HttpServletRequest request) {	
+		System.out.println("checkout  " + checkout);		
 		model.addAttribute("page", "payment");	
 		model.addAttribute("noFooter","true");
+		return "template"; 
+	}
+	
+	@RequestMapping(value={ "/payment" }, method = RequestMethod.POST, params={"!checkout", "edit"})
+	public String editCart(@RequestParam String edit,ModelMap model,HttpServletRequest request) {	
+		model.addAttribute("page", "cart");		
+		return "template"; 
+	}	
+
+	@RequestMapping(value="/selectProduct", method=RequestMethod.GET)
+	public String selectProduct(ModelMap model,HttpServletRequest request) {
+		model.addAttribute("noHeader","true");
+		model.addAttribute("noFooter","true");
+		model.addAttribute("page", "selectProduct");		
 		return "template"; 
 	}
 

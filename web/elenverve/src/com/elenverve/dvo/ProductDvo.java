@@ -7,10 +7,10 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.elenverve.common.IConstants;
-
 @Document
 public class ProductDvo implements Comparable<ProductDvo>, Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	@Id
 	private String productId;
 	private ProductDetails details;
@@ -64,8 +64,11 @@ public class ProductDvo implements Comparable<ProductDvo>, Serializable{
 
 
 	// product details
-	public class ProductDetails implements  Serializable{
-		
+	public class ProductDetails implements  Serializable{		
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		private String categoryId;
 		private String collectionId;
 		private String designerId;

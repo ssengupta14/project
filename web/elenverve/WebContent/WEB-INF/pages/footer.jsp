@@ -227,7 +227,8 @@
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/resources/js/switcher.js"></script>
 	<!-- Style Switcher -->
-
+	<script type="text/javascript"  src="<%=request.getContextPath()%>/resources/js/jquery.isotope.js"></script><!-- Masonary -->
+	<script type="text/javascript"  src="<%=request.getContextPath()%>/resources/js/masonary.js"></script><!-- Masonary -->
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/resources/js/daterangepicker.js"></script>
 	<!-- Date Range Picker -->
@@ -380,7 +381,28 @@
 				pagination : false,
 				transitionStyle : "goDown"
 			});
-
+			$("#tab-deals").owlCarousel({
+				autoPlay : true,
+				stopOnHover : true,
+				navigation : true,
+				goToFirstSpeed : 2000,
+				slideSpeed : 1500,
+				singleItem : true,
+				autoHeight : true,
+				pagination : false,
+				transitionStyle : "goDown"
+			});
+			$("#tab-recently-viewed").owlCarousel({
+				autoPlay : true,
+				stopOnHover : true,
+				navigation : true,
+				goToFirstSpeed : 2000,
+				slideSpeed : 1500,
+				singleItem : true,
+				autoHeight : true,
+				pagination : false,
+				transitionStyle : "goDown"
+			});	
 			$("#tab-popular").owlCarousel({
 				autoPlay : true,
 				stopOnHover : true,

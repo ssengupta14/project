@@ -15,16 +15,18 @@ function addProduct(productId) {
    });  
 } 
 
-function removeProduct(productId) {      
+function removeProduct(productId) {     
     
-	alert(productId) ;	 
+	
    	$.ajax({  
     	type : "Get",   
     	url : "/elenverve/removeProduct",   
     	data : "productId=" + productId,  
     	success : function(response) {  
     		//windows.localtion.reload();
-    		location.reload(false);
+    		//location.reload(false);
+    		$(".top-bar").html( response );
+
     	},  
     	error : function(e) {  
      		alert('Error: ' + e);   
