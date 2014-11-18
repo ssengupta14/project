@@ -62,7 +62,8 @@ public class LoginController {
 	public String logout(ModelMap model) {
 		model.addAttribute("page", "evlogin");
 		model.addAttribute("noHeader", "true");
-		model.addAttribute("noFooter","true");		
+		model.addAttribute("noFooter","true");	
+		
 		return "template";
 
 	}

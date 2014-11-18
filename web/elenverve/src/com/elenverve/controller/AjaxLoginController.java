@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.elenverve.common.IConstants;
+
 @Controller
 @RequestMapping("/login")
 public class AjaxLoginController {
@@ -48,6 +50,7 @@ public class AjaxLoginController {
 			SecurityContextHolder.getContext().setAuthentication(auth);
 			repository.saveContext(SecurityContextHolder.getContext(), request, response);
 			//rememberMeServices.loginSuccess(request, response, auth);
+			request.getSession().setAttribute(IConstants.EMAIL_ID, username);
 			return "{\"status\": true}";
 		} catch (BadCredentialsException ex) {
 			return "{\"status\": false, \"error\": \"Bad Credentials\"}";

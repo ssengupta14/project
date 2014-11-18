@@ -1,17 +1,26 @@
-package com.elenverve.service;
+package com.elenverve.dvo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.elenverve.dvo.ProductDvo;
 
-public class ShoppingCartItem implements Comparable<ShoppingCartItem>, Serializable {
+public class ShoppingCartItemDvo implements Comparable<ShoppingCartItemDvo>, Serializable {
 
 	private static final long serialVersionUID = 4134652647253355430L;
 	
+	private String customerId;
+	private String shoppingCartId;
+	private String invoiceId;
+	private String productId;
+	private float price;
+	private Date purchaseDt;
 	private ProductDvo productDvo;
-	private int quantity =1;
+	private ShippingAddressDvo shippingAddressDvo;
+	private ShippingTypeDvo shippingTypeDvo;
+	private int quantity = 1;
 	
-	public ShoppingCartItem(ProductDvo product, int quantity) {
+	public ShoppingCartItemDvo(ProductDvo product, int quantity) {
 		this.productDvo = product;
 		this.quantity = quantity;
 	}
@@ -44,10 +53,18 @@ public class ShoppingCartItem implements Comparable<ShoppingCartItem>, Serializa
 		return Util.getPriceInDollars(getTotalPriceInCents());
 	}*/
 	
+	public ShippingAddressDvo getShippingAddressDvo() {
+		return shippingAddressDvo;
+	}
+
+	public void setShippingAddressDvo(ShippingAddressDvo shippingAddressDvo) {
+		this.shippingAddressDvo = shippingAddressDvo;
+	}
+
 	@Override
 	public boolean equals(Object o) {
-		return o instanceof ShoppingCartItem &&
-			productDvo.equals(((ShoppingCartItem) o).productDvo);
+		return o instanceof ShoppingCartItemDvo &&
+			productDvo.equals(((ShoppingCartItemDvo) o).productDvo);
 	}
 	
 	@Override
@@ -56,7 +73,7 @@ public class ShoppingCartItem implements Comparable<ShoppingCartItem>, Serializa
 	}
 	
 	//@Override
-	public int compareTo(ShoppingCartItem item) {
+	public int compareTo(ShoppingCartItemDvo item) {
 		return productDvo.compareTo(item.productDvo);
 	}
 }
