@@ -48,9 +48,5 @@ public interface IConstants {
 	
 	/**
 	 * These are constants related to shipping options
-	 */
-	
-
-	
-	
+	 */	
 }
