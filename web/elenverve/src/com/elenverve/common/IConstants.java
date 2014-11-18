@@ -46,6 +46,7 @@ public interface IConstants {
 	public static long PASSWORD_CHG_DAYS_POLICY = 30;
 	public static String ANONYMOUS_USER ="anonymousUser";
 	
+	
 	/**
 	 * These are constants related to shipping options
 	 */

@@ -19,6 +19,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.elenverve.common.IConstants;
 import com.elenverve.dvo.BrowserInfoDvo;
+import com.elenverve.dvo.CustomerDvo;
 import com.elenverve.dvo.UserDvo;
 
 public class DefaultHandlerInterceptor extends HandlerInterceptorAdapter {
@@ -118,7 +119,8 @@ public class DefaultHandlerInterceptor extends HandlerInterceptorAdapter {
 		Object user=request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
 		if (user==null){
 			logger.debug("Browser information from controller [DefaultHandlerInterceptor] for context [/]");
-			UserDvo aUser = new UserDvo(); 
+			//UserDvo aUser = new UserDvo(); 
+			CustomerDvo aUser = new CustomerDvo();
 			Enumeration headerNames = request.getHeaderNames();
 			Map<String, String> map = new HashMap<String, String>();
 			BrowserInfoDvo browserInfo = new BrowserInfoDvo();

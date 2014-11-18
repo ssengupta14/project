@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Document
-public class UserDvo extends BaseDvo implements UserDetails{
+public abstract class UserDvo extends BaseDvo implements UserDetails{
 	@Id
 	private String emailId;
 	

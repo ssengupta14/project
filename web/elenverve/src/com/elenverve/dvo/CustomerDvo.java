@@ -1,5 +1,6 @@
 package com.elenverve.dvo;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
@@ -7,7 +8,7 @@ import java.util.Set;
 
 import com.elenverve.common.IConstants;
 
-public class CustomerDvo extends UserDvo{	
+public class CustomerDvo extends UserDvo implements Serializable{	
 	
 	private static final long serialVersionUID = -7694401950284081381L;
 	private FraudCheckDvo fraudCheck= new FraudCheckDvo();

@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.elenverve.common.Parameters;
 import com.elenverve.dvo.CredentialsDvo;
+import com.elenverve.dvo.CustomerDvo;
 import com.elenverve.dvo.UserDvo;
 import com.elenverve.service.LoginService;
 
@@ -31,7 +32,8 @@ public class UserAuthentication  extends Default{
 		
 		
 		logger.debug("Inside UserAuthentication , registerUser method, Registering user ["+fName+"] ["+lName+"] ["+email+"] ["+password+"]");
-		UserDvo user = new UserDvo();
+		//UserDvo user = new UserDvo();
+		CustomerDvo user = new CustomerDvo();
 		user.setFirstName(fName);
 		user.setLastName(lName);
 		user.setEmailId(email);

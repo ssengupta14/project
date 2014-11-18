@@ -1,11 +1,12 @@
 package com.elenverve.dvo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class FraudCheckDvo {
+public class FraudCheckDvo  implements Serializable{
 	
 	private String ipAddress;
 	private String longitude;

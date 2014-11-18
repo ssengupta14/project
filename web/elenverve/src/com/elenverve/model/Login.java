@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import com.elenverve.common.IConstants;
 import com.elenverve.common.Parameters;
 import com.elenverve.dvo.CredentialsDvo;
+import com.elenverve.dvo.CustomerDvo;
 import com.elenverve.dvo.UserDvo;
 import com.elenverve.service.LoginService;
 
@@ -48,7 +49,8 @@ public class Login {
 				this.setMessage("{\"status\": false, \"error\": \"  User already exists \"}");
 			}
 			else{
-				UserDvo dvo = new UserDvo();
+				//UserDvo dvo = new UserDvo();
+				CustomerDvo dvo = new CustomerDvo();
 				dvo.setEmailId(email);
 				dvo.setFirstName(firstName);
 				dvo.setLastName(lastName);
