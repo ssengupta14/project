@@ -1,48 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
-<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
-    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
-        <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n" />
-        </layout>
-    </appender>
-    <appender name="fileAppender" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="file" value="${catalina.home}/logs/application.log" />
-       <!-- <param name="file" value="../logs/application.log" /> -->
-        <param name="DatePattern" value="'.'yyyy-MM-dd" />
-        <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="[%t] %d{dd-MM-yyyy HH:mm:ss,SSS} %-5p %l - %m%n" />
-        </layout>
-    </appender>
-    
-    <logger name="com.elenverve" additivity="false">
-        <level value="DEBUG" />
-        <appender-ref ref="fileAppender" />
-        <appender-ref ref="consoleAppender" />
-    </logger>
-    <logger name="org.codehaus.groovy">
-        <level value="WARN" />
-        <appender-ref ref="fileAppender" />
-    </logger>
-    <logger name="org.springframework">
-        <level value="INFO" />
-        <appender-ref ref="fileAppender" />
-    </logger>
-    <logger name="grails.util.GrailsUtil">
-        <level value="WARN" />
-        <appender-ref ref="fileAppender" />
-    </logger>
-    <logger name="grails">
-        <level value="WARN" />
-        <appender-ref ref="fileAppender" />
-    </logger>
-    <logger name="org.hibernate">
-        <level value="WARN" />
-        <appender-ref ref="fileAppender" />
-    </logger>
-    <logger name="waffle">
-        <level value="WARN" />
-        <appender-ref ref="fileAppender" />
-    </logger>
-
+<log4j:configuration debug="true" xmlns:log4j='http://jakarta.apache.org/log4j/'>
+ 
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+	    <layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern" 
+		  value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+	    </layout>
+	</appender>
+	
+	<appender name="file" class="org.apache.log4j.RollingFileAppender">
+	   <param name="append" value="false" />
+	   <param name="maxFileSize" value="20MB" />
+	   <param name="maxBackupIndex" value="5" />
+	   <!-- For Tomcat -->
+	   <param name="file" value="${catalina.home}/logs/elenverve.log" />
+	   <layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern" 
+			value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+	   </layout>
+	</appender>
+	
+ 
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="console" />
+	</root>
+	
+		<root>
+		<level value="DEBUG" />
+		<appender-ref ref="file" />
+	</root>
+ 
 </log4j:configuration>

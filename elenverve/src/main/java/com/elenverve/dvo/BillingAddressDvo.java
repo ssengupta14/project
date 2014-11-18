@@ -1,6 +1,8 @@
 package com.elenverve.dvo;
 
-public class BillingAddressDvo extends AddressDvo {
+import java.io.Serializable;
+
+public class BillingAddressDvo extends AddressDvo  implements Serializable {
 
 	public BillingAddressDvo(){
 		super.setAddressType(BILLING);

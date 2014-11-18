@@ -6,16 +6,13 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import com.elenverve.dvo.CustomerDvo;
 import com.elenverve.dvo.UserDvo;
-import com.mongodb.WriteResult;
 
 @Service
-public class LoginService {
- 
+public class LoginService { 
 	
 	@Autowired
 	private MongoTemplate mongoTemplate;

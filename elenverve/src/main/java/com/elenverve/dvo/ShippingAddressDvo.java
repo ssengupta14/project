@@ -1,6 +1,8 @@
 package com.elenverve.dvo;
 
-public class ShippingAddressDvo extends AddressDvo {
+import java.io.Serializable;
+
+public class ShippingAddressDvo extends AddressDvo  implements Serializable{
 
 	public ShippingAddressDvo(){
 		super.setAddressType(SHIPPING);

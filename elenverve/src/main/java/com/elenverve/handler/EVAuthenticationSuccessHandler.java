@@ -41,12 +41,14 @@ public class EVAuthenticationSuccessHandler implements AuthenticationSuccessHand
     protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
     	CustomerDvo dvo = (CustomerDvo) authentication.getPrincipal();
     	Object aUser = request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
+    	
     	logger.debug("Inside EVAuthenticationSuccessHandler , retrieved user : ["+dvo.getEmailId()+"], ["+dvo.getLastName()+"]");
     	if(aUser!=null){
     		BrowserInfoDvo browserInfo = ((UserDvo)aUser).getBrowserInfo();
     		dvo.getFraudCheck().addBrowserInfo(browserInfo.getKey());
     		loginService.updateCustomer(dvo);
     		request.getSession().setAttribute(IConstants.ANONYMOUS_USER, dvo);
+    		request.getSession().setAttribute(IConstants.EMAIL_ID, dvo.getEmailId());
     	}
     	logger.debug("Inside EVAuthenticationSuccessHandler , retrieved user : ["+dvo.getEmailId()+"], ["+dvo.getLastName()+"]");
     	

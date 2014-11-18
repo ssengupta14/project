@@ -8,10 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 import com.elenverve.dvo.ProductDvo;
+import com.elenverve.dvo.ShoppingCartItemDvo;
 
 public class ShoppingCart implements Serializable {
 	private static final long serialVersionUID = -4461143736086272397L;	
-	private Map<String, ShoppingCartItem> items = new HashMap<String, ShoppingCartItem>();
+	private Map<String, ShoppingCartItemDvo> items = new HashMap<String, ShoppingCartItemDvo>();
 	
 	/**
 	 * 
@@ -20,11 +21,11 @@ public class ShoppingCart implements Serializable {
 	public void addItem(ProductDvo product) {
 		System.out.println("test " + product.getProductId());
 		String productId = product.getProductId();
-		ShoppingCartItem item = items.get(productId);
+		ShoppingCartItemDvo item = items.get(productId);
 		if (item != null) {
 			item.incrementQuantity();
 		} else {		
-			items.put(productId, new ShoppingCartItem(product, 1));
+			items.put(productId, new ShoppingCartItemDvo(product, 1));
 		}
 	}
 	/**
@@ -49,8 +50,8 @@ public class ShoppingCart implements Serializable {
 	 * 
 	 * @return
 	 */
-	public List<ShoppingCartItem> getShoppingCartProducts() {
-		List<ShoppingCartItem> list = new ArrayList<ShoppingCartItem>(items.values());
+	public List<ShoppingCartItemDvo> getShoppingCartProducts() {
+		List<ShoppingCartItemDvo> list = new ArrayList<ShoppingCartItemDvo>(items.values());
 		Collections.sort(list);
 		return list;
 	}
@@ -60,7 +61,7 @@ public class ShoppingCart implements Serializable {
 	 */
 	public int getTotalPriceInDollars() {
 		int total = 0;
-		for (ShoppingCartItem item : items.values()) {
+		for (ShoppingCartItemDvo item : items.values()) {
 			total += item.getProduct().getDetails().getFinalPrice();
 		}
 		return total;
