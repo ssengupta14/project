@@ -73,7 +73,7 @@ public class StartApp {
 			MongoOperations mongoOperation = (MongoOperations) ctx.getBean("mongoTemplate");
 		 
 			MockProductService service = new MockProductService(mongoOperation);
-			List<UserDvo> dvos= service.getUsers("abb@cdd.com");
+			List<UserDvo> dvos= service.getUsers("abc@cdd.com");
 			for(UserDvo dvo:dvos){
 			System.out.println("password :"+dvo.getCredentials().getPassword());
 			}
