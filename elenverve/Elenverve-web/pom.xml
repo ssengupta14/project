@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.elenverve</groupId>
+    <artifactId>Elenverve</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>elenverve</artifactId>
+  <packaging>war</packaging>
+  <url>http://maven.apache.org</url>
+  <properties>
+		<jstl.version>1.2</jstl.version>
+		<mysql.connector.version>5.1.30</mysql.connector.version>
+		<spring.mongodb.version>1.2.0.RELEASE</spring.mongodb.version>
+		<elenverve-db.version>0.0.1-SNAPSHOT</elenverve-db.version>
+		<elenverve-core.version>0.0.1-SNAPSHOT</elenverve-core.version>
+		<elenverve-services.version>0.0.1-SNAPSHOT</elenverve-services.version>		
+	</properties>
+	<!-- Project dependencies -->
+
+	<dependencies>
+		<dependency>
+			<groupId>com.elenverve</groupId>
+			<artifactId>Elenverve-core</artifactId>
+			<version>${elenverve-core.version}</version>			
+		</dependency>
+		<dependency>
+			<groupId>com.elenverve</groupId>
+			<artifactId>Elenverve-db</artifactId>
+			<version>${elenverve-db.version}</version>			
+		</dependency>
+		<dependency>
+			<groupId>com.elenverve</groupId>
+			<artifactId>Elenverve-services</artifactId>
+			<version>${elenverve-services.version}</version>			
+		</dependency>
+		
+		
+
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		
+		<!-- jstl for jsp page -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+    </dependencies>
+	<build>
+		<finalName>elenverve</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<configuration>
+					<url>http://localhost:8080/manager/text</url>
+					<server>mytomcat</server>
+					<path>/elenverve</path>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://localhost:8080/manager/text</url>
+					<server>mytomcat</server>
+					<path>/elenverve</path>	
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<inherited>true</inherited>
+				<configuration>
+					<classpathContainers>
+						<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+						<classpathContainer>org.eclipse.jdt.USER_LIBRARY/TOMCAT_6.0.14_LIBRARY</classpathContainer>
+					</classpathContainers>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

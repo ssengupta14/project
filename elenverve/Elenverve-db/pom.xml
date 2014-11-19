@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.elenverve</groupId>
+    <artifactId>Elenverve</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>Elenverve-db</artifactId>
+  
+   <properties>
+		<jstl.version>1.2</jstl.version>
+		<mysql.connector.version>5.1.30</mysql.connector.version>
+		
+		<elenverve-core.version>0.0.1-SNAPSHOT</elenverve-core.version>		
+		<elenverve-data.version>0.0.1-SNAPSHOT</elenverve-data.version>
+	</properties>
+	<!-- Project dependencies -->
+
+	<dependencies>
+		<dependency>
+			<groupId>com.elenverve</groupId>
+			<artifactId>Elenverve-core</artifactId>
+			<version>${elenverve-core.version}</version>			
+		</dependency>
+		<dependency>
+			<groupId>com.elenverve</groupId>
+			<artifactId>Elenverve-data</artifactId>
+			<version>${elenverve-data.version}</version>			
+		</dependency>
+		
+  <!-- Mongo db -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>2.12.4</version>
+		</dependency>
+		
+
+		<!-- connect to h2 -->
+		<!-- <dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId> 
+			<version>1.4.178</version> </dependency> -->
+		<!-- Hibernate Validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
+		</dependency>			
+	</dependencies>
+  
+  
+</project>
