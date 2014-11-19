@@ -53,10 +53,11 @@
 	<div class="fa fa-user">
 		<ul class="profile bar-dropdown">
 			<li>	
-				<a><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi!</font> &nbsp;<security:authentication property="principal.username"/></a>			
+				<a href="#"><font style="font-weight: 600;font-family: open sans;color:#4d8cff;font-size: 14px;color:#898787">Hi!</font> &nbsp;<security:authentication property="principal.username"/></a>			
 				<%-- <a href="<c:url value="/j_spring_security_logout" />">Hi! &nbsp;<security:authentication property="principal.username"/> Logout</a> --%> 
 				<ul>
-					<li><a href="#" title="">Profile</a></li>
+					<li><a href="/elenverve/myevaccount" title="">Your Account</a></li>
+					<li><a href="/elenverve/orderhistory" title="">Order History</a></li>
 					<li><a href="#" title="">Help</a></li>
 					<li><a href="#" title="">Privacy</a></li>
 					<li><a href="<c:url value="/j_spring_security_logout" />" title="">Logout</a></li>

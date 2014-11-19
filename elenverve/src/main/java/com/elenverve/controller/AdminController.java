@@ -1,5 +1,7 @@
 package com.elenverve.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -13,17 +15,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.elenverve.common.IConstants;
 import com.elenverve.dvo.BillingAddressDvo;
 import com.elenverve.dvo.CustomerDvo;
+import com.elenverve.dvo.PurchaseDvo;
 import com.elenverve.dvo.ShippingAddressDvo;
 import com.elenverve.model.Admin;
 import com.elenverve.model.ShippingAddress;
 import com.elenverve.service.LoginService;
+import com.elenverve.service.OrderService;
 
 @Controller
 @RequestMapping("/")
 public class AdminController {	
+	
 	@Autowired  
 	LoginService loginService;	
 
+	@Autowired
+	OrderService orderService;
+	
 	private static final Logger logger = Logger.getLogger(AdminController.class);	 
 	
 	@RequestMapping(value={ "/admin"}, method = RequestMethod.GET)
@@ -37,6 +45,9 @@ public class AdminController {
 	
 	@RequestMapping(value={ "/orderhistory"}, method = RequestMethod.GET)
 	public String orderhistory(ModelMap model,HttpServletRequest request) {
+		String emailId = (String)request.getSession().getAttribute(IConstants.EMAIL_ID);
+		List<PurchaseDvo> purchaseDvos = orderService.getOrderHistory(emailId);
+		model.addAttribute("purchaseDvos",purchaseDvos);
 		model.addAttribute("noFooter","true");
 		model.addAttribute("page", "orderhistory");
 		return "template"; 
