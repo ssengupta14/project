@@ -28,7 +28,25 @@
 				<div class="container">	
 					<h1>Order History</h1>
 				</div>			
-			</section>			
+			</section>	
+			<section class="block">
+				<div class="container">
+					<div class="row">
+						<c:forEach var="purchaseDvo" items="${purchaseDvos}">
+							<div class="col-md-3">
+								<div class="price-table small">
+									<ul>
+										<li class="price-head">
+											<span>${purchaseDvo.purchaseId}</span>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+				</div>
+			</section>		
 		</div> 	
 	</body>
 	

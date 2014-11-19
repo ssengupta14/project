@@ -6,7 +6,7 @@ import java.util.List;
 public class PurchaseDvo {
 
 	private String customerId;
-	private String invoiceId;
+	private String purchaseId;
 	private Date purchaseDt;
 	private List<ShoppingCartItemDvo> shoppingCartItemDvos;
 	private float purchaseTotal;
@@ -20,12 +20,12 @@ public class PurchaseDvo {
 		this.customerId = customerId;
 	}
 
-	public String getInvoiceId() {
-		return invoiceId;
+	public String getPurchaseId() {
+		return purchaseId;
 	}
 
-	public void setInvoiceId(String invoiceId) {
-		this.invoiceId = invoiceId;
+	public void setPurchaseId(String purchaseId) {
+		this.purchaseId = purchaseId;
 	}
 
 	public Date getPurchaseDt() {

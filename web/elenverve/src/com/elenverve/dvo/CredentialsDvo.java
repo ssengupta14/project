@@ -1,5 +1,6 @@
 package com.elenverve.dvo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -9,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 
 @Document
-public class CredentialsDvo {
+public class CredentialsDvo implements Serializable{
 
 	public int VMAIL_SENT =0;
 	public int VMAIL_NOT_RECVD =1;
