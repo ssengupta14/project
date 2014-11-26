@@ -92,4 +92,16 @@ public class CheckoutController extends DefaultController{
 		return "template"; 
 	}
 	
+	@RequestMapping(value="/addproducttoshipping", method=RequestMethod.POST)
+	public String addProductToShipping(ModelMap model,HttpServletRequest request) {
+		model.addAttribute("noHeader","true");
+		model.addAttribute("noFooter","true");		
+		String[] values = request.getParameterValues("productCheckbox");
+		System.out.println("addproducttoshipping   :" + values);
+		request.getParameter("productCheckbox");
+		model.addAttribute("page", "shippingaddress");		
+		//return "template"; 
+		return "{\"status\": true}";
+	}
+	
 }

@@ -88,7 +88,7 @@
 							<div class="col-md-12">
 								<ul>
 									<li class="price-features general">
-										<h2>Your address book is empty,<a href="#"> add a new address</a></h2>
+										<h2>Your address book is empty,<a href="#" class="shipping_add_dialog_trigger"> add a new address</a></h2>
 
 									</li>
 								</ul>
@@ -126,6 +126,55 @@
 	<div id="dialog"></div>
 	<div><input type="text" id="txtName" readonly="readonly" /></div>
 	-->
+	<div id="shipping_add_dialog" style="display:none;">											
+	  	  <h1>Add Shipping address</h1>						  
+	  
+		  <div id="address-form">	
+		  	<div class="row">	
+				<!-- <form name="new_address_form" action="/elenverve/addbillingaddress" method="POST"> 	 -->
+				<form name="new_address_form" action="/elenverve/addshippingaddress" method="POST">								
+					<div class="col-md-12">
+						<ul><i class="fa fa-envelope-o"></i><input type="text" placeholder="Full name" id="fullName" name="fullName" /></ul>
+					</div>	
+					<div class="col-md-12">
+						<ul><i class="fa fa-lock"></i><input type="text" placeholder="Street no" id="streetNo" name="streetNo" /></ul>
+					</div>
+					<div class="col-md-12">
+						<ul><i class="fa fa-lock"></i><input type="text" placeholder="Street name" id="streetName" name="streetName" /></ul>
+					</div>
+					<div class="col-md-6">
+						<ul><i class="fa fa-male"></i><input type="text" placeholder="Apt no" id="aptNo" name="aptNo" /></ul>
+					</div>
+					<div class="col-md-6">
+						<ul style="margin-left: -25px;">
+							<i class="fa fa-male"></i>
+							<input type="text" placeholder="City" id="city" name="city" />
+						</ul>
+					</div>						
+					<div class="col-md-6">
+						<ul><i class="fa fa-male"></i><input type="text" placeholder="State" id="state" name="state" /></ul>
+					</div>
+					<div class="col-md-6">
+						<ul style="margin-left: -25px;">
+							<i class="fa fa-male"></i>
+							<input type="text" placeholder="Zip" id="zip" name="zip" />
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<ul><i class="fa fa-male"></i><input type="text" placeholder="Country" id="country" name="country" /></ul>
+					</div>
+										
+					<div class="col-md-12">
+						<div class="submit-form">							
+							<input type="submit" value="Add new address"/>	
+																				
+							<input type="hidden" name="${_csrf.parameterName}" 	value="${_csrf.token}" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 
 <script type="text/javascript">
@@ -166,6 +215,23 @@ function openDialog() {
 </script>
 <script>
 $(document).ready(function () {
+	$( ".shipping_add_dialog_trigger" ).click(function() {
+   	 	
+   	 	$( "#shipping_add_dialog" ).dialog( 'open' );
+   	 	var tag = $(this).text()+ '('+$(this).children('input[type=hidden]').val() + ')';   	 	
+   	 	
+   	});
+    $("#shipping_add_dialog").dialog({
+        autoOpen: false,
+        //position: 'center' ,
+        title: 'Add New Shipping Address',
+        draggable: false,
+        width : 600,
+        height : 600, 
+        resizable : true,
+        modal : true,
+    });
+    
     $(".test").click(function () {
         $("#thedialog").attr('src', $(this).attr("href"));
         $("#somediv").dialog({

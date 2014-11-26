@@ -1,9 +1,10 @@
 package com.elenverve.dvo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SocialProductDvo {
+public class SocialProductDvo implements Serializable{
 	private String socialProductId;
 	private long fbLikesCtr;
 	private long fbShareCtr;

@@ -33,13 +33,15 @@
 						</div>
 						
 						<ul>
+							<form>
 							
 							<c:forEach var="shoppingCart" items="${shoppingCart.getShoppingCartProducts()}">
 								
 								<li>
 									<input type="hidden" id ="abc" value="hidden value"/>
 									<div class="popup-cart-quanity">
-										<input type="checkbox" field="quantity" class="prod-ship-select" id="${shoppingCart.getProduct().getDetails().productName}">
+										<%-- <input type="checkbox" field="quantity" class="prod-ship-select" id="productCheckbox" value="${shoppingCart.getProduct().getDetails().productName}"> --%>
+										<input type="checkbox" field="quantity" class="prod-ship-select" name="productCheckbox" id="productCheckbox" value="${shoppingCart.getProduct().productId}">
 									</div>
 									<div class="popup-cart-quanity">
 									
@@ -47,7 +49,9 @@
 									<div class="popup-cart-product">
 										<div class="popup-cart-thumb-icon">
 											<img src="<%=request.getContextPath() %>${shoppingCart.getProduct().details.imageUrls.get(0)}" alt="" >
-											<a href="${contextPath}/elenverve/removeFromCart?productId=${shoppingCart.getProduct().productId}" title=""><i class="fa fa-trash-o"></i></a>
+											<a href="${contextPath}/elenverve/removeFromCart?productId=${shoppingCart.getProduct().productId}" title="">
+												<i class="fa fa-trash-o"></i>
+											</a>
 										</div>
 										<div class="popup-cart-detals">
 											<h5>${shoppingCart.getProduct().getDetails().productName}</h5>
@@ -63,7 +67,12 @@
 								</li>
 								
 							</c:forEach>
-							
+								<div class="col-md-12">
+		<div class="submit-form">
+			<input type="submit" value="Submit" id="submitButton"/>
+		</div>
+	</div>
+							</form>
 						</ul>
 						<!-- 
 						<input type="submit" value="Send all items" class="ship-all-prod-btn"/></li>
@@ -78,11 +87,41 @@
 			
 	</div>
 
+
 </section>
 
 </body>
 <script>
-
+	$(function() {
+		$("#submitButton").click(function() {
+			
+			setProduct($("form"));
+			
+			
+		});
+		
+		function setProduct(form) {	
+			
+			$.post(
+				'<c:url value="/addproducttoshipping" />',
+				form.serialize(),
+				function (data, textStatus) {
+					//var modal_id = $(this).attr("#modal");					
+					if (data.status) {
+						//window.location.reload(true);				
+						//$(document).off('keydown.leanModal');
+						alert("success");
+						
+					} else {
+						 $('.error-box').slideDown('slow').removeClass('green').addClass('red');
+					     $(".error-message").text("Incorrect login or password.");
+						/* var err = form.find(".error");
+						err.html("Login Failed [" + data.error + "]");
+						err.show(); */
+					}
+				}, "json");
+		};
+	});
 </script>
 
 

@@ -1,8 +1,9 @@
 package com.elenverve.dvo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TestimonialDvo {
+public class TestimonialDvo implements Serializable{
 	private String testimonialId;
 	private String username;
 	private String comments;

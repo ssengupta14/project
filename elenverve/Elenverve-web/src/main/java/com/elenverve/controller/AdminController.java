@@ -142,7 +142,7 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping(value={ "/addnewaddress" }, method = RequestMethod.POST)
+	@RequestMapping(value={ "/addshippingaddress" }, method = RequestMethod.POST)
 	public String addNewAddress(	@RequestParam("fullName") String fullName, 
 								@RequestParam("streetNo") String streetNo,
 								@RequestParam("streetName") String streetName,

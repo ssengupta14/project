@@ -32,18 +32,42 @@
 			<section class="block">
 				<div class="container">
 					<div class="row">
-						<c:forEach var="purchaseDvo" items="${purchaseDvos}">
-							<div class="col-md-3">
-								<div class="price-table small">
-									<ul>
-										<li class="price-head">
-											<span>${purchaseDvo.purchaseId}</span>
-										</li>
-										
-									</ul>
-								</div>
-							</div>
-						</c:forEach>
+						<table style="width:100%">
+							  <tr>
+							    <th>Order Number</th>
+							    <th>Date</th>	
+							  </tr>
+							  <c:forEach var="purchaseDvo" items="${purchaseDvos}">
+							  	 <tr>
+							  	 	<td>
+									<div class="col-md-3">
+										<div class="price-table small">
+											<ul>
+												<li class="price-head">
+													<span>${purchaseDvo.purchaseId}</span>
+												</li>												
+											</ul>
+										</div>
+									</div>
+									</td>
+								 </tr>
+								 <tr>
+							  	 	<td>
+									<div class="col-md-3">
+										<div class="price-table small">
+											<ul>
+												<li class="price-head">
+													<span>${purchaseDvo.purchaseId}</span>
+												</li>												
+											</ul>
+										</div>
+									</div>
+									</td>
+								 </tr>
+							  </c:forEach>
+							  
+						</table>
+						
 					</div>
 				</div>
 			</section>		
