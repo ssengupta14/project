@@ -23,10 +23,10 @@ public class ElenVerveService {
 	private static final Logger logger = Logger.getLogger(OrderService.class);
 	
 	@Autowired
-	ElenVerveDao elenVerveDaoImpl;
+	ElenVerveDao elenVerveDao;
 	
 	@Autowired
-	SequenceDao sequenceDaoImpl;
+	SequenceDao sequenceDao;
 	
 	@Autowired
 	private MongoTemplate mongoTemplate;
@@ -48,7 +48,7 @@ public class ElenVerveService {
      */
     public String addShippingAddress(ShippingAddressDvo shippingAddressDvo) throws DataAccessException {
     	logger.debug("Creating new shipping address ["+shippingAddressDvo.getCustomerId()+"] in db !!");
-    	shippingAddressDvo.setId(""+sequenceDaoImpl.getNextSequenceId("SHIPPING_ADDRESS"));
+    	shippingAddressDvo.setId(""+sequenceDao.getNextSequenceId("SHIPPING_ADDRESS"));
     	mongoTemplate.save(shippingAddressDvo);    	       
         return "SUCCESS";
     }
@@ -64,7 +64,7 @@ public class ElenVerveService {
 	}
 	
 	public long getNextSequenceId(String key) throws SequenceException{
-		return sequenceDaoImpl.getNextSequenceId(key);
+		return sequenceDao.getNextSequenceId(key);
 	}
 	
 	

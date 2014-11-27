@@ -27,6 +27,9 @@
 		<property name="password" value="tiger" />
 
 	</bean> -->
+	<bean class="com.elenverve.dao.ElenVerveDaoImpl" id="elenVerveDao"/>
+	<bean id="sequenceDao" class="com.elenverve.dao.SequenceDaoImpl"></bean>
+	
 	<bean id="loginService" class="com.elenverve.service.LoginService"/>
 	<bean id="orderService" class="com.elenverve.service.OrderService"/>
 	<bean id="elenVerveService" class="com.elenverve.service.ElenVerveService"/>
