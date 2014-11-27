@@ -1,6 +1,7 @@
 package com.elenverve.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,6 +20,7 @@ import com.elenverve.dvo.PurchaseDvo;
 import com.elenverve.dvo.ShippingAddressDvo;
 import com.elenverve.model.Admin;
 import com.elenverve.model.ShippingAddress;
+import com.elenverve.service.ElenVerveService;
 import com.elenverve.service.LoginService;
 import com.elenverve.service.OrderService;
 
@@ -30,7 +32,7 @@ public class AdminController {
 	LoginService loginService;	
 
 	@Autowired
-	OrderService orderService;
+	ElenVerveService elenVerveService;
 	
 	private static final Logger logger = Logger.getLogger(AdminController.class);	 
 	
@@ -46,7 +48,7 @@ public class AdminController {
 	@RequestMapping(value={ "/orderhistory"}, method = RequestMethod.GET)
 	public String orderhistory(ModelMap model,HttpServletRequest request) {
 		String emailId = (String)request.getSession().getAttribute(IConstants.EMAIL_ID);
-		List<PurchaseDvo> purchaseDvos = orderService.getOrderHistory(emailId);
+		List<PurchaseDvo> purchaseDvos = elenVerveService.getOrderHistory(emailId);
 		model.addAttribute("purchaseDvos",purchaseDvos);
 		model.addAttribute("noFooter","true");
 		model.addAttribute("page", "orderhistory");
@@ -66,7 +68,7 @@ public class AdminController {
 		return "template"; 
 	}
 
-
+/*
 	@RequestMapping(value={ "/addbillingaddress" }, method = RequestMethod.POST)
 	public String addBillingAddress(	@RequestParam("fullName") String fullName, 
 								@RequestParam("streetNo") String streetNo,
@@ -139,7 +141,7 @@ public class AdminController {
 		model.addAttribute("noHeader","true");
 		model.addAttribute("noFooter","true");
 		return "template"; 
-	}
+	}*/
 	
 	
 	@RequestMapping(value={ "/addshippingaddress" }, method = RequestMethod.POST)
@@ -164,13 +166,15 @@ public class AdminController {
 		shippingAddressDvo.setState(state);
 		shippingAddressDvo.setZip(zip);
 		shippingAddressDvo.setCountry(country);
-		CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
-		customerDvo.setDefaultShippingAddressId(generatedId);
-		customerDvo.addShipingAddress(shippingAddressDvo);
-		loginService.updateCustomer(customerDvo);
+		//CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
+		//customerDvo.setDefaultShippingAddressId(generatedId);
+		//customerDvo.addShipingAddress(shippingAddressDvo);
+		//loginService.updateCustomer(customerDvo);
+		elenVerveService.addShippingAddress(shippingAddressDvo);
 		logger.info("Updated shipping address");
-		request.getSession().setAttribute(IConstants.ANONYMOUS_USER, customerDvo);
-		ShippingAddress shippingAddress = new ShippingAddress(customerDvo);
+		String emailId = (String) request.getSession().getAttribute(IConstants.EMAIL_ID);
+		Set<ShippingAddressDvo> shippingAddressDvoList = elenVerveService.getShippingAddress(emailId);
+		ShippingAddress shippingAddress = new ShippingAddress(shippingAddressDvoList);		
 		model.addAttribute("modal", shippingAddress );		
 		model.addAttribute("page", "shippingaddress");
 		model.addAttribute("noFooter","true");

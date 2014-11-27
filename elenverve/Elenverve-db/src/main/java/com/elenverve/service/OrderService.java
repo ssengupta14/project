@@ -17,13 +17,13 @@ public class OrderService {
 	@Autowired
 	private MongoTemplate mongoTemplate;
 	
-	public List<PurchaseDvo> getOrderHistory(String emailId){
+	/*public List<PurchaseDvo> getOrderHistory(String emailId){
 		logger.debug("Getting order history for "+ emailId); 
 		List<PurchaseDvo> purchaseDvos = null ; 
 		Query userquery = new Query();	       
 	    userquery.addCriteria(Criteria.where("customerId").is(emailId));
 	    purchaseDvos = mongoTemplate.find(userquery, PurchaseDvo.class);
 		return purchaseDvos;
-	}
+	}*/
 	
 }

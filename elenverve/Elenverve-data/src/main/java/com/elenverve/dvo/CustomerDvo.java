@@ -12,8 +12,8 @@ public class CustomerDvo extends UserDvo  implements Serializable{
 	
 	private static final long serialVersionUID = -7694401950284081381L;
 	private FraudCheckDvo fraudCheck= new FraudCheckDvo();
-	private Set<ShippingAddressDvo> shipingAddresses = new HashSet<ShippingAddressDvo>();
-	private BillingAddressDvo billingAddress;
+	//private Set<ShippingAddressDvo> shipingAddresses = new HashSet<ShippingAddressDvo>();
+	//private BillingAddressDvo billingAddress;
 	private String defaultShippingAddressId ;
 	@Override
 	public boolean isAccountNonExpired(){
@@ -57,7 +57,7 @@ public class CustomerDvo extends UserDvo  implements Serializable{
 	public void setFraudCheck(FraudCheckDvo fraudCheck) {
 		this.fraudCheck = fraudCheck;
 	}
-	public Set<ShippingAddressDvo> getShipingAddresses() {
+	/*public Set<ShippingAddressDvo> getShipingAddresses() {
 		return shipingAddresses;
 	}
 	public void addShipingAddress(ShippingAddressDvo shipingAddress) {		
@@ -68,7 +68,7 @@ public class CustomerDvo extends UserDvo  implements Serializable{
 	}
 	public void setBillingAddress(BillingAddressDvo billingAddress) {
 		this.billingAddress = billingAddress;
-	}
+	}*/
 	public String getDefaultShippingAddressId() {
 		return defaultShippingAddressId;
 	}

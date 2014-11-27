@@ -27,7 +27,8 @@
 		<property name="password" value="tiger" />
 
 	</bean> -->
-	<bean id="loginService" class="com.elenverve.service.LoginService"></bean>
-	<bean id="orderService" class="com.elenverve.service.OrderService"></bean>
+	<bean id="loginService" class="com.elenverve.service.LoginService"/>
+	<bean id="orderService" class="com.elenverve.service.OrderService"/>
+	<bean id="elenVerveService" class="com.elenverve.service.ElenVerveService"/>
 	
 </beans>

@@ -1,5 +1,8 @@
 package com.elenverve.controller;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -12,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.elenverve.common.IConstants;
 import com.elenverve.dvo.CustomerDvo;
+import com.elenverve.dvo.ShippingAddressDvo;
 import com.elenverve.model.ShippingAddress;
 import com.elenverve.service.CartService;
+import com.elenverve.service.ElenVerveService;
 import com.elenverve.service.LoginService;
 import com.elenverve.service.ProductService;
 
@@ -24,6 +29,8 @@ public class CheckoutController extends DefaultController{
 	private static final Logger logger = Logger.getLogger(CheckoutController.class);
 	
 	@Autowired
+	private ElenVerveService elenVerveService ;
+	/*@Autowired
 	private ProductService productService ;
 	
 	@Autowired
@@ -34,7 +41,7 @@ public class CheckoutController extends DefaultController{
 	
 	public void setCartService(CartService cartService) {
 		this.cartService = cartService;
-	}
+	}*/
 	
 	@RequestMapping(value={ "/viewcart" }, method = RequestMethod.GET)
 	public String viewCart(ModelMap model,HttpServletRequest request) {		
@@ -45,8 +52,10 @@ public class CheckoutController extends DefaultController{
 	@RequestMapping(value={ "/shippingaddress" }, method = {RequestMethod.POST,RequestMethod.GET})
 	public String shippingAddress(ModelMap model,HttpServletRequest request) {		
 		
-		CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
-		ShippingAddress shippingAddress = new ShippingAddress(customerDvo);
+		//CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
+		String emailId = (String) request.getSession().getAttribute(IConstants.EMAIL_ID);
+		Set<ShippingAddressDvo> shippingAddressDvoList = elenVerveService.getShippingAddress(emailId);
+		ShippingAddress shippingAddress = new ShippingAddress(shippingAddressDvoList);
 		model.addAttribute("modal", shippingAddress );		
 		model.addAttribute("page", "shippingaddress");
 		model.addAttribute("noFooter","true");
@@ -58,8 +67,11 @@ public class CheckoutController extends DefaultController{
 	
 	@RequestMapping(value={ "/revieworder" }, method = RequestMethod.POST)
 	public String reviewOrder(@RequestParam("addressId") String addressId, ModelMap model,HttpServletRequest request) {	
-		CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
-		ShippingAddress shippingAddress = new ShippingAddress(customerDvo);
+		//CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
+		String emailId = (String) request.getSession().getAttribute(IConstants.EMAIL_ID);
+		Set<ShippingAddressDvo> shippingAddressDvoList = elenVerveService.getShippingAddress(emailId);
+		ShippingAddress shippingAddress = new ShippingAddress(shippingAddressDvoList);
+		
 		try {
 			model.addAttribute("modal", shippingAddress.getDefaultShippingAddressDvo(addressId));
 		} catch (Exception e) {			

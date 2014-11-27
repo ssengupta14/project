@@ -68,8 +68,7 @@ public class StartApp {
 			//ApplicationContext ctx = new GenericXmlApplicationContext("SpringConfig.xml");
 		 
 			// For Annotation
-			ApplicationContext ctx = 
-		             new AnnotationConfigApplicationContext(SpringMongoConfig.class);
+			ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringMongoConfig.class);
 			MongoOperations mongoOperation = (MongoOperations) ctx.getBean("mongoTemplate");
 		 
 			MockProductService service = new MockProductService(mongoOperation);

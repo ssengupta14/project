@@ -8,6 +8,8 @@ public abstract class AddressDvo{
 	public static int Offi=4;
 
 	protected String id;
+	private String customerId;
+	private String addressName;
 	private String fullName;
 	private String comments;
 	private int addressType;
@@ -20,6 +22,18 @@ public abstract class AddressDvo{
 	private String zip;
 	private String country;
 	
+	public String getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
+	public String getAddressName() {
+		return addressName;
+	}
+	public void setAddressName(String addressName) {
+		this.addressName = addressName;
+	}
 	public String getId() {
 		return id;
 	}
