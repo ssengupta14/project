@@ -240,7 +240,7 @@ $(document).ready(function () {
             resizable : false,
             display: 'inline',
             draggable: false,
-	    overlay : '0.1',	
+	    	overlay : '0.1',	
             show: 'fade',
             position: 'relative' ,
             modal: true,
