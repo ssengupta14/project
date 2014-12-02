@@ -15,6 +15,10 @@ public class CustomerDvo extends UserDvo  implements Serializable{
 	//private Set<ShippingAddressDvo> shipingAddresses = new HashSet<ShippingAddressDvo>();
 	//private BillingAddressDvo billingAddress;
 	private String defaultShippingAddressId ;
+	private String wishListId;
+	
+	private UserSettingsDvo settings = new UserSettingsDvo();
+	
 	@Override
 	public boolean isAccountNonExpired(){
 		return fraudCheck.isAccountActive();
@@ -74,5 +78,17 @@ public class CustomerDvo extends UserDvo  implements Serializable{
 	}
 	public void setDefaultShippingAddressId(String defaultShippingAddressId) {
 		this.defaultShippingAddressId = defaultShippingAddressId;
+	}
+	public UserSettingsDvo getSettings() {
+		return settings;
+	}
+	public void setSettings(UserSettingsDvo settings) {
+		this.settings = settings;
+	}
+	public String getWishListId() {
+		return wishListId;
+	}
+	public void setWishListId(String wishListId) {
+		this.wishListId = wishListId;
 	}
 }

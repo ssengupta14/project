@@ -13,6 +13,7 @@ public abstract class UserDvo extends BaseDvo implements UserDetails{
 	@Id
 	private String emailId;
 	
+	private String secondaryEmailId;
 	//private long id;
 	private long accountId;
 	//@NotEmpty
@@ -31,6 +32,8 @@ public abstract class UserDvo extends BaseDvo implements UserDetails{
 	//@NotBlank
 	//@Length(max=65)
 	
+	private String language;
+	private String currency;
 	
 	public Date getCreateDate() {
 		return createDate;
@@ -134,6 +137,24 @@ public abstract class UserDvo extends BaseDvo implements UserDetails{
 	}
 	public void setBrowserInfo(BrowserInfoDvo browserInfo) {
 		this.browserInfo = browserInfo;
+	}
+	public String getLanguage() {
+		return language;
+	}
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	public String getCurrency() {
+		return currency;
+	}
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+	public String getSecondaryEmailId() {
+		return secondaryEmailId;
+	}
+	public void setSecondaryEmailId(String secondaryEmailId) {
+		this.secondaryEmailId = secondaryEmailId;
 	}
 
 }

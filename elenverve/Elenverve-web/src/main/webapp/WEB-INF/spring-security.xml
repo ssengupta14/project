@@ -17,7 +17,7 @@
 		<intercept-url pattern="/shippingaddress" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/checkout" access="hasRole('ROLE_USER')" />	
 		<intercept-url pattern="/orderhistory" access="hasRole('ROLE_USER')" />	
-		<intercept-url pattern="/myevaccount" access="hasRole('ROLE_USER')" />	
+		<intercept-url pattern="/myaccount" access="hasRole('ROLE_USER')" />	
 		<intercept-url pattern="/addbillingaddress" access="hasRole('ROLE_USER')" />	
 		<intercept-url pattern="/editbillingaddress" access="hasRole('ROLE_USER')" />	
 		<intercept-url pattern="/addnewaddress" access="hasRole('ROLE_USER')" />	

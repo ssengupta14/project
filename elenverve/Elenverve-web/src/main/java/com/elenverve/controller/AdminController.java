@@ -1,5 +1,6 @@
 package com.elenverve.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -14,11 +15,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.elenverve.common.IConstants;
+import com.elenverve.common.Parameters;
+import com.elenverve.dvo.AddressDvo;
 import com.elenverve.dvo.BillingAddressDvo;
 import com.elenverve.dvo.CustomerDvo;
+import com.elenverve.dvo.DiscountCouponDvo;
+import com.elenverve.dvo.GiftCardDvo;
 import com.elenverve.dvo.PurchaseDvo;
 import com.elenverve.dvo.ShippingAddressDvo;
+import com.elenverve.dvo.WishListDvo;
 import com.elenverve.model.Admin;
+import com.elenverve.model.MyAccount;
 import com.elenverve.model.ShippingAddress;
 import com.elenverve.service.ElenVerveService;
 import com.elenverve.service.LoginService;
@@ -55,14 +62,35 @@ public class AdminController {
 		return "template"; 
 	}
 	
-	@RequestMapping(value="/myevaccount", method=RequestMethod.GET)
-	public String myevaccount(ModelMap model,HttpServletRequest request) {
+	@RequestMapping(value="/myaccount", method=RequestMethod.GET)
+	public String myaccount(ModelMap model,HttpServletRequest request) {
 		logger.info("In My account: ");		
 		CustomerDvo customerDvo = (CustomerDvo) request.getSession().getAttribute(IConstants.ANONYMOUS_USER);
 		customerDvo = validateCustomerDVO(request, customerDvo);
 
-		model.addAttribute("customerDvo", customerDvo);
-		model.addAttribute("page", "myevaccount");
+		String emailId = customerDvo.getEmailId();
+		//TODO: Need to fetch it from service layer by email
+		WishListDvo wishlistDvo= new WishListDvo();
+		List<PurchaseDvo> purchaseDvos = orderService.getOrderHistory(emailId);
+
+		//TODO: Need to fetch it from service layer by id
+		List<DiscountCouponDvo> discountCouponDvos = new ArrayList<DiscountCouponDvo>();
+		
+		//TODO: Need to fetch it from service layer by id
+		List<GiftCardDvo> giftCardDvos = new ArrayList<GiftCardDvo>();
+		
+		
+		Parameters parameters = new Parameters();
+		parameters.addParameter(IConstants.CUSTOMER, customerDvo);
+		parameters.addParameter(IConstants.WISHLIST, wishlistDvo);
+		parameters.addParameter(IConstants.ORDERHISTORY, purchaseDvos);		
+		parameters.addParameter(IConstants.DISCOUNTS, discountCouponDvos);
+		parameters.addParameter(IConstants.GIFTS, giftCardDvos);
+		
+		MyAccount myAccount = new MyAccount(parameters);
+		
+		model.addAttribute("model", myAccount);
+		model.addAttribute("page", "myaccount");
 		model.addAttribute("noHeader","true");
 		model.addAttribute("noFooter","true");
 		return "template"; 
@@ -100,7 +128,7 @@ public class AdminController {
 		logger.info("Updated billing address");
 		request.getSession().setAttribute(IConstants.ANONYMOUS_USER, customerDvo);		
 		model.addAttribute("customerDvo", customerDvo);
-		model.addAttribute("page", "myevaccount");
+		model.addAttribute("page", "myaccount");
 		model.addAttribute("noHeader","true");
 		model.addAttribute("noFooter","true");
 		return "template"; 
@@ -137,7 +165,7 @@ public class AdminController {
 		logger.info("Updated billing address");
 		request.getSession().setAttribute(IConstants.ANONYMOUS_USER, customerDvo);		
 		model.addAttribute("customerDvo", customerDvo);
-		model.addAttribute("page", "myevaccount");
+		model.addAttribute("page", "myaccount");
 		model.addAttribute("noHeader","true");
 		model.addAttribute("noFooter","true");
 		return "template"; 

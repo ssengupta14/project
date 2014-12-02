@@ -3231,11 +3231,11 @@ a.slide-text1-btn {
 
 /* Price Table */
 .price-table:hover {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
-    border-radius: 0;
+    -webkit-border-radius: 8px;
+    	-moz-border-radius: 8px;
+    	-ms-border-radius: 8px;
+    	-o-border-radius: 8px;
+	border-radius: 8px;
 /*	
     -webkit-transform: perspective(200px) rotateY(3deg);
     -moz-transform: perspective(200px) rotateY(3deg);
@@ -3247,11 +3247,11 @@ a.slide-text1-btn {
 .price-table {
     background: none repeat scroll 0 0 #F9F9F9;
 	
-    -webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	-ms-border-radius: 6px;
-	-o-border-radius: 6px;
-	border-radius: 6px;
+    -webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
 	
     float: left;
 	
@@ -3260,8 +3260,13 @@ a.slide-text1-btn {
     -ms-transition: all 0.5s ease 0s;
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
-	
     width: 100%;
+    
+         -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
+        -moz-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
+        -ms-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
+        -o-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
 }
 
 .price-table > ul {
@@ -3285,23 +3290,16 @@ a.slide-text1-btn {
 .price-head {
     background: none repeat scroll 0 0 #646464;
 	
-    -webkit-border-radius: 6px 6px 0 0;
-    -moz-border-radius: 6px 6px 0 0;
-    -ms-border-radius: 6px 6px 0 0;
-    -o-border-radius: 6px 6px 0 0;
-    border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 8px 8px 0 0;
+    -moz-border-radius: 8px 8px 0 0;
+    -ms-border-radius: 8px 8px 0 0;
+    -o-border-radius: 8px 8px 0 0;
+    border-radius: 8px 8px 0 0;
 	
     position: relative;
 }
 .price-table:hover .price-head {
     background: none repeat scroll 0 0 #F0B70C;
-	
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
-    border-radius: 0;
-	
 }
 
 .price-head > h2 {
@@ -3464,6 +3462,36 @@ a.slide-text1-btn {
 	 padding: 10px 0;
 	 height:85px;
 }
+.price-features.content.medium{
+	 height:100%;
+	 font-weight:bold;
+	 
+}
+.price-features.content.medium > p{
+	 width:100%;
+}
+
+.price-features.content.medium > p >span{
+	width:50%;
+	font-weight:Bold;
+	
+}
+.price-features.content.medium > p >span >i{
+	color:#999;
+	font-size:16px;
+	padding-right:10px;
+}
+
+.price-features.content.medium > p >span.content{
+	width:50%;
+	 float:right;
+	 font-weight:normal;
+	
+}
+.price-features.content.medium > p >span.content >a{
+	padding-left:5px;
+	float:right;
+}
 .price-features.control{
 	padding: 0px;
 }
@@ -3501,22 +3529,15 @@ a.slide-text1-btn {
 }
 .price-table:hover .price-footer {
     background: none repeat scroll 0 0 #F0B70C;
-	
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
-    border-radius: 0;
-	
 }
 .price-footer {
     background: none repeat scroll 0 0 #646464;
 	
-    -webkit-border-radius: 0 0 6px 6px;
-    -moz-border-radius: 0 0 6px 6px;
-    -ms-border-radius: 0 0 6px 6px;
-    -o-border-radius: 0 0 6px 6px;
-    border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 8px 8px;
+    -moz-border-radius: 0 0 8px 8px;
+    -ms-border-radius: 0 0 8px 8px;
+    -o-border-radius: 0 0 8px 8px;
+    border-radius: 0 0 8px 8px;
 	
     border-top: 1px solid #EDEDED;
     height: 35px;
@@ -3617,6 +3638,30 @@ a.slide-text1-btn {
 	
     color: #F0B70C;
 }
+
+.price-table.small:hover .price-head, .price-table.small:hover .price-footer{
+  background: none repeat scroll 0 0 #646464;
+}
+.price-table.small .price-head > h2 > i{
+  color: #333;
+  background-color: #666;
+  text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+}
+.price-table.small:hover .price-head > h2 > i{
+  color: #F0B70C;
+}
+.price-table.small .price-features.name > h4 >i{
+  float:right;
+  color: #666;
+  text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+  
+}
+.price-table.small .price-features.name > h4 >i:hover{
+  cursor:pointer;
+  
+}
+
+
 
 
 .price-table.small .price-head > span {

@@ -30,18 +30,34 @@ public interface IConstants {
 	public static String WEEKLY_DEAL ="weekly-deal";
 	
 	//dvos
+	public static String ADDRESS ="address";
 	public static String PRODUCTS ="products";
 	public static String CATEGORIES="categories";
 	public static String COLLECTIONS="collections";
 	public static String DESIGNERS="designers";
 	public static String OFFERS ="offers";
 	public static String REQUEST ="request";
+	public static String CUSTOMER ="customer";
+	public static String WISHLIST ="wishlist";
+	public static String ORDERHISTORY ="orderHistory";
+	public static String DISCOUNTS ="discounts";
+	public static String GIFTS ="gifts";
+	
 	
 	//user
 	public static String FIRST_NAME ="firstName";
 	public static String LAST_NAME ="lastName";
 	public static String PASSWORD ="password";
 	public static String EMAIL_ID ="emailId";
+	
+	//member status
+	
+	public static String NEWBIE="new"; //0-6 mnts
+	public static String PRO="pro"; // 6 mnth -1 yr
+	public static String BRONZE="bronze"; // 2-3 yrs
+	public static String SILVER="silver"; // 3-5 yrs
+	public static String GOLD="gold"; // 5-7 yrs
+	public static String PLATINUM="platinum"; // 7+ yrs
 	
 	public static long PASSWORD_CHG_DAYS_POLICY = 30;
 	public static String ANONYMOUS_USER ="anonymousUser";

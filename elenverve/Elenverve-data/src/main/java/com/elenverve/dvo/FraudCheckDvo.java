@@ -8,6 +8,10 @@ import java.util.List;
 
 public class FraudCheckDvo   implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5138535230215946878L;
 	private String ipAddress;
 	private String longitude;
 	private String latitude;
