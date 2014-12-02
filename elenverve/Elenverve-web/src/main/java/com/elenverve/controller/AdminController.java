@@ -71,7 +71,7 @@ public class AdminController {
 		String emailId = customerDvo.getEmailId();
 		//TODO: Need to fetch it from service layer by email
 		WishListDvo wishlistDvo= new WishListDvo();
-		List<PurchaseDvo> purchaseDvos = orderService.getOrderHistory(emailId);
+		List<PurchaseDvo> purchaseDvos = elenVerveService.getOrderHistory(emailId);
 
 		//TODO: Need to fetch it from service layer by id
 		List<DiscountCouponDvo> discountCouponDvos = new ArrayList<DiscountCouponDvo>();
