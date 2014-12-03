@@ -5,7 +5,7 @@
     <artifactId>Elenverve</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>elenverve</artifactId>
+  <artifactId>elenverve-web</artifactId>
   <packaging>war</packaging>
   <url>http://maven.apache.org</url>
   <properties>
